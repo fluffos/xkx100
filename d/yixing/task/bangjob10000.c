@@ -1,0 +1,271 @@
+//Cracked by Kafei
+// /d/huanghe/changle/bangjob10000.c
+// by aln 2 / 98
+
+// inherit SKILL;
+
+inherit F_CLEAN_UP;
+
+mapping *bangjobs = ({
+        ([      "name"  :  "阿拉伯商人",
+                "file"  :  "/d/quanzhou/npc/alabo",
+                "area"  :  "泉州阿拉伯宅区",
+                "type"  :  "杀",
+                "bonus" :  10,
+                "score" :  4,
+        ]),
+
+        ([      "name"  :  "波斯商人",
+                "file"  :  "/d/xingxiu/npc/trader",
+                "area"  :  "天山脚下",
+                "type"  :  "杀",
+                "bonus" :  20,
+                "score" :  6,
+        ]),
+
+        ([      "name"  :  "回回",
+                "file"  :  "/d/quanzhou/npc/huihui",
+                "area"  :  "清净寺",
+                "type"  :  "杀",
+                "bonus" :  15,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "风良",
+                "file"  :  "/d/yixing/npc/fengliang",
+                "area"  :  "扬州郊外",
+                "type"  :  "杀",
+                "bonus" :  40,
+                "score" :  12,
+        ]),
+
+        ([      "name"  :  "沈青刚",
+                "file"  :  "/d/huanghe/npc/shen",
+                "area"  :  "黄河帮",
+                "type"  :  "杀",
+                "bonus" :  20,
+                "score" :  10,
+        ]),
+
+        ([      "name"  :  "吴青烈",
+                "file"  :  "/d/huanghe/npc/wu",
+                "area"  :  "黄河帮",
+                "type"  :  "杀",
+                "bonus" :  18,
+                "score" :  9,
+        ]),
+
+        ([      "name"  :  "马青雄",
+                "file"  :  "/d/huanghe/npc/ma",
+                "area"  :  "黄河帮",
+                "type"  :  "杀",
+                "bonus" :  16,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "钱青健",
+                "file"  :  "/d/huanghe/npc/qian",
+                "area"  :  "黄河帮",
+                "type"  :  "杀",
+                "bonus" :  15,
+                "score" :  7,
+        ]),
+
+        ([      "name"  :  "红货",
+                "file"  :  "/d/xingxiu/obj/red",
+                "type"  :  "寻",
+                "bonus" :  12,
+                "score" :  4,
+        ]),
+
+        ([      "name"  :  "哈密瓜",
+                "file"  :  "/d/xingxiu/obj/hamigua",
+                "type"  :  "寻",
+                "bonus" :  15,
+                "score" :  5,
+        ]),
+
+        ([      "name"  :  "百草丹",
+                "file"  :  "/clone/medicine/nostrum/baicaodan",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "雄黄",
+                "file"  :  "/clone/medicine/vegetable/xionghuang",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "当归",
+                "file"  :  "/clone/medicine/vegetable/danggui",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "鲨胆",
+                "file"  :  "/clone/medicine/vegetable/shadan",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "人参果",
+                "file"  :  "/clone/medicine/nostrum/renshenguo",
+                "type"  :  "寻",
+                "bonus" :  60,
+                "score" :  16,
+        ]),
+
+        ([      "name"  :  "何首乌",
+                "file"  :  "/clone/medicine/vegetable/heshouwu",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "莽牯朱蛤",
+                "file"  :  "/clone/medicine/nostrum/mangguzhuha",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "无常丹",
+                "file"  :  "/clone/medicine/nostrum/wuchangdan",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "三清换质丹",
+                "file"  :  "/clone/medicine/nostrum/huanzhidan",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "孟婆茶",
+                "file"  :  "/clone/medicine/nostrum/mengpotea",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "老山参",
+                "file"  :  "/clone/medicine/vegetable/laoshanshen",
+                "type"  :  "寻",
+                "bonus" :  30,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "人参",
+                "file"  :  "/clone/medicine/vegetable/renshen",
+                "type"  :  "寻",
+                "bonus" :  40,
+                "score" :  10,
+        ]),
+
+        ([      "name"  :  "通天草",
+                "file"  :  "/d/wuliang/obj/cao",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  2,
+        ]),
+
+        ([      "name"  :  "狗皮膏药",
+                "file"  :  "/clone/medicine/nostrum/gaoyao",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+
+        ([      "name"  :  "狗肉汤",
+                "file"  :  " /d/guanwai/npc/obj/gouroutang",
+                "type"  :  "寻",
+                "bonus" :  20,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "长白山旅游图",
+                "file"  :  "/d/guanwai/npc/obj/map",
+                "type"  :  "寻",
+                "bonus" :  20,
+                "score" :  8,
+        ]),
+
+        ([      "name"  :  "白云石",
+                "file"  :  "/d/xingxiu/obj/yushi",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+
+        ([      "name"  :  "蓝玉钵",
+                "file"  :  "/d/xingxiu/obj/lanyubo",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+
+        ([      "name"  :  "无锡酱排骨",
+                "file"  :  "/d/wuxi/npc/obj/paigu",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+
+        ([      "name"  :  "梅花",
+                "file"  :  "/d/lingxiao/obj/mei",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+
+        ([      "name"  :  "龟蛇酒壶",
+                "file"  :  "/d/yueyang/npc/obj/guishejiu",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+        
+        ([      "name"  :  "兔肉",
+                "file"  :  "/d/baituo/npc/obj/turou",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+        
+        ([      "name"  :  "油布包",
+                "file"  :  "/d/mingjiao/obj/bag",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+        
+        ([      "name"  :  "围脖",
+                "file"  :  "/d/mingjiao/obj/weibo",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+        
+        ([      "name"  :  "骷髅头骨",
+                "file"  :  "/d/mobei/npc/obj/baigu",
+                "type"  :  "寻",
+                "bonus" :  10,
+                "score" :  3,
+        ]),
+});
+
+void create() { seteuid(getuid()); }
+
+mapping query_job()
+{
+        return bangjobs[random(sizeof(bangjobs))];
+}
+
+

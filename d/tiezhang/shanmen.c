@@ -1,0 +1,46 @@
+// Room: /d/tiezhang/shanmen.c
+// Last Modified by winder on Nov. 17 2000
+
+inherit ROOM;
+
+void create()
+{
+	set("short", "山门");
+	set("long", @LONG
+这里就是江湖上闻风丧胆的“铁掌帮”。自从“铁掌歼衡山”一役
+将衡山派打得一蹶不振之后，帮主铁掌水上漂的名头威震江湖。这里是
+进山的必经之路，曲的小路通向山里。路的一侧立着一块牌子(paizi) 。
+两旁的树林内不时传出一些响声，似乎有人在暗中监视。
+LONG	);
+	set("outdoors", "tiezhang");
+	set("exits", ([ /* sizeof() == 2 */
+		"northup"   : __DIR__"shanlu1",
+		"southdown" : __DIR__"shanjiao",
+	]));
+	set("objects", ([ /* sizeof() == 2 */
+		__DIR__"npc/heiyi" : 2,
+		CLASS_D("tiezhang")+"/first" : 1,
+	]));
+	set("item_desc", ([ /* sizeof() == 1 */
+		"paizi" : "[31m“擅入者--死”[0;37;0m\n",
+	]));
+	set("no_clean_up", 0);
+
+	set("coor/x", -2040);
+	set("coor/y", -2000);
+	set("coor/z", 10);
+	setup();
+}
+
+int valid_leave(object me, string dir)
+{
+	mapping myfam;
+	myfam = (mapping)me->query("family");
+
+	if ((!myfam || myfam["family_name"] != "铁掌帮") &&
+		dir == "northup" && (int)me->query("combat_exp", 1) >= 10000 &&
+		objectp(present("heiyi bangzhong", environment(me))))
+		return notify_fail("黑衣帮众抽刀拦住你的去路，说道：“你不是铁掌帮弟子，不能上山！\n");
+
+	return ::valid_leave(me, dir);
+}
