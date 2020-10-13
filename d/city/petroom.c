@@ -21,7 +21,7 @@ LONG );
 		"paizi" : HIR"
                                  扬州宠物店"HIC"
 
-   ┏━"HIM"宠物"HIC"━"HIM"名称"HIC"━━━━"HIM"价目"HIC"━━━━┳━"HIM"宠物"HIC"━"HIM"名称"HIC"━━━━"HIM"价目"HIC"━━━━┓"HIC"
+   ┏--"HIM"宠物"HIC"--"HIM"名称"HIC"--------"HIM"价目"HIC"--------┳--"HIM"宠物"HIC"--"HIM"名称"HIC"--------"HIM"价目"HIC"--------┓"HIC"
    ┃  "HIG"龙   dragon     "HIY"九十九两黄金"HIC"  ┃  "HIG"凤凰 phenix     "HIY"九十九两黄金"HIC"  ┃
    ┃  "HIG"麒麟 kylin      "HIY"九十九两黄金"HIC"  ┃  "HIG"象   elephant   "HIY"四十九两黄金"HIC"  ┃
    ┃  "HIG"狮   lion       "HIY"四十九两黄金"HIC"  ┃  "HIG"虎   tiger      "HIY"四十九两黄金"HIC"  ┃
@@ -36,7 +36,7 @@ LONG );
    ┃  "HIG"猫   cat        "HIY"九两黄金"HIC"      ┃  "HIG"鼠   mouse      "HIY"九两黄金"HIC"      ┃
    ┃  "HIG"兔   rabbit     "HIY"九两黄金"HIC"      ┃  "HIG"龟   tortise    "HIY"九两黄金"HIC"      ┃
    ┃  "HIG"鸡   chicken    "HIY"九两黄金"HIC"      ┃  "HIG"鸭   duck       "HIY"九两黄金"HIC"      ┃
-   ┗━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━┛"HIB"
+   ┗--------------------------------┻--------------------------------┛"HIB"
         goumai：购买    return：返还    zancun：暂存    lingqu：领取
 \n"NOR,
 	]));

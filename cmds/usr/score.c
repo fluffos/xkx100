@@ -149,7 +149,7 @@ int main(object me, string arg)
 	master = ob->query("family")?my["family"]["master_name"]:"目前还没有";
 	couple = mapp(my["couple"])?(my["couple"]["have_couple"]?my["couple"]["couple_name"]:"目前还没有"):"目前还没有";
 
-	line = "\n┏━━━━━"+HIR"【个人档案】"NOR"━━━━┓ "+MAG"\t\t"+"    天赋"NOR"\n";
+	line = "\n┏----------"+HIR"【个人档案】"NOR"--------┓ "+MAG"\t\t"+"    天赋"NOR"\n";
 
 	line += sprintf("%-32s┃%s\n","┃",CYN"    悟性：["NOR+display_attr(my["int"], my["int"])+"/"+display_attr(my["int"], ob->query_int())+CYN"]     根骨：["NOR+display_attr(my["con"], my["con"])+"/"+display_attr(my["con"], ob->query_con())+CYN"] "NOR);
 
@@ -178,7 +178,7 @@ int main(object me, string arg)
 		default  : char_type = "普通"; break;
 	}
 
-	line += sprintf("%s%-16s%39s\n","┃人物性格:     ",char_type,"┗━━━━━━━━━━━━━━━━━━━━┓" );
+	line += sprintf("%s%-16s%39s\n","┃人物性格:     ",char_type,"┗----------------------------------------┓" );
 	if( ob->query("title") )
 	{
 		if( ob->query("degree") )
@@ -261,7 +261,7 @@ if(ob->query("shen") >= 0)
 		line += sprintf("┃附加攻击：    "HIG"%-18d"NOR" 附加闪躲：    "HIG"%-25d"NOR"┃\n", ob->query_temp("apply/attack"), ob->query_temp("apply/dodge"));
 	}
 
-	line +="┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n"NOR;
+	line +="┗------------------------------------------------------------------------┛\n"NOR;
 
 
   line += sprintf(WHT+" %s在"+HIG+CHINESE_MUD_NAME+NOR+"里的游戏时间是:"+BLINK+HIY"%s \n"+NOR,ob==me?"你":ob->name(1),FINGER_D->age_string( (int)ob->query("mud_age")));

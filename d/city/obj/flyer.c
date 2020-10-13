@@ -121,46 +121,46 @@ mixed board_view =				// 棋盘视图 红黄蓝绿
 mixed toss_text = ({
 	({"","","","",""}),
 	({
-	    "┏━━━┐",
+	    "┏------┐",
         "│      │",
         "│  ●  │",
         "│      │",
-		"┖━━━┛",
+		"┖------┛",
 	}),
 	({
-		"┏━━━┐",
+		"┏------┐",
         "│  ●  │",
         "│      │",
         "│  ●  │",
-		"┖━━━┛",
+		"┖------┛",
 	}),
 	({
-		"┏━━━┐",
+		"┏------┐",
 		"│●　　│",
         "│　●　│",
         "│　　●│",
-		"┖━━━┛",
+		"┖------┛",
 	}),
 	({
-		"┏━━━┐",
+		"┏------┐",
         "│●　●│",
         "│　　　│",
         "│●　●│",
-		"┖━━━┛",
+		"┖------┛",
 	}),
 	({
-		"┏━━━┐",
+		"┏------┐",
         "│●　●│",
         "│　●　│",
         "│●　●│",
-		"┖━━━┛",
+		"┖------┛",
 	}),
 	({
-		"┏━━━┐",
+		"┏------┐",
         "│●　●│",
         "│●　●│",
         "│●　●│",
-		"┖━━━┛",
+		"┖------┛",
 	})
 });
 
@@ -169,7 +169,7 @@ int return_base(int pl_num,int qi_num)
 	int x,y;
 	x = (pl_num==3 || pl_num==2)?0:13;
 	y = (pl_num==1 || pl_num==2)?13:0;
-	
+
 	x = (qi_num==1 || qi_num==3)?x:x+1;
 	y = (qi_num==1 || qi_num==2)?y:y+1;
 
@@ -179,7 +179,7 @@ int return_base(int pl_num,int qi_num)
 
 	board[y][x][BD_PLAYER] = pl_num;
 	board[y][x][BD_QI] = qi_num;
-	
+
 	return 1;
 }
 
@@ -313,7 +313,7 @@ object qi2player(mixed* qi)
 {
 	object ob;
 	string id;
-	
+
 	id = player_id(qi[QI_PLAYER]-1);
 	if(!id)return 0;
 	ob= find_player(id);
@@ -441,7 +441,7 @@ string build_qi(object who)
 void init()
 {
 //	add_action("do_help","helpqi");			// 帮助
-	
+
 	add_action("do_reset","reset");			// 重置游戏
 	add_action("do_start","start");			// 重新开始
 	add_action("do_join","join");			// 加入游戏
@@ -462,7 +462,7 @@ int do_next(string arg)
 {
 	object ob;
 	object me;
-	
+
 	me = this_player();
 	if(me)
 	{
@@ -475,7 +475,7 @@ int do_next(string arg)
 			return notify_fail("？？？？\n");
 
 		ob = get_cur_player();
-		
+
 		if(ob==0)
 		{
 			msg(0,0,"有玩家缺场了，请重新开始游戏(reset qi)。\n");
@@ -509,7 +509,7 @@ void next_one()
 	cur_qi = 0;
 	shadow_qi = 0;
 	has_jump = 0;
-	
+
 	j = 0;
 	for(j=0;j<4;j++)
 	{
@@ -609,7 +609,7 @@ int do_toss(string arg)
 
 	cur_se = se;
 	toss(me,se);
-	
+
 	return 1;
 }
 
@@ -668,14 +668,14 @@ int do_start(string arg)
 		return notify_fail("游戏人数只能是2人 或者 4人。\n");
 		break;
 	}
-	
+
 	reset_game(0);
 	has_start = 1;
 	cur_player = 1;
 
 	msg(this_player(),0,"$N开始游戏了\n");
 	msg(get_cur_player(),0,"$N首先投色。\n");
-		
+
 	return 1;
 }
 
@@ -883,7 +883,7 @@ int move_qi(mixed* qi,int pt)
 		qi[QI_FLAG] = QI_WALK;
 		qi[QI_X] = x;
 		qi[QI_Y] = y;
-		
+
 		if(pt==0)
 		{
 			show_qi();
@@ -897,7 +897,7 @@ int move_qi(mixed* qi,int pt)
 		break;
 	case QI_WALK:
 		pick_out(qi);
-				
+
 		pt --;
 		ge = qi2ge(qi);
 
@@ -933,7 +933,7 @@ int move_qi(mixed* qi,int pt)
 		qi[QI_Y]+=oy;
 
 		ge = qi2ge(qi);
-		
+
 		if(pt==0)
 		{
 			show_qi();

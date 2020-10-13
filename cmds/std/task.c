@@ -12,9 +12,9 @@ int main(object me, string str)
 	string output;
 
 	output = HIC"\n≡" +
-		 HIY"━━━━━━━━━━━━"+
+		 HIY"------------------------"+
 		 HIC"飞雪连天任务榜" +
-		 HIY"━━━━━━━━━━━━"+
+		 HIY"------------------------"+
 		 HIC"≡\n"NOR;
 
 	output += HIG"       「任务物品」" +
@@ -26,7 +26,7 @@ int main(object me, string str)
 	if (!str || str != "-u") output += TASK_D->dyn_quest_list(0);
 	else output += TASK_D->dyn_quest_list(1);
 
-	output += HIC"≡"HIY"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"HIC"≡\n"NOR;
+	output += HIC"≡"HIY"--------------------------------------------------------------"HIC"≡\n"NOR;
 	output += HIW"      前面带"HIR"√"HIW"的表示该任务已完成。"NOR;
 	me->start_more(output);
 

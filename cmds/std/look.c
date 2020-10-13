@@ -293,13 +293,13 @@ int look_room(object me, object env)
 						break;
 					}
 
-				write(SETDISPLAY(1,42)+"┏━━━━━━━━━━━━━━━━━┓");
+				write(SETDISPLAY(1,42)+"┏----------------------------------┓");
 				write(SETDISPLAY(2,42)+"┃");
 				write(SETDISPLAY(3,42)+"┃");
 				write(SETDISPLAY(4,42)+"┃");
 				write(SETDISPLAY(5,42)+"┃");
 				write(SETDISPLAY(6,42)+"┃");
-				write(SETDISPLAY(7,42)+"┗━━━━━━━━━━━━━━━━━┛");
+				write(SETDISPLAY(7,42)+"┗----------------------------------┛");
 				write(SETDISPLAY(2,78)+"┃");
 				write(SETDISPLAY(3,78)+"┃");
 				write(SETDISPLAY(4,78)+"┃");
