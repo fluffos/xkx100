@@ -162,7 +162,7 @@ string make_color(string map)
 	map = replace_string(map, "±", HIM"±"NOR);
 	map = replace_string(map, "＋", HIG"＋"NOR);
 	map = replace_string(map, "∴", YEL"∴"NOR);
-	map = replace_string(map, "∷", YEL"∷"NOR);
+	map = replace_string(map, "::", YEL"::"NOR);
 	map = replace_string(map, "≌", HIW"≌"NOR);
 	map = replace_string(map, "＊", MAG"＊"NOR);
 	map = replace_string(map, "—", HIY"—"NOR);
