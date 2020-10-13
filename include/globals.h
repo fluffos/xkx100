@@ -2,7 +2,8 @@
 // this file will be automatically included by the driver
 // for XKX mudlib, by Xiang
 // for XKX100 mudlib, by Winder 2001.6.3
-#pragma save_binary
+#ifndef GLOBALS_H
+#define GLOBALS_H
 
 // Important directories
 #define INC_DIR                   "/include/"
@@ -13,24 +14,24 @@
 #define DATA_DIR                  "/data/"
 #define HELP_DIR                  "/help/"
 #define LOG_DIR                   "/log/"
-#define ARMOR_DIR                 "/clone/armor/"              //ª§æﬂ
-#define WEAPON_DIR                "/clone/weapon/"             //±¯∆˜
-#define BOOK_DIR                  "/clone/book/"               // ÈºÆ
-#define MONEY_DIR                 "/clone/money/"              //ªı±“
-#define ANIMAL_DIR                "/clone/animal/"             //∂ØŒÔ
-#define JEWELRY_DIR               "/clone/jewelry/"            //÷È±¶
-#define FOOD_DIR                  "/clone/food/"               // ≥ŒÔ
-#define FRUIT_DIR                 "/clone/food/fruit/"         //ÀÆπ˚
-#define LIQUID_DIR                "/clone/food/liquid/"        //“˚¡œ
-#define TEA_DIR                   "/clone/food/tea/"           //≤ËÀÆ
-#define FODDER_DIR                "/clone/food/fodder/"        //À«¡œ
-#define CLOTH_DIR                 "/clone/cloth/"              //“¬∑˛
-#define HEAD_DIR                  "/clone/cloth/head/"         //ø¯√±
-#define BOOT_DIR                  "/clone/cloth/boot/"         //–¨—•
-#define NOSTRUM_DIR               "/clone/medicine/nostrum/"   //≥…“©
-#define POISON_DIR                "/clone/medicine/poison/"    //∂æ“©
-#define VEGETABLE_DIR             "/clone/medicine/vegetable/" //≤›“©
-#define SHOP_DIR                  "/clone/shop/"               //…ÃµÍ
+#define ARMOR_DIR                 "/clone/armor/"              //Êä§ÂÖ∑
+#define WEAPON_DIR                "/clone/weapon/"             //ÂÖµÂô®
+#define BOOK_DIR                  "/clone/book/"               //‰π¶Á±ç
+#define MONEY_DIR                 "/clone/money/"              //Ë¥ßÂ∏Å
+#define ANIMAL_DIR                "/clone/animal/"             //Âä®Áâ©
+#define JEWELRY_DIR               "/clone/jewelry/"            //Áè†ÂÆù
+#define FOOD_DIR                  "/clone/food/"               //È£üÁâ©
+#define FRUIT_DIR                 "/clone/food/fruit/"         //Ê∞¥Êûú
+#define LIQUID_DIR                "/clone/food/liquid/"        //È•ÆÊñô
+#define TEA_DIR                   "/clone/food/tea/"           //Ëå∂Ê∞¥
+#define FODDER_DIR                "/clone/food/fodder/"        //È•≤Êñô
+#define CLOTH_DIR                 "/clone/cloth/"              //Ë°£Êúç
+#define HEAD_DIR                  "/clone/cloth/head/"         //ÁõîÂ∏Ω
+#define BOOT_DIR                  "/clone/cloth/boot/"         //ÈûãÈù¥
+#define NOSTRUM_DIR               "/clone/medicine/nostrum/"   //ÊàêËçØ
+#define POISON_DIR                "/clone/medicine/poison/"    //ÊØíËçØ
+#define VEGETABLE_DIR             "/clone/medicine/vegetable/" //ËçâËçØ
+#define SHOP_DIR                  "/clone/shop/"               //ÂïÜÂ∫ó
 
 // Daemons
 #define PK_D                      "/adm/daemons/pkd"
@@ -75,7 +76,7 @@
 #define SKILL_D(x)                ("/kungfu/skill/" + x)
 #define CONDITION_D(x)            ("/kungfu/condition/" + x)
 
-// ∏ﬂ ÷≈≈––∞Â
+// È´òÊâãÊéíË°åÊùø
 #define RICHMAN_D                 "/adm/daemons/tenrichmand"
 #define GAOSHOU_D                 "/adm/daemons/tengaoshoud"
 
@@ -171,7 +172,9 @@
 
 // Profiling switches
 //
-// If you changed any of these defines, you'll need reboot to make it 
+// If you changed any of these defines, you'll need reboot to make it
 // in effect.
 
 #undef PROFILE_COMMANDS
+
+#endif

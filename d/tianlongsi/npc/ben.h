@@ -13,10 +13,10 @@ void init()
 void attempt_apprentice(object ob)
 {
         if ((int)ob->query_skill("kurong-changong", 1) < 110) {
-                command("say ÄãÄÚ¹¦ÐÞÎª»¹²»µ½»ðºò£¬½øÌìÁúËÂÒ²ÊÇÍ½ÀÍ¡£\n");
+                command("say ä½ å†…åŠŸä¿®ä¸ºè¿˜ä¸åˆ°ç«å€™ï¼Œè¿›å¤©é¾™å¯ºä¹Ÿæ˜¯å¾’åŠ³ã€‚\n");
                 return;
         }
-	command("say ºÃ°É£¬ÀÏñÄ¾ÍÊÕÏÂÄãÕâ¸öË×¼ÒµÜ×ÓÁË¡£");
+	command("say å¥½å§ï¼Œè€è¡²å°±æ”¶ä¸‹ä½ è¿™ä¸ªä¿—å®¶å¼Ÿå­äº†ã€‚");
 	command("recruit " + ob->query("id"));
 }
 

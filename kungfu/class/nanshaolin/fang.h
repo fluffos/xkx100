@@ -1,21 +1,21 @@
 // Last Modified by winder on May. 29 2001
-// fang.h ·½×Ö±²ÊÕÍ½
+// fang.h æ–¹å­—è¾ˆæ”¶å¾’
 
 void attempt_apprentice(object ob)
 {
 	mapping fam;
 	if(mapp(fam = ob->query("family")) &&
-		fam["family_name"]=="ÄÏÉÙÁÖÅÉ" &&
+		fam["family_name"]=="å—å°‘æ—æ´¾" &&
 		fam["generation"] < 22)
 	{
-		command("say °¢ÃÖÍÓ·ğ¡£ÎÒ·ğ´È±¯¡£\n");
+		command("say é˜¿å¼¥é™€ä½›ã€‚æˆ‘ä½›æ…ˆæ‚²ã€‚\n");
 		return;
 	}
 	if( (string)ob->query("class")!="bonze" )
 	{
-		command ("say °¢ÃÖÍÓ·ğ£¡Æ¶É®¾ÍÊÕÏÂÄã×ö¡ºË×¼ÒµÜ×Ó¡»ÁË¡£");
+		command ("say é˜¿å¼¥é™€ä½›ï¼è´«åƒ§å°±æ”¶ä¸‹ä½ åšã€ä¿—å®¶å¼Ÿå­ã€äº†ã€‚");
 	}
-	command("say °¢ÃÖÍÓ·ğ£¬ÉÆÔÕ£¡ÉÆÔÕ£¡");
+	command("say é˜¿å¼¥é™€ä½›ï¼Œå–„å“‰ï¼å–„å“‰ï¼");
 	command("recruit " + ob->query("id"));
 }
 
@@ -25,7 +25,7 @@ int recruit_apprentice(object ob)
 		       {
 	if( (string)ob->query("class")!="bonze" )
 	{
-		ob->set("title", "ÄÏÉÙÁÖË×¼ÒµÚ¶şÊ®¶şµÜ×Ó");
+		ob->set("title", "å—å°‘æ—ä¿—å®¶ç¬¬äºŒåäºŒå¼Ÿå­");
 	}
 
  				  }

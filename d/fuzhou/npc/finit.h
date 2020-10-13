@@ -42,7 +42,7 @@ void do_check()
 		{
 			command("shot "+ob->query("id"));
 			ob -> add("combat_num",1);
-			message_vision(HIW"\n$N�󺰵������ڵ������ӣ��������ɣ�\n"NOR,me);
+			message_vision(HIW"\n$N大喊道：保镖的兔崽子，纳命来吧！\n"NOR,me);
 			remove_call_out("do_sha");
 			call_out("do_sha",1);
 		}
@@ -61,7 +61,7 @@ void do_wait()
 	}
 	else
 	{
-		message_vision("$N˵����������������ү�����ˣ�\n$Nһ�����Զ�����˿�ȥ��\n",this_object());
+		message_vision("$N说道：风紧！风紧！大爷先走了！\n$N一阵哄向远处逃了开去。\n",this_object());
 		destruct(me);
 	}
 }
@@ -74,7 +74,7 @@ void do_sha()
 
 	if (! living(me) || me->fighting() )
 	{
-		message_vision("$Nҧ���гݵض�����մ�У��������죡��\n",me);
+		message_vision("$N咬牙切齿地对着天空大叫：“贼老天！”\n",me);
 		remove_call_out("do_sha");
 		call_out("do_sha",0);
 	}
@@ -85,7 +85,7 @@ void do_sha()
 			wmsg = weapon_msg[random(sizeof(weapon_msg))];
 			weapon = new(wmsg);
 			weapon->move(me);
-			message_vision(HIW"\n$N����$n�󺰵����㻹�����������ҵ��ֶΣ�\n"NOR,me, ob);
+			message_vision(HIW"\n$N冲着$n大喊道：你还不死！！看我的手段！\n"NOR,me, ob);
 			command("shot "+ob->query("id"));
 			ob -> add("combat_num",1);
 			remove_call_out("do_sha");
@@ -93,7 +93,7 @@ void do_sha()
 		}
 		else
 		{
-			message_vision("$N˵�����󹦸�ɣ���ү�����ˣ�\n$Nһ������Զ���ɳ۶�ȥ��\n",me);
+			message_vision("$N说道：大功告成！大爷先走了！\n$N一阵大哄向远处飞驰而去。\n",me);
 			if ( cart = present("cart",environment(me)))
                         destruct(cart);         
                         destruct(me);

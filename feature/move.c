@@ -1,6 +1,6 @@
 // move.c
 
-#pragma optimize
+// #pragma optimize
 
 #include <dbase.h>
 #include <ansi.h>
@@ -124,7 +124,7 @@ varargs int move(mixed dest, int silently)
 			str = HIC+environment()->query("short") + NOR + " -\n";
 			inv = all_inventory(environment());
       if (sizeof(inv)<20)
-		  	for(i=0; i<sizeof(inv); i++) 
+		  	for(i=0; i<sizeof(inv); i++)
 		  	{
 	  			if( inv[i]==me ) continue;
 	   			if( inv[i]->query("no_shown")) continue;

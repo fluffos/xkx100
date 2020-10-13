@@ -3,7 +3,7 @@ void init()
         object ob, me;
         me = this_object();
         if (interactive(ob = this_player()) && present("shou juan", ob)){
-           message_vision(HIY"$NÍ»È»À¹ÉíÔÚ$nÇ°£¬ÑÛ¾¦Ö±¶¢×Å$n»³ÀïµÄÊÖ¾î£¡\n"NOR,me,ob); 
+           message_vision(HIY"$Nçªç„¶æ‹¦èº«åœ¨$nå‰ï¼Œçœ¼ç›ç›´ç›¯ç€$næ€€é‡Œçš„æ‰‹ç»¢ï¼\n"NOR,me,ob); 
            me->set("chat_chance", 0);
            remove_call_out("do_kill");
            call_out("do_kill", 0, me, ob);
@@ -14,8 +14,8 @@ int do_kill(object me, object dest)
 {
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight")){
-		message_vision(HIR "$N¶Ô$nÒõÒõÒ»Ğ¦£ºÕâÊÖ¾î´óÒ¯ÎÒÕÒÁËÊ®ÄêÁË£¬"
-			+RANK_D->query_rude(dest)+"Äã¾Í¹Ô¹ÔÈÏÃü°É£¡\n" NOR, me, dest);
+		message_vision(HIR "$Nå¯¹$né˜´é˜´ä¸€ç¬‘ï¼šè¿™æ‰‹ç»¢å¤§çˆ·æˆ‘æ‰¾äº†åå¹´äº†ï¼Œ"
+			+RANK_D->query_rude(dest)+"ä½ å°±ä¹–ä¹–è®¤å‘½å§ï¼\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);
@@ -58,7 +58,7 @@ int checking(object me, object dest)
           remove_call_out("checking");
           command("get shou juan from corpse");
           tell_room(environment(me),
-          me->query("name")+"ÅÄÁËÅÄÉíÉÏµÄ»Ò³¾£¬¿ì²½×ßÁË³öÈ¥¡£\n" NOR, ({me}));
+          me->query("name")+"æ‹äº†æ‹èº«ä¸Šçš„ç°å°˜ï¼Œå¿«æ­¥èµ°äº†å‡ºå»ã€‚\n" NOR, ({me}));
     	  call_out("do_back", 1, me);
           return 1;
 	  }
@@ -69,7 +69,7 @@ int checking(object me, object dest)
 int do_back(object me)
 {        
   me->move(me->query("startroom"));                       
-  tell_room(environment(me), me->query("name")+"¿ì²½×ßÁË¹ıÀ´¡£\n", ({me}));	
+  tell_room(environment(me), me->query("name")+"å¿«æ­¥èµ°äº†è¿‡æ¥ã€‚\n", ({me}));	
   me->set_leader(0);
   me->set("chat_chance", 40);
   return 1;

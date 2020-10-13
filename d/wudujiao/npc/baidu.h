@@ -6,20 +6,20 @@ int do_train(string arg)
 	me =this_object();
 	who=this_player();
 	if (!arg || (arg != me->query("id")))
-		return notify_fail("ÄãÒªÑ±·þÊ²Ã´£¿\n");
+		return notify_fail("ä½ è¦é©¯æœä»€ä¹ˆï¼Ÿ\n");
 
 	if(me->is_fighting())
-		return notify_fail(me->query("name")+"ÕýÔÚÕ½¶·ÖÐ¡£\n");
+		return notify_fail(me->query("name")+"æ­£åœ¨æˆ˜æ–—ä¸­ã€‚\n");
 
-	if((string)who->query("family/family_name")!="Îå¶¾½Ì")
-		return notify_fail("Ê²Ã´£¿\n");
+	if((string)who->query("family/family_name")!="äº”æ¯’æ•™")
+		return notify_fail("ä»€ä¹ˆï¼Ÿ\n");
 
 	if ((int)who->query_skill("wudu-shengong", 1) < 20) {
-		return notify_fail("ÄãµÄÎå¶¾Éñ¹¦»¹ÊÇ²»¹»°¡£¿\n");
+		return notify_fail("ä½ çš„äº”æ¯’ç¥žåŠŸè¿˜æ˜¯ä¸å¤Ÿå•Šï¼Ÿ\n");
 	}
 
-	message_vision("$N¶Ô$nÒ»Õó¹ÖÐ¥£º´óµ¨£¬»¹²»Ñ±·þ¸ü´ýºÎÊ±£¿\n\n", who,me);
-	message_vision("$N²ªÈ»´óÅ­µÀ£ºÔÛÃÇË­Ñ±Ë­»¹²»Ò»¶¨ÄÄ£¿£¡\n$N³åÉÏÀ´ºÍ$nÅ¤´òµ½Ò»Æð¡£\n",me,who);
+	message_vision("$Nå¯¹$nä¸€é˜µæ€ªå•¸ï¼šå¤§èƒ†ï¼Œè¿˜ä¸é©¯æœæ›´å¾…ä½•æ—¶ï¼Ÿ\n\n", who,me);
+	message_vision("$Nå‹ƒç„¶å¤§æ€’é“ï¼šå’±ä»¬è°é©¯è°è¿˜ä¸ä¸€å®šå“ªï¼Ÿï¼\n$Nå†²ä¸Šæ¥å’Œ$næ‰­æ‰“åˆ°ä¸€èµ·ã€‚\n",me,who);
 	me->kill_ob(who);
 	who->kill_ob(me);
 	COMBAT_D->do_attack(me, who, query_temp("weapon"));
@@ -38,7 +38,7 @@ void die()
 
 	if(owner_ob && (object)query_temp("last_damage_from") == owner_ob)
 	{
-		message_vision("$NÅ¿ÔÚµØÉÏ£¬Ò»¶¯Ò²²»¸Ò¶¯ÁË¡£\n",this_object()); 
+		message_vision("$Nè¶´åœ¨åœ°ä¸Šï¼Œä¸€åŠ¨ä¹Ÿä¸æ•¢åŠ¨äº†ã€‚\n",this_object()); 
 		switch (this_object()->query("id"))
 		{
 			case "du she": 
@@ -68,7 +68,7 @@ void die()
 		return;
 	}
 	else {
-		message_vision("$Nµ¹ÔÚµØÉÏ£¬ËÀÁË£¡\n", this_object());
+		message_vision("$Nå€’åœ¨åœ°ä¸Šï¼Œæ­»äº†ï¼\n", this_object());
 		switch (this_object()->query("id"))
 		{
 			case "du she": 

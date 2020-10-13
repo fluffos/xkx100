@@ -10,32 +10,32 @@ int ask_jiaobiao()
 
 	if (me->query_temp("fuwei_destm") != ob->query("id"))
 	{
-		message_vision(HIR"$NÎÊ$nµÀ£º¡°¸ã´íÁË£¡¸ã´íÁË£¡ÄãÔõÃ´°Ñ¸ø"+me->query_temp("fuwei_dest")+"·Ö¾ÖµÄïÚ³µËÍµ½ÎÒÕâÀ´ÄØ£¿¡±\n"NOR,ob,me);
+		message_vision(HIR"$Né—®$né“ï¼šâ€œæžé”™äº†ï¼æžé”™äº†ï¼ä½ æ€Žä¹ˆæŠŠç»™"+me->query_temp("fuwei_dest")+"åˆ†å±€çš„é•–è½¦é€åˆ°æˆ‘è¿™æ¥å‘¢ï¼Ÿâ€\n"NOR,ob,me);
 		return 1;
 	}
 	if (! objectp(cart = present("cart", environment(me))))
 	{
-		message_vision("$NÎÊ$nµÀ£º¡°ïÚ³µÄØ£¿ÄÇÉÏÃæ¿ÉÊÇÓÐºÃ¼¸ÍòïÚÒø°¡£¡¡±\n",ob,me);
+		message_vision("$Né—®$né“ï¼šâ€œé•–è½¦å‘¢ï¼Ÿé‚£ä¸Šé¢å¯æ˜¯æœ‰å¥½å‡ ä¸‡é•–é“¶å•Šï¼â€\n",ob,me);
 		return 1;
 	}
 	if (! objectp(biaotou = present("biao tou", environment(me))))
 	{
-		message_vision("$NÎÊ$nµÀ£º¡°Ëæ¶ÓïÚÍ·ÄØ£¿Â·ÉÏ¶ªÊ§ÈËÊÖ£¬Äã»¹¸ÒÀ´¼ûÎÒ£¡¡±\n",ob,me);
+		message_vision("$Né—®$né“ï¼šâ€œéšé˜Ÿé•–å¤´å‘¢ï¼Ÿè·¯ä¸Šä¸¢å¤±äººæ‰‹ï¼Œä½ è¿˜æ•¢æ¥è§æˆ‘ï¼â€\n",ob,me);
 		return 1;
 	}
 	if (cart->query("guarded") != me->query("id"))
 	{
-		message_vision("$N¿´ÁË¿´ïÚ³µ£¬¶Ô$nËµµÀ£º¡°ÕâïÚ³µ²»ÊÇÄãÑºµÄ¡£Äã°ÑïÚ³µ¶ªÄÄÈ¥ÁË£¿¡±\n",ob,me);
+		message_vision("$Nçœ‹äº†çœ‹é•–è½¦ï¼Œå¯¹$nè¯´é“ï¼šâ€œè¿™é•–è½¦ä¸æ˜¯ä½ æŠ¼çš„ã€‚ä½ æŠŠé•–è½¦ä¸¢å“ªåŽ»äº†ï¼Ÿâ€\n",ob,me);
 		return 1;
 	}
 	if (biaotou->query("leader_name") != me->query("id"))
 	{
-		message_vision("$NÖ¸×Å$nËµµÀ£º¡°ÎÒ²»ÊÇºÍËûÒ»Â·µÄ£¬ÎÒ²»ÈÏÊ¶Ëû¡£¡±\n",biaotou, me);
+		message_vision("$NæŒ‡ç€$nè¯´é“ï¼šâ€œæˆ‘ä¸æ˜¯å’Œä»–ä¸€è·¯çš„ï¼Œæˆ‘ä¸è®¤è¯†ä»–ã€‚â€\n",biaotou, me);
 		return 1;
 	}
-	tell_object(me,HIW+ob->query("name")+"Ð¦µÀ£º¹§Ï²Äã³É¹¦½«ïÚ³µËÍµ½Ä¿µÄµØ£¬Íê³ÉÁËÕâÏîÈÎÎñ£¡\n\n"NOR);
+	tell_object(me,HIW+ob->query("name")+"ç¬‘é“ï¼šæ­å–œä½ æˆåŠŸå°†é•–è½¦é€åˆ°ç›®çš„åœ°ï¼Œå®Œæˆäº†è¿™é¡¹ä»»åŠ¡ï¼\n\n"NOR);
 
-        message("channel:chat", HIM"¡¾Ò¥ÑÔ¡¿ÌýËµ"+cart->query("guardby")+"³É¹¦½«ïÚ³µËÍµ½Ä¿µÄµØÁË£¡\n"NOR,users());
+        message("channel:chat", HIM"ã€è°£è¨€ã€‘å¬è¯´"+cart->query("guardby")+"æˆåŠŸå°†é•–è½¦é€åˆ°ç›®çš„åœ°äº†ï¼\n"NOR,users());
 
 	i = 0;
 	give_exp = lay_exp * biaotou->query("total_steps");
@@ -47,9 +47,9 @@ int ask_jiaobiao()
 		i++;
 	}
         
-	message_vision(YEL"$N³¤³öÁËÒ»¿ÚÆøµÀ£º¡°°¥£¬ÖÕÓÚµ½ÁË¡£ÎÒ¿ÉºÍ»ï¼ÆÃÇºÈ¾ÆÈ¥ÁË¡£¡±\n"NOR,biaotou);
-	message_vision(YEL"$NºÍ"+me->query_temp("fuwei_dest")+"·Ö¾ÖµÄÌË×ÓÊÖÃÇÒ»Õó´ÖÑÔ»àÓï¡¢º°µùÂîÄïµØ¹´¼ç´î±³Ò»Óµ³öÃÅÈ¥ÁË¡£\n"NOR,biaotou);
-	message_vision(HIC"ïÚ³µ¸ø"+me->query_temp("fuwei_dest")+"·Ö¾ÖµÄ»ï¼ÆÃÇÍÆ½øÁË¿â·¿¡£\n\n"NOR,biaotou);
+	message_vision(YEL"$Né•¿å‡ºäº†ä¸€å£æ°”é“ï¼šâ€œå“Žï¼Œç»ˆäºŽåˆ°äº†ã€‚æˆ‘å¯å’Œä¼™è®¡ä»¬å–é…’åŽ»äº†ã€‚â€\n"NOR,biaotou);
+	message_vision(YEL"$Nå’Œ"+me->query_temp("fuwei_dest")+"åˆ†å±€çš„è¶Ÿå­æ‰‹ä»¬ä¸€é˜µç²—è¨€ç§½è¯­ã€å–Šçˆ¹éª‚å¨˜åœ°å‹¾è‚©æ­èƒŒä¸€æ‹¥å‡ºé—¨åŽ»äº†ã€‚\n"NOR,biaotou);
+	message_vision(HIC"é•–è½¦ç»™"+me->query_temp("fuwei_dest")+"åˆ†å±€çš„ä¼™è®¡ä»¬æŽ¨è¿›äº†åº“æˆ¿ã€‚\n\n"NOR,biaotou);
 	destruct(biaotou);
 	destruct(cart);
 
@@ -60,15 +60,15 @@ int ask_jiaobiao()
 	money->set_amount(40);
 	money->move(me);
 
-	tell_object(me, sprintf(HIR+ob->query("name")+"¶Ô"+me->query("name")+"³ÆÐíµÀ£º¡°Äã±»½±ÀøÁË£¡µÃµ½%sµã¾­ÑéºÍ%sµãÇ±ÄÜºÍ%sµã½­ºþÔÄÀú¡£ïÚ¾Ö·¢¸øÄãËÄÊ®Á½»Æ½ð×öÄãµÄÐ½½ðºÍ²¹³¥ÄãµÄÑº½ð¡£¡±\n"NOR, chinese_number(give_exp),chinese_number(give_pot),chinese_number(give_score) ) + NOR);
-	message_vision("$N¸ø$nÒ»Ð©"YEL"»Æ½ð"NOR"¡£\n"NOR, ob, me);
-	log_file("mission/ms_biaoche",sprintf("%20s×öÔËËÍïÚ³µÈÎÎñ£¬µÃµ½£º%4iµãEXPºÍ%4iµãÇ±ÄÜ¡£\n",
+	tell_object(me, sprintf(HIR+ob->query("name")+"å¯¹"+me->query("name")+"ç§°è®¸é“ï¼šâ€œä½ è¢«å¥–åŠ±äº†ï¼å¾—åˆ°%sç‚¹ç»éªŒå’Œ%sç‚¹æ½œèƒ½å’Œ%sç‚¹æ±Ÿæ¹–é˜…åŽ†ã€‚é•–å±€å‘ç»™ä½ å››åä¸¤é»„é‡‘åšä½ çš„è–ªé‡‘å’Œè¡¥å¿ä½ çš„æŠ¼é‡‘ã€‚â€\n"NOR, chinese_number(give_exp),chinese_number(give_pot),chinese_number(give_score) ) + NOR);
+	message_vision("$Nç»™$nä¸€äº›"YEL"é»„é‡‘"NOR"ã€‚\n"NOR, ob, me);
+	log_file("mission/ms_biaoche",sprintf("%20såšè¿é€é•–è½¦ä»»åŠ¡ï¼Œå¾—åˆ°ï¼š%4iç‚¹EXPå’Œ%4iç‚¹æ½œèƒ½ã€‚\n",
        me->query("name")+"("+getuid(me)+")",give_exp,give_pot));
 	me->add("combat_exp",give_exp);
 	me->add("potential",give_pot);
   me->add("score",give_score);
 	me->add("baobiao",1);
-	ob->set_temp("prize_reason","ÔËïÚ");
+	ob->set_temp("prize_reason","è¿é•–");
 	ob->set_temp("can_give_prize",1);
 	ob->set_temp("prize_exp",give_exp);
 	ob->set_temp("prize_pot",give_pot);

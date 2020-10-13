@@ -1,4 +1,4 @@
-// init.h ¶¨ÒåÉ±ÊÖ¼ì²é£¬×Ô¼ºÏûÊ§µÄÊ±¼ä
+// init.h å®šä¹‰æ€æ‰‹æ£€æŸ¥ï¼Œè‡ªå·±æ¶ˆå¤±çš„æ—¶é—´
 #define A_TIME 20
 
 void init()
@@ -78,7 +78,7 @@ void do_check()
 	    if( ! living(me)&& ob = present("ren zhi",environment(me)))    
                 { 
                   ob -> add("combat_num",1);
-                message_vision("$NÒ§ÑÀÇÐ³ÝµØ¶Ô×ÅÌì¿Õ´ó½Ð£º¡°ÔôÀÏÌì£¡¡±\n",me);
+                message_vision("$Nå’¬ç‰™åˆ‡é½¿åœ°å¯¹ç€å¤©ç©ºå¤§å«ï¼šâ€œè´¼è€å¤©ï¼â€\n",me);
                  }
                 remove_call_out("do_check");
 		call_out("do_check",0);
@@ -95,7 +95,7 @@ void do_check()
 			if (! environment()->query("no_fight") )
 			{
 				me->set_leader(ob);
-				message_vision("$N¶Ô×Å$n´óºÈÒ»Éù£ºÄãÕâ"+RANK_D->query_rude(ob)+"£¬ÄÃÃüÀ´£¡\n",me,ob);
+				message_vision("$Nå¯¹ç€$nå¤§å–ä¸€å£°ï¼šä½ è¿™"+RANK_D->query_rude(ob)+"ï¼Œæ‹¿å‘½æ¥ï¼\n",me,ob);
 				me->kill_ob(ob);
 				command("kill "+ob->query("id"));
                               //  if(!ob->is_busy())   ob->start_busy(20);
@@ -129,12 +129,12 @@ void do_wait()
 	{
 		if (ob = present("corpse",environment(me)))
 		{
-			message_vision("$N¿ñÐ¦µÀ£ºÈËÖÊ¼ÈËÀ£¬ÎÒ¿ÉÒÔ»ØÈ¥½»²îÁË¡£\nÒ»ÕóÑÌ³¾¹ýºó£¬$NµÄÉíÓ°·É¿ìµØÏûÊ§ÁË¡£\n",this_object());
+			message_vision("$Nç‹‚ç¬‘é“ï¼šäººè´¨æ—¢æ­»ï¼Œæˆ‘å¯ä»¥å›žåŽ»äº¤å·®äº†ã€‚\nä¸€é˜µçƒŸå°˜è¿‡åŽï¼Œ$Nçš„èº«å½±é£žå¿«åœ°æ¶ˆå¤±äº†ã€‚\n",this_object());
 			destruct(me);
 		}
 		else
 		{
-			message_vision("$N×ÔÑÔ×ÔÓïµØËµµÀ£º¿´À´ÈËÖÊ²»»á´ÓÕâÀïÀ´ÁË£¬ÎÒ»¹ÊÇ»ØÈ¥°É¡£\n$NÂúÃæÎÞÄÎµØÏòÔ¶´¦×ßÁË¿ªÈ¥¡£\n",this_object());
+			message_vision("$Nè‡ªè¨€è‡ªè¯­åœ°è¯´é“ï¼šçœ‹æ¥äººè´¨ä¸ä¼šä»Žè¿™é‡Œæ¥äº†ï¼Œæˆ‘è¿˜æ˜¯å›žåŽ»å§ã€‚\n$Næ»¡é¢æ— å¥ˆåœ°å‘è¿œå¤„èµ°äº†å¼€åŽ»ã€‚\n",this_object());
 			destruct(me);
 		}
 	}
@@ -146,7 +146,7 @@ void killed_enemy(object victim)
 
 	if (victim->query("id") == "ren zhi")
 	{
-		message_vision("$NÑöÌì¿ñÐ¦Ò»Éù£º¹þ¹þ£¬ÖÕÓÚµÃÊÖÁË£¡Ëµ°Õ£¬¼¸¸öÆðÂä£¬ÉíÐÎÏûÊ§ÔÚÔ¶´¦µÄÎÝéÜ½Ç¡£\n",me);
+		message_vision("$Nä»°å¤©ç‹‚ç¬‘ä¸€å£°ï¼šå“ˆå“ˆï¼Œç»ˆäºŽå¾—æ‰‹äº†ï¼è¯´ç½¢ï¼Œå‡ ä¸ªèµ·è½ï¼Œèº«å½¢æ¶ˆå¤±åœ¨è¿œå¤„çš„å±‹æªè§’ã€‚\n",me);
 		destruct(me);
 	}
 }

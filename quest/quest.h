@@ -1,12 +1,12 @@
 mapping quest_name = ([
-		"wei"	:	"ÊÕÂŞÎïÆ·",
-		"book"	:	"²éÕÒÃØ¼®",
-		"shan"	:	"³ú¼éÉ±Ğ°",
-		"helian":	"Ò»Æ·ÌÃ",
-		"betrayer":	"Õ¶É±ÅÑÍ½",
-		"thief"	:	"×½²¶¼éÏ¸",
-		"baobiao":	"»¤ËÍÈËÖÊ",
-		"bt"	:	"ÑïÖİ²¶¿ì",
+		"wei"	:	"æ”¶ç½—ç‰©å“",
+		"book"	:	"æŸ¥æ‰¾ç§˜ç±",
+		"shan"	:	"é”„å¥¸æ€é‚ª",
+		"helian":	"ä¸€å“å ‚",
+		"betrayer":	"æ–©æ€å›å¾’",
+		"thief"	:	"æ‰æ•å¥¸ç»†",
+		"baobiao":	"æŠ¤é€äººè´¨",
+		"bt"	:	"æ‰¬å·æ•å¿«",
 ]);
 
 void quest_finished( object who, string quest_type )
@@ -24,7 +24,7 @@ void quest_finished( object who, string quest_type )
 				if ( who->query( "quest/" + keys(quest_name)[i] + "/lock" ) == quest_type )
 				{
 					who->delete( "quest/" + keys(quest_name)[i] + "/lock" );
-					tell_object( who, "Äã¿ÉÒÔÁìÈ¡"HIG + values(quest_name)[i] + NOR"ÈÎÎñÁË£¡\n"NOR );
+					tell_object( who, "ä½ å¯ä»¥é¢†å–"HIG + values(quest_name)[i] + NOR"ä»»åŠ¡äº†ï¼\n"NOR );
 					who->set( "quest/" + keys(quest_name)[i] + "/finished", 1 );
 				}
 	}
@@ -56,7 +56,7 @@ int islocked( object who, string quest_type )
 	
 	if ( stringp(lock_quest) && lock_quest != "" )
 	{
-		tell_object( who, "ÄãµÃÏÈÍê³É"HIY + quest_name[lock_quest] + NOR"ÈÎÎñ²ÅÄÜ¼ÌĞøÕâ¸öÈÎÎñ¡£\n" );
+		tell_object( who, "ä½ å¾—å…ˆå®Œæˆ"HIY + quest_name[lock_quest] + NOR"ä»»åŠ¡æ‰èƒ½ç»§ç»­è¿™ä¸ªä»»åŠ¡ã€‚\n" );
 		return 1;
 	}
 	return 0;

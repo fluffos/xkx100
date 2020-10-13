@@ -7,35 +7,35 @@ string ask_for_join()
     me = this_player();
 
     myfam = (mapping)me->query("family");
-    if (!myfam || (myfam["family_name"] != "¶ëáÒÅÉ")) 
-	return ("ÄãºÍ¶ëáÒÃ»ÓÐÔ¨Ô´£¬Æ¶Äá²»¸Ò¸øÄãÌê¶È¡£\n");
+    if (!myfam || (myfam["family_name"] != "å³¨åµ‹æ´¾")) 
+	return ("ä½ å’Œå³¨åµ‹æ²¡æœ‰æ¸Šæºï¼Œè´«å°¼ä¸æ•¢ç»™ä½ å‰ƒåº¦ã€‚\n");
 //	if ( (int)me->query("combat_exp") > 100000 && 
 //		(int)me->query("betrayer") > (int)me->query("K_betrayer"))
 // 	{
 //		command("heng");
-//		return "±¾ÅÉ·¨¶ÈÑÏ½÷£¬ÏóÊ©Ö÷ÕâÑùÈýÐÄ¶þÒâµÄÈË¡£ÉÆÔÕ£¡ÉÆÔÕ£¡Æ¶Äá²»ÄÜ¸øÄãÌê¶È¡£\n";
+//		return "æœ¬æ´¾æ³•åº¦ä¸¥è°¨ï¼Œè±¡æ–½ä¸»è¿™æ ·ä¸‰å¿ƒäºŒæ„çš„äººã€‚å–„å“‰ï¼å–„å“‰ï¼è´«å°¼ä¸èƒ½ç»™ä½ å‰ƒåº¦ã€‚\n";
 //	}
     if( (string)me->query("class")=="bonze" )
-		return "°¢ÃÖÍÓ·ð£¡³ö¼ÒÈË²»´òÚ¿Óï¡£ÄãÒÑ¾­²»ÊÇË×¼ÒÈËÁË¡£\n";
-    if( (string)me->query("gender") != "Å®ÐÔ" )
-		return "°¢ÃÖÍÓ·ð£¡ÉÆÔÕ£¡ÉÆÔÕ£¡Ê©Ö÷ÈôÕæÐÄð§ÒÀÎÒ·ð£¬¿ÉÈ¥ÉÙÁÖËÂÊÜ½ä¡£\n";
+		return "é˜¿å¼¥é™€ä½›ï¼å‡ºå®¶äººä¸æ‰“è¯³è¯­ã€‚ä½ å·²ç»ä¸æ˜¯ä¿—å®¶äººäº†ã€‚\n";
+    if( (string)me->query("gender") != "å¥³æ€§" )
+		return "é˜¿å¼¥é™€ä½›ï¼å–„å“‰ï¼å–„å“‰ï¼æ–½ä¸»è‹¥çœŸå¿ƒçšˆä¾æˆ‘ä½›ï¼Œå¯åŽ»å°‘æž—å¯ºå—æˆ’ã€‚\n";
     me->set_temp("pending/join_bonze", 1);
-	command ("say °¢ÃÖÍÓ·ð£¡ÉÆÔÕ£¡ÉÆÔÕ£¡Ê©Ö÷ÈôÕæÐÄð§ÒÀÎÒ·ð£¬Çë¹òÏÂ(kneel)ÊÜ½ä¡£\n");
-	return "¼Ç×¡£¬Ò»µ©³öÁË¼Ò£¬ÊÇ²»ÄÜ»¹Ë×µÄ£¬·ñÔò½«»áÊÜµ½³Í·£¡£\n";
+	command ("say é˜¿å¼¥é™€ä½›ï¼å–„å“‰ï¼å–„å“‰ï¼æ–½ä¸»è‹¥çœŸå¿ƒçšˆä¾æˆ‘ä½›ï¼Œè¯·è·ªä¸‹(kneel)å—æˆ’ã€‚\n");
+	return "è®°ä½ï¼Œä¸€æ—¦å‡ºäº†å®¶ï¼Œæ˜¯ä¸èƒ½è¿˜ä¿—çš„ï¼Œå¦åˆ™å°†ä¼šå—åˆ°æƒ©ç½šã€‚\n";
 }
 
 int do_kneel()
 {
 	object me = this_player();
-	string *prename = ({ "Áé","ÎÄ"});
+	string *prename = ({ "çµ","æ–‡"});
 	string name, new_name;
 
 	if( !me->query_temp("pending/join_bonze") ) return 0;
-	message_vision("$NÄãË«ÊÖºÏÊ®£¬¹§¹§¾´¾´µØ¹òÁËÏÂÀ´¡£\n\n$n¿´×Å$NËµµÀ£ººÃ°É£¬Äã¾ÍÔÚ±¾âÖÐÞÐÐ°É¡£\n\n$nÉì³öÊÖÕÆ£¬ÔÚ$NÍ·¶¥ÇáÇáµØÄ¦êýÁË¼¸ÏÂ£¬½«$NµÄÍ··¢¾¡ÊýÌêÈ¥¡£\n\n", me, this_object() );
+	message_vision("$Nä½ åŒæ‰‹åˆåï¼Œæ­æ­æ•¬æ•¬åœ°è·ªäº†ä¸‹æ¥ã€‚\n\n$nçœ‹ç€$Nè¯´é“ï¼šå¥½å§ï¼Œä½ å°±åœ¨æœ¬åºµä¿®è¡Œå§ã€‚\n\n$nä¼¸å‡ºæ‰‹æŽŒï¼Œåœ¨$Nå¤´é¡¶è½»è½»åœ°æ‘©æŒ²äº†å‡ ä¸‹ï¼Œå°†$Nçš„å¤´å‘å°½æ•°å‰ƒåŽ»ã€‚\n\n", me, this_object() );
 	name = me->query("name");
 	new_name = prename[random(sizeof(prename))] + name[0..1];
-	command("say ´Ó½ñÒÔºóÄãµÄ·¨Ãû½Ð×ö" + new_name + "¡£");
-	command("chat "+name+"Ï÷·¢ÎªÄá£¬ÔÚ¶ëáÒÉ½ÐÞÐÐ£¬È¡·¨Ãû"+new_name+"¡£");
+	command("say ä»Žä»Šä»¥åŽä½ çš„æ³•åå«åš" + new_name + "ã€‚");
+	command("chat "+name+"å‰Šå‘ä¸ºå°¼ï¼Œåœ¨å³¨åµ‹å±±ä¿®è¡Œï¼Œå–æ³•å"+new_name+"ã€‚");
 	command("smile");
 	me->set("marks/old_name",name);
 	me->delete_temp("pending/join_bonze");

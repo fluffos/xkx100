@@ -3,10 +3,10 @@
 void greeting(object me, object ob)
 {
 	if ( environment(ob) != environment(me) ) return;
-	if ( ob->query("party/party_name") == HIB "ÈÕÔÂÉñ½Ì" NOR )
+	if ( ob->query("party/party_name") == HIB "æ—¥æœˆç¥æ•™" NOR )
 	{
 //		if ( ob->query("party/level") < me->query("level"))
-		message_vision("$N¶Ô$n¹ªÉíĞĞÀñ£¬ËµµÀ£º"+me->query("title")+me->query("name")+"£¬²Î¼û"+ob->query("party")["rank"]+ob->query("name")+"£¡½ÌÖ÷Ç§ÇïÍòÔØ£¬Ò»Í³½­ºş£¡\n", me, ob );
+		message_vision("$Nå¯¹$nèº¬èº«è¡Œç¤¼ï¼Œè¯´é“ï¼š"+me->query("title")+me->query("name")+"ï¼Œå‚è§"+ob->query("party")["rank"]+ob->query("name")+"ï¼æ•™ä¸»åƒç§‹ä¸‡è½½ï¼Œä¸€ç»Ÿæ±Ÿæ¹–ï¼\n", me, ob );
 	}
 	return;
 }

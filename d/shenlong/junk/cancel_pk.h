@@ -18,7 +18,7 @@ void cancel_pk()
 
 		if( !find_player(v_id) && (pker=find_player(p_id)) )
 		{
-			tell_object(pker, "\nÄãÒª×·É±µÄÈËÒÑ¾­Àë¿ªÁË¡£\n");
+			tell_object(pker, "\nä½ è¦è¿½æ€çš„äººå·²ç»ç¦»å¼€äº†ã€‚\n");
 			pker->delete("sgjob");
 			punish = 3 + random(6);
 			pker->add("sg/failure", punish);

@@ -11,61 +11,61 @@ int do_join(string arg)
 	ob = this_player () ;
 
 	if( !arg || arg!="tiandihui" )
-		return notify_fail(me->query("name")+"ÎÊµÀ£ºÄãÒª¼ÓÈëÊ²Ã´£¿\n"); 
+		return notify_fail(me->query("name")+"é—®é“ï¼šä½ è¦åŠ å…¥ä»€ä¹ˆï¼Ÿ\n"); 
 
 	if ((int)ob->query("weiwang") < 20)
 	{
-	command("tell "+this_player()->query("id")+" ÄãÏÖÔÚµÄ½­ºþÍþÍûÊÇ "+(string)(this_player()->query("weiwang")));
-		message_vision( HIR"$N¶Ô$nµÀ£ºÏëÈë»á£¿ÄãµÄ½­ºþÍþÍûÌ«µÍ£¬ÌìµØ»á¶¼ÊÇ¸Ò×÷¸ÒÎªµÄºÃºº! \n"NOR,me,ob);
+	command("tell "+this_player()->query("id")+" ä½ çŽ°åœ¨çš„æ±Ÿæ¹–å¨æœ›æ˜¯ "+(string)(this_player()->query("weiwang")));
+		message_vision( HIR"$Nå¯¹$né“ï¼šæƒ³å…¥ä¼šï¼Ÿä½ çš„æ±Ÿæ¹–å¨æœ›å¤ªä½Žï¼Œå¤©åœ°ä¼šéƒ½æ˜¯æ•¢ä½œæ•¢ä¸ºçš„å¥½æ±‰! \n"NOR,me,ob);
 		return 1;
 	}
 	if ((int)ob->query("shen") < 0)
 	{
-		message_vision(HIR"$N¶Ô$n´óÅ­µÀ£º»¹ÏëÈë»á£¿Ò»¿´Äã¾ÍÊÇ¸ö´óºº¼é£¡\n"NOR,me,ob);
+		message_vision(HIR"$Nå¯¹$nå¤§æ€’é“ï¼šè¿˜æƒ³å…¥ä¼šï¼Ÿä¸€çœ‹ä½ å°±æ˜¯ä¸ªå¤§æ±‰å¥¸ï¼\n"NOR,me,ob);
 		set_leader(this_player());
 		remove_call_out("kill_ob");
 		me->kill_ob(ob); 
 		return 1;
 	}
 	if( ob->query("party") &&
-		ob->query("party/party_name") != HIR "ÌìµØ»á" NOR )
+		ob->query("party/party_name") != HIR "å¤©åœ°ä¼š" NOR )
 	{
-		message_vision("$NÒ¡Ò¡Í·£¬¶Ô$nËµµÀ£ºÄãÒÑ¾­¼ÓÈëÆäËû°ï»áÁË£¬²»ÄÜÔÙÈëÎÒÌìµØ»á¡£\n",me,ob);
+		message_vision("$Næ‘‡æ‘‡å¤´ï¼Œå¯¹$nè¯´é“ï¼šä½ å·²ç»åŠ å…¥å…¶ä»–å¸®ä¼šäº†ï¼Œä¸èƒ½å†å…¥æˆ‘å¤©åœ°ä¼šã€‚\n",me,ob);
 		return 1;
 	}
-	if( ob->query("party/party_name") == HIR "ÌìµØ»á" NOR )
+	if( ob->query("party/party_name") == HIR "å¤©åœ°ä¼š" NOR )
 	{
-		message_vision("$NÒ¡Ò¡Í·£¬¶Ô$nËµµÀ£ºÄãÒÑ¾­ÊÇÎÒÌìµØ»áµÄÈËÁË¡£\n",me,ob);
+		message_vision("$Næ‘‡æ‘‡å¤´ï¼Œå¯¹$nè¯´é“ï¼šä½ å·²ç»æ˜¯æˆ‘å¤©åœ°ä¼šçš„äººäº†ã€‚\n",me,ob);
 		return 1;
 	}
 	switch (random(10))
 	{
-		case 0 : tang=HIG"ÇàÄ¾ÌÃ"; break;
-		case 1 : tang=HIG"³à»ðÌÃ"; break;  //¹ÅÖÁÖÐ
-		case 2 : tang=HIW"Î÷½ðÌÃ"; break;
-		case 3 : tang=BLU"ÐþË®ÌÃ"; break;
-		case 4 : tang=YEL"»ÆÍÁÌÃ"; break;
-		case 5 : tang=HIG"Á«»¨ÌÃ"; break;  //²ÌµÂÖÒ
-		case 6 : tang=HIG"ºéË³ÌÃ"; break;  //·½´óºé
-		case 7 : tang=HIW"¼ÒºóÌÃ"; break;  //Âí³¬ÐË
-		case 8 : tang=BLU"²ÎÌ«ÌÃ"; break;
-		default: tang=YEL"ºê»¯ÌÃ"; break;  //Àî
+		case 0 : tang=HIG"é’æœ¨å ‚"; break;
+		case 1 : tang=HIG"èµ¤ç«å ‚"; break;  //å¤è‡³ä¸­
+		case 2 : tang=HIW"è¥¿é‡‘å ‚"; break;
+		case 3 : tang=BLU"çŽ„æ°´å ‚"; break;
+		case 4 : tang=YEL"é»„åœŸå ‚"; break;
+		case 5 : tang=HIG"èŽ²èŠ±å ‚"; break;  //è”¡å¾·å¿ 
+		case 6 : tang=HIG"æ´ªé¡ºå ‚"; break;  //æ–¹å¤§æ´ª
+		case 7 : tang=HIW"å®¶åŽå ‚"; break;  //é©¬è¶…å…´
+		case 8 : tang=BLU"å‚å¤ªå ‚"; break;
+		default: tang=YEL"å®åŒ–å ‚"; break;  //æŽ
 	}
 	party = allocate_mapping(5);
-	party["party_name"] = HIR "ÌìµØ»á" NOR;
-	party["rank"] = tang+NOR"»áÖÚ";
+	party["party_name"] = HIR "å¤©åœ°ä¼š" NOR;
+	party["rank"] = tang+NOR"ä¼šä¼—";
 	party["level"] = 1;
 	party["tasks"] = 0;
 	party["enter_time"] = time();
 	ob->set("party", party);
 
 	command("smile");
-	message_vision("$N¶Ô$nËµµÀ£ºÄã¾ÍÔÝÊ±ÔÚ"+tang+NOR+"Ð§Á¦°É£¡\n", me, ob);
+	message_vision("$Nå¯¹$nè¯´é“ï¼šä½ å°±æš‚æ—¶åœ¨"+tang+NOR+"æ•ˆåŠ›å§ï¼\n", me, ob);
 	if(ob->query("weiwang")<50)
 	{
 		ob->set("weiwang",50);
-		message_vision(HIC "$NµÄ½­ºþÍþÍûÌá¸ßÁË£¡\n" NOR,this_player());
-		command("tell "+this_player()->query("id")+" ÄãÏÖÔÚµÄ½­ºþÍþÍûÊÇ " +(string)(this_player()->query("weiwang")));
+		message_vision(HIC "$Nçš„æ±Ÿæ¹–å¨æœ›æé«˜äº†ï¼\n" NOR,this_player());
+		command("tell "+this_player()->query("id")+" ä½ çŽ°åœ¨çš„æ±Ÿæ¹–å¨æœ›æ˜¯ " +(string)(this_player()->query("weiwang")));
 		return 1;	
 	}
 	return 1;

@@ -28,7 +28,7 @@ void showup()
 
 	snake = new(snakefile);
 
-	message("vision", HIR"Í»È»Ò»Ìõ" + snake->query("name") + "´Ó²»ÖªÊ²Ã´µØ·½ÓÎÁË³öÀ´£¡£¡£¡\n" NOR, this_object());
+	message("vision", HIR"çªç„¶ä¸€æ¡" + snake->query("name") + "ä»ä¸çŸ¥ä»€ä¹ˆåœ°æ–¹æ¸¸äº†å‡ºæ¥ï¼ï¼ï¼\n" NOR, this_object());
 	snake->move(this_object());
 
 	remove_call_out("disappear");
@@ -46,7 +46,7 @@ void disappear(object snake)
 		return;
 	}
 
-	message_vision("Ö»¼û$N·É¿ìµØÓÎ×ßÁË¡£\n", snake);
+	message_vision("åªè§$Né£å¿«åœ°æ¸¸èµ°äº†ã€‚\n", snake);
 	destruct(snake);
 }
 

@@ -2,7 +2,7 @@
 // From ES2
 // Modified for XKX by Xiang (12/15/95)
 // Last Modified for XKX100 by Winder (05/17/2001)
-#pragma save_binary
+// #pragma save_binary
 
 #define MAX_REPEAT 30
 #define MAX_ALIASES 40
@@ -46,7 +46,7 @@ string process_input(string str)
 			return "";
 		}
 	}
-// 限制粗口 
+// 限制粗口
 	badstr=lower_case(str);
         badstr = replace_string(badstr, "$blk$", "");
         badstr = replace_string(badstr, "$red$", "");
@@ -158,4 +158,3 @@ mapping query_all_alias()
 {
 	return alias;
 }
-

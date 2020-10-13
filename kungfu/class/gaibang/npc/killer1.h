@@ -39,7 +39,7 @@ void init()
 		if (!me->query_temp("zuji_target")) me->set_temp("zuji_target",t_name);
 		if (!me->query_temp("skill_set"))
 		{
-			command("say Ğ¡×Ó£¬¹Ô¹Ô°ÑÃÜº¯½»³öÀ´°É£¡£¡£¡\n");
+			command("say å°å­ï¼Œä¹–ä¹–æŠŠå¯†å‡½äº¤å‡ºæ¥å§ï¼ï¼ï¼\n");
 			remove_call_out("dest");
 			call_out("dest",300);
 			remove_call_out("do_clone");
@@ -47,7 +47,7 @@ void init()
 		}
 		else
 		{
-			command("say ÏëÅÜ£¬»¹²»¸øÎÒ½»³öÀ´£¡£¡£¡\n");
+			command("say æƒ³è·‘ï¼Œè¿˜ä¸ç»™æˆ‘äº¤å‡ºæ¥ï¼ï¼ï¼\n");
 			me->set_leader(ob);
 			remove_call_out("dest");
 			call_out("dest",300);
@@ -183,7 +183,7 @@ int do_kill(object me, object dest)
 	if( objectp(dest) && present(dest, environment(me))
 		 && !environment(me)->query("no_fight"))
 	{
-		message_vision(HIR "$N¶Ô$nËµµÀ£º"+RANK_D->query_rude(dest)+"£¬ÏëÍùÄÄÀïÅÜ£¡\n" NOR, me, dest);
+		message_vision(HIR "$Nå¯¹$nè¯´é“ï¼š"+RANK_D->query_rude(dest)+"ï¼Œæƒ³å¾€å“ªé‡Œè·‘ï¼\n" NOR, me, dest);
 		me->set_leader(dest);
 		me->kill_ob(dest);
 		dest->fight_ob(me);
@@ -256,8 +256,8 @@ void dest()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"µÀ£ºÕâ´ÎËãÄãÃü´ó£¡\n",me);  
-	write(me->query("name")+"´Ò´ÒÀë¿ª¡£\n",me);  
+	write(me->query("name")+"é“ï¼šè¿™æ¬¡ç®—ä½ å‘½å¤§ï¼\n",me);  
+	write(me->query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n",me);  
 
 	destruct(this_object());
 }
@@ -268,8 +268,8 @@ void dest2()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"µÀ£ºÄã¶ãµÃ¹ı³õÒ»¶ã²»¹ıÊ®Îå£¬ÎÒÃÇ»¹»áÀ´µÄ£¡\n",me);  
-	write(me->query("name")+"´Ò´ÒÀë¿ª¡£\n",me);  
+	write(me->query("name")+"é“ï¼šä½ èº²å¾—è¿‡åˆä¸€èº²ä¸è¿‡åäº”ï¼Œæˆ‘ä»¬è¿˜ä¼šæ¥çš„ï¼\n",me);  
+	write(me->query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n",me);  
 	ob->delete_temp("songxin_zuji");
 
 	destruct(this_object());
@@ -279,7 +279,7 @@ void dest3()
 	object me;
 	me = this_object();
 
-	write(me->query("name")+"´óĞ¦µÀ£ºÍê³ÉÈÎÎñÁË£¡\n",me);  
-	write(me->query("name")+"´Ò´ÒÀë¿ª¡£\n",me);  
+	write(me->query("name")+"å¤§ç¬‘é“ï¼šå®Œæˆä»»åŠ¡äº†ï¼\n",me);  
+	write(me->query("name")+"åŒ†åŒ†ç¦»å¼€ã€‚\n",me);  
 	destruct(this_object());
 }

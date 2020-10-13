@@ -5,13 +5,13 @@ string ask_for_join()
 	object me = this_player();
 
 	if( (string)me->query("class")=="lama" )
-		return "°¢ÃÖÍÓ·ð£¡ÄãÎÒÍ¬ÊÇ³ö¼ÒÈË£¬ºÎ¹Ê¸úÆ¶É®¿ªÕâµÈÍæÐ¦£¿\n";
+		return "é˜¿å¼¥é™€ä½›ï¼ä½ æˆ‘åŒæ˜¯å‡ºå®¶äººï¼Œä½•æ•…è·Ÿè´«åƒ§å¼€è¿™ç­‰çŽ©ç¬‘ï¼Ÿ\n";
 
-	if( (string)me->query("gender") != "ÄÐÐÔ" )
-		return "Ê©Ö÷ÈôÕæÐÄÏò·ð£¬ÕæÊÇ¿ÉÏ²¿ÉºØ£¬¿ÉÏ§±¾ËÂÖ»ÊÕÄÐÍ½¡£\n";
+	if( (string)me->query("gender") != "ç”·æ€§" )
+		return "æ–½ä¸»è‹¥çœŸå¿ƒå‘ä½›ï¼ŒçœŸæ˜¯å¯å–œå¯è´ºï¼Œå¯æƒœæœ¬å¯ºåªæ”¶ç”·å¾’ã€‚\n";
 
 	me->set_temp("pending/join_bonze", 1);
-	return "°¢ÃÖÍÓ·ð£¡ÉÆÔÕ£¡ÉÆÔÕ£¡Ê©Ö÷ÈôÕæÐÄð§ÒÀÎÒ·ð£¬Çë¹òÏÂ(kneel)ÊÜ½ä¡£\n";
+	return "é˜¿å¼¥é™€ä½›ï¼å–„å“‰ï¼å–„å“‰ï¼æ–½ä¸»è‹¥çœŸå¿ƒçšˆä¾æˆ‘ä½›ï¼Œè¯·è·ªä¸‹(kneel)å—æˆ’ã€‚\n";
 }
 
 int do_kneel()
@@ -19,7 +19,7 @@ int do_kneel()
 	object me = this_player();
 
 	if( !me->query_temp("pending/join_bonze") ) return 0;
-	message_vision("$NË«ÊÖºÏÊ®£¬¹§¹§¾´¾´µØ¹òÁËÏÂÀ´¡£\n\n$nÉì³öÊÖÕÆ£¬ÔÚ$NÍ·¶¥ÇáÇáµØÄ¦êýÁË¼¸ÏÂ£¬½«$NµÄÍ··¢¾¡ÊýÌêÈ¥¡£\n\n", me, this_object() );
+	message_vision("$NåŒæ‰‹åˆåï¼Œæ­æ­æ•¬æ•¬åœ°è·ªäº†ä¸‹æ¥ã€‚\n\n$nä¼¸å‡ºæ‰‹æŽŒï¼Œåœ¨$Nå¤´é¡¶è½»è½»åœ°æ‘©æŒ²äº†å‡ ä¸‹ï¼Œå°†$Nçš„å¤´å‘å°½æ•°å‰ƒåŽ»ã€‚\n\n", me, this_object() );
 	command("smile");
 	me->set("class", "lama");
 	return 1;

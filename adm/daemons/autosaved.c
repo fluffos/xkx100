@@ -1,7 +1,7 @@
 // autosaved.c
 // file:		Autosave daemon
 
-// 唯一续命八丸和风传通告 自动存盘由condition做 
+// 唯一续命八丸和风传通告 自动存盘由condition做
 
 inherit F_DBASE;
 
@@ -10,7 +10,7 @@ inherit F_DBASE;
 #include <net/macros.h>
 #include <command.h>
 
-#pragma save_binary
+// #pragma save_binary
 
 
 
@@ -116,8 +116,8 @@ message("channel:snow", HIY"【风闻】"+ms[random(sizeof(ms))]+"\n"NOR,users()
 				 if ( ob[usernum]->is_fighting())
                 			inv[i]->set_temp("keep",0);
         			 else
-        			  {					   
-					  if( !inv[i]->is_unique()	
+        			  {
+					  if( !inv[i]->is_unique()
 					  &&  inv[i]->query("weapon_prop/damage") >= 100
 				    &&  !inv[i]->query("ownmake"))
 					     inv[i]->add_temp("keep", 1);
@@ -166,4 +166,3 @@ void haojie()
 	message("channel:snow",HIM"【谣言】江湖上最近出现一个神秘组织，妄想消灭各门派，一统江湖。\n\n\n"NOR,users());
 	DISASTER_D->disaster(0);
 }
-

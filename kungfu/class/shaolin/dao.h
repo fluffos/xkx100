@@ -7,35 +7,35 @@ int accept_object(object ob, object obj)
 	mapping my_fam  = me->query("family");
 	mapping ob_fam  = ob->query("family");
 
-	if ( ob->query_temp("have_letter") && present("tuijian xin2", ob) ) 
+	if ( ob->query_temp("have_letter") && present("tuijian xin2", ob) )
 	{
-		command("say Ôõ÷áÑù£¬ÄãÄÃÎÒµÄÍÆ¼öĞÅÈ¥°İÊ¦ÁËÂğ ?");
+		command("say é¬åº¨èˆªéå‡¤ç´æµ£çŠ³å¬é´æˆ æ®‘éºã„¨å´˜æ·‡â€³å¹“é·æ»ƒç¬€æµœå——æ‚§ ?");
 		return 0;
 	}
 
 	if((obj->query("id") == "damo ling")
 	&& ob_fam["generation"] == my_fam["generation"] + 1
-	&& !ob->query_temp("have_letter") ) 
+	&& !ob->query_temp("have_letter") )
 	{
 		ob->set_temp("fight_ok",1);
-	        command("say ºÃ£¬¼ÈÈ»ÒÑµÃµ½·½ÕÉĞí¿É£¬ÎÒÃÇ¾ÍÀ´ÑéÖ¤Ò»ÏÂÎä¹¦¡£");
+	        command("say æ¿‚æ–¤ç´éƒãˆ¢åŠ§å®¸æ’ç·±é’ç‰ˆæŸŸæ¶“å £ï¿½é™ï¿½ç´é´æˆœæ»‘çè¾¨æ½µæ¥ å²ƒç˜‰æ¶“â‚¬æ¶“å¬«ï¿½é”ç†´â‚¬ï¿½");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
-        
-	if (obj->query("id") == "tuijian xin1" 
+
+	if (obj->query("id") == "tuijian xin1"
 	&& ob->query_temp("have_letter") )
 	{
 		ob->set_temp("apprentice_ok",1);
-	        command("say ºÃ£¬" + ob->query("name") + "£¬ÄãÔ¸Òâ°İÎÒÎªÊ¦Âğ£¿");
+	        command("say æ¿‚æ–¤ç´" + ob->query("name") + "é”›å±¼ç¶˜é°æŒå‰°é·æ»„åœæ¶“å“„ç¬€éšæ¥‹ç´µ");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
 
         command("smile");
-        command("say Õâ¶«Î÷¸øÎÒ¿ÉÃ»ÓĞÊ²÷áÓÃ¡£");
+        command("say æ©æ¬ç¬¢ç‘—è·¨ç²°é´æˆå½²å¨Œâ„ƒæ¹æµ â‚¬æ¥¹ç•Œæ•¤éŠ†ï¿½");
         command("give " + obj->query("id") + " to " + me->query("id"));
 	return 0;
 
@@ -50,14 +50,14 @@ void destroying(object me, object obj)
 int accept_fight(object ob)
 {
 	object me  = this_object();
-	
+
 	if ( !ob->query_temp("fight_ok") ) return 0;
 
 	remove_call_out("checking");
 	call_out("checking", 1, me, ob);
 
 	ob->delete_temp("fight_ok");
-	
+
 	return 1;
 }
 
@@ -70,32 +70,32 @@ int checking(object me, object ob)
 	my_max_qi  = me->query("max_qi");
 	his_max_qi = ob->query("max_qi");
 
-	if (me->is_fighting()) 
+	if (me->is_fighting())
 	{
 		call_out("checking",2, me, ob);
                 return 1;
 	}
 
-	if ( !present(ob, environment()) ) return 1; 
+	if ( !present(ob, environment()) ) return 1;
 
-	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
+	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 )
 	{
-		command("say Çà³öì¶À¶Ê¤ì¶À¶£¬²»À¢ÊÇÉÙÁÖËÂµÄ¼ÑµÜ×Ó ! ¹§Ï²ÄãÁË !\n");
-		message_vision("$N½»¸ø$nÒ»·âÍÆ¼öĞÅ¡£\n", me, ob);
+		command("say é—ˆæ‘åš­é‚è‰°æ‘‘é‘³æ»„æŸ¤é’ƒæ¿“ç´æ¶“å¶†åŠé„ï¿½çš¯é‹æ¥€ï¿½é¨å‹ªåŒ å¯®ç†·ç“™ ! é­ï¿½æ©æµ£çŠ±ç°¡ !\n");
+		message_vision("$Næµœã‚‡ç²°$næ¶“â‚¬çä½¹å¸¹é‘½æ„ªä¿ŠéŠ†ä¿“n", me, ob);
 		ob->set_temp("have_letter",1);
 		obj=new("/d/shaolin/obj/tuijianxin-2");
 		obj->move(ob);
 		return 1;
 	}
 
-	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
+	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 )
 	{
-		command("say ¿´À´" + RANK_D->query_respect(ob) + 
-			"»¹µÃ¶à¼ÓÁ·Ï°£¬·½ÄÜÔÚÉÙÁÖÖî¶àµÜ×ÓÖĞ³öÈËÍ·µØ !\n");
+		command("say éªå¬«æ½µ" + RANK_D->query_respect(ob) +
+			"æ©æ¨ºç·±æ¾¶æ°¬å§ç¼å†§ç¯„é”›å±¾æŸŸé‘³è—‰æ¹ªçæˆç„ç’‡ç¨¿ï¿½å¯®ç†·ç“™æ¶“ï¿½åš­æµœå“„ã”é¦ï¿½ !\n");
 		return 1;
 	}
 
-	return 1;  
+	return 1;
 }
 
 void attempt_apprentice(object ob)
@@ -108,34 +108,34 @@ void attempt_apprentice(object ob)
 
 	name = ob->query("name");
 
-	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "ÉÙÁÖÅÉ")
+	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "çæˆç„å¨²ï¿½")
 	{
-		command("say " + RANK_D->query_respect(ob) + "Óë±¾ÅÉËØÎŞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æğ£¿");
+		command("say " + RANK_D->query_respect(ob) + "æ¶“åº¢æ¹°å¨²å‰§ç¤ŒéƒçŠ³æ½µå¯°â‚¬é”›å±¼ç¬‰é­ãƒ¦ï¿½ç’‡æ¿…ç² æµ£æ›¡çš¥ç’§å‡¤ç´µ");
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "ÉÙÁÖÅÉ") 
+	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "çæˆç„å¨²ï¿½")
 	{
-		command("say " + RANK_D->query_respect(ob) + "ÊÇË×¼ÒµÜ×Ó£¬²»ÄÜÔÚËÂÄÚÑ§ÒÕ¡£");
+		command("say " + RANK_D->query_respect(ob) + "é„ï¿½ç¹”ç€¹è·ºç´µç€›æ„¶ç´æ¶“å¶ˆå…˜é¦ã„¥ï¿½éå‘­ï¿½é‘¹æ’â‚¬ï¿½");
 		return;
 	}
 
 	if ( ob_fam["generation"] == 0 )
 	{
-		command("say °¢ÃÖÍÓ·ğ£¡Æ¶É®¾ÍÊÕÏÂÄã×öÎÒµÄµÜ×ÓÁË¡£");
+		command("say é—ƒå®è®¥é—„â‚¬æµ£æ¶³ç´’ç’ï¿½å„³çè¾¨æ•¹æ¶“å¬©ç¶˜é‹æ°­åœé¨å‹«ç´µç€›æ„ªç°¡éŠ†ï¿½");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 
 	if ( ob_fam["generation"] <= my_fam["generation"] )
 	{
-		command("say " + RANK_D->query_respect(ob) + "£¬Æ¶É®ÄÄÀï¸Òµ± !");
+		command("say " + RANK_D->query_respect(ob) + "é”›å²ƒä¼ éÑƒæ‘¢é–²å±¾æšè¤°ï¿½ !");
 		return;
 	}
 
-	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..1] == "Çå")
+	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..1] == "å¨“ï¿½")
 	{
-		command("say " + ob_fam["master_name"] + "µÄÍ½µÜÔõ÷áÅÜµ½ÎÒÕâ¶ùÀ´ÁË£¬¹ş¹ş¹ş !");
+		command("say " + ob_fam["master_name"] + "é¨å‹«ç·¬å¯®ç†¸â‚¬åº¨èˆªç’ºæˆåŸŒé´æˆ£ç¹–éæŒæ½µæµœå—­ç´éå æ±éï¿½ !");
 		command("recruit " + ob->query("id"));
 	}
 
@@ -145,23 +145,22 @@ void attempt_apprentice(object ob)
 		{
 			ob->delete_temp("have_letter");
 			ob->delete_temp("apprentice_ok");
-	
-			command("say ÊÇ" + ob_fam["master_name"] + "½ĞÄãÀ´ÕÒÎÒµÄ°É£¬¹ş¹ş¹ş !");
-			command("say Æ¶É®ÓÖµÃÒ»¿ÉËÜÖ®²Å£¬ÕæÊÇ¿ÉÏ²¿ÉºØ !");
 
-			new_name = "Çå" + name[2..3];
+			command("say é„ï¿½" + ob_fam["master_name"] + "é™ï¿½ç¶˜é‰ãƒ¦å£˜é´æˆ æ®‘éšÑç´éå æ±éï¿½ !");
+			command("say ç’ï¿½å„³é™å ç·±æ¶“â‚¬é™ï¿½ï¿½æ¶”å¬«å¢ é”›å²€æ¹¡é„ï¿½å½²é æ»ƒå½²ç’ï¿½ !");
+
+			new_name = "å¨“ï¿½" + name[2..3];
 			ob->set("name", new_name);
-	
-			command("say ´Ó½ñÒÔºóÄãµÄ·¨Ãû½Ğ×ö" + new_name + "£¬¹§Ï²ÄãÈÙÉıÎªÉÙÁÖÅÉÇå×Ö±²µÜ×Ó !");
+
+			command("say æµ åºç²–æµ ãƒ¥æ‚—æµ£çŠµæ®‘å¨‰æ›æ‚•é™ï¿½ä»›" + new_name + "é”›å±¾ä¼ƒé æ»€ç¶˜é‘½ï½…å´Œæ¶“å“„çš¯é‹æ¥æ·³å¨“å‘­ç“§æˆå ç´µç€›ï¿½ !");
 			command("recruit " + ob->query("id"));
 		}
 		else
 		{
-			command("say " + RANK_D->query_respect(ob) + "£¬ÄãÃ»ÓĞÍÆ¼öĞÅ£¬²»ÄÜÔ½¼¶°İÊ¦¡£");
+			command("say " + RANK_D->query_respect(ob) + "é”›å±¼ç¶˜å¨Œâ„ƒæ¹éºã„¨å´˜æ·‡â˜…ç´æ¶“å¶ˆå…˜ç“’å©„éª‡é·æ»ƒç¬€éŠ†ï¿½");
 			return;
 		}
 	}
 
 	return;
 }
-

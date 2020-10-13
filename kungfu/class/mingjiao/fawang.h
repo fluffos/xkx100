@@ -4,16 +4,16 @@ void attempt_apprentice(object ob)
 {
 	object me = this_object();
 
-	if (ob->query("party/party_name") != HIG "Ã÷½Ì" NOR)
+	if (ob->query("party/party_name") != HIG "æ˜Žæ•™" NOR)
 	{
-		command("say " + RANK_D->query_respect(ob) + "Óë±¾½ÌËØÎÞÀ´Íù£¬²»Öª´Ë»°´ÓºÎÌ¸Æð£¿");
+		command("say " + RANK_D->query_respect(ob) + "ä¸Žæœ¬æ•™ç´ æ— æ¥å¾€ï¼Œä¸çŸ¥æ­¤è¯ä»Žä½•è°ˆèµ·ï¼Ÿ");
 		return;
 	}
 	else
 	{
-		command("say ±¾·¨ÍõÓÖµÃÒ»¿ÉËÜÖ®²Å£¬ÕæÊÇ¿ÉÏ²¿ÉºØ !");
+		command("say æœ¬æ³•çŽ‹åˆå¾—ä¸€å¯å¡‘ä¹‹æ‰ï¼ŒçœŸæ˜¯å¯å–œå¯è´º !");
 		command("recruit " + ob->query("id"));
-//		ob->set("title", HIR"Ã÷½Ì»¤·¨"NOR);
+//		ob->set("title", HIR"æ˜Žæ•™æŠ¤æ³•"NOR);
 	}
 	return;
 }
@@ -21,8 +21,8 @@ int recruit_apprentice(object ob)
 {
         if( ::recruit_apprentice(ob) )
 		       {
-		       	command("say ¹§Ï²ÄãÈÙÉýÎªÃ÷½Ì»¤·¨£¡");
- 				    ob->set("title", HIR"Ã÷½Ì»¤·¨"NOR);
+		       	command("say æ­å–œä½ è£å‡ä¸ºæ˜Žæ•™æŠ¤æ³•ï¼");
+ 				    ob->set("title", HIR"æ˜Žæ•™æŠ¤æ³•"NOR);
  				  }
 }
 #include "mingjiao.h"

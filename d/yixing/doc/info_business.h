@@ -2,7 +2,7 @@
 // Last Modified by winder on Jul. 12 2002
 
 mapping info_business = ([
-"³¤°×É½ÈË²Î" :
+"é•¿ç™½å±±äººå‚" :
        ([   "changbai"  :  10 + (random(20)/19) * random(20),
             "city"      :  30 + (random(6)/5)   * random(180),
             "dali"      :  40 + (random(16)/15) * random(150),
@@ -24,7 +24,7 @@ mapping info_business = ([
             "xueshan"   :  40 + (random(19)/18) * random(120),
       ]),
 
-CYN"³ñ¶Ğ"NOR : 
+CYN"ç»¸ç¼"NOR : 
       ([    "changbai"  :  50 + (random(20)/19) * random(180),
             "city"      :  20 + (random(6)/5)   * random(100),
             "dali"      :  45 + (random(16)/15) * random(120),

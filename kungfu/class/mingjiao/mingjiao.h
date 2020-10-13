@@ -3,11 +3,11 @@
 void greeting(object me, object ob)
 {
 	if ( environment(ob) != environment(me) ) return;
-	if ( ob->query("party/party_name") == HIG "√˜ΩÃ" NOR )
+	if ( ob->query("party/party_name") == HIG "ÊòéÊïô" NOR )
 	{
 	if ( ob->query("party/level") < me->query("level"))
-		message_vision("$N∂‘$nπ™…Ì––¿Ò£¨Àµµ¿£∫"+me->query("title")+me->query("name")
-			+"£¨≤Œº˚"+ob->query("party")["rank"]+ob->query("name")+"£°\n", me, ob );
+		message_vision("$NÂØπ$nË∫¨Ë∫´Ë°åÁ§ºÔºåËØ¥ÈÅìÔºö"+me->query("title")+me->query("name")
+			+"ÔºåÂèÇËßÅ"+ob->query("party")["rank"]+ob->query("name")+"ÔºÅ\n", me, ob );
 	}
 
 }

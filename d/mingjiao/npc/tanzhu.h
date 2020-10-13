@@ -9,40 +9,40 @@ int do_join(string arg)
 	ob = this_player () ;
 
 	if( !arg || arg!="mingjiao" )
-		return notify_fail("ÄãÒª¼ÓÈëÊ²Ã´×éÖ¯£¿\n"); 
+		return notify_fail("ä½ è¦åŠ å…¥ä»€ä¹ˆç»„ç»‡ï¼Ÿ\n"); 
    	if( ob->query_temp("have_letter") || present("tuijian xin1", ob ))
    	{
-                command("say ºÃ°¡¡£");
+                command("say å¥½å•Šã€‚");
                 command("heihei "+ob->query("id") );
 //                command("get xin1 from "+ob->query("id") );
 		return 1;	
 	}
 //	if (ob->query("weiwang")>49)
 //	{
-//		message_vision("$NÒ¡Ò¡Í·£¬¶Ô$nËµµÀ£ºÄãÒÑ¾­¼ÓÈëÌìµØ»áÁË£¬²»ÄÜÔÙÈëÎÒÃ÷½Ì¡£\n",me,ob);
+//		message_vision("$Næ‘‡æ‘‡å¤´ï¼Œå¯¹$nè¯´é“ï¼šä½ å·²ç»åŠ å…¥å¤©åœ°ä¼šäº†ï¼Œä¸èƒ½å†å…¥æˆ‘æ˜æ•™ã€‚\n",me,ob);
 //		return 1;
 //	}
 //	if(ob->query("shenlongjiao")) 
 //	{
-//		message_vision("$NÒ¡Ò¡Í·£¬¶Ô$nËµµÀ£ºÄãÒÑ¾­¼ÓÈëÉñÁú½ÌÁË£¬²»ÄÜÔÙÈëÎÒÃ÷½Ì¡£\n",me,ob);
+//		message_vision("$Næ‘‡æ‘‡å¤´ï¼Œå¯¹$nè¯´é“ï¼šä½ å·²ç»åŠ å…¥ç¥é¾™æ•™äº†ï¼Œä¸èƒ½å†å…¥æˆ‘æ˜æ•™ã€‚\n",me,ob);
 //		return 1;
 //	}
    	if( !mapp(party = ob->query("party")) )
    	{
-		message_vision("$NµãµãÍ·£¬¶Ô$nËµµÀ£ººÃ£¬Äãµ½À¥ÂØÉ½×Ü¶æÈ¥ÕÒ½ÓÒıÊ¹Õß£¬Ëû»áÈÃÄãÈë½ÌµÄ¡£\n",me,ob);
-		message_vision("$N½»¸ø$nÒ»·âÍÆ¼öĞÅ¡£\n", me, ob);
+		message_vision("$Nç‚¹ç‚¹å¤´ï¼Œå¯¹$nè¯´é“ï¼šå¥½ï¼Œä½ åˆ°æ˜†ä»‘å±±æ€»èˆµå»æ‰¾æ¥å¼•ä½¿è€…ï¼Œä»–ä¼šè®©ä½ å…¥æ•™çš„ã€‚\n",me,ob);
+		message_vision("$Näº¤ç»™$nä¸€å°æ¨èä¿¡ã€‚\n", me, ob);
 		ob->set_temp("have_letter",1);
                 obj=new("/d/mingjiao/obj/tuijianxin-1");
 		obj->move(ob);
 		return 1;	
 	}
-   	if( party["party_name"] != HIG "Ã÷½Ì" NOR )
+   	if( party["party_name"] != HIG "æ˜æ•™" NOR )
 	{
-		message_vision("$NÒ¡Ò¡Í·£¬¶Ô$nËµµÀ£ºÄãÒÑ¾­¼ÓÈëÆäËû°ï»áÁË£¬²»ÄÜÔÙÈëÎÒÃ÷½Ì¡£\n",me,ob);
+		message_vision("$Næ‘‡æ‘‡å¤´ï¼Œå¯¹$nè¯´é“ï¼šä½ å·²ç»åŠ å…¥å…¶ä»–å¸®ä¼šäº†ï¼Œä¸èƒ½å†å…¥æˆ‘æ˜æ•™ã€‚\n",me,ob);
 		return 1;
 	}
 	else
-		message_vision("$NÒ¡Ò¡Í·£¬¶Ô$nËµµÀ£ºÄãÒÑ¾­ÊÇÎÒÃ÷½ÌµÄÈËÁË¡£\n",me,ob);
+		message_vision("$Næ‘‡æ‘‡å¤´ï¼Œå¯¹$nè¯´é“ï¼šä½ å·²ç»æ˜¯æˆ‘æ˜æ•™çš„äººäº†ã€‚\n",me,ob);
 	return 1;
 }
 

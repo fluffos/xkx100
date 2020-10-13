@@ -20,23 +20,23 @@ void attempt_apprentice(object ob)
 
 	if (ob->query("class")=="bonze")
 	{
-		command ("say ·ð¼ÒµÀ¼ÒËùÐÅ²»Í¬£¬Äã¼ÈÈ»ÒÑ¾­ÒÑ¾­³öÁË¼Ò£¬À´ÎÒÃÇÕâÀï×öÊ²Ã´ÄØ£¿");
+		command ("say ä½›å®¶é“å®¶æ‰€ä¿¡ä¸åŒï¼Œä½ æ—¢ç„¶å·²ç»å·²ç»å‡ºäº†å®¶ï¼Œæ¥æˆ‘ä»¬è¿™é‡Œåšä»€ä¹ˆå‘¢ï¼Ÿ");
 		return;
 	}
 	if ((int)ob->query("shen") < 0)
 	{
-		command("say ÎÒÎäµ±ÄËÊÇÌÃÌÃÃûÃÅÕýÅÉ£¬¶ÔµÜ×ÓÒªÇó¼«ÑÏ¡£");
-		command("say ÔÚµÂÐÐ·½Ãæ£¬" + RANK_D->query_respect(ob) + "ÊÇ·ñ»¹×öµÃ²»¹»£¿");
+		command("say æˆ‘æ­¦å½“ä¹ƒæ˜¯å ‚å ‚åé—¨æ­£æ´¾ï¼Œå¯¹å¼Ÿå­è¦æ±‚æžä¸¥ã€‚");
+		command("say åœ¨å¾·è¡Œæ–¹é¢ï¼Œ" + RANK_D->query_respect(ob) + "æ˜¯å¦è¿˜åšå¾—ä¸å¤Ÿï¼Ÿ");
 		return;
 	}
-	if ( (string)ob->query("gender") == "ÎÞÐÔ" )
+	if ( (string)ob->query("gender") == "æ— æ€§" )
 	{
-		command("say µÀ¼ÒÄÚ¹¦Á·ÌìµØÕýÆø£¬½²ÒõÑôµ÷ºÏ¡£");
-		command("say ¹«¹«ÎÞ¸ùÎÞÐÔ£¬¿ÖÅÂÐÞÖ®²»ÒË£¡");
+		command("say é“å®¶å†…åŠŸç»ƒå¤©åœ°æ­£æ°”ï¼Œè®²é˜´é˜³è°ƒåˆã€‚");
+		command("say å…¬å…¬æ— æ ¹æ— æ€§ï¼Œææ€•ä¿®ä¹‹ä¸å®œï¼");
 		return;
 	}
 	if( mapp(fam = ob->query("family")) &&
-		(fam["family_name"] != "Îäµ±ÅÉ") &&
+		(fam["family_name"] != "æ­¦å½“æ´¾") &&
 		(skill_status = ob->query_skills()) )
 	{
 		sname  = keys(skill_status);
@@ -44,36 +44,36 @@ void attempt_apprentice(object ob)
 		for(i=0; i<sizeof(skill_status); i++) 
 		if (member_array(sname[i], wudang_skills) == -1)
 		{
-			message_vision(this_object()->name()+"¹þ¹þÒ»Ð¦£º"+ RANK_D->query_respect(ob) + "ÒÑ¾­ÈëÁË" + fam["family_name"]+ "ÁË£¬ÔõÃ´È´À´Í¶±¼Îäµ±£¿\n", ob);
-			message_vision(this_object()->name()+"¶ÙÁË¶Ù£¬ÕýÉ«µÀ£ºÎÒÎäµ±ÄËÌÃÌÃ´óÅÉ£¬´Ó²»¾ÜÌìÏÂÓ¢ÐÛ¡£\n", ob);
-			command( "say ÄãÈô³ÏÐÄÍ¶±¼Îäµ±£¬Ðë·ÅÆúËùÓÐÔÓÅÉ¹¦·ò£¬ÒÔÊ¾³ÏÒâ£¡");
+			message_vision(this_object()->name()+"å“ˆå“ˆä¸€ç¬‘ï¼š"+ RANK_D->query_respect(ob) + "å·²ç»å…¥äº†" + fam["family_name"]+ "äº†ï¼Œæ€Žä¹ˆå´æ¥æŠ•å¥”æ­¦å½“ï¼Ÿ\n", ob);
+			message_vision(this_object()->name()+"é¡¿äº†é¡¿ï¼Œæ­£è‰²é“ï¼šæˆ‘æ­¦å½“ä¹ƒå ‚å ‚å¤§æ´¾ï¼Œä»Žä¸æ‹’å¤©ä¸‹è‹±é›„ã€‚\n", ob);
+			command( "say ä½ è‹¥è¯šå¿ƒæŠ•å¥”æ­¦å½“ï¼Œé¡»æ”¾å¼ƒæ‰€æœ‰æ‚æ´¾åŠŸå¤«ï¼Œä»¥ç¤ºè¯šæ„ï¼");
 			ob->delete_temp("pending/apprentice");
 			return;
 		}
 	}
-	if ( ob->query("title") != "Îäµ±µÀÍ¯" 
-		&& ob->query("family/family_name") != "Îäµ±ÅÉ" )
+	if ( ob->query("title") != "æ­¦å½“é“ç«¥" 
+		&& ob->query("family/family_name") != "æ­¦å½“æ´¾" )
  	{
-		command("say ÎÒÎäµ±Ö®ËùÒÔÄÜÔÚÎäÁÖÖÐÐË²»Ë¥£¬È«¿¿¸÷µÜ×Ó×Ô¾õÐ§Á¦¡£");
-		command("say ÈëÃÅÏ°ÎäÒÔÇ°£¬" + RANK_D->query_respect(ob) + "ÊÇ·ñÔ¸ÒâÎªÎäµ±Ö÷¶¯×öÐ©ÊÂÇé£¿");
-		tell_object(ob, HIY"Èç¹ûÄã´ðÓ¦µÄ»°£¬¼üÈë£¢Ô¸Òâ£¢¶þ×Ö¡£\n"NOR);
-		add_action("do_yes", "Ô¸Òâ");
+		command("say æˆ‘æ­¦å½“ä¹‹æ‰€ä»¥èƒ½åœ¨æ­¦æž—ä¸­å…´ä¸è¡°ï¼Œå…¨é å„å¼Ÿå­è‡ªè§‰æ•ˆåŠ›ã€‚");
+		command("say å…¥é—¨ä¹ æ­¦ä»¥å‰ï¼Œ" + RANK_D->query_respect(ob) + "æ˜¯å¦æ„¿æ„ä¸ºæ­¦å½“ä¸»åŠ¨åšäº›äº‹æƒ…ï¼Ÿ");
+		tell_object(ob, HIY"å¦‚æžœä½ ç­”åº”çš„è¯ï¼Œé”®å…¥ï¼‚æ„¿æ„ï¼‚äºŒå­—ã€‚\n"NOR);
+		add_action("do_yes", "æ„¿æ„");
 		return;
 	}
 	else
 		if ((int)ob->query("wudang/offerring") < (int)ob->query("age")-11)
 		{
-			command("say Î´Á·Îä£¬ÏÈÑ§×öÈË¡£ÔÚÎªÎäµ±×Ô¾õÐ§Á¦·½Ãæ£¬");
-			command("say " + RANK_D->query_respect(ob) + "ÊÇ·ñ»¹²»¹»ÇÚÃã£¿");
+			command("say æœªç»ƒæ­¦ï¼Œå…ˆå­¦åšäººã€‚åœ¨ä¸ºæ­¦å½“è‡ªè§‰æ•ˆåŠ›æ–¹é¢ï¼Œ");
+			command("say " + RANK_D->query_respect(ob) + "æ˜¯å¦è¿˜ä¸å¤Ÿå‹¤å‹‰ï¼Ÿ");
 			ob->delete_temp("pending/apprentice");
 			return;
 		}
-	if( mapp(fam = ob->query("family")) && (fam["family_name"] == "Îäµ±ÅÉ"))
-		command("say ÄãÎÒ±¾ÊÇÍ¬ÃÅ£¬Æ¶µÀ¾ÍÊÕÏÂÄãÁË£¡");
+	if( mapp(fam = ob->query("family")) && (fam["family_name"] == "æ­¦å½“æ´¾"))
+		command("say ä½ æˆ‘æœ¬æ˜¯åŒé—¨ï¼Œè´«é“å°±æ”¶ä¸‹ä½ äº†ï¼");
 	else
 	{	
-		command( "say ¾«³ÏËùÖÁ£¬ÓñÊ¯Îª¿ª£¡ÄãÎªÎäµ±ÇÚÃãÐ§Á¦£¬ÖÚµÀ³¤ÔçÒÑÊÇÓÐ¿Ú½Ô±®£¡");
-		command( "say "+RANK_D->query_respect(ob)+"ÊµÄËÎÒ±²ÖÐÈËÒ²£¡");
+		command( "say ç²¾è¯šæ‰€è‡³ï¼ŒçŽ‰çŸ³ä¸ºå¼€ï¼ä½ ä¸ºæ­¦å½“å‹¤å‹‰æ•ˆåŠ›ï¼Œä¼—é“é•¿æ—©å·²æ˜¯æœ‰å£çš†ç¢‘ï¼");
+		command( "say "+RANK_D->query_respect(ob)+"å®žä¹ƒæˆ‘è¾ˆä¸­äººä¹Ÿï¼");
 	}
 
 	command("recruit " + ob->query("id"));
@@ -88,12 +88,12 @@ int do_yes()
 	ob = this_player();
 	
 	ob->set("wudang/offerring", 1);
-	message_vision("$N´óÉùËµµÀ£ºÔ¸Òâ£¡\n", ob);
-	ob->set("title", "Îäµ±µÀÍ¯");
+	message_vision("$Nå¤§å£°è¯´é“ï¼šæ„¿æ„ï¼\n", ob);
+	ob->set("title", "æ­¦å½“é“ç«¥");
 	ob->delete_temp("pending/apprentice");
 	command("haha "); 
-	command("say ºÜºÃ£¡ºÜºÃ£¡´Ó½ñÈÕÆð£¬Äã¾ÍÊÇÎäµ±Ò»Ãû¼ûÏ°Ñ§Í½¡£");
-	command("say Ï£Íû"+ RANK_D->query_respect(ob) +"ÇÚ¼ÓÅ¬Á¦£¬ÔçÈÕÈëÎÒÕýÃÅÖÐ¡£");
+	command("say å¾ˆå¥½ï¼å¾ˆå¥½ï¼ä»Žä»Šæ—¥èµ·ï¼Œä½ å°±æ˜¯æ­¦å½“ä¸€åè§ä¹ å­¦å¾’ã€‚");
+	command("say å¸Œæœ›"+ RANK_D->query_respect(ob) +"å‹¤åŠ åŠªåŠ›ï¼Œæ—©æ—¥å…¥æˆ‘æ­£é—¨ä¸­ã€‚");
 
 	return 1;	
 }

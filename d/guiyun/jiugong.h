@@ -27,9 +27,9 @@ void init()
 	}
 	temp = ob->query_temp("jiugong_" + HERENO);
 	if (temp > 0)
-		set("long","ÕâÊÇÒ»Æ¬Ã¯ÃÜµÄÌÒ»¨´Ô£¬ÄãÒ»×ß½øÀ´¾ÍÃÔÊ§ÁË·½Ïò¡£µØÉÏÓĞ" + chinese_number(ob->query_temp("jiugong_" + HERENO)) + "ÖêÌÒ»¨(taohua)¡£\n");
+		set("long","è¿™æ˜¯ä¸€ç‰‡èŒ‚å¯†çš„æ¡ƒèŠ±ä¸›ï¼Œä½ ä¸€èµ°è¿›æ¥å°±è¿·å¤±äº†æ–¹å‘ã€‚åœ°ä¸Šæœ‰" + chinese_number(ob->query_temp("jiugong_" + HERENO)) + "æ ªæ¡ƒèŠ±(taohua)ã€‚\n");
 	else
-		set("long","ÕâÊÇÒ»Æ¬Ã¯ÃÜµÄÌÒ»¨´Ô£¬ÄãÒ»×ß½øÀ´¾ÍÃÔÊ§ÁË·½Ïò¡£µØÉÏÒ»ÖêÌÒ»¨(taohua)Ò²Ã»ÓĞ¡£\n");
+		set("long","è¿™æ˜¯ä¸€ç‰‡èŒ‚å¯†çš„æ¡ƒèŠ±ä¸›ï¼Œä½ ä¸€èµ°è¿›æ¥å°±è¿·å¤±äº†æ–¹å‘ã€‚åœ°ä¸Šä¸€æ ªæ¡ƒèŠ±(taohua)ä¹Ÿæ²¡æœ‰ã€‚\n");
 	add_action("do_drop", "drop");
 	add_action("do_look", "look");
 	add_action("do_get", "get");
@@ -37,8 +37,8 @@ void init()
 	if (ob->query_temp("step_count") > 99)
 	{
 		ob->delete_temp("step_count");
-		write("ÄãÔÚÕóÖĞÀÛµÃ¾«Æ£Á¦¾¡£¬ÖÕÒòÌåÁ¦²»Ö§¶ø»èÁË¹ıÈ¥£¡\n");
-		write("ÃÔÃÔºúºúÖĞËÆºõÓĞÈË°ÑÄã±³³öÁËÕó¡£\n");
+		write("ä½ åœ¨é˜µä¸­ç´¯å¾—ç²¾ç–²åŠ›å°½ï¼Œç»ˆå› ä½“åŠ›ä¸æ”¯è€Œæ˜äº†è¿‡å»ï¼\n");
+		write("è¿·è¿·èƒ¡èƒ¡ä¸­ä¼¼ä¹æœ‰äººæŠŠä½ èƒŒå‡ºäº†é˜µã€‚\n");
 		ob->delete_temp("jiugong");
 		for (i = 0; i <= 9; i++)
 			ob->delete_temp("jiugong_" + i);
@@ -47,7 +47,7 @@ void init()
 			ob->move(__DIR__"road4", 1);
 		else 
 			ob->move(__DIR__"shiqiao", 1);
-		message("vision","È´¼û»¨Ó°ÉÁË¸£¬Ê÷´ÔºöÈ»ÏÖ³öÒ»¸öÈ±¿Ú£¬¼¸¸ö×¯¶¡½«Ò»¸ö»èÃÔ²»ĞÑµÄ¼Ò»ïÈÓÁË³öÀ´¡£\n", environment(ob), ob);
+		message("vision","å´è§èŠ±å½±é—ªçƒï¼Œæ ‘ä¸›å¿½ç„¶ç°å‡ºä¸€ä¸ªç¼ºå£ï¼Œå‡ ä¸ªåº„ä¸å°†ä¸€ä¸ªæ˜è¿·ä¸é†’çš„å®¶ä¼™æ‰”äº†å‡ºæ¥ã€‚\n", environment(ob), ob);
 		return;
 	}
 	ob->add_temp("step_count", 1);
@@ -62,13 +62,13 @@ int do_look(string arg)
 	if (!arg) {
 		temp = ob->query_temp("jiugong_" + HERENO);
 		if (temp > 0)
-			set("long","ÕâÊÇÒ»Æ¬Ã¯ÃÜµÄÌÒ»¨´Ô£¬ÄãÒ»×ß½øÀ´¾ÍÃÔÊ§ÁË·½Ïò¡£µØÉÏÓĞ" + chinese_number(ob->query_temp("jiugong_" + HERENO)) + "ÖêÌÒ»¨(taohua)¡£\n");
+			set("long","è¿™æ˜¯ä¸€ç‰‡èŒ‚å¯†çš„æ¡ƒèŠ±ä¸›ï¼Œä½ ä¸€èµ°è¿›æ¥å°±è¿·å¤±äº†æ–¹å‘ã€‚åœ°ä¸Šæœ‰" + chinese_number(ob->query_temp("jiugong_" + HERENO)) + "æ ªæ¡ƒèŠ±(taohua)ã€‚\n");
 		else
-			set("long","ÕâÊÇÒ»Æ¬Ã¯ÃÜµÄÌÒ»¨´Ô£¬ÄãÒ»×ß½øÀ´¾ÍÃÔÊ§ÁË·½Ïò¡£µØÉÏÒ»ÖêÌÒ»¨(taohua)Ò²Ã»ÓĞ¡£\n");
+			set("long","è¿™æ˜¯ä¸€ç‰‡èŒ‚å¯†çš„æ¡ƒèŠ±ä¸›ï¼Œä½ ä¸€èµ°è¿›æ¥å°±è¿·å¤±äº†æ–¹å‘ã€‚åœ°ä¸Šä¸€æ ªæ¡ƒèŠ±(taohua)ä¹Ÿæ²¡æœ‰ã€‚\n");
 	}
 	else if (arg=="west" || arg=="east" || arg=="north" || arg=="south")
 		{
-			write("Äã¿´²»ÇåÄÇ±ßµÄÇé¿ö£¡\n");
+			write("ä½ çœ‹ä¸æ¸…é‚£è¾¹çš„æƒ…å†µï¼\n");
 			return 1;
 		}
 	ob->look(arg);
@@ -77,7 +77,7 @@ int do_look(string arg)
 string inv_desc(object ob)
 {
 	return sprintf("%s%s",
-		ob->query("equipped")? HIC "¡õ" NOR:"  ",
+		ob->query("equipped")? HIC "â–¡" NOR:"  ",
 		ob->short()
 	);
 }
@@ -93,9 +93,9 @@ int do_inv(string arg)
 	inv = all_inventory(ob);
 	temp = ob->query_temp("jiugong_0");
 	if (temp > 0)
-		printf("ÄãÉíÉÏ´øÖøÏÂÁĞÕâĞ©¶«Î÷(¸ºÖØ %d%%)£º\n  " + chinese_number(ob->query_temp("jiugong_0")) + "ÖêÌÒ»¨(taohua)\n%s\n", (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(), implode(map_array(inv, "inv_desc", this_object()), "\n") );
+		printf("ä½ èº«ä¸Šå¸¦è‘—ä¸‹åˆ—è¿™äº›ä¸œè¥¿(è´Ÿé‡ %d%%)ï¼š\n  " + chinese_number(ob->query_temp("jiugong_0")) + "æ ªæ¡ƒèŠ±(taohua)\n%s\n", (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(), implode(map_array(inv, "inv_desc", this_object()), "\n") );
 	else
-		printf("ÄãÉíÉÏ´øÖøÏÂÁĞÕâĞ©¶«Î÷(¸ºÖØ %d%%)£º\n%s\n", (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(), implode(map_array(inv, "inv_desc", this_object()), "\n") );
+		printf("ä½ èº«ä¸Šå¸¦è‘—ä¸‹åˆ—è¿™äº›ä¸œè¥¿(è´Ÿé‡ %d%%)ï¼š\n%s\n", (int)ob->query_encumbrance() * 100 / (int)ob->query_max_encumbrance(), implode(map_array(inv, "inv_desc", this_object()), "\n") );
 	return 1;
 }
 
@@ -110,11 +110,11 @@ int do_get(string arg)
 	if (taohua != "taohua") return 0;
 	
 	herenum = ob->query_temp("jiugong_" + HERENO);
-	if (herenum < 1) return notify_fail("ÕâÀï¸ù±¾Ã»ÓĞÌÒ»¨¡£\n");
-	if (amount > herenum) return notify_fail("ÕâÀïÃ»ÓĞÄÇÃ´¶àÖêÌÒ»¨¡£\n");
+	if (herenum < 1) return notify_fail("è¿™é‡Œæ ¹æœ¬æ²¡æœ‰æ¡ƒèŠ±ã€‚\n");
+	if (amount > herenum) return notify_fail("è¿™é‡Œæ²¡æœ‰é‚£ä¹ˆå¤šæ ªæ¡ƒèŠ±ã€‚\n");
 	ob->set_temp("jiugong_" + HERENO, herenum - amount);
 	ob->add_temp("jiugong_0", amount);
-	write("Äã¼ñÆğ" + chinese_number(amount) + "ÖêÌÒ»¨¡£\n");
+	write("ä½ æ¡èµ·" + chinese_number(amount) + "æ ªæ¡ƒèŠ±ã€‚\n");
 	return 1;
 }	
 
@@ -131,13 +131,13 @@ int do_drop(string arg)
 	
 	for (i = 0; i <= 9; i++)
 		num[i] = ob->query_temp("jiugong_" + i);
-	if (num[0] < 1) return notify_fail("ÄãµÄ±³ÄÒÀï¸ù±¾Ã»ÓĞÌÒ»¨¡£\n");
-	if (amount>num[0]) return notify_fail("ÄãµÄ±³ÄÒÀïÃ»ÓĞÄÇÃ´¶àÖêÌÒ»¨¡£\n");
+	if (num[0] < 1) return notify_fail("ä½ çš„èƒŒå›Šé‡Œæ ¹æœ¬æ²¡æœ‰æ¡ƒèŠ±ã€‚\n");
+	if (amount>num[0]) return notify_fail("ä½ çš„èƒŒå›Šé‡Œæ²¡æœ‰é‚£ä¹ˆå¤šæ ªæ¡ƒèŠ±ã€‚\n");
 	num[HERENO] += amount;
 	num[0] -= amount;
 	ob->set_temp("jiugong_" + HERENO, num[HERENO]);
 	ob->set_temp("jiugong_0", num[0]);
-	write("Äã¶ªÏÂ" + chinese_number(amount) + "ÖêÌÒ»¨¡£\n");
+	write("ä½ ä¸¢ä¸‹" + chinese_number(amount) + "æ ªæ¡ƒèŠ±ã€‚\n");
 	if (num[0] == 0)
 	{
 		if (num[1] + num[2] + num[3] == 15 &&
@@ -149,17 +149,17 @@ int do_drop(string arg)
 			num[1] + num[5] + num[9] == 15 &&
 			num[3] + num[5] + num[7] == 15)
 		{
-			write( "ÌÒ»¨ÕóÖĞºöÈ»·¢³öÒ»Õó¡°ÔşÔş¡±µÄÉùÒô£¬ËæºóÏÖ³öÒ»ÌõµÀÂ·£¬Äã¸ÏÃ¦×ßÁË³öÈ¥¡£\n");
+			write( "æ¡ƒèŠ±é˜µä¸­å¿½ç„¶å‘å‡ºä¸€é˜µâ€œè½§è½§â€çš„å£°éŸ³ï¼Œéšåç°å‡ºä¸€æ¡é“è·¯ï¼Œä½ èµ¶å¿™èµ°äº†å‡ºå»ã€‚\n");
 			ob->delete_temp("jiugong");
 			ob->delete_temp("step_count");
 			if (ob->query_temp("jiugong_dir") == "w")
 			{
-				tell_room(__DIR__"shiqiao","È´¼û»¨Ó°ÉÁË¸£¬Ê÷´ÔºöÈ»ÏÖ³öÒ»¸öÈ±¿Ú£¬" + ob->name() + "ÉÁÉí¶ø³ö¡£\n", ({}));
+				tell_room(__DIR__"shiqiao","å´è§èŠ±å½±é—ªçƒï¼Œæ ‘ä¸›å¿½ç„¶ç°å‡ºä¸€ä¸ªç¼ºå£ï¼Œ" + ob->name() + "é—ªèº«è€Œå‡ºã€‚\n", ({}));
 				ob->move(__DIR__"shiqiao");
 			}
 			else
 			{
-				tell_room(__DIR__"road4","È´¼û»¨Ó°ÉÁË¸£¬Ê÷´ÔºöÈ»ÏÖ³öÒ»¸öÈ±¿Ú£¬" + ob->name() + "ÉÁÉí¶ø³ö¡£\n", ({}));
+				tell_room(__DIR__"road4","å´è§èŠ±å½±é—ªçƒï¼Œæ ‘ä¸›å¿½ç„¶ç°å‡ºä¸€ä¸ªç¼ºå£ï¼Œ" + ob->name() + "é—ªèº«è€Œå‡ºã€‚\n", ({}));
 				ob->move(__DIR__"road4");
 			}
 		}

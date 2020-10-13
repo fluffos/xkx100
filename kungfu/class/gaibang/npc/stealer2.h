@@ -47,7 +47,7 @@ void init()
 		if (!me->query_temp("zuji_target")) me->set_temp("zuji_target",t_name);
 		if (!me->query_temp("skill_set"))
 		{
-			command("say 师兄，点子硬的很，我来帮你！！！\n");
+			command("say 甯堝厔锛岀偣瀛愮‖鐨勫緢锛屾垜鏉ュ府浣狅紒锛侊紒\n");
 			remove_call_out("dest2");
 			remove_call_out("dest");
 			call_out("dest",400);
@@ -56,7 +56,7 @@ void init()
 		}
 		else
 		{
-			command("say 想跑，还不乖乖就范！！！\n");
+			command("say 鎯宠窇锛岃繕涓嶄箹涔栧氨鑼冿紒锛侊紒\n");
 			me->set_leader(ob);
 			remove_call_out("dest2");
 			remove_call_out("dest");
@@ -158,8 +158,8 @@ void dest()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"道：这次算你命大！\n",me);  
-	write(me->query("name")+"匆匆离开。\n",me);  
+	write(me->query("name")+"閬擄細杩欐绠椾綘鍛藉ぇ锛乗n",me);  
+	write(me->query("name")+"鍖嗗寙绂诲紑銆俓n",me);  
       
 	destruct(this_object());
 }
@@ -169,8 +169,8 @@ void dest2()
 	ob = this_player();
 	me = this_object();
 
-	write(me->query("name")+"道：反正信已到手，就饶你一命！\n",me);  
-	write(me->query("name")+"匆匆离开。\n",me);  
+	write(me->query("name")+"閬擄細鍙嶆淇″凡鍒版墜锛屽氨楗朵綘涓�鍛斤紒\n",me);  
+	write(me->query("name")+"鍖嗗寙绂诲紑銆俓n",me);  
 
 	destruct(this_object());
 }

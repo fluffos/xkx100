@@ -1,23 +1,23 @@
 // Last Modified by winder on May. 29 2001
-// yuan.h Ôª×Ö±²ÊÕÍ½
+// yuan.h å…ƒå­—è¾ˆæ”¶å¾’
 
 int do_nod();
 void attempt_apprentice(object ob)
 {
         mapping fam;
 
-	if(!mapp(fam = ob->query("family")) || fam["family_name"]!="ÄÏÉÙÁÖÅÉ")
+	if(!mapp(fam = ob->query("family")) || fam["family_name"]!="å—å°‘æ—æ´¾")
 	{
-		command("say ÎÒÖ»ÊÕ±¾ÅÉµÜ×ÓÎªÍ½¡£\n");
+		command("say æˆ‘åªæ”¶æœ¬æ´¾å¼Ÿå­ä¸ºå¾’ã€‚\n");
 		return;
 	}
 	if(fam["generation"] < 21)
 	{
-		command("say °¢ÃÖÍÓ·ğ¡£ÎÒ·ğ´È±¯¡£\n");
+		command("say é˜¿å¼¥é™€ä½›ã€‚æˆ‘ä½›æ…ˆæ‚²ã€‚\n");
 		return;
 	}
 	ob->set_temp("wait_nod", 1);
-	command("say ÒÀÕÕÄÏÉÙÁÖËÂÀú´ú¹æ¾Ø£¬"+RANK_D->query_respect(ob)+"Äã±ØĞë½ÓÏÂÎÒÈıÕĞ£¬ÎÒ²ÅÄÜÊÕÄãÎªÍ½¡£ÄãÔ¸ÒâÃ´£¿ÄÇ¾Íµã¸öÍ·°É(nod)¡£");
+	command("say ä¾ç…§å—å°‘æ—å¯ºå†ä»£è§„çŸ©ï¼Œ"+RANK_D->query_respect(ob)+"ä½ å¿…é¡»æ¥ä¸‹æˆ‘ä¸‰æ‹›ï¼Œæˆ‘æ‰èƒ½æ”¶ä½ ä¸ºå¾’ã€‚ä½ æ„¿æ„ä¹ˆï¼Ÿé‚£å°±ç‚¹ä¸ªå¤´å§(nod)ã€‚");
 }
 int do_nod()
 {
@@ -56,11 +56,11 @@ void check(object ob)
 		if( ob->query("class") == "bonze")
 		{
 			new_name=ob->query("name");
-			new_name[0..1] = "·½";
+			new_name[0..1] = "æ–¹";
 			ob->set("name", new_name);
-			command("say ´Ó½ñÒÔºóÄãµÄ·¨Ãû½Ğ×ö"+new_name+"°É£¡\n");
+			command("say ä»ä»Šä»¥åä½ çš„æ³•åå«åš"+new_name+"å§ï¼\n");
 		}
-		else ob->set("title", "ÄÏÉÙÁÖË×¼ÒµÚ¶şÊ®Ò»µÜ×Ó");
+		else ob->set("title", "å—å°‘æ—ä¿—å®¶ç¬¬äºŒåä¸€å¼Ÿå­");
 	}
 	return;
 }

@@ -1,33 +1,33 @@
 // /d/xiakedao/shiroom.h
-// Modified by Zeratul Jan 11 2001 Ò»¸öÈËÖ»ÄÜÃæÒ»ÖÖ¹¦·ò£¬´Ó200¼¶µ½300¼¶
+// Modified by Zeratul Jan 11 2001 ä¸€ä¸ªäººåªèƒ½é¢ä¸€ç§åŠŸå¤«ï¼Œä»200çº§åˆ°300çº§
 
 int do_study(string arg)
 {
 	string *skill_name = ({
-               "strike",          //ÕÔ¿ÍçÏºúÓ§
-               "sword",           //Îâ¹³ËªÑ©Ã÷
-               "dodge",           //Òø°°ÕÕ°×Âí
-               "throwing",        //ìªí³ÈçÁ÷ĞÇ
-               "hook",            //Ê®²½É±Ò»ÈË sword
-               "leg",             //Ç§Àï²»ÁôĞĞ dodge
-               "spear",           //ÊÂÁË·÷ÒÂÈ¥ dodge
-               "stick",           //Éî²ØÉíÓëÃû dodge
-               "unarmed",         //ÏĞ¹ıĞÅÁêÒû cuff or strike or unarmed
-               "dagger",          //ÍÑ½£Ï¥Ç°ºá sword
-               "parry",           //½«ÖËà¢Öìº¥
-               "blade",           //³ÖõüÈ°ºîÙø
-               "axe",             //Èı±­ÍÂÈ»Åµ force ÔİÊ±ÏÈaxe°É
-               "cuff",            //ÎåÓüµ¹ÎªÇá cuff or strike or unarmed
-               "staff",           //ÑÛ»¨¶úÈÈºó   Â³´ïìøÕÈ
-               "claw",            //¾ºÆøËØÄŞÉú cuff or strike or unarmed
-               "hammer",          //¾ÈÕÔ»Ó½ğ´¸ sword
-               "hand",            //ºªµ¦ÏÈÕğ¾ª force
-               "array",           //Ç§Çï¶ş×³Ê¿
-               "force",           //Ø¨ºÕ´óÁº³Ç force
-               "finger",          //×İËÀÏÀ¹ÇÏã   Ö¸·¨
-               "club",            //²»²ÑÊÀÉÏÓ¢   ÆëÃ¼¹÷
-               "whip",            //Ë­ÄÜÊé¸óÏÂ
-               "taixuan-gong"     //°×Ê×Ì«Ğş¾­
+               "strike",          //èµµå®¢ç¼¦èƒ¡ç¼¨
+               "sword",           //å´é’©éœœé›ªæ˜
+               "dodge",           //é“¶éç…§ç™½é©¬
+               "throwing",        //é£’æ²“å¦‚æµæ˜Ÿ
+               "hook",            //åæ­¥æ€ä¸€äºº sword
+               "leg",             //åƒé‡Œä¸ç•™è¡Œ dodge
+               "spear",           //äº‹äº†æ‹‚è¡£å» dodge
+               "stick",           //æ·±è—èº«ä¸å dodge
+               "unarmed",         //é—²è¿‡ä¿¡é™µé¥® cuff or strike or unarmed
+               "dagger",          //è„±å‰‘è†å‰æ¨ª sword
+               "parry",           //å°†ç‚™å•–æœ±äº¥
+               "blade",           //æŒè§åŠä¾¯å¬´
+               "axe",             //ä¸‰æ¯åç„¶è¯º force æš‚æ—¶å…ˆaxeå§
+               "cuff",            //äº”ç‹±å€’ä¸ºè½» cuff or strike or unarmed
+               "staff",           //çœ¼èŠ±è€³çƒ­å   é²è¾¾ç¦…æ–
+               "claw",            //ç«æ°”ç´ éœ“ç”Ÿ cuff or strike or unarmed
+               "hammer",          //æ•‘èµµæŒ¥é‡‘é”¤ sword
+               "hand",            //é‚¯éƒ¸å…ˆéœ‡æƒŠ force
+               "array",           //åƒç§‹äºŒå£®å£«
+               "force",           //äº˜èµ«å¤§æ¢åŸ force
+               "finger",          //çºµæ­»ä¾ éª¨é¦™   æŒ‡æ³•
+               "club",            //ä¸æƒ­ä¸–ä¸Šè‹±   é½çœ‰æ£
+               "whip",            //è°èƒ½ä¹¦é˜ä¸‹
+               "taixuan-gong"     //ç™½é¦–å¤ªç„ç»
 	});
 	object me, where;
 	int jing_cost, learn_pot, item, times, i, success=0;
@@ -36,23 +36,23 @@ int do_study(string arg)
 
 	me = this_player();
 	if ( !me->query( "xkd/ling" ) )
-		return notify_fail( "Î´¾­µºÖ÷ÔÊĞí£¬²»µÃÉÃ×Ô¹Û¿´Ê¯±Ú¡£\n" );
-	if( !arg ) return notify_fail("ÄãÒªÁìÎòÊ²Ã´Ñ½£¿\n");
+		return notify_fail( "æœªç»å²›ä¸»å…è®¸ï¼Œä¸å¾—æ“…è‡ªè§‚çœ‹çŸ³å£ã€‚\n" );
+	if( !arg ) return notify_fail("ä½ è¦é¢†æ‚Ÿä»€ä¹ˆå‘€ï¼Ÿ\n");
 	if( sscanf(arg, "%s %d", arg, times)!=2)
-		return notify_fail("Ö¸Áî¸ñÊ½£ºthink wall <´ÎÊı>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šthink wall <æ¬¡æ•°>\n");
 	if( ( arg != "wall" ) )
-		return notify_fail("Ö¸Áî¸ñÊ½£ºthink wall <´ÎÊı>\n");
+		return notify_fail("æŒ‡ä»¤æ ¼å¼ï¼šthink wall <æ¬¡æ•°>\n");
 	if (times < 1 || times > 20)
-		return notify_fail("ÁìÎò´ÎÊı×îÉÙÒ»´Î£¬×î¶àÒ²²»ÄÜ³¬¹ı¶şÊ®´Î¡£\n");
+		return notify_fail("é¢†æ‚Ÿæ¬¡æ•°æœ€å°‘ä¸€æ¬¡ï¼Œæœ€å¤šä¹Ÿä¸èƒ½è¶…è¿‡äºŒåæ¬¡ã€‚\n");
 	if ((int)me->query("combat_exp")<50000)
-		return notify_fail("ÄãµÄ¾­ÑéÌ«µÍ, Ã»·¨ÁìÎòÊ¯±ÚÄÚÈİ¡£\n");
+		return notify_fail("ä½ çš„ç»éªŒå¤ªä½, æ²¡æ³•é¢†æ‚ŸçŸ³å£å†…å®¹ã€‚\n");
         if ((int)me->query("score")<1000)
-		return notify_fail("ÄãµÄÔÄÀúÌ«µÍ, Ã»·¨ÁìÎòÊ¯±ÚÄÚÈİ¡£\n");
+		return notify_fail("ä½ çš„é˜…å†å¤ªä½, æ²¡æ³•é¢†æ‚ŸçŸ³å£å†…å®¹ã€‚\n");
 	if ((int)me->query_skill("literate",1)<1)
-		return notify_fail("ÄãÔÎÁË°É! »¹ÊÇÏÈÈ¥Ñ§µãÎÄ»¯°É¡£\n");
+		return notify_fail("ä½ æ™•äº†å§! è¿˜æ˜¯å…ˆå»å­¦ç‚¹æ–‡åŒ–å§ã€‚\n");
 	jing_cost = 30 + random(me->query_int());
 	if( me->query("jing") < jing_cost * times)
-		return notify_fail("ÄãÏÖÔÚÌ«ÀÛÁË£¬ÁìÎò²»ÁËÕâÃ´¶à´Î£¬ĞİÏ¢Ò»»á¶ùÔÙÀ´°É¡£\n");
+		return notify_fail("ä½ ç°åœ¨å¤ªç´¯äº†ï¼Œé¢†æ‚Ÿä¸äº†è¿™ä¹ˆå¤šæ¬¡ï¼Œä¼‘æ¯ä¸€ä¼šå„¿å†æ¥å§ã€‚\n");
 	where = environment(me);
 	switch (file_name(where))
 	{
@@ -82,18 +82,18 @@ int do_study(string arg)
 		case "/d/xiakedao/shiroom24": item = 23; break;
 		default: break;
 	}
-	//ÒÔÍùstringÄ£Ê½
+	//ä»¥å¾€stringæ¨¡å¼
 	if (stringp(me->query("xkd/skill")))
 	{
 		old = me->query("xkd/skill");
 		me->set("xkd/skill",({old}));
 	}
-	//¸Ä³Éstring * Ä£Ê½
+	//æ”¹æˆstring * æ¨¡å¼
 	if (arrayp( me->query("xkd/skill")) && 
 	sizeof(me->query("xkd/skill")) >= SCBORN_D->query_scborn_times(me)+1 &&
 	member_array(skill_name[item],me->query( "xkd/skill" )) == -1	)
 	{
-		write( "Ñ§Îä×î¼ÉÈıĞÄ¶şÒâ£¬Äã»¹ÊÇ×¨ĞÄ×êÑĞ" + to_chinese( me->query( "xkd/skill" )[0] ) + "È¥°É¡£\n" );
+		write( "å­¦æ­¦æœ€å¿Œä¸‰å¿ƒäºŒæ„ï¼Œä½ è¿˜æ˜¯ä¸“å¿ƒé’»ç ”" + to_chinese( me->query( "xkd/skill" )[0] ) + "å»å§ã€‚\n" );
 		return 1;
 	}
 	if ( !arrayp(me->query("xkd/skill")) ||	member_array(skill_name[item],me->query( "xkd/skill" )) == -1)
@@ -102,27 +102,27 @@ int do_study(string arg)
 		old += ({ skill_name[item] });
 		me->set( "xkd/skill", old);
 	}
-	message_vision("$NÕıÔÚ×êÑĞÊ¯±ÚÉÏµÄÍ¼°¸ºÍ×¢ÊÍ¡£\n",me);
+	message_vision("$Næ­£åœ¨é’»ç ”çŸ³å£ä¸Šçš„å›¾æ¡ˆå’Œæ³¨é‡Šã€‚\n",me);
 	for (i = 1; i<=times; i++)
 	{
 		me->receive_damage("jing",jing_cost);
 		learn_pot = (int)(me->query("combat_exp")/10000) + random(me->query("int")) - (int)(me->query_skill("literate",1)/2);
 		if (me->query_skill(skill_name[item],1)<200 && item != 23)
 		{
-			write("ÄãÍû×ÅÊ¯±ÚÚ¤Ë¼¿àÏëÁËÒ»»á£¬·¢¾õÉÏÃæµÄ¶«Î÷¶ÔÄãÀ´ËµÌ«Éî°ÂÁË¡£\n");
+			write("ä½ æœ›ç€çŸ³å£å†¥æ€è‹¦æƒ³äº†ä¸€ä¼šï¼Œå‘è§‰ä¸Šé¢çš„ä¸œè¥¿å¯¹ä½ æ¥è¯´å¤ªæ·±å¥¥äº†ã€‚\n");
 			return 1;
 		}
 		if (me->query_skill(skill_name[item],1)>=300)
 		{
-			write("ÄãÍû×ÅÊ¯±ÚÚ¤Ë¼¿àÏëÁËÒ»»á£¬·¢¾õÉÏÃæµÄ¶«Î÷¶ÔÄãÀ´ËµÌ«Ç³±¡ÁË¡£\n");
+			write("ä½ æœ›ç€çŸ³å£å†¥æ€è‹¦æƒ³äº†ä¸€ä¼šï¼Œå‘è§‰ä¸Šé¢çš„ä¸œè¥¿å¯¹ä½ æ¥è¯´å¤ªæµ…è–„äº†ã€‚\n");
 			return 1;
 		}
 /*
 		if (item == 4)
 		{
-			if ((string)me->query("gender") != "ÎŞĞÔ" )
+			if ((string)me->query("gender") != "æ— æ€§" )
 			{
-				write("¿ÉÊÇ±ÚÉÏÊÇ±ÙĞ°½£·¨Í¼Æ×£¬ÓûÁ·Éñ¹¦£¬±ØÏÈ×Ô¹¬¡£\n");
+				write("å¯æ˜¯å£ä¸Šæ˜¯è¾Ÿé‚ªå‰‘æ³•å›¾è°±ï¼Œæ¬²ç»ƒç¥åŠŸï¼Œå¿…å…ˆè‡ªå®«ã€‚\n");
 				return 1;
 			}
 		}
@@ -133,13 +133,13 @@ int do_study(string arg)
 			{
 				if (me->query("combat_exp")<10000)
 				{
-					write("Äã¾­Ñé²»×ã£¬ÎŞ·¨Áì»áµ½Ê²Ã´¡£\n");
+					write("ä½ ç»éªŒä¸è¶³ï¼Œæ— æ³•é¢†ä¼šåˆ°ä»€ä¹ˆã€‚\n");
 					return 1;
 				}
 				if (random(me->query("kar")) < 25 ||
 					(me->query_skill("taoism",1) < 100))
 				{
-					write("¿´×ÅÊ¯±ÚÉÏµÄòòò½ÎÄ£¬ÄãÓĞµãÔÎ²ËÁË¡£\n");
+					write("çœ‹ç€çŸ³å£ä¸Šçš„èŒèšªæ–‡ï¼Œä½ æœ‰ç‚¹æ™•èœäº†ã€‚\n");
 					learn_pot = 0;
 				}
 			}
@@ -151,7 +151,7 @@ int do_study(string arg)
 			me->query_skill(skill_name[item],1) * 
 			me->query_skill(skill_name[item],1)) /10 >= me->query("combat_exp"))
 		{
-			write("Äã¶Ô×ÅÊ¯±ÚÚ¤Ë¼¿àÏëÁËÒ»»á£¬ºÁÎŞÊÕ»ñ¡£\n");
+			write("ä½ å¯¹ç€çŸ³å£å†¥æ€è‹¦æƒ³äº†ä¸€ä¼šï¼Œæ¯«æ— æ”¶è·ã€‚\n");
 			return 1;
 		}
 		if (learn_pot > 0)
@@ -161,11 +161,11 @@ int do_study(string arg)
 		}
 	}
 	if (success == 1 && me->query("xkd/skill") != "taixuan-gong" )
-		{write("Äã¶Ô×ÅÊ¯±ÚÚ¤Ë¼¿àÏëÁË"+chinese_number(times)+"»Ø£¬ËÆºõ¶Ô"+CHINESE_D->chinese(skill_name[item])+"ÓĞĞ©ĞÄµÃ¡£\n");
+		{write("ä½ å¯¹ç€çŸ³å£å†¥æ€è‹¦æƒ³äº†"+chinese_number(times)+"å›ï¼Œä¼¼ä¹å¯¹"+CHINESE_D->chinese(skill_name[item])+"æœ‰äº›å¿ƒå¾—ã€‚\n");
 	         me->add("score",-5*times);
 	        }
 	else
-		write("Äã¶Ô×ÅÊ¯±ÚÚ¤Ë¼¿àÏëÁË"+chinese_number(times)+"»Ø£¬ËÆºõ¶Ô"+CHINESE_D->chinese(skill_name[item])+"Ã»É¶Ìå»á¡£\n");
+		write("ä½ å¯¹ç€çŸ³å£å†¥æ€è‹¦æƒ³äº†"+chinese_number(times)+"å›ï¼Œä¼¼ä¹å¯¹"+CHINESE_D->chinese(skill_name[item])+"æ²¡å•¥ä½“ä¼šã€‚\n");
 	success=0;
 	return 1;
 }

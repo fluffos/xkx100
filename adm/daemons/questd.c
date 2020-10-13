@@ -2,8 +2,8 @@
 
 // Created by Constant Jan 4 2001
 
-#pragma save_binary
-//#pragma optimize all
+// #pragma save_binary
+// #pragma optimize all
 
 #include <ansi.h>
 
@@ -27,10 +27,10 @@ string makeup_space(string s);
 void create()
 {
 	string file;
-	
+
 	quests = read_table("/quest/dynamic_quest");
 	file = read_file("/quest/dynamic_location");
-	roomlines = explode(file,"\n");	
+	roomlines = explode(file,"\n");
 	init_dynamic_quest(1);
 }
 
@@ -38,13 +38,13 @@ int quest_reward(object me, object who,object quest_item)
 {
 	mapping quest;
 	int exp, pot, score;
-	
+
 	quest = quest_item->query("dynamic_quest");
-	
+
 	if (base_name(quest_item) != quest["file_name"])
 		return 0;
 
-	if (base_name(who) != quest["owner_name"]) 
+	if (base_name(who) != quest["owner_name"])
 		return 0;
 
         exp = 100 + random(400);
@@ -82,10 +82,10 @@ varargs int spread_quest(mapping quest, int hard)
 	object *target = ({});
 	int i;
 	string location;
-	
-	if (already_spreaded(quest["file_name"], hard)) 
+
+	if (already_spreaded(quest["file_name"], hard))
 		return 0;
-		
+
 	reset_eval_cost();
 	location = roomlines[random(sizeof(roomlines))];
 	obj0 = find_object(location);
@@ -99,17 +99,17 @@ varargs int spread_quest(mapping quest, int hard)
 		for (i=0; i<sizeof(inv); i++) {
 			if (inv[i]->is_character() && !userp(inv[i]) && !cur_obj->query("no_fight"))
 				target += ({ inv[i] });
-			if (inv[i]->is_container()) 
+			if (inv[i]->is_container())
 				target += ({ inv[i] });
 		}
 	}
-	if (sizeof(target)) 
+	if (sizeof(target))
 		cur_obj = target[random(sizeof(target))];
 	if (cur_obj) {
 		tar = new(quest["file_name"]);
 		tar->set("value",0);
 		tar->set("dynamic_quest",quest);
-		tar->move(cur_obj);		
+		tar->move(cur_obj);
 	}
 	return 1;
 }
@@ -119,7 +119,7 @@ string dyn_quest_list(int unfinished)
 	string output = "", status = "", item_name = "", owner_name = "";
 	object owner, item;
         int i;
-        
+
         for (i=0; i < sizeof(quests); i++) {
 		reset_eval_cost();
 
@@ -164,7 +164,7 @@ string locate_obj(object me,string strr)
 		"周围","北方", "南方", "东方","西方",
 		"东北方","西北方","东南方","西南方"
         });
-        	
+
         object ob, tmpobj,where, *ob_list;
         object item, room;
         string output, dis, alt, dir;
@@ -173,17 +173,17 @@ string locate_obj(object me,string strr)
         int realdis;
         int tmp;
 	string str = "";
-	
+
 	reset_eval_cost();
         for ( i=0; i < sizeof(quests); i++) {
         	if (!objectp(item = find_object(quests[i]["file_name"])))
         		item = load_object(quests[i]["file_name"]);
-		if (item->query("id") == strr || item->query("name") == strr) 
+		if (item->query("id") == strr || item->query("name") == strr)
 			str = quests[i]["file_name"];
 	}
 
         room = environment(me);
-	
+
 	if (str != "") {
                 ob_list = children(str);
                 for (i=0; i<sizeof(ob_list); i++) {
@@ -192,12 +192,12 @@ string locate_obj(object me,string strr)
                 		item = ob_list[i];
                 		break;
                 	}
-                } 
+                }
 	} else if (wizardp(me) || me->query("class") == "official") {
         		item = find_player(strr);
-        		if (!item) 
+        		if (!item)
         			item = find_living(strr);
-        		if( !item) 
+        		if( !item)
         			return "";
 			ob = find_env(item);
         }
@@ -214,47 +214,47 @@ string locate_obj(object me,string strr)
                 y = (int)ob->query("coor/y")-y0;
                 z = (int)ob->query("coor/z")-z0;
                 realdis = 0;
-                if (x<0) 
-                	realdis-=x; 
-                else 
+                if (x<0)
+                	realdis-=x;
+                else
                         realdis+=x;
-                if (y<0) 
-                	realdis-=y; 
-                else 
+                if (y<0)
+                	realdis-=y;
+                else
                 	realdis+=y;
                 if (z<0)
-                	realdis-=z; 
-                else 
+                	realdis-=z;
+                else
                 	realdis+=z;
                 tmp = (int)realdis / 50;
-                if (tmp>MAX_DIS) 
+                if (tmp>MAX_DIS)
 			tmp = MAX_DIS;
                 dis = distance[tmp];
-                        	
-        	if (z>0) 
+
+        	if (z>0)
         		alt = altitude[0];
-        	if (z<0) 
+        	if (z<0)
         		alt = altitude[2];
-        	if (z==0) 
+        	if (z==0)
         		alt = altitude[1];
-        		
-        	if (x==0 && y==0) 
+
+        	if (x==0 && y==0)
         		dir = directions[0];
-        	if (x==0 && y>0) 
+        	if (x==0 && y>0)
         		dir = directions[1];
-        	if (x==0 && y<0) 
+        	if (x==0 && y<0)
         		dir = directions[2];
-        	if (x>0 && y==0) 
+        	if (x>0 && y==0)
         		dir = directions[3];
-        	if (x<0 && y==0) 
+        	if (x<0 && y==0)
         		dir = directions[4];
-        	if (x>0 && y>0) 
+        	if (x>0 && y>0)
         		dir = directions[5];
-        	if (x<0 && y>0) 
+        	if (x<0 && y>0)
         		dir = directions[6];
-        	if (x>0 && y<0) 
+        	if (x>0 && y<0)
         		dir = directions[7];
-        	if (x<0 && y<0) 
+        	if (x<0 && y<0)
         		dir = directions[8];
 		output = "『"+item->query("name")+"』似乎在"+dir+dis+"的"+alt+"。\n";
 		return output;
@@ -268,10 +268,10 @@ varargs int already_spreaded(string str,int hard)
         object ob, *ob_list;
         int i;
         string test;
-        
-        if (!str) 
+
+        if (!str)
         	return 0;
-        	
+
 	if (hard) {
         	ob_list = children(str);
         	test = sprintf("%d",sizeof(ob_list));
@@ -285,7 +285,7 @@ varargs int already_spreaded(string str,int hard)
 		}
 		return 0;
 	} else {
-		if (!str) 
+		if (!str)
 			return 0;
 		ob_list = children(str);
 		for (i=0; i<sizeof(ob_list); i++) {
@@ -302,7 +302,7 @@ object find_env(object ob)
         while (ob) {
         	if (ob->query("coor"))
         		return ob;
-        	else 
+        	else
         		ob = environment(ob);
         }
         return ob;
@@ -317,7 +317,7 @@ mapping *read_table(string file)
 	line = explode(read_file(file), "\n");
 	data = ({});
 	for (i=0; i<sizeof(line); i++) {
-		if ( line[i]=="" || line[i][0]=='#' ) 
+		if ( line[i]=="" || line[i][0]=='#' )
 			continue;
 		if ( !pointerp(field) ) {
 			field = explode( line[i], ":" );
@@ -331,13 +331,13 @@ mapping *read_table(string file)
 	}
 
 	for ( rn = 0, fn = 0; i<sizeof(line); i++) {
-		if ( line[i]=="" || line[i][0]=='#' ) 
+		if ( line[i]=="" || line[i][0]=='#' )
 			continue;
-		if ( !fn ) 
+		if ( !fn )
 			data += ({ allocate_mapping(sizeof(field)) });
 		sscanf( line[i], format[fn], data[rn][field[fn]] );
 		fn = (++fn) % sizeof(field);
-		if ( !fn ) 
+		if ( !fn )
 			++rn;
 	}
 	return data;
@@ -363,7 +363,7 @@ string makeup_space(string s)
 
     	for (i = 0; i < sizeof(ansi_char); i ++)
     		space = replace_string(space, ansi_char[i], "", 0);
-    	
+
     	space_count = sizeof(s) - sizeof(space);
 	if (sizeof(s) >= 42)
 		space_count = 42 - sizeof(space);

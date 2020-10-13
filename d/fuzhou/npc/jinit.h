@@ -1,4 +1,4 @@
-// jinit.h ½Ù·Ë¼ì²é£¬×Ô¼ºÏûÊ§µÄÊ±¼ä
+// jinit.h åŠ«åŒªæ£€æŸ¥ï¼Œè‡ªå·±æ¶ˆå¤±çš„æ—¶é—´
 #define A_TIME 20
 
 void init()
@@ -79,13 +79,13 @@ void do_check()
 	{
 		if(cart = present("cart",environment(me)))
 		{
-			message_vision(HIY"\n$N¶Ô×Å$n´óºÈÒ»Éù£º¡°ÄãÕâ"+RANK_D->query_rude(ob)+"£¬Äã´óÒ¯ÎÒ¿É×ßÁË£¡¡±\n",me,ob);
-			message_vision(HIR"\nïÚ³µ¸ø»ÆºÓ°ï½Ù·ËÒ»Â·ÍÆ×Å£¬Ò»Õó¡°ºäÂ¡Â¡¡±Ïì×ÅÊ»ÁË¿ªÈ¥¡£\n\n"NOR,me);
+			message_vision(HIY"\n$Nå¯¹ç€$nå¤§å–ä¸€å£°ï¼šâ€œä½ è¿™"+RANK_D->query_rude(ob)+"ï¼Œä½ å¤§çˆ·æˆ‘å¯èµ°äº†ï¼â€\n",me,ob);
+			message_vision(HIR"\né•–è½¦ç»™é»„æ²³å¸®åŠ«åŒªä¸€è·¯æŽ¨ç€ï¼Œä¸€é˜µâ€œè½°éš†éš†â€å“ç€é©¶äº†å¼€åŽ»ã€‚\n\n"NOR,me);
 			if (mapp(exits=environment(me)->query("exits")))
 				dirs = keys(exits);
 			command("go " + dirs[random(sizeof(dirs))]);
 			cart->move(environment(me));
-			message_vision(HIR"\nïÚ³µ¸ø»ÆºÓ°ï½Ù·ËÒ»Â·ÍÆ×Å£¬Ò»Õó¡°ºäÂ¡Â¡¡±Ïì×ÅÊ»ÁË¿ªÈ¥¡£\n"NOR,me);
+			message_vision(HIR"\né•–è½¦ç»™é»„æ²³å¸®åŠ«åŒªä¸€è·¯æŽ¨ç€ï¼Œä¸€é˜µâ€œè½°éš†éš†â€å“ç€é©¶äº†å¼€åŽ»ã€‚\n"NOR,me);
 		}
 		remove_call_out("do_check");
 		call_out("do_check", 0);
@@ -102,9 +102,9 @@ void do_wait()
 	{
 		if (cart=present("cart",where))
 		{
-			message_vision("$NÀäÐ¦µÀ£º¡°ÕâÐ©³ô±£ïÚµÄ¸Ï²»ÉÏÀ²£¡´óÒ¯Õâ¾Í°ÑïÚ³µÀ­»ØÉ½Õ¯ÁË£¡¡±\n",me);
+			message_vision("$Nå†·ç¬‘é“ï¼šâ€œè¿™äº›è‡­ä¿é•–çš„èµ¶ä¸ä¸Šå•¦ï¼å¤§çˆ·è¿™å°±æŠŠé•–è½¦æ‹‰å›žå±±å¯¨äº†ï¼â€\n",me);
 			if (sscanf(file_name(where), "/d/%s/%s", area, home))
-message("channel:chat", HIM"¡¾Ò¥ÑÔ¡¿"+cart->query("guardby")+"±£µÄïÚ£¬ÔÚ"+to_chinese(area)+"µØÃæÉÏ±»»ÆºÓ½Ù·Ë¶á»ØÉ½Õ¯È¥ÁË£¡\n"NOR,users());
+message("channel:chat", HIM"ã€è°£è¨€ã€‘"+cart->query("guardby")+"ä¿çš„é•–ï¼Œåœ¨"+to_chinese(area)+"åœ°é¢ä¸Šè¢«é»„æ²³åŠ«åŒªå¤ºå›žå±±å¯¨åŽ»äº†ï¼\n"NOR,users());
 			cart->move(VOID_OB);
 			destruct(cart);
 			destruct(me);

@@ -16,7 +16,7 @@ void message_chaser()
 
 	remove_call_out("message_chaser");
 //	call_out("message_chaser", 130 + random(100));
-  //Õâ¸öÊÕ¼¯Î¨Ò»ÎïÆ·ºÜºÄ×ÊÔ´µÄ
+  //è¿™ä¸ªæ”¶é›†å”¯ä¸€ç‰©å“å¾ˆè€—èµ„æºçš„
 	call_out("message_chaser", 600 + random(100));
 
 	filenames = keys(wanted_list);
@@ -32,7 +32,7 @@ void message_chaser()
 		{
 			ob->move(this_object()); continue;
 		}
-		if( (string)owner->query("race") != "ÈËÀà" )
+		if( (string)owner->query("race") != "äººç±»" )
 		{
 			ob->move(this_object()); continue;
 		}
@@ -49,7 +49,7 @@ void message_chaser()
 				if (!owner->query("keep")) continue;
 				if ((random(50)==1)	|| (ob->query("skill") && random(20)==1))
 				{
-					message("channel:snow",sprintf(HIM"¡¾Ò¥ÑÔ¡¿Ä³ÈË£ºÌýËµ%s"+HIM+"ºÃÏóÂäÔÚ%sµÄ%s"+HIM+"ÊÖÀïÁË£¡\n"NOR,
+					message("channel:snow",sprintf(HIM"ã€è°£è¨€ã€‘æŸäººï¼šå¬è¯´%s"+HIM+"å¥½è±¡è½åœ¨%sçš„%s"+HIM+"æ‰‹é‡Œäº†ï¼\n"NOR,
 					ob->name(),
 					to_chinese(explode(base_name(environment(owner)), "/")[1]),
 					owner->name()),users());
@@ -57,7 +57,7 @@ void message_chaser()
 				continue;
 			}
 			else if (!wizardp(ob) && random(300)==1)
-				message("channel:snow",sprintf(HIM"¡¾Ò¥ÑÔ¡¿Ä³ÈË£ºÌýËµ%s"+HIM+"ºÃÏóÂäÔÚ%s"+HIM+"ÊÖÀïÁË£¡\n"NOR, 
+				message("channel:snow",sprintf(HIM"ã€è°£è¨€ã€‘æŸäººï¼šå¬è¯´%s"+HIM+"å¥½è±¡è½åœ¨%s"+HIM+"æ‰‹é‡Œäº†ï¼\n"NOR, 
 				ob->name(),
 				owner->query("name")),users());
 		if( !userp(owner) ) continue;
@@ -90,10 +90,10 @@ void message_chaser()
 			if( !living(thief_ob) || thief_ob->is_fighting() )
 				return;
 			if( dest == room ) return;
-			message("vision", thief_ob->name() + "¼±¼±Ã¦Ã¦µØÀë¿ªÁË¡£\n", room, ({thief_ob}));
+			message("vision", thief_ob->name() + "æ€¥æ€¥å¿™å¿™åœ°ç¦»å¼€äº†ã€‚\n", room, ({thief_ob}));
 		}
 		thief_ob->move(dest);
-		message("vision", thief_ob->name() + "×ßÁË¹ýÀ´¡£\n", dest, ({thief_ob}));
+		message("vision", thief_ob->name() + "èµ°äº†è¿‡æ¥ã€‚\n", dest, ({thief_ob}));
 		return;
 	}
 	victim->delete("unique_hold");
@@ -120,7 +120,7 @@ private int is_keeper(object ob, object obj)
 		"gongping zi",
 	});
 
-	if( !clonep(ob) || userp(ob) || ob->query("race") != "ÈËÀà" ) return 0;
+	if( !clonep(ob) || userp(ob) || ob->query("race") != "äººç±»" ) return 0;
 	if( !(env = environment(ob)) ) return 0;
 	if( !env->query("exits") || env->query("no_fight") ) return 0;
 

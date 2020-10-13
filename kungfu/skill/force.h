@@ -22,8 +22,8 @@ varargs int valid_public(object me,mixed comb)
 		if (SKILL_D(sk[i])->valid_enable("force"))
 			if ( member_array(sk[i],can_skill) == -1 )
 		     	     if (!SCBORN_D->valid_learn(me,sk[i])) 
-				return notify_fail("你不散掉"+to_chinese(sk[i])
-					+"，如何能修习"+to_chinese(skl_name)+"。\n");
+				return notify_fail("浣犱笉鏁ｆ帀"+to_chinese(sk[i])
+					+"锛屽浣曡兘淇範"+to_chinese(skl_name)+"銆俓n");
 	}
 	return 1;
 }

@@ -6,12 +6,12 @@ int valid_leave(object me, string dir)
 	object ob;
 	if(me->query_temp("wait_target") &&
 		objectp(present("anran zi", environment(me))))
-		return notify_fail("÷öÈ»×ÓÉÁÉíÀ¹ÔÚÄãÃæÇ°£¬ºÈµÀ£ºÁÙÕóÏëÁï£¿¸øÎÒ¹ö»ØÀ´£¡\n");
+		return notify_fail("é»¯ç„¶å­é—ªèº«æ‹¦åœ¨ä½ é¢å‰ï¼Œå–é“ï¼šä¸´é˜µæƒ³æºœï¼Ÿç»™æˆ‘æ»šå›æ¥ï¼\n");
 	if(me->query_temp("xx_rob") &&
 		objectp(ob = present("hubiao biaoshi", environment(me))) &&
 		ob->query("target") == me)
-		return notify_fail("»¤ïÚïÚÊ¦ÉÁÉíÀ¹×¡ÄãµÄÈ¥Â·£¬¿´À´ÊÇÏë°ÑÄã¸ø·ÏÁË£¡\n");  
+		return notify_fail("æŠ¤é•–é•–å¸ˆé—ªèº«æ‹¦ä½ä½ çš„å»è·¯ï¼Œçœ‹æ¥æ˜¯æƒ³æŠŠä½ ç»™åºŸäº†ï¼\n");  
 	if(me->query_temp("xx_rob") && objectp(present("shangdui",environment(me))))
-		return notify_fail("ÉÌ¶ÓÔÚÕâÀïÄØ£¬¿ìÇÀ(qiang)°¡£¡\n");  
+		return notify_fail("å•†é˜Ÿåœ¨è¿™é‡Œå‘¢ï¼Œå¿«æŠ¢(qiang)å•Šï¼\n");  
 	return ::valid_leave(me, dir);
 } 

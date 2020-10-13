@@ -6,20 +6,20 @@ int do_attack(string arg)
 	object me=this_player();
 	object who=this_object();
 	if(environment(me)->query("no_fight"))
-		return notify_fail(who->query("name")+"È«ÉíÅ¤¶¯£¬Î·Ëõ²»Ç°£¡\n");
+		return notify_fail(who->query("name")+"å…¨èº«æ‰­åŠ¨ï¼Œç•ç¼©ä¸å‰ï¼\n");
 	if(environment(me)->query("no_ansuan"))
-		return notify_fail(who->query("name")+"È«ÉíÅ¤¶¯£¬Î·Ëõ²»Ç°£¡\n");
+		return notify_fail(who->query("name")+"å…¨èº«æ‰­åŠ¨ï¼Œç•ç¼©ä¸å‰ï¼\n");
 	if(me->query("id")!=(who->query("host_id")))
-		return notify_fail(who->query("name")+"Á¬Àí¶¼²»ÀíÄã£¡\n");
+		return notify_fail(who->query("name")+"è¿ç†éƒ½ä¸ç†ä½ ï¼\n");
 	if(!arg||!objectp(ob=present(arg,environment(me))))
-		return notify_fail(who->query("name")+"ÉµÉµµØÍû×ÅÄã£¬²»Ã÷°×ÄãµÄÒâË¼¡£\n");
+		return notify_fail(who->query("name")+"å‚»å‚»åœ°æœ›ç€ä½ ï¼Œä¸æ˜ç™½ä½ çš„æ„æ€ã€‚\n");
 	if(ob->query("id")==me->query("id"))
-		return notify_fail(who->query("name")+"¼±Ã¦°ÑÍ·Ò»µÍ£¬ËÆºõ²»Ô¸ÒâÈ¥¸É¡£\n");
+		return notify_fail(who->query("name")+"æ€¥å¿™æŠŠå¤´ä¸€ä½ï¼Œä¼¼ä¹ä¸æ„¿æ„å»å¹²ã€‚\n");
 	if(ob->query("owner")&&ob->query("owner")!=me->query("id"))
-		return notify_fail(who->query("name")+"È«ÉíÅ¤¶¯£¬Î·Ëõ²»Ç°£¡\n");
+		return notify_fail(who->query("name")+"å…¨èº«æ‰­åŠ¨ï¼Œç•ç¼©ä¸å‰ï¼\n");
 	if(!living(ob))
-		return notify_fail(who->query("name")+"Ëµ£º"+ob->query("name")+"ÒÑ¾­ÕâÑùÀ²Äã»¹Òª....£¿£¡\n");
-	message_vision(who->query("name")+"Ö¨Ö¨¹Ö½ĞÒ»Éù³åÁË³öÈ¥¡£\n",me);
+		return notify_fail(who->query("name")+"è¯´ï¼š"+ob->query("name")+"å·²ç»è¿™æ ·å•¦ä½ è¿˜è¦....ï¼Ÿï¼\n");
+	message_vision(who->query("name")+"å±å±æ€ªå«ä¸€å£°å†²äº†å‡ºå»ã€‚\n",me);
 	fight_ob(ob);
 	return 1;
 }
@@ -30,14 +30,14 @@ int do_stop()
 	string host_id;
 	object me=this_player();
 	if(me->query("id")!=(who->query("host_id")))
-		return notify_fail(who->query("name")+"Á¬Àí¶¼²»ÀíÄã£¡\n");
+		return notify_fail(who->query("name")+"è¿ç†éƒ½ä¸ç†ä½ ï¼\n");
 	who->set_leader(me);
-	message_vision("$N¶Ô"+who->query("name")+"ºÈµÀ£º±ğ´òÁË£¬¸úÎÒÀ´¡£\n",me);
+	message_vision("$Nå¯¹"+who->query("name")+"å–é“ï¼šåˆ«æ‰“äº†ï¼Œè·Ÿæˆ‘æ¥ã€‚\n",me);
 //	if(!is_fighting())
-//		return notify_fail(who->query("name")+"ÏÖÔÚÃ»ºÍÈË´ò¶·¡£\n");
+//		return notify_fail(who->query("name")+"ç°åœ¨æ²¡å’Œäººæ‰“æ–—ã€‚\n");
 	command("halt");
 	who->delete_temp("kill_name");
-	message_vision(who->query("name")+"¹Ô¹ÔµÄ»Øµ½$NÉí±ß¡£\n",me);
+	message_vision(who->query("name")+"ä¹–ä¹–çš„å›åˆ°$Nèº«è¾¹ã€‚\n",me);
 	return 1;
 }
 
@@ -49,17 +49,17 @@ int do_sha(string arg)
 	object* obj;
 
 	if(environment(me)->query("no_ansuan"))
-		return notify_fail(who->query("name")+"È«ÉíÅ¤¶¯£¬Î·Ëõ²»Ç°£¡\n");
+		return notify_fail(who->query("name")+"å…¨èº«æ‰­åŠ¨ï¼Œç•ç¼©ä¸å‰ï¼\n");
 	me = this_player();
 	if(me->query("id")!=(who->query("host_id")))
-		return notify_fail(who->query("name")+"Á¬Àí¶¼²»ÀíÄã£¡\n");
+		return notify_fail(who->query("name")+"è¿ç†éƒ½ä¸ç†ä½ ï¼\n");
 	if(!arg||!objectp(ob=present(arg,environment(me))))
-		return notify_fail("ÄãÒª"+who->query("name")+"É±Ë­£¿\n");
+		return notify_fail("ä½ è¦"+who->query("name")+"æ€è°ï¼Ÿ\n");
 	if(ob->query("id")==me->query("id"))
-		return notify_fail( who->query("name")+"¼±Ã¦°ÑÍ·Ò»µÍ£¬ËÆºõ²»Ô¸ÒâÈ¥¸É¡£\n");
+		return notify_fail( who->query("name")+"æ€¥å¿™æŠŠå¤´ä¸€ä½ï¼Œä¼¼ä¹ä¸æ„¿æ„å»å¹²ã€‚\n");
 	if(!environment(ob)->query("no_fight"))
 	{
-		message_vision(who->query("name")+"Ö¨Ö¨¹Ö½ĞÒ»Éù³åÁË³öÈ¥¡£\n",me);
+		message_vision(who->query("name")+"å±å±æ€ªå«ä¸€å£°å†²äº†å‡ºå»ã€‚\n",me);
 		who->set_leader(ob);
 		who->set_temp("kill_name",ob->query("id"));
 		remove_call_out("kill_ob");
@@ -75,22 +75,22 @@ int do_guard(string arg)
 	object* enemy;
 	me = this_player();
 	if(me->query("id")!=(who->query("host_id")))
-		return notify_fail(who->query("name")+"Á¬Àí¶¼²»ÀíÄã£¡\n");
+		return notify_fail(who->query("name")+"è¿ç†éƒ½ä¸ç†ä½ ï¼\n");
 	if(!arg)
 	ob = this_player();
 	if(arg)
 	{
 		if(!userp(present(arg,environment(me))))
-			return notify_fail("ÄãÒª"+who->query("name")+"±£»¤Ë­£¿\n");
+			return notify_fail("ä½ è¦"+who->query("name")+"ä¿æŠ¤è°ï¼Ÿ\n");
 	}
 	if(arg) ob = present(arg,environment(me));
 	if (ob->is_fighting())
 	{
-		return notify_fail("¶Ô·½ºÃÏñ²»Ô¸Òâ½ÓÊÜÄãµÄºÃÒâ£¡\n");
+		return notify_fail("å¯¹æ–¹å¥½åƒä¸æ„¿æ„æ¥å—ä½ çš„å¥½æ„ï¼\n");
 	}
 	who->set_temp("guard_ob",ob->query("id"));
 	message("vision",
-		 name() + "·¢³öÇáÎ¢µÄÖ¨½ĞÉù£¬¿ªÊ¼ÈÆ×Å"+ob->name()+"ËÄ´¦ÓÎ×ß£¡\n"NOR,environment(), this_object() );
+		 name() + "å‘å‡ºè½»å¾®çš„å±å«å£°ï¼Œå¼€å§‹ç»•ç€"+ob->name()+"å››å¤„æ¸¸èµ°ï¼\n"NOR,environment(), this_object() );
 	enemy = ob->query_enemy();
 	i = sizeof(enemy);
 	while(i--) {
@@ -111,12 +111,12 @@ int do_hit(string arg)
 	object gurad_ob;
 
 	if(environment(me)->query("no_fight"))
-		return notify_fail(ob->query("name")+"Î·Ëõ²»Ç°£¡\n");
+		return notify_fail(ob->query("name")+"ç•ç¼©ä¸å‰ï¼\n");
 	if(environment(me)->query("no_ansuan"))
-		return notify_fail(ob->query("name")+"Î·Ëõ²»Ç°£¡\n");
+		return notify_fail(ob->query("name")+"ç•ç¼©ä¸å‰ï¼\n");
 	if (!arg ) return 0;
 	if (arg != ob->query_temp("guard_ob")) return 0;
-	message_vision("$NÒ»Éù¹Ö½ĞºöÈ»µ²ÔÚÁË"+me->name()+"µÄÃæÇ°¡£\n", this_object());
+	message_vision("$Nä¸€å£°æ€ªå«å¿½ç„¶æŒ¡åœ¨äº†"+me->name()+"çš„é¢å‰ã€‚\n", this_object());
 	remove_call_out("kill_ob");
 	call_out("kill_ob", 0, me);
 	return 1;

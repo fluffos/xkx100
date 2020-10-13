@@ -6,7 +6,7 @@ int accept_hit(object who)
 	object me = this_object();
 	if (me->query("ygjg")==who) return 1;
 	else 	if (me->query("ygjg"))
-	  return notify_fail(CYN"Ïë¶Ô¸¶"HIR"ÃÉ¹Å±ø"CYN"£¿¿ìÈ¥ÕÒ¹ù¾¸´óÏÀ£¬Ëû»á°²ÅÅÄãÀ´ÊØ³ÇµÄ£¡\n"NOR);
+	  return notify_fail(CYN"æƒ³å¯¹ä»˜"HIR"è’™å¤å…µ"CYN"ï¼Ÿå¿«å»æ‰¾éƒ­é–å¤§ä¾ ï¼Œä»–ä¼šå®‰æ’ä½ æ¥å®ˆåŸçš„ï¼\n"NOR);
 	return 1;
 }
 int accept_fight(object who)	{return accept_hit(who);}

@@ -1,4 +1,4 @@
-// init.h ����ƺӰ���ּ�飬�Լ���ʧ��ʱ��
+// init.h 定义黄河帮高手检查，自己消失的时间
 #define A_TIME 20
 
 void init()
@@ -76,7 +76,7 @@ void do_check()
 	{
 	       if( ! living(me)&& ob = present("biao tou",environment(me))) 
                 { 
-                    message_vision("$Nҧ���гݵض�����մ�У��������죡��\n",me);
+                    message_vision("$N咬牙切齿地对着天空大叫：“贼老天！”\n",me);
                     ob -> add("combat_num",1);
                     return;
                 }
@@ -95,7 +95,7 @@ void do_check()
 			if (! environment()->query("no_fight") )
 			{
 				me->set_leader(ob);
-				message_vision("$N����$n���һ��������"+RANK_D->query_rude(ob)+"����������\n",me,ob);
+				message_vision("$N对着$n大喝一声：你这"+RANK_D->query_rude(ob)+"，拿命来！\n",me,ob);
 				command("kill "+ob->query("id"));
 			//	ob -> add("combat_num",1);
 	               //       if(!ob->is_busy())  ob->start_busy(20); 
@@ -115,8 +115,8 @@ void do_jiefei()
 {
 	object ob;
 	object me = this_object();
-	message_vision(HIY"$N��Ц�����������ҵİ���������\n"NOR,me);
-	message_vision(HIR"�͵�һ��Ų����죬�ƺӰ�ٷ˳��˹�����\n"NOR,me);
+	message_vision(HIY"$N冷笑道：哈哈，我的帮手来啦！\n"NOR,me);
+	message_vision(HIR"猛地一阵脚步乱响，黄河帮劫匪冲了过来！\n"NOR,me);
 	ob = new(__DIR__"jiefei");
 	ob ->move(environment(me));
 }
@@ -127,7 +127,7 @@ void do_wait()
 
 	if( ob = present("biao tou",environment(me)))
 	{
-		message_vision("$N��Ц������ͷ������ѽ����ô���ư��ˣ�\n",this_object());
+		message_vision("$N冷笑道：镖头还在这呀。怎么充哑巴了？\n",this_object());
 		command("kill "+ob->query("id"));
 	}
 	if (me->is_fighting() || !living(me) )
@@ -139,12 +139,12 @@ void do_wait()
 	{
 		if (ob = present("corpse",environment(me)))
 		{
-			message_vision("$N��Ц��������ͷ��������û������ҿ��Ի�ȥ�����ˡ���\nһ���㲻���ˡ�\n",this_object());
+			message_vision("$N狂笑道：“镖头既死，你没法交差，我可以回去交差了。”\n一阵风般不见了。\n",this_object());
 			destruct(me);
 		}
 		else
 		{
-			message_vision("$N���������˵���������ڳ�������������ˣ��һ��ǻ�ȥ�ɡ�\n$N�������ε���Զ�����˿�ȥ��\n",this_object());
+			message_vision("$N自言自语地说道：看来镖车不会从这里来了，我还是回去吧。\n$N满面无奈地向远处走了开去。\n",this_object());
 			destruct(me);
 		}
 	}
@@ -156,7 +156,7 @@ void killed_enemy(object victim)
 
 	if (victim->query("id") == "biao tou")
 	{
-		message_vision("$N�����Цһ���������������ڵ����ˣ��ҿ�����ô������������䣬���������ˡ�\n",me);
+		message_vision("$N仰天狂笑一声：哈哈，“终于得手了！我看你怎么交差！”几个起落，飞身不见了。\n",me);
 		destruct(me);
 	}
 }

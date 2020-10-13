@@ -1,6 +1,6 @@
 // char.c
 
-#pragma save_binary
+// #pragma save_binary
 
 #include <action.h>
 #include <ansi.h>
@@ -108,16 +108,16 @@ void heart_beat()
 		if( living(this_object()) )
 			this_object()->chat();
 		// chat() may do anything -- include destruct(this_object())
-		if( !this_object() ) return;	
+		if( !this_object() ) return;
 	}
-	if (this_object()->query("env/no_fight") && this_object()->is_killing()) 
+	if (this_object()->query("env/no_fight") && this_object()->is_killing())
 	 this_object()->delete("env/no_fight");
 
 	if( tick--  ) return;
 	else tick = 5 + random(10);
 
 	if (!environment()||!environment()->is_chat_room() ||
-	 !query("env/halt_age")) 
+	 !query("env/halt_age"))
 	cnd_flag = update_condition();
 
 	// If we are compeletely in peace, turn off heart beat.
