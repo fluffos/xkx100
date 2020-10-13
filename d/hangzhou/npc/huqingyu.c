@@ -66,11 +66,11 @@ int do_name(string arg,object me)
 		return notify_fail("胡庆余翻着黑白眼：钱呢？没给钱想占便宜？\n");
 	}
 	if( !arg ) return notify_fail("胡庆余笑道：名字总该写全吧。\n");
-	if( strlen(arg) > 10 )
+	if( strwidth(arg) > 10 )
 	return notify_fail("胡庆余惊呼起来：哪有这么长的名字？\n");
-	if( strlen(arg) < 4 )
+	if( strwidth(arg) < 4 )
 	return notify_fail("胡庆余哼了一声：这么短算啥名字？\n");
-        i=strlen(arg);
+        i=strwidth(arg);
 	while(i--)
 	{
 		if( arg[i]<=' ' ) {
@@ -91,7 +91,7 @@ int do_name(string arg,object me)
 		write("对不起，这种名字会造成其他人的困扰。\n");
 		return 1;
 	}
-	if( (strlen(arg) < 2) || (strlen(arg) > 10 ) ) {
+	if( (strwidth(arg) < 2) || (strwidth(arg) > 10 ) ) {
 		write("对不起，你的中文名字必须是 1 到 5 个中文字。\n");
 		return 1;
 	}

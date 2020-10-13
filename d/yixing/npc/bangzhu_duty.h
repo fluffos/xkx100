@@ -121,7 +121,7 @@ string ask_job()
 	myexp = (4 * myexp + random(2 * myexp)) / 5;
 
 	temp = sizeof(levels);
-	for( i = 0; i < temp; i++ ) 
+	for( i = 0; i < temp; i++ )
 		if( myexp < atoi(levels[i]) ) break;
 
 	if( i >= temp )
@@ -165,15 +165,15 @@ string ask_job()
 			file = biao_places[random(sizeof(biao_places))];
 			if( !(dest = find_object(file)) )
 				dest = load_object(file);
-			ob->move(dest);	    
+			ob->move(dest);
 			message("vision",
 			ob->name() + "押着镖车走了过来。\n",
 			dest, ({ob}));
 			region = explode(file, "/")[1];
 			ling->set("job/name", ob->query("nickname"));
-			return "去踩盘的弟兄们回来讲，" + 
-			ob->query("nickname") + 
-			"的镖车将经过" + 
+			return "去踩盘的弟兄们回来讲，" +
+			ob->query("nickname") +
+			"的镖车将经过" +
 			region_names[region] + dest->query("short") + "。";
 		} else {
 			ob = obj[random(sizeof(obj))];
@@ -197,8 +197,8 @@ string ask_job()
 			command("nod");
 			region = explode(file, "/")[1];
 			ling->set("job/name", biaoju);
-			return "去踩盘的弟兄们回来讲，" + biaoju + 
-			"的镖车将经过" + 
+			return "去踩盘的弟兄们回来讲，" + biaoju +
+			"的镖车将经过" +
 			region_names[region] + dest->query("short") + "。";
 		}
 		break;
@@ -279,7 +279,7 @@ int accept_object(object who, object ob)
 	string name, chname = "";
 	mapping job;
 
-	if( who->query_temp("bangs/fam") != query("fam") ) 
+	if( who->query_temp("bangs/fam") != query("fam") )
 		return notify_fail(name() + "大怒道：大胆！想谋害本帮主！！！\n");
 
 	if( !(obj = present("bang ling", who)) )
@@ -291,8 +291,8 @@ int accept_object(object who, object ob)
 	switch(job["type"]) {
 	case "寻":
 		name = ob->name();
-		for(int i = 0; i < strlen(name); i++)
-			if(name[i] > 160 && name[i] < 255) 
+		for(int i = 0; i < strwidth(name); i++)
+			if(name[i] > 160 && name[i] < 255)
 				chname += name[i..i];
 		if( chname != job["name"] )
 			return notify_fail(name() + "大怒道：没有用的东西，连自己的帮务都记不住？！\n");
@@ -402,13 +402,13 @@ int do_xue(string arg)
 		return 1;
 	}
 
-	if( (int)me->query("jing") + 10 < (int)me->query("max_jing") ) { 
+	if( (int)me->query("jing") + 10 < (int)me->query("max_jing") ) {
 		write("你先歇会儿吧。\n");
 		return 1;
 	}
 
 	me->set("jing", 10);
-	me->improve_skill(arg, amount * me->query("int") / 3); 
+	me->improve_skill(arg, amount * me->query("int") / 3);
 	me->delete_temp("bangs/skills_asked");
 
 	message_vision("$N向$n请教有关「" + to_chinese(arg) + "」的疑问。\n", me, this_object());

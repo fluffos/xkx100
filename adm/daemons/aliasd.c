@@ -42,7 +42,7 @@ mapping global_alias = ([
 //	"xue":		"learn",
 //	"quanjia":	"persuade",
 //	"shou":		"recruit",
-//	"tuna": "respirate",	
+//	"tuna": "respirate",
 //	"yong": "perform",
 //	"he": "drink",
 //	"chi": "eat",
@@ -95,7 +95,7 @@ string process_global_alias(string arg)
 {
 	string *word;
 
-	if (arg[0]=='\'') return "say " + arg[1..strlen(arg)-1];
+	if (arg[0]=='\'') return "say " + arg[1..strwidth(arg)-1];
 
 	word = explode(arg, " ");
 	if( sizeof(word) && !undefinedp(global_alias[word[0]]) ) {

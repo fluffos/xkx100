@@ -7,15 +7,15 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	string *txt;
-	
+
 	if( !arg ) return notify_fail("指令格式：describe <描述>\n");
-	if( arg == "none" ) 
+	if( arg == "none" )
 	{
 		me->delete("long");
 		write("你取消了对自己的描述。\n");
 		return 1;
 	}
-	if( !wizardp(me) && (int)strlen(arg) > 40 )
+	if( !wizardp(me) && (int)strwidth(arg) > 40 )
 	{
 		txt = explode(arg,"\n");
 		if( sizeof(txt) > 8 )

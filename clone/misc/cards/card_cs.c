@@ -42,15 +42,15 @@ HIW"\n"+
 "     ┃  ┌──── Merry  Christmas ────┐  ┃\n"+
 "     ┃  │                                  │  ┃\n"+
 "     ┃  │                                  │  ┃\n");
-                if(strlen(me->query("name")) == 2) tell_object(me,
+                if(strwidth(me->query("name")) == 2) tell_object(me,
 HIW"     ┃  │  亲爱的"+me->query("name")+"：                      │  ┃\n");
-                if(strlen(me->query("name")) == 4) tell_object(me,
+                if(strwidth(me->query("name")) == 4) tell_object(me,
 HIW"     ┃  │  亲爱的"+me->query("name")+"：                    │  ┃\n");
-                if(strlen(me->query("name")) == 6) tell_object(me,
+                if(strwidth(me->query("name")) == 6) tell_object(me,
 HIW"     ┃  │  亲爱的"+me->query("name")+"：                  │  ┃\n");
-                if(strlen(me->query("name")) == 8) tell_object(me,
+                if(strwidth(me->query("name")) == 8) tell_object(me,
 HIW"     ┃  │  亲爱的"+me->query("name")+"：                │  ┃\n");
-                if(strlen(me->query("name")) == 10) tell_object(me,
+                if(strwidth(me->query("name")) == 10) tell_object(me,
 HIW"     ┃  │  亲爱的"+me->query("name")+"：              │  ┃\n");
         tell_object(me,
 HIW"     ┃  │      愿您和您的家人在主的祝福    │  ┃\n"+

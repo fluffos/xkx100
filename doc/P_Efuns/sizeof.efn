@@ -13,6 +13,6 @@
 		传回 var 中元素的数目, var 可以是数组、数组、字符串、
 		或是缓冲区. 如果 var 不属於以上四种类型, 就传回 0.
 	参考函数:
-		allocate(3), allocate_mapping(3), strlen(3)
+		allocate(3), allocate_mapping(3), strwidth(3)
 	手册翻译:
 		Phoebus@ZH	97. Jul.23.		(Writen 5/23/97)

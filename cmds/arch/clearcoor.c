@@ -36,7 +36,7 @@ int main(object me, string arg, int recur_flag)
 
 	dir = resolve_path(me->query("cwd"), arg);
 
-	if ( file_size(dir) == -2 && dir[strlen(dir)-1] != '/' )
+	if ( file_size(dir) == -2 && dir[strwidth(dir)-1] != '/' )
 		dir += "/";
 
 	file = get_dir(dir, -1);
@@ -59,8 +59,8 @@ int main(object me, string arg, int recur_flag)
 	if (sizeof(file)) {
 		for(i = 0,j = sizeof(file); i < j; i ++) {
 		       	if (file[i][1]!=-2 && sscanf(file[i][0], "%*s.c")
-       				&& file[i][0][strlen(file[i][0])-1] == 'c'
-				&& file[i][0][strlen(file[i][0])-2] == '.')
+       				&& file[i][0][strwidth(file[i][0])-1] == 'c'
+				&& file[i][0][strwidth(file[i][0])-2] == '.')
 				clearfile(me, dir + file[i][0]);
 			else if (file[i][1] == -2 && recur)
 				call_other(__FILE__, "main", me, dir+file[i][0], 1);
@@ -107,7 +107,7 @@ int clearfile(object me, string file)
 
 	out_text = implode(temp_text, "\n");
 	out_text = replace_string(out_text, "setup()",
-			sprintf("set(\"coor/x\", %d);\n\tset(\"coor/y\", %d);\n\tset(\"coor/z\", %d);\n\tsetup()", 
+			sprintf("set(\"coor/x\", %d);\n\tset(\"coor/y\", %d);\n\tset(\"coor/z\", %d);\n\tsetup()",
 			x, y, z));
 
 	write_file(file, out_text, 1);

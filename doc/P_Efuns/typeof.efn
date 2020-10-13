@@ -12,7 +12,7 @@
 
 		整数		INT		2
 		字符串		STRING		4
-		数组		ARRAY		8 
+		数组		ARRAY		8
 		对象		OBJECT		16
 		映射		MAPPING		32
 		函数指针	FUNCTION	64
@@ -20,6 +20,6 @@
 		缓冲区		BUFFER		256
 
 	参考函数:
-		allocate(3), allocate_mapping(3), strlen(3)
+		allocate(3), allocate_mapping(3), strwidth(3)
 	手册翻译:
 		Phoebus@ZH	97.Jul.25.		(Writen 5/23/97)

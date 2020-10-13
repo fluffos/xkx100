@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 /*
  * File    : rhow_q.c
  * Creator : Pinkfish@Discworld
@@ -46,15 +46,15 @@ void incoming_request(mapping info)
      }
 
 //     str = WHO_CMD->main(0, info["VERBOSE"] ? "-l -i": "-i", 1);
-                
-     str = WHO_CMD->main(0, strlen(info["VERBOSE"])>1 ?
+
+     str = WHO_CMD->main(0, strwidth(info["VERBOSE"])>1 ?
            info["VERBOSE"]: "", 1);
-// the above line check strlen is because some MUD send
+// the above line check strwidth is because some MUD send
 // VERBOSE:0 as default.
 // mon 10/17/97
 
                 //break up into smaller packets.
-                len=strlen(str)-1;
+                len=strwidth(str)-1;
                 packet=1024; //length of each packet
      for(i=0;i<=len;) {
                   j=i+packet-1;
@@ -64,7 +64,7 @@ void incoming_request(mapping info)
         "@@@" + DNS_RWHO_A +
         "||NAME:" + Mud_name() +
         "||PORTUDP:" + udp_port() +
-        "||RWHO:" + str[i..j] + 
+        "||RWHO:" + str[i..j] +
         "||ASKWIZ:" + info["ASKWIZ"] +
         "@@@\n");
                   i=j+1;
@@ -90,7 +90,7 @@ void send_rwho_q(string mud, object them, string verbose)
      "||PORTUDP:"+ udp_port() +
      "||ASKWIZ:"+ askwiz +
 //     (verbose ? "||VERBOSE:1" : "") +
-                (strlen(verbose)>0 ? "||VERBOSE:"+ verbose: "") +
+                (strwidth(verbose)>0 ? "||VERBOSE:"+ verbose: "") +
      "||@@@\n");
 }
 

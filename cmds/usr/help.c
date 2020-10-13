@@ -74,14 +74,14 @@ int main(object me, string arg)
 		for ( i = 0; i < sizeof(cmds); i++)
 		{
 			file = cmds[i];
-		  if ( file[strlen(file)-2..strlen(file)-1]==".c" &&
+		  if ( file[strwidth(file)-2..strwidth(file)-1]==".c" &&
 //			if(strsrch(file,".c") >= 0 &&
 				strsrch(file,".bak") < 0 &&
 				strsrch(file,".swp") < 0)
 			{
 				file = replace_string(file, ".c", " ");
 				write(file);
-				k = strlen(file);
+				k = strwidth(file);
 				k = 12-k;
 				while(k--) write(" ");
 				w++;
@@ -96,13 +96,13 @@ int main(object me, string arg)
 		{
 			file = cmds[i];
 //			if(strsrch(file,".c") >= 0 &&
-		  if ( file[strlen(file)-2..strlen(file)-1]==".c" &&
+		  if ( file[strwidth(file)-2..strwidth(file)-1]==".c" &&
 				strsrch(file,".bak") < 0 &&
 				strsrch(file,".swp") < 0)
 			{
 				file = replace_string(file, ".c", " ");
 				write(file);
-				k = strlen(file);
+				k = strwidth(file);
 				k = 12-k;
 				while(k--) write(" ");
 				w++;
@@ -117,13 +117,13 @@ int main(object me, string arg)
 		{
 			file = cmds[i];
 //			if(strsrch(file,".c") >= 0 &&
-		  if ( file[strlen(file)-2..strlen(file)-1]==".c" &&
+		  if ( file[strwidth(file)-2..strwidth(file)-1]==".c" &&
 				strsrch(file,".bak") < 0 &&
 				strsrch(file,".swp") < 0)
 			{
 				file = replace_string(file, ".c", " ");
 				write(file);
-				k = strlen(file);
+				k = strwidth(file);
 				k = 12-k;
 				while(k--) write(" ");
 				w++;
@@ -171,7 +171,7 @@ int main(object me, string arg)
 	sscanf(arg, "%s.%s", arg, str);
 	if(file_size(SKILL_D(arg)+".c") < 1)
 		return notify_fail("没有针对这项主题的说明文件。\n");
-	
+
 // 武功绝招帮助文件
 	if( stringp(str) )
 	{
@@ -200,7 +200,7 @@ int main(object me, string arg)
 
 	str = sprintf("\n┌────%s",HIW"【"YEL+to_chinese(arg)+HIW"    功能表】"NOR);
 	str += sprintf("───────────");
-	for (k=18-strlen(to_chinese(arg)); k>0; k--)
+	for (k=18-strwidth(to_chinese(arg)); k>0; k--)
 	{
 		str += sprintf("─");
 		k--;
@@ -212,7 +212,7 @@ int main(object me, string arg)
 	str += sprintf("│"HIY"目前等级"NOR"：     %3d/%6d              "HIY "武功类别"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知识" : SKILL_D(arg)->martialtype()=="skill" ? "武技" : SKILL_D(arg)->martialtype()=="dodge" ? "轻功" : "内功" , "│");
 
 	if(SKILL_D(arg)->type() != "martial" ||
-		member_array(arg, keys(valid_type))!=-1) 
+		member_array(arg, keys(valid_type))!=-1)
 		return notify_fail(str+"└───────────────────────────────┘\n");
 	str+="│                                                              │\n";
 	sk = load_object(SKILL_D(arg));
@@ -233,7 +233,7 @@ int main(object me, string arg)
 			j = sizeof(skfile);
 		}
 	}
-	
+
 	if(j && j > 0)
 	{
 		if( i ) str = str +"├───────────────────────────────┤\n";
@@ -248,14 +248,14 @@ int main(object me, string arg)
 				templen = 0;
 			}
 			str += sprintf("%-14s ",YEL+replace_string(skfile[i], ".c", "")+NOR);
-			templen += strlen(replace_string(skfile[i], ".c", "")) +1;
+			templen += strwidth(replace_string(skfile[i], ".c", "")) +1;
 		}
 		for (k = 52-templen; k >0; k--)
 			str += " ";
 		str += "│\n";
 		j = 0;
 	}
-	
+
 	if( stringp(exert = SKILL_D(arg)->perform_action_file(""))){
 		skfile = get_dir(exert);
 		if( sizeof(skfile) > 0){
@@ -263,7 +263,7 @@ int main(object me, string arg)
 			j = sizeof(skfile);
 		}
 	}
-	
+
 	if(j && j > 0)
 	{
 		if( i )
@@ -279,7 +279,7 @@ int main(object me, string arg)
 				templen = 0;
 			}
 			str += sprintf("%s ",WHT+replace_string(skfile[i], ".c", "")+NOR);
-			templen += strlen(replace_string(skfile[i], ".c", "")) +1;
+			templen += strwidth(replace_string(skfile[i], ".c", "")) +1;
 		}
 		for (k = 52-templen; k >0; k--)
 			str += " ";
@@ -295,12 +295,12 @@ string skill_enables(object sk)
 	int i, j, k, templen;
 	string str, *skills;
 	skills = keys(valid_type);
-	
+
 	for(i=0; i < sizeof(skills); i++) {
 		if (sk->valid_enable(skills[i])) continue;
 		skills[i] = 0;
 	}
-	
+
 	skills -= ({ 0 });
 	j = sizeof(skills);
 	if( !j || j < 1)
@@ -317,7 +317,7 @@ string skill_enables(object sk)
 			templen = 0;
 		}
 		str += sprintf("%s ", valid_type[skills[i]]+"("+skills[i]+")");
-		templen += strlen(valid_type[skills[i]]+"("+skills[i]+")") + 1;
+		templen += strwidth(valid_type[skills[i]]+"("+skills[i]+")") + 1;
 	}
 	for (k = 52-templen; k >0; k--)
 	{
@@ -329,10 +329,10 @@ string skill_enables(object sk)
 int sort_skill(string file)
 {
 	int i;
-  if (strlen(file) < 2) return 0;
-  if (file[strlen(file)-2..strlen(file)-1]!=".c") return 0;
+  if (strwidth(file) < 2) return 0;
+  if (file[strwidth(file)-2..strwidth(file)-1]!=".c") return 0;
 //	if ( !sscanf(file, "%*s.c") ) return 0;
-	i = strlen(file);
+	i = strwidth(file);
 	while(i--){
 		if( file[i] == '.' ) continue;
 		if( (file[i] < 'a' || file[i] > 'z' )
@@ -359,4 +359,3 @@ HELP
 	);
 	return 1;
 }
-

@@ -17,12 +17,12 @@ void setup()
 
 int query_amount() { return amount; }
 
-private void destruct_me() { destruct(this_object()); }
+protected void destruct_me() { destruct(this_object()); }
 
 void set_amount(int v)
 {
 	if( v < 0 ) error("combine:set_amount less than 1.\n");
-//	if( v==0 ) destruct(this_object()); 
+//	if( v==0 ) destruct(this_object());
 	if( v==0 ) {
 		::move(VOID_OB);
 		call_out("destruct_me", 1);
@@ -68,4 +68,3 @@ varargs int move(mixed dest, int silent)
 		return 1;
 	}
 }
-

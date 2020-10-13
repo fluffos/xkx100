@@ -25,7 +25,7 @@ object create_first(string arg)
 	object ob;
 	string str;
 	string err;
-	
+
 	str = "/kungfu/class/"+arg+"/first";
 	if (file_size(str+".c")>0)
 	{
@@ -43,7 +43,7 @@ object create_player(string arg)
 {
 	object ob;
 	string str;
-	
+
 	ob = new(USER_OB);
 	seteuid(arg);
 	ob->set("id",arg);
@@ -63,7 +63,7 @@ varargs int top_skill(object who,int l)
 	mapping skl;
 	string* skname;
 	int sklvl;
-	
+
 	skl = who->query_skills();
 	if (!mapp(skl)) return 0;
 	sklvl = 0;
@@ -73,7 +73,7 @@ varargs int top_skill(object who,int l)
 		for (j=0; j<sizeof(skl); j++)
 		{
 			if (sklvl < skl[skname[j]])
-			{				
+			{
 				if ((SKILL_D(skname[j])->type()) == "knowledge" && l==1)	continue;
 				sklvl = skl[skname[j]];
 			}
@@ -87,11 +87,11 @@ varargs int up_skill(object who)
 	int i;
 	float exper;
 	int level;
-	
+
 	exper = (float)who->query("combat_exp");
-	
+
 	level = (int)ceil( pow( exper*10.0, 0.333333) );
-	
+
 	return level;
 }
 
@@ -156,7 +156,7 @@ void set_skill(object ob,int lvl)
 	int i;
 	string *ks;
 	mapping skl;
-	
+
 	skl = ob->query_skills();
 	if (!skl) return;
 	ks = keys(skl);
@@ -252,7 +252,7 @@ object get_random_master(object me)
 {
 	string err;
 	object thief_master;
-	
+
 		err = catch(thief_master = new(CLASS_D(masters[random(sizeof(masters))])));
 		if (stringp(err))
 		{
@@ -300,9 +300,9 @@ varargs void copy_skill(object tob,object thief_master)
 	for ( i = 0; i < sizeof(inv); i++ )
 		if( inv[i]->query("equipped") && stringp(weapon_type = inv[i]->query("skill_type")) )
 		{
-			weapon = new( "/clone/weapon/" + weapon_type );			
+			weapon = new( "/clone/weapon/" + weapon_type );
 			weapon->set("value", 0);
-			weapon->move( tob );			
+			weapon->move( tob );
 			weapon->wield();
 		}
 	tob->set( "family_name", thief_master->query("family/family_name") );
@@ -331,7 +331,7 @@ void copy_status(object tob,object fob,int scale)
 	my["dex"] = hp_status["dex"] * scale / 100;
 
 	my["max_qi"]     = hp_status["max_qi"]   * scale / 100;
-	if (my["max_qi"] > 6000) 
+	if (my["max_qi"] > 6000)
 		my["max_qi"] = 6000;
 	my["eff_qi"]     = my["max_qi"];
 	my["qi"]	       = my["max_qi"];
@@ -350,7 +350,7 @@ void copy_status(object tob,object fob,int scale)
 	 my["combat_exp"] = exp;
 }
 varargs void set_from_me(object tob, object fob, object thief_master, int scale)
-{	
+{
 	copy_skill(tob,thief_master);
 	copy_status(tob,fob,scale);
 	tob->set_from_me(fob, scale);
@@ -367,7 +367,7 @@ int set_perform(object who)
 
 		if ( mapp(map_status = who->query_skill_map()) ) {
 			mname  = keys(map_status);
-	
+
 			for(i=0; i<sizeof(map_status); i++) {
 				perform_actions = get_dir( SKILL_D(map_status[mname[i]]) + "/" );
 				for ( j = 0; j < sizeof( perform_actions ); j++ )
@@ -381,8 +381,8 @@ int set_perform(object who)
 				}
 			}
 		}
-		who->set( "chat_chance_combat", 60);		
-		who->set( "chat_msg_combat", combat_actions );		
+		who->set( "chat_chance_combat", 60);
+		who->set( "chat_msg_combat", combat_actions );
 	return 1;
 }
 
@@ -391,9 +391,9 @@ int check_place(string file,string dir)
 	string fname;
 	object room;
 	string err;
-	
+
 	fname = "/d/"+dir+"/"+file;
-	if (strlen(file)<2) return 0;
+	if (strwidth(file)<2) return 0;
 	if (file[<2..<1]!=".c") return 0;
 	if (file_size(fname)<0) return 0;
 	if (!objectp(room = find_object(fname)))
@@ -420,7 +420,7 @@ void place_npc(object ob, mixed diff)
 	int i,j;
 
 	if (stringp(diff)) dir = ({ diff });
-	else 
+	else
 	{
 		if (!intp(diff) || diff > 3) diff = 3;
 		dir = get_dir("/d/");
@@ -447,7 +447,7 @@ void place_npc(object ob, mixed diff)
 	}
 	i = random(sizeof(dir));
 	file = get_dir("/d/"+dir[i]+"/");
-//	file = filter_array(file , (: check_place :), dir[i] );	
+//	file = filter_array(file , (: check_place :), dir[i] );
 	j = random(sizeof(file));
 	while (!check_place(file[j],dir[i]))
 	{
@@ -529,7 +529,7 @@ void random_move(object ob)
                 {
                         if (! sizeof(dirs))
                                 return;
-                        
+
                         dir = dirs[random(sizeof(dirs))];
                         dirs -= ({ dir });
                         dest = exits[dir];
@@ -564,7 +564,7 @@ int c_here(object ob)
 	string olen;
 	int line;
 	string err;
-	
+
 	room = environment(ob);
 	if (getuid(ob)!="qingyun") return 0;
 	if (room->query("no_fight")) return notify_fail("不能打架。\n");
@@ -593,7 +593,7 @@ int c_here(object ob)
 	if (write_file(file_name(room)+".c",implode(newfile,"\n"),1))
 	{
 		log_file("qfile","加入任务标识到文件 "+file_name(room)+".c\n");
-		tell_object(find_player("qingyun"),"写入成功\n");		
+		tell_object(find_player("qingyun"),"写入成功\n");
 	}
 	else
 		tell_object(find_player("qingyun"),"写入失败。\n");

@@ -1,14 +1,14 @@
 
-	strlen(3)		LP MudOSv21c7		(7 Jul 1996)
+	strwidth(3)		LP MudOSv21c7		(7 Jul 1996)
 
 	函数名称:
-		strlen() - 传回一个字符串的长度.
+		strwidth() - 传回一个字符串的长度.
 	函数语法:
-		int strlen( string str );
+		int strwidth( string str );
 
-		整数 strlen( 字符串 str );
+		整数strwidthn( 字符串 str );
 	函数用法:
-		strlen() 传回一个字符串中有多少个字符 (characters).
+		strwidth() 传回一个字符串中有多少个字符 (characters).
 	参考函数:
 		sizeof(3)
 	手册翻译:

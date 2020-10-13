@@ -28,8 +28,8 @@ int do_zhu(string arg)
 		return notify_fail("使用(zhu "+type+"的名字 英文代号)\n");
 	if(id == "corpse" || w_name == "corpse")
 		return notify_fail("非法的名字或英文代号。\n");
-	if (strlen(w_name)>75) return notify_fail("你选择的名字太长了吧。\n");
-	if (strlen(id) > 20) return notify_fail("你选择的英文代号太长了吧。\n");
+	if (strwidth(w_name)>75) return notify_fail("你选择的名字太长了吧。\n");
+	if (strwidth(id) > 20) return notify_fail("你选择的英文代号太长了吧。\n");
 	w_name = replace_string(w_name, "$BLK$", BLK);
 	w_name = replace_string(w_name, "$RED$", RED);
 	w_name = replace_string(w_name, "$GRN$", GRN);
@@ -86,8 +86,8 @@ int do_answer(string arg)
 	message_vision(RED "只听得棚的一声巨响，锤头和"+o_name+"粘在了一起。\n" NOR,me );
 	message_vision(YEL "$N只觉得掌心一热，浑身的血液似乎都沸腾了起来！\n" NOR,me);
 	message_vision(HIM "一身精血胶合着汩汩的内气，源源不断的向炉中的"+o_name+"涌去！\n" NOR,me );
-	if( (me->query("qi"))<(me->query("max_qi")) || 
-	(me->query("jing"))<(me->query("max_jing")) || 
+	if( (me->query("qi"))<(me->query("max_qi")) ||
+	(me->query("jing"))<(me->query("max_jing")) ||
 	(me->query("neili"))<(me->query("max_neili")) )
 	{
 		message_vision(HIR "突然$N觉得气血一阵翻涌，一口真气接不上来。。。。 \n" NOR, me);
@@ -116,7 +116,7 @@ int do_answer(string arg)
 	me->set("weapon/time",make_time);
 	me->set("weapon/killed",0);
 
-	weapon = new("/d/npc/m_weapon/weapon/m_weapon",1); 
+	weapon = new("/d/npc/m_weapon/weapon/m_weapon",1);
 	weapon->move(this_player());
 	message_vision("$n摸起地上，带着斑斑血迹还有些烫手的巨"+type+"，说：\n"+type+"。。已。。成。。，$n的任务。。。也就完成了。。。。\n",me ,ob );
 	message_vision("$n艰难的说：棒。。您。。收好，我该走了。。。\n",me,ob);

@@ -59,7 +59,7 @@ void set_visitor(int num);
 void set_card(int num);
 // tentop
 
-void create() 
+void create()
 {
 	seteuid(getuid());
 	set("channel_id", "连线精灵");
@@ -91,14 +91,14 @@ void logon(object ob)
 
 	for(i=0; i<sizeof(usr); i++)
 	{
-		if( query_ip_name(usr[i])==query_ip_name(ob)) 
+		if( query_ip_name(usr[i])==query_ip_name(ob))
 			iplimit ++;
 		if ( member_array(query_ip_name(ob), wiz_ip) == -1 &&
 			!environment(usr[i]))
 			in_login ++;
-		if( !environment(usr[i]) ) 
+		if( !environment(usr[i]) )
 			login_cnt++;
-		else if( wizardp(usr[i]) && (usr[i]->query("env/invisibility") || usr[i]->query("no_look_wiz")) ) 
+		else if( wizardp(usr[i]) && (usr[i]->query("env/invisibility") || usr[i]->query("no_look_wiz")) )
 			inv_wiz_cnt++;
 		else if( wizardp(usr[i]) && !usr[i]->query("env/invisibility") )
 			wiz_cnt++;
@@ -134,8 +134,8 @@ void logon(object ob)
 // 计数 End
 	log_file( "PLAYERNUM", sprintf("At %s: %d %s\n", ctime(time()), ppl_cnt , query_ip_name(ob)) );
 	printf( "目前共有 %s 位世外高人、%s 位江湖儿女在线上，以及 %s 位使用者尝试连线中。\n",
-		chinese_number(wiz_cnt), 
-		chinese_number(ppl_cnt), 
+		chinese_number(wiz_cnt),
+		chinese_number(ppl_cnt),
 		chinese_number(login_cnt+inv_wiz_cnt) );
 
 	write("您的英文名字：");
@@ -257,7 +257,7 @@ private void get_id(string arg, object ob)
 		return;
 	}
 	else
-        	if(strlen(arg) > 8)
+        	if(strwidth(arg) > 8)
 		{
 			write("您的英文名字太长了，请选择短一点的。\n");
 			destruct(ob);
@@ -365,7 +365,7 @@ private void confirm_relogin(string yn, object ob, object user)
 		write("您要将另一个连线中的相同人物赶出去，取而代之吗？(y/n)");
 		input_to("confirm_relogin", ob, user);
 		return;
-	}	
+	}
 
 	if( yn[0]!='y' && yn[0]!='Y' )
 	{
@@ -386,9 +386,9 @@ private void confirm_relogin(string yn, object ob, object user)
 		destruct(old_link);
 	}
 
-	reconnect(ob, user);	
+	reconnect(ob, user);
 }
-	
+
 private void confirm_id(string yn, object ob)
 {
 	if( yn=="" )
@@ -396,7 +396,7 @@ private void confirm_id(string yn, object ob)
 		write("使用这个名字将会创造一个新的人物，您确定吗(y/n)？");
 		input_to("confirm_id", ob);
 		return;
-	}	
+	}
 	if( yn[0]!='y' && yn[0]!='Y' )
 	{
 		write("好吧，那么请重新输入您的英文名字：");
@@ -432,7 +432,7 @@ private void get_name(string arg, object ob)
 private void new_password(string pass, object ob)
 {
 	write("\n");
-	if( strlen(pass)<5 )
+	if( strwidth(pass)<5 )
 	{
 		write("密码的长度至少要五个字元，请重设您的密码：");
 		input_to("new_password", 1, ob);
@@ -457,17 +457,17 @@ private void confirm_password(string pass, object ob)
 	write(@TEXT
 
 请选择你的人物出生地：
- 
+
     参天之树，必有其根，怀山之水，必有其源。
     故乡，是游子梦魂萦绕、辗转反侧的地方，是游子心中最深最沉的牵挂。
-    
+
     你可以选择出生在下列城市：
- 
+
     1〖 北京 〗 〖 开封 〗 〖 南阳 〗 〖 灵州 〗 〖 漠北 〗 〖 西夏 〗
     2〖 长安 〗 〖 洛阳 〗 〖 兰州 〗 〖 汉中 〗 〖 襄阳 〗 〖 永登 〗
-    3〖 扬州 〗 〖 杭州 〗 〖 苏州 〗 〖 无锡 〗 〖 嘉兴 〗 〖 宜兴 〗 
+    3〖 扬州 〗 〖 杭州 〗 〖 苏州 〗 〖 无锡 〗 〖 嘉兴 〗 〖 宜兴 〗
     4〖 福州 〗 〖 泉州 〗 〖 台湾 〗 〖 延平 〗 〖 石梁 〗 〖 澎湖 〗
-    5〖 大理 〗 〖 衡阳 〗 〖 江陵 〗 〖 岳阳 〗 〖 佛山 〗 〖 成都 〗 
+    5〖 大理 〗 〖 衡阳 〗 〖 江陵 〗 〖 岳阳 〗 〖 佛山 〗 〖 成都 〗
 
 TEXT);
 	input_to("get_hometown",ob);
@@ -480,7 +480,7 @@ private void get_hometown(string born,object ob )
 	string hometown;
 	int j;
 	object old;
-	
+
 	j = random(6);
   	my = ([]);
   	my["area"] = born;
@@ -497,7 +497,7 @@ private void get_hometown(string born,object ob )
 				default:hometown = "西夏";my["START_ROOM"]="d/lingzhou/chema";break;
 			}
 			break;
-			
+
 		case "2" :
 			switch (j)
 			{
@@ -593,7 +593,7 @@ private void confirm_gift(string arg,object ob,mapping my)
 {
 	object old;
 	string chartype;
-	
+
 	arg = lower_case(arg);
 	if (arg == "y" || arg == "Y")
 	{
@@ -619,7 +619,7 @@ private void confirm_gift(string arg,object ob,mapping my)
 		write("你重新自己的先天属性。\n");
 		config_gift(ob,my);
 	}
-	else 
+	else
   	write("你要继承前世的属性吗？(Y/N)");
   	input_to("confirm_gift",ob,my);
 }
@@ -630,7 +630,7 @@ private void config_gift(object ob,mapping my)
 
 	all = 80+10*ob->query("scborn/times");
 	if (ob->query("scborn/times")) all += 10;
-	max = 30+5*ob->query("scborn/times"); 
+	max = 30+5*ob->query("scborn/times");
 	min = (all-max-max)/2;
 //	min = 10+5*ob->query("scborn/times");
 	printf("你的天赋总点数为"+all+"，您请输入您的膂力点数("+min+"到"+max+")：");
@@ -688,7 +688,7 @@ private void sel_int(string qty1, object ob, mapping my, int all, int min, int m
 		((all-my["str"]-my["int"])<(max+min)?min:all-my["str"]-my["int"]-max),
 		(all-my["str"]-my["int"])>(max+min)?max:all-my["str"]-my["int"]-min);
 //		  80-my["str"]-my["int"],
-//		  (80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30, 
+//		  (80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30,
 //		  (80-my["str"]-my["int"]>40)?30:80-my["str"]-my["int"]-10);
 		input_to("sel_con", ob, my, all, min, max);
 		return;
@@ -702,12 +702,12 @@ private void sel_con(string qty1, object ob, mapping my, int all, int min, int m
 	if(qty<min)
 	{
 		write(HIR"您选择的根骨数值不能小于"+min+"：\n"NOR);
-		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：", 
+		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：",
 		all-my["str"]-my["int"],
 		(all-my["str"]-my["int"])<(max+min)?min:all-my["str"]-my["int"]-max,
 		(all-my["str"]-my["int"])>(max+min)?max:all-my["str"]-my["int"]-min);
-//		80-my["str"]-my["int"], 
-//(80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30, 
+//		80-my["str"]-my["int"],
+//(80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30,
 //(80-my["str"]-my["int"]>40)?30:80-my["str"]-my["int"]-10);
 		input_to("sel_con", ob, my,all,min,max);
 	}
@@ -719,8 +719,8 @@ private void sel_con(string qty1, object ob, mapping my, int all, int min, int m
 		all-my["str"]-my["int"],
 		(all-my["str"]-my["int"])<(max+min)?min:all-my["str"]-my["int"]-max,
 		(all-my["str"]-my["int"])>(max+min)?max:all-my["str"]-my["int"]-min);
-//		80-my["str"]-my["int"], 
-//		(80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30, 
+//		80-my["str"]-my["int"],
+//		(80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30,
 //		(80-my["str"]-my["int"]>40)?30:80-my["str"]-my["int"]-10);
 		input_to("sel_con", ob, my,all,min,max);
 	}
@@ -731,7 +731,7 @@ private void sel_con(string qty1, object ob, mapping my, int all, int min, int m
 		{
 			write(HIR"您选择的根骨数值不在允许范围内。\n"NOR);
 //			printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：", 80-my["str"]-my["int"], (80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30, (80-my["str"]-my["int"]>40)?30:80-my["str"]-my["int"]-10);
-		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：", 
+		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：",
 		all-my["str"]-my["int"],
 		(all-my["str"]-my["int"])<(max+min)?min:all-my["str"]-my["int"]-max,
 		(all-my["str"]-my["int"])>(max+min)?max:all-my["str"]-my["int"]-min);
@@ -747,13 +747,13 @@ private void sel_con(string qty1, object ob, mapping my, int all, int min, int m
 			return;
 		}
 	}
-	else 
+	else
 	{
 		if(qty>all-my["str"]-my["int"]-min)
 		{
 			write(HIR"您选择的根骨数值不在允许范围内。\n"NOR);
 //		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：", 80-my["str"]-my["int"], (80-my["str"]-my["int"]<40)?10:80-my["str"]-my["int"]-30, (80-my["str"]-my["int"]>40)?30:80-my["str"]-my["int"]-10);
-		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：", 
+		printf("你的天赋点数尚余%d点，您请输入您的根骨点数(%d 到 %d)：",
 		all-my["str"]-my["int"],
 		(all-my["str"]-my["int"])<(max+min)?min:all-my["str"]-my["int"]-max,
 		(all-my["str"]-my["int"])>(max+min)?max:all-my["str"]-my["int"]-min);
@@ -783,7 +783,7 @@ private void get_gift(string yn, object ob, mapping my,int all,int min,int max)
 	write(@TEXT
 
 请选择你的人物性格属性：
- 
+
     人生在世，有各种性格和抱负。性格属性的选择，或多或少影响了你今后
 的发展和未来。但每个性格属性都不是绝对的，如果你拿不定注意，就选普通
 吧。
@@ -923,7 +923,7 @@ private void get_gender(string gender, object ob, object user)
 {
 	object res;
 	string err;
-	
+
 	write("\n");
 	if( gender=="" )
 	{
@@ -994,7 +994,7 @@ private init_new_player(object user)
 	user->set("channels", ({ "chat", "rumor", "party", "xkx", "sing" , "es" , "snow" }) );
 }
 
-		
+
 varargs void enter_world(object ob, object user, int silent)
 {
 	object cloth, shoe, room, mailbox, gift, login_ob;
@@ -1022,7 +1022,7 @@ varargs void enter_world(object ob, object user, int silent)
 			13          : 2,
 			14          : 2,
 			"cardfile"  : "/clone/misc/cards/card_ft",
-		]), 
+		]),
 	});
 
 	user->set_temp("link_ob", ob);
@@ -1045,17 +1045,17 @@ varargs void enter_world(object ob, object user, int silent)
 		user->set("water", user->max_water_capacity());
 	}
 
-	// In case of new player, we save them here right aftre setup 
+	// In case of new player, we save them here right aftre setup
 	// compeleted.
 	user->save();
 	ob->save();
 	// Use condition to auto save user file
 	user->apply_condition("autosave", 1);
-	
+
 	// 根据时间判断是否为节日，并赠送玩家礼品。
 	// Added by Constant Jan 2 2001
 	ltime = localtime(time());
-	
+
 	for (i = 0; i < sizeof(holidays); i++)
 	{
 		if (holidays[i][ltime[LT_MDAY]] == ltime[LT_MON]+1)
@@ -1078,7 +1078,7 @@ varargs void enter_world(object ob, object user, int silent)
 	// Added by Constant Jan 2 2001
 	if (!is_holiday && user->query("holiday_cards"))
 		user->delete("holiday_cards");
-	
+
 	if (wizhood(user) == "(player)")
 	{
 		if (user->query("class")=="bonze")
@@ -1199,9 +1199,9 @@ int check_legal_id(string id)
 {
 	int i;
 
-	i = strlen(id);
-	
-	if( (strlen(id) < 3) || (strlen(id) > 8 ) ) {
+	i = strwidth(id);
+
+	if( (strwidth(id) < 3) || (strwidth(id) > 8 ) ) {
 		write("对不起，你的英文名字必须是 3 到 8 个英文字母。\n");
 		return 0;
 	}
@@ -1219,8 +1219,8 @@ int check_legal_name(string name)
 	int i;
 
 	i = strlen(name);
-	
-	if( (strlen(name) < 4) || (strlen(name) > 10 ) ) {
+
+	if( (strwidth(name) < 4) || (strwidth(name) > 10 ) ) {
 		write("对不起，你的中文名字必须是 2 到 5 个中文字。\n");
 		return 0;
 	}
@@ -1270,7 +1270,7 @@ int set_wizlock(int level)
 	wiz_lock_level = level;
 	return 1;
 }
-// add for ten top. 
+// add for ten top.
 int set_madlock(int setmark)
 {
        // if( wiz_level(this_player(1)) < wiz_level("(arch)") )
@@ -1328,4 +1328,3 @@ int get_dienpc()
 {
 	return dienpc;
 }
-

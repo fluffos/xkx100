@@ -11,10 +11,10 @@ int main(object me, string arg)
 	dir = resolve_path(me->query("cwd"), arg);
 	if(file_size(dir)!=-2) return notify_fail("没有这个目录。\n");
 
-	if(dir[strlen(dir)-1]!='/') dir += "/";
+	if(dir[strwidth(dir)-1]!='/') dir += "/";
 	me->set("cwd", dir);
 	write(dir + "\n");
-	return 1;	
+	return 1;
 }
 
 int help(object me)

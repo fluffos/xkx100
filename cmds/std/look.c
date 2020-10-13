@@ -82,7 +82,7 @@ string *tough_level_desc = ({
 	HIW "天人合一" NOR,
 	MAG "深藏不露" NOR,
 	HIM "深不可测" NOR,
-	HIR "返璞归真" NOR 
+	HIR "返璞归真" NOR
 });
 string *heavy_level_desc= ({
 	"极轻",
@@ -90,7 +90,7 @@ string *heavy_level_desc= ({
 	"不重",
 	"不轻",
 	"很重",
-	"极重"	
+	"极重"
 });
 void create() { seteuid(getuid()); }
 
@@ -99,7 +99,7 @@ int main(object me, string arg)
 	object obj;
 	int result;
   object *inv;
-  
+
 	if( !arg ) result = look_room(me, environment(me));
 
 
@@ -107,10 +107,10 @@ int main(object me, string arg)
 	{
 		if( obj->is_character() ) result = look_living(me, obj);
 		else result = look_item(me, obj);
-	} 
+	}
 
 	else result = look_room_item(me, arg);
-  
+
 
 	return result;
 }
@@ -339,7 +339,7 @@ int look_room(object me, object env)
 // 小地图房间短描述统一成五个汉字
 /*string adjust_short(string arg)
 {
-	switch (strlen(arg))
+	switch (strwidth(arg))
 	{
 		case 14: return arg;
 		case 12: return arg;
@@ -357,7 +357,7 @@ int look_item(object me, object obj)
 
 	write(obj->long());
 	inv = all_inventory(obj);
-	if( sizeof(inv) ) 
+	if( sizeof(inv) )
 		message("vision",sprintf("里面有：\n%s\n",combined(inv)),me);
 	return 1;
 }
@@ -407,7 +407,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 	if( me!=obj && !getstr)
 		message("vision",me->name()+"正盯着你看，不知道打些什么主意。\n",obj);
 	str = obj->long();
-	if (obj->query_temp("pretend")) 
+	if (obj->query_temp("pretend"))
 	{
 		message_vision(str,me);
 		return 1;
@@ -418,14 +418,14 @@ varargs mixed look_living(object me, object obj, int getstr)
 		str += sprintf("%s正骑在%s上，低头看着你。\n", pro, obj->query_temp("is_riding"));
    if (objectp(obj->query_temp("is_riding")))
 		str += sprintf("%s正骑在%s上，低头看着你。\n", pro, (obj->query_temp("is_riding"))->name());
-    
+
 
 	if(wizardp(obj) && !obj->query("no_look_wiz"))
 		str+=sprintf(HIY"%s全身散发着耀眼的金光，看来是万物之尊的神类。\n"NOR, pro);
 
 	if( (string)obj->query("race")=="人类" && intp(obj->query("age")) )
 	{
-		if(obj->query("age")>10)      
+		if(obj->query("age")>10)
         	str += sprintf("%s看起来约%s多岁。\n", pro, chinese_number(obj->query("age") / 10 * 10));
 		else
 		str += sprintf("%s看起来相当小。\n",pro);
@@ -460,14 +460,14 @@ varargs mixed look_living(object me, object obj, int getstr)
 		}
 	}
 	wearornot = 0;
-	if (obj->query_temp("armor/armor") || 
+	if (obj->query_temp("armor/armor") ||
 	    obj->query_temp("armor/cloth"))
 	wearornot = 1;
 /*
 	inv = all_inventory(obj);
 	for(equip=0; equip<sizeof(inv); equip++)
 	{
-		if( inv[equip]->query("equipped") 
+		if( inv[equip]->query("equipped")
 		 && inv[equip]->query("equipped")!="wielded") wearornot = 1;
 	}
 */
@@ -545,7 +545,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 	if(obj->is_corpse() && obj->query("kantou") == 1) str += sprintf("%s连头都被割走了。\n", pro);
 
 	inv = all_inventory(obj);
-	if( sizeof(inv) ) {		
+	if( sizeof(inv) ) {
 		inv = map_array(inv, "inventory_look", this_object(), obj->is_corpse()? 0 : 1 );
 		inv -= ({ 0 });
 		if( sizeof(inv) )
@@ -553,7 +553,7 @@ varargs mixed look_living(object me, object obj, int getstr)
 				pro, implode(inv, "\n") );
 	}
 	if (intp(getstr) && getstr==1) return str;
-	message("vision", str, me);	
+	message("vision", str, me);
 
 	if( obj!=me && living(obj) && !obj->query_temp("noliving") &&
 		(((me_shen < 0) && (obj_shen > 0)) ||
@@ -629,7 +629,7 @@ string getdam(object me, object obj)
 {
 
 	int level;
-	
+
 	if (objectp(obj->query_temp("weapon")))
 	level = obj->query_temp("apply/damage");
 	else
@@ -648,7 +648,7 @@ string combined(object *inv)
 	mapping	inv_mapped;
 	string	str, object_id, object_short;
 	object 	me=this_player();
-	
+
   string *invid=({});
   string *invname=({});
   int j, k, *count=({});
@@ -681,7 +681,7 @@ string combined(object *inv)
     str += inv1[i]->short() + "\n";
 	}
 	return str;
-	
+
 }
 string filter_color(string arg)
 {
@@ -733,5 +733,3 @@ HELP
 );
 	return 1;
 }
-
-

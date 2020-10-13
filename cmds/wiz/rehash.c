@@ -7,7 +7,7 @@ int main(object me, string arg)
 	if( !arg )
 		return notify_fail("指令格式：rehash <路径>\n");
 
-	if( arg[strlen(arg)-1]!='/' ) arg += "/";
+	if( arg[strwidth(arg)-1]!='/' ) arg += "/";
 	if(  file_size(arg)!=-2 )
 		return notify_fail("没有这个目录！\n");
 

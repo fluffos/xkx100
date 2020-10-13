@@ -14,7 +14,7 @@ int main(object me, string arg)
 	mixed *file;
 
 	dir = resolve_path(me->query("cwd"), arg);
-	if( file_size(dir)==-2 && dir[strlen(dir)-1] != '/' ) dir += "/";
+	if( file_size(dir)==-2 && dir[strwidth(dir)-1] != '/' ) dir += "/";
 	file = get_dir(dir, -1);
 	if( !sizeof(file) )
 	{if (file_size(dir) == -2) return notify_fail("目录是空的。\n");
@@ -26,7 +26,7 @@ int main(object me, string arg)
 	w = 0;
 	while(i--) {
 		if (file[i][1]==-2) file[i][0] += "/";
-		if (strlen(file[i][0])>w) w = strlen(file[i][0]) + 1;
+		if (strwidth(file[i][0])>w) w = strwidth(file[i][0]) + 1;
 	}
 	write("目录：" + dir + "\n");
 	col = 70 / (w+6);
@@ -37,21 +37,21 @@ int main(object me, string arg)
 				((i+1)%col)?"  ":"\n");
 	else write("    没有任何档案。\n");
 	write("\n");
-	
-	return 1;	
+
+	return 1;
 }
 
 int help(object me)
 {
 	write(@HELP
 指令格式: ls [<路径名>]
- 
+
 列出目录下所有的子目录及档案, 如果没有指定目录, 则列出所在目录
 的内容，所列出的档案中前面标示 * 号的是已经载入的物件。
- 
+
 范例:
 'ls /' 会列出所有位於根目录下的档案及子目录.
- 
+
 HELP
 	);
 	return 1;

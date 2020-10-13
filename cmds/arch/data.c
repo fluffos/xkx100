@@ -1,6 +1,6 @@
 /*  <SecCrypt CPL V3R05>  */
- 
-//	This  wizard  command  produces  a  printout  of  an  object's  
+
+//	This  wizard  command  produces  a  printout  of  an  object's
 //	stored  data  set.
 //  modify  by  Server  Sun  Sep  24  1995
 inherit  F_DBASE;
@@ -51,12 +51,12 @@ int  main(object  me,  string  arg)
           if  (!ob)  ob  =  present(arg,  me);
           if(!ob)  return  notify_fail("Data:  无法找到此物件:  "+arg+"。\n");
       }
-  
+
       list  =  (mapping)ob->query_entire_dbase();
       tlist  =  (mapping)ob->query_entire_temp_dbase();
       if(  (!list  ||  !mapp(list))  &&  (!tlist  ||  !mapp(tlist)))
       	        return  notify_fail("Data:  此物件并没有任何的资料。\n");
-  
+
       if  (sizeof(list))
       {
       	klist  =  keys(list);
@@ -68,58 +68,58 @@ int  main(object  me,  string  arg)
         	tlist2  =  keys(tlist);
       	tlist2  =  sort_array(tlist2,  "sort_keys",  this_object());
       }
-  
+
       //  if(!member_group(geteuid(this_player()),  "admin"))
 //	klist  =  filter_array(klist,  "filter_props",  this_object(),  ob);
 
       if(!klist  ||  !sizeof(klist))
           return  notify_fail("Data:  此物件并没有储存任何资料。\n");
-  
+
       if  (!spec  ||  spec  ==  "-d")  {
           text  =  "Object  :  "  +  base_name(ob)  +  ".c\n";
-  
+
           for(loop=0;  loop<sizeof(klist);  loop++)    {
-  
-              if(strlen(klist[loop])  >  7)    text  +=  klist[loop]  +  "\t:  ";
+
+              if(strwidth(klist[loop])  >  7)    text  +=  klist[loop]  +  "\t:  ";
               else  text  +=  klist[loop]  +  "\t\t:  ";
-  
+
                 text  +=sprintf("%O  \n",list[  klist[loop]  ]);
           }
           text  +=  "\n总共有  "  +  sizeof(klist)  +  "  个储存的资料。\n\n";
       }
       else  text  =  "";
-  
+
       if  (!spec  ||  spec  ==  "-t")  {
 
           text  +=  "TEMP  DATA  :\n\n";
-  
+
           for(loop=0;  loop<sizeof(tlist2);  loop++)    {
-              if(strlen(tlist2[loop])  >  7)    text  +=  tlist2[loop]  +  "\t:  ";
+              if(strwidth(tlist2[loop])  >  7)    text  +=  tlist2[loop]  +  "\t:  ";
               else  text  +=  tlist2[loop]  +  "\t\t:  ";
-                  text  +=sprintf("%O  \n",tlist[  tlist2[loop]  ]);  
+                  text  +=sprintf("%O  \n",tlist[  tlist2[loop]  ]);
           }
-  
+
           text  +=  "\n总共有  "  +  sizeof(tlist2)  +  "  个暂存的资料。\n\n";
       }
-  
+
       me->start_more(  text  );
       //  tmp  =  explode(text,  "\n");
       //  for(loop=0;  loop<sizeof(tmp);  loop++)      write(tmp[loop]+"\n");
       return  1;
 }
-  
+
 //    This  function  is  used  to  sort  the  key  array.
-  
+
 protected  int  sort_keys(string  one,  string  two)  {
       return  strcmp(one,  two);    }
-  
+
 //    This  function  strips  out  the  secured  props  from  the  data  array.
-  
+
 protected  int  filter_props(string  prop,  object  target)  {
-  
+
 //      if(member_array((int)target->query_permission(prop),
 //	({  MASTER_ONLY,  PRIVATE,  OWNER_ONLY  }))  !=  -1)      return  0;
-  
+
 return  1;  }
 
 int  help(object  me)
@@ -139,7 +139,6 @@ int  help(object  me)
 示暂时变数,  -d  选项可以只显示永久变数,  所要看的对象可以是玩家或
 任何物件.
 LONG);
-  
+
     return  1;
 }
-  

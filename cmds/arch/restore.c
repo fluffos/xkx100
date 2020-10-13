@@ -63,7 +63,7 @@ int main(object me, string arg)
 // restore from dump
 	{
 		dir = DUMP_DIR + dump_apply;
-		if (dir[strlen(dir) - 1] != '/')
+		if (dir[strwidth(dir) - 1] != '/')
 			dir += "/";
 	}
 	else

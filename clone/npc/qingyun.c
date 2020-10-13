@@ -24,7 +24,7 @@ void create()
 {
 	seteuid(ROOT_UID);
 	set_name("青云", ({ "qing yun", "shizhe" }));
-	set("long", 
+	set("long",
 		"他是掌门人的得意门生，一个十分厉害的神秘人物。\n");
 	set("gender", "男性");
 	set("age", 20);
@@ -37,7 +37,7 @@ void create()
 	set("con", 30);
 	set("dex", 28);
 	set("per", 29);
-	
+
 	set("max_qi", 1000);
 	set("max_jing", 1000);
 	set("neili", 1000);
@@ -107,7 +107,7 @@ int give_prize()
 mixed give_prize1(object who)
 {
 	object me = this_object();
-	
+
 	if (!who->query_temp("debug"))
 	{
 		if (!who->query_temp("can_give_prize") || !who->query_temp("prize_exp"))
@@ -137,8 +137,8 @@ int is_keeper(object ob,int type)
 }
 void give_npc(object ob)
 {
-//	int 
-	
+//	int
+
 }*/
 void give_chinese_number(object ob)
 {
@@ -175,7 +175,7 @@ string *rshorts(object room)
 	string *kexits;
 	string name;
 	string *names;
-	
+
 	exits = room->query("exits");
 	kexits = keys(exits);
 	names = ({});
@@ -196,9 +196,9 @@ object check_place(string file,string dir)
 	string err;
 	mapping exits;
 	string *shorts;
-	
+
 	fname = "/d/"+dir+"/"+file;
-	if (strlen(file)<2) return 0;
+	if (strwidth(file)<2) return 0;
 	if (file[<2..<1]!=".c") return 0;
 	if (file_size(fname)<0) return 0;
 	if (!objectp(room = find_object(fname)))
@@ -228,7 +228,7 @@ void give_place(object ob)
 	mapping exits;
 	string *shorts;
 	string n1;
-	
+
 	dirs = get_dir("/d/");
 	dirs -= ({  "npc","xiakedao","binghuo","working","death1",
 		"wizard",	"death","gaochang","gumu","taohua",
@@ -265,7 +265,7 @@ int do_answer(string arg)
 	int exp,pot;
 	string reason;
 	string s;
-	
+
 	if (who->is_busy()) return 0;
 	if (!arg) return 0;
 	if (!who->query_temp("pend_answer"))	 return 0;
@@ -279,7 +279,7 @@ int do_answer(string arg)
 	if (exp > 1000) exp = 1000;
 	if (pot == 0 || pot > exp*3/10 || reason=="奸细")	pot = exp*3/10;
 	if (arg != who->query_temp("prize_answer"))
-	{ 
+	{
 		message_vision("$N瞟了$n一眼，摇了摇头，叹了口气。\n",this_object(),who);
 		if (!who->query_temp("pend_re_answer"))
 		{
@@ -295,7 +295,7 @@ int do_answer(string arg)
 			command("say "+s);
 			return 1;
 		}
-		else 
+		else
 		{
 			message_vision("$N道：孺子不可教也。\n",this_object());
 			command("hammer "+who->query("id"));
@@ -357,7 +357,7 @@ void give_number(object who)
 	string *sts=({});
 	int *j=({});
 	int now,last;
-	
+
 	tell_object(who,this_object()->name()+"轻轻地一挥手，你眼前顿时闪起七彩的莹光。\n");
 	a = all[random(sizeof(all))];
 	b = all[random(sizeof(all))];
@@ -376,7 +376,7 @@ void give_number(object who)
 		d = all[random(sizeof(all))];
 	}
 	who->set_temp("prize_answer",sprintf("%s%s%s%s",a,b,c,d));
-	
+
 
 	str1  = display(a); l1 = sizeof(str1); maxl = l1;
 	str2  = display(b); l2 = sizeof(str2); if (maxl<l2) maxl = l2;
@@ -386,33 +386,33 @@ void give_number(object who)
 	{
 		f = random(maxl-l1+1);
 		for (i=0;i<f;i++)
-			str1 = ({ ins(strlen(str1[0]))}) + str1;
+			str1 = ({ ins(strwidth(str1[0]))}) + str1;
 		for (i=0;i<(12-l1-f);i++)
-			str1 = str1 + ({ ins(strlen(str1[0])) });
+			str1 = str1 + ({ ins(strwidth(str1[0])) });
 	}
 	if (l2 < maxl)
 	{
 		f = random(maxl-l2+1);
 		for (i=0;i<f;i++)
-			str2 = ({ ins(strlen(str2[0]))}) + str2;
+			str2 = ({ ins(strwidth(str2[0]))}) + str2;
 		for (i=0;i<(12-l2-f);i++)
-			str2 = str2 + ({ ins(strlen(str2[0])) });
+			str2 = str2 + ({ ins(strwidth(str2[0])) });
 	}
 	if (l3 < maxl)
 	{
 		f = random(maxl-l3+1);
 		for (i=0;i<f;i++)
-			str3 = ({ ins(strlen(str3[0]))}) + str3;
+			str3 = ({ ins(strwidth(str3[0]))}) + str3;
 		for (i=0;i<(12-l3-f);i++)
-			str3 = str3 + ({ ins(strlen(str3[0])) });
+			str3 = str3 + ({ ins(strwidth(str3[0])) });
 	}
 	if (l4 < maxl)
 	{
 		f = random(maxl-l4+1);
 		for (i=0;i<f;i++)
-			str4 = ({ ins(strlen(str4[0]))}) + str4;
+			str4 = ({ ins(strwidth(str4[0]))}) + str4;
 		for (i=0;i<(12-l4-f);i++)
-			str4 = str4 + ({ ins(strlen(str4[0])) });
+			str4 = str4 + ({ ins(strwidth(str4[0])) });
 	}
 
 	str  = "";
@@ -425,23 +425,23 @@ void give_number(object who)
 	len =  0;
 	if (arrayp(str1))
 	{
-		len = strlen(a);
-  		len += strlen(str1[0]);
-  		len += strlen(b);
-  		if (f<3)//如果三个以下在第二行 就是至少两个在第一行 
+		len = strwidth(a);
+  		len += strwidth(str1[0]);
+  		len += strwidth(b);
+  		if (f<3)//如果三个以下在第二行 就是至少两个在第一行
   		{
-	  		len += strlen(str2[0]);
- 	 		len += strlen(c);
+	  		len += strwidth(str2[0]);
+ 	 		len += strwidth(c);
  	 	}
   		if (f<2)//至少三个在第一行
-  		{	
-	  		len += strlen(str3[0]);
-  			len += strlen(d);
+  		{
+	  		len += strwidth(str3[0]);
+  			len += strwidth(d);
   		}
   		if (f<1)//全部都在第一行
   		{
-  			len += strlen(str4[0]);
-	  		len += strlen(e);
+  			len += strwidth(str4[0]);
+	  		len += strwidth(e);
   		}
   	}
 	for (i=0;i<maxl;i++)
@@ -450,17 +450,17 @@ void give_number(object who)
 		str += str1[i]; str += b;
 		if (f < 3)
 		{
-			str += str2[i]; 
+			str += str2[i];
 			str += c;
 		}
 		if (f < 2)
 		{
-			str += str3[i]; 
+			str += str3[i];
 			str += d;
 		}
 		if (f < 1)
 		{
-			str += str4[i]; 
+			str += str4[i];
 			str += e;
 		}
 		sts += ({ str });
@@ -481,10 +481,10 @@ void give_number(object who)
 //			str += "\n";
 		}
 	}
-	
+
 	f = random(2); g = random(2);
 	for(i=0;i<f;i++)
-//	str =  ins(len) + "\n" + str; 
+//	str =  ins(len) + "\n" + str;
 	sts = ({" "})+sts;
 	for(i=0;i<g;i++)
 //	str += ins(len) + "\n";  //第一行和最后一行补上随机行标识
@@ -513,7 +513,7 @@ void give_number(object who)
 //		{
 //			str += UP("1");
 //			str += DOWN("1");
-//		}		
+//		}
 //		tell_object(who,"到"+now+"上移了"+(last-now)+"行。\t");
 		last = now+1;
 		str += sts[now];
@@ -530,9 +530,9 @@ string cancel_job()
 {
 	object me = this_object();
 	object who = this_player();
-	
+
 	if (!who->query("quest/kill")) return "你没有领任务，有什么好取消的";
-	if (time() < who->query("quest/kill/time")) 
+	if (time() < who->query("quest/kill/time"))
 	return "你的任务时间还没到，快去做吧。";
 	who->delete("quest/kill");
 	return "好吧，测试时期免费帮你清除任务记录。";
@@ -540,7 +540,7 @@ string cancel_job()
 mixed display(string num)
 {
 	mapping all = ([
-	"1" : ({ 
+	"1" : ({
 ({
 "  ┌─┐  ",
 "┌┘  │  ",
@@ -593,7 +593,7 @@ mixed display(string num)
 "    ██╱  ",
 }),*/
 	}), // end 1
-	"2" : ({ 
+	"2" : ({
 ({
 "╭───╮",
 "│╭─╮│",
@@ -646,7 +646,7 @@ mixed display(string num)
 "◥██████╱  ",
 }),*/
 	}),// end 2
-	"3" : ({ 
+	"3" : ({
 ({
 "╭───╮",
 "│╭─╮│",

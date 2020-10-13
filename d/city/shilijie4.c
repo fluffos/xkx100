@@ -45,7 +45,7 @@ LONG );
 
 void init()
 {
-	if(userp(this_player())) 
+	if(userp(this_player()))
 	{
 		this_object()->add("visitor", 1);
 		if(this_object()->query("visitor") % 500 == 0)
@@ -64,7 +64,7 @@ int do_enter(string arg)
 
 	if( !arg || arg=="" ) return 0;
 
-	if( arg=="dong" ) 
+	if( arg=="dong" )
 	{
 		if (me->is_busy()) return notify_fail("你正忙着呢。\n");
 		message("vision",
@@ -89,7 +89,7 @@ string look_gaoshi()
 	"※※※※                    扬州府通告                    ※※※※\n"+
 	"※※※※                                                  ※※※※\n"+
 	"※※※※    即日通过此地共有"+chinese_number(count)+"人。";
-	for (sp = 0; sp < 26-strlen(chinese_number(count)); sp++)
+	for (sp = 0; sp < 26-strwidth(chinese_number(count)); sp++)
 		returnback += " ";
 
 	returnback += "※※※※\n"

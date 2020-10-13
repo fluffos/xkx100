@@ -15,10 +15,10 @@ void create()
 	set("attitude", "peaceful");
 	set("class", "beggar");
  	set("beggarlvl", 9);
-	set("long", 
+	set("long",
 "这是丐帮的传功长老，也负责收集各地弟子打听到的各种小道消息。\n"+
 "天下之大，没有他不知道的人物。\n");
-	
+
 	set("str", 30);
 	set("int", 24);
 	set("con", 30);
@@ -31,11 +31,11 @@ void create()
 	set("neili", 2000);
 	set("max_neili", 2000);
 	set("jiali", 200);
-	
+
 	set("combat_exp", 1500000);
 	set("score", 200000);
 	set("shen", 100000);
-	 
+
 	set_skill("force", 150);             // 基本内功
 	set_skill("huntian-qigong", 150);    // 混天气功
 	set_skill("dodge", 150);      	     // 基本躲闪
@@ -48,7 +48,7 @@ void create()
 	set_skill("begging", 100);           // 叫化绝活
 	set_skill("checking", 100);          // 道听途说
 	set_skill("training", 100);          // 驭兽术
-	
+
 	map_skill("force", "huntian-qigong");
 	map_skill("hand",  "suohou-hand");
 	map_skill("dodge", "xiaoyaoyou");
@@ -62,7 +62,7 @@ void create()
 	create_family("丐帮", 10, "传功长老");
 
 	setup();
-	
+
 	carry_object(WEAPON_DIR"gangdao")->wield();
 	carry_object("kungfu/class/gaibang/obj/cloth")->wear();
 }
@@ -74,7 +74,7 @@ int accept_ask(object ob, string topic)
         object fob;
         object *livings;
 				int i;
-				
+
         if (topic == ob->query("id") || topic == ob->query("name"))
         {
                 command("laugh " + ob->query("id"));
@@ -87,7 +87,7 @@ int accept_ask(object ob, string topic)
        	command("say 重名的人可多着呢，我得多花点心思，先拿点黄金出来。");
         return 1;
       }
-      
+
       if (is_cname(topic) && ob->query_temp("pay_for_ask"))
       {
       	livings=livings();
@@ -108,11 +108,11 @@ int accept_ask(object ob, string topic)
         }
         ob->delete_temp("pay_for_ask");
       }
-      
+
       if (is_ename(topic))
       {
         fob = find_player(topic);
-        if (! fob || ! ob->visible(fob) ) 
+        if (! fob || ! ob->visible(fob) )
         fob = find_living(topic);
         if (! fob || ! ob->visible(fob) )
         {
@@ -126,14 +126,14 @@ int accept_ask(object ob, string topic)
                 message_vision(CYN "$N" CYN "对$n" CYN "小"
                                "声道：好像是听说有这么个人物，不过没有弟子向我汇报过他的行踪。\n" NOR, this_object(), ob);
                 return 1;
-        	
+
         }
       }
       if (!is_ename(topic) && !is_cname(topic))
         return 0;
       if (!environment(fob) || explode(file_name(environment(fob)),"/")[0]!="d")
       	return 0;
-         
+
 //        if ( !ob->query("know_ask_cheap") ||ob->query("ask_cheap")   )
           if (!fob->query("owner") && !userp(fob))
         {
@@ -176,7 +176,7 @@ int accept_ask(object ob, string topic)
                 message_vision(CYN "$N" CYN "嘿嘿奸笑两声，对$n" CYN "小"
                                "声道：没有问题，不过得要十两黄金，不二"
                                "价！\n" NOR, this_object(), ob);
-                return 1;        
+                return 1;
         } else if (userp(fob))
         {
                 ob->set_temp("pending/ask_about", topic);
@@ -251,7 +251,7 @@ int accept_object(object me, object ob)
  	   if (me->query_temp("give_for_ask") && ob->value() >= va)
  	   {
        me->delete_temp("give_for_ask");
-       me->set_temp("pay_for_ask",1); 	 
+       me->set_temp("pay_for_ask",1);
  	   	 command("say 好吧，说说你想找谁。");
  	   	 return 1;
    	}
@@ -272,7 +272,7 @@ int accept_object(object me, object ob)
                         message_vision(CYN "$N" CYN "挠挠头对$n" CYN "道：怪事…刚"
                                        "才我还有他的消息呢，怎么这么一会儿。\n" NOR,
                                        this_object(), me);
-                        return 0;    	
+                        return 0;
             }
 //          destruct(ob);
           if (!objectp(fob))
@@ -281,22 +281,22 @@ int accept_object(object me, object ob)
             return 1;
           }
           env=file_name(environment(fob));
-          if (sscanf(env,"/d/%s/%*s",env)!=2) 
+          if (sscanf(env,"/d/%s/%*s",env)!=2)
           {
              message_vision(CYN "$N" CYN "挠挠头对$n" CYN "道：怪事…刚"
                            "才我还有他的消息呢，怎么这么一会儿。\n" NOR,
                            this_object(), me);
                         return 0;
           }
-          
+
           env=to_chinese(env);
           if (strsrch(env,"/")>0 || is_ename(env))
             env="某个地方";
-//          command("whisper " + me->query("id") +" 刚刚有弟子前来报告：");     
+//          command("whisper " + me->query("id") +" 刚刚有弟子前来报告：");
           log_file("xiang",me->name()+"询问"+fob->name()+"("+fob->query("id")+")\n");
 
           str = this_object()->name()+"在你的耳边悄声说道："+fob->name()+"刚才在";
-          if (stringp(fob->query("place"))) 
+          if (stringp(fob->query("place")))
           	str += env+"的";
           str += environment(fob)->query("short") + "附近出没。\n";
 
@@ -306,7 +306,7 @@ int accept_object(object me, object ob)
  //         else me->set("ask_cheap", 3);
           return 1;
         }
-        
+
         if (ob->value() )
         {
                 message_vision(CYN "$N" CYN "接过$n" CYN "递过去的" + ob->name() +
@@ -323,10 +323,10 @@ int is_ename(string id)
 
         id = replace_string(id,"'s betrayer","");
         if (strsrch(id," ")==-1)
-        if( strlen(id) < 3 || strlen(id) > 12  ) 
+        if( strwidth(id) < 3 || strwidth(id) > 12  )
                         return 0;
         id = replace_string(id," ","");
-        i = strlen(id);
+        i = strwidth(id);
         while(i--)
           if( id[i]<'a' || id[i]>'z')
             return 0;
@@ -338,16 +338,16 @@ int is_cname(string name)
 {
         int i;
 
-        i = strlen(name);
-        
-        if( strlen(name) < 4 || strlen(name) > 10  ) 
+        i = strwidth(name);
+
+        if( strwidth(name) < 4 || strwidth(name) > 10  )
                 return 0;
-        if( strsrch(name, "　") >= 0) 
+        if( strsrch(name, "　") >= 0)
                 return 0;
         while(i--) {
-                if( name[i]<=' ' ) 
+                if( name[i]<=' ' )
                    return 0;
-                if( i%2==0 && !is_chinese(name[i..<0]) )                        
+                if( i%2==0 && !is_chinese(name[i..<0]) )
                    return 0;
         }
 

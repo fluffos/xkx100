@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 /*
  * This protocol is used to broadcast a channel to a group of other muds.
  */
@@ -80,7 +80,7 @@ void incoming_request(mapping info)
      if (info["NAME"] == Mud_name()) return ;
 
      minfo = DNS_MASTER->query_mud_info(info["NAME"]);
-     if (!minfo || !strlen(info["USRNAME"])
+     if (!minfo || !strwidth(info["USRNAME"])
      || !DNS_MASTER->dns_mudp(info["NAME"]))   {
         // We don't accept the message.  But ping them anyway.
         PING_Q->send_ping_q(info["HOSTADDRESS"], info["PORTUDP"]);
@@ -92,7 +92,7 @@ void incoming_request(mapping info)
         else
           tmsg = info["USRNAME"]+"@"+info["NAME"]+": "+info["MSG"];
 
-        // Faked.  sheeze... 
+        // Faked.  sheeze...
         dns_log("dns_fake",sprintf( "Gchannel: %s %s\n%s", ctime(time()),
           info["HOSTADDRESS"],tmsg));
         DNS_MASTER->send_udp(info["HOSTADDRESS"], info["PORTUDP"],
@@ -112,4 +112,3 @@ void incoming_request(mapping info)
 
     } //if (info["NAME"])
 }
-

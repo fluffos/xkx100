@@ -9,8 +9,16 @@ string to_chinese(string str)
 	return CHINESE_D->chinese(str);
 }
 
+// int is_chinese(string str)
+// {
+// 	if( strwidth(str)>=2 && str[0] > 160 && str[0] < 255 ) return 1;
+// 	return 0;
+// }
+
 int is_chinese(string str)
 {
-	if( strlen(str)>=2 && str[0] > 160 && str[0] < 255 ) return 1;
-	return 0;
+	if (!str)
+		return 0;
+
+	return pcre_match(str, "^\\p{Han}+$");
 }

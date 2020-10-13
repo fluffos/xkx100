@@ -36,7 +36,7 @@ void telnet_input(string str)
 
         input_to("telnet_input");
 
-        if (strlen(str) + strlen(from_user) < MAX_PENDING_INPUT)
+        if (strwidth(str) + strwidth(from_user) < MAX_PENDING_INPUT)
         {
                 from_user += str + "\n";
                 if (find_call_out("send_to_remote") == -1)
@@ -160,7 +160,7 @@ void telnet_resolve_callback(string address, string resolved, int key)
                         message("telnet", "SOCKET 初始化错误。\n", sob);
                         break;
                 }
-        
+
                 ret = socket_connect(fd, full_addr,
                                      "telnet_read_callback",
                                      "telnet_write_callback");
@@ -169,7 +169,7 @@ void telnet_resolve_callback(string address, string resolved, int key)
                         message("telnet", "网络连接错误。\n", sob);
                         break;
                 }
-        
+
                 message("telnet", "正在连接" + address +
                                   "(" + full_addr + ")...\n", sob);
                 return;
@@ -195,7 +195,7 @@ void telnet_read_callback(int fd, string mess)
 
 void telnet_write_callback(int fd)
 {
-        if (strlen(from_user))
+        if (strwidth(from_user))
                 send_to_remote();
 }
 

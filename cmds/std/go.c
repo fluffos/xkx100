@@ -66,16 +66,16 @@ int main(object me, string arg)
 //			if(f_obs[i]->query_temp("nian") == me)
 			if(objectp(f_obs[i]) && environment(me) == environment(f_obs[i]))
 			{
-//			  if(f_obs[i]->query_temp("nian") == me->query("id"))	
+//			  if(f_obs[i]->query_temp("nian") == me->query("id"))
 			  if(f_obs[i]->query_temp("nian") == me)
-		  	{	
+		  	{
 			  	message_vision("$N转身要走，被$n太极云手粘劲粘住，不禁心里叫苦不迭！\n", me, f_obs[i]);
 			  	return notify_fail("你无法逃跑。\n");
 		  	}
 			}
 		}
 		if (objectp(f_obs[0]) && !f_obs[0]->is_busy() )
-			if (random((int)me->query("dex")) <= 
+			if (random((int)me->query("dex")) <=
 				random((int)f_obs[0]->query("dex")))
 			{
 				me->start_busy(1);
@@ -145,16 +145,16 @@ int main(object me, string arg)
 	if( obj->query("day_shop") && ( day_event() == "event_night" ||
 		day_event() == "event_midnight"))
 		return notify_fail(obj->query("short")+"晚上不开，请天亮了再来！\n");
-       
-       if (  me->query_temp("LAST_PKER_TIME") && 
-	     ( obj->query("no_fight")|| 
+
+       if (  me->query_temp("LAST_PKER_TIME") &&
+	     ( obj->query("no_fight")||
 	     base_name(obj)=="/d/taohuacun/taohua1") &&
 	     time() - me->query_temp("LAST_PKER_TIME")<7200 && !wizardp(me))
 	     return notify_fail("杀了人，可不能做缩头乌龟！\n");
 	if ( horse = me->query_temp("is_riding"))
 	{
 		if (objectp(horse))	riding = horse->name();
-		else if (stringp(horse))riding = horse;	
+		else if (stringp(horse))riding = horse;
 	}
 	if ( stringp(riding) &&
 		(arg=="up" || arg=="down" || arg=="leitai" ||
@@ -196,7 +196,7 @@ int main(object me, string arg)
 		{
 			if (stringp(riding) )
 			{
-				mout = me->name()+"伏在" + riding + "身上往" + dir + "落荒而逃了。\n";	       
+				mout = me->name()+"伏在" + riding + "身上往" + dir + "落荒而逃了。\n";
 				min = me->name()+"骑着" + riding + "跌跌撞撞地跑了过来，模样有些狼狈。\n";
 			}
 			else
@@ -209,7 +209,7 @@ int main(object me, string arg)
 			mout = me->name()+replace_string( me->query("fleeout_message"), "$d", dir );
 			min  = me->name()+me->query("fleein_message");
 		}
-	} 
+	}
 	else
 	{
 		if( wizardp(me) && me->query("env/invisibility") &&
@@ -341,7 +341,7 @@ int main(object me, string arg)
 					blocker->start_busy(2);
 					blocker->delete_temp("guardto");
 					env->delete("guarded/"+arg);
-				} 
+				}
 				if( me->query("combat_exp") <
 					blocker->query("combat_exp")/2)
 				{
@@ -380,7 +380,7 @@ int main(object me, string arg)
 		me->set_temp("pending", 0);
 		if (me->query_temp("no_follow"))
 		  me->delete_temp("no_follow");
-		else 
+		else
 		  all_inventory(env)->follow_me(me, arg);
 		return 1;
 	}
@@ -406,16 +406,14 @@ int help(object me)
 {
 	write(@HELP
 指令格式 : go <方向>
- 
+
     这个指令让你往指定的方向移动。可以直接键入方向，可能存在的方向有
 东：ｅａｓｔ（ｅ）、西：ｗｅｓｔ（ｗ）、南：ｓｏｕｔｈ（ｓ）、北：
 ｎｏｒｔｈ（ｎ）、进入：ｅｎｔｅｒ、出去：ｏｕｔ等。用进入指令还可以
 钻洞，钻草堆等等。
 
- 
+
 HELP
 	);
 	return 1;
 }
-
-

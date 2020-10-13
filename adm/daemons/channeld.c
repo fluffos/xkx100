@@ -9,7 +9,7 @@ inherit F_DBASE;
 
 
 mapping blocks = ([
-  "all" : 0,  
+  "all" : 0,
   "rumor" : 0,
   "chat"  : 0,
   "xkx" : 0,
@@ -31,8 +31,8 @@ mapping channels = ([
   "gwiz": ([
       "msg_speak" : HIY "【网际巫师】%s：%s\n" NOR,
       "msg_emote" : HIY "【网际巫师】%s\n" NOR,
-      "wiz_only"  : 1, 
-      "intermud": GWIZ, 
+      "wiz_only"  : 1,
+      "intermud": GWIZ,
       "channel": "gwiz",
       "filter"    : 1,
       "intermud_emote": 1,
@@ -197,7 +197,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
     if (me->query("chblk_party") && (verb == "party"))
       return notify_fail("你的帮会频道被关闭了！\n");
     me->add("channel/chat_count",1);
-  
+
     if (me->query("channel/chat_count")>2)
     {
       me->set("channel/chat_count",0);
@@ -280,7 +280,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
       who = me->query("name");
 			if (me->query_temp("pretend") && arrayp(me->query_temp("apply/pid")))
 			who=me->name()+"[" + capitalize(me->query_temp("apply/pid")[0]) + "]";
-      else if(me->query("id")) 
+      else if(me->query("id"))
       who=who+"[" + capitalize(me->query("id")) + "]";
     }
    if (!stringp(who))
@@ -296,7 +296,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
     arg=arg[0..((len--)-2)];
 //remove excessive return at the end. by mon 9/20/97
 
-  if(userp(me)) 
+  if(userp(me))
   {
 //可以允许玩家自由编辑对话的颜色。
     arg=replace_string(arg, "$BLK$", "[30m");
@@ -353,7 +353,7 @@ varargs int do_channel(object me, string verb, string arg, int cemote)
 //      arg=replace_string(arg, "$N", me->name() + "[" + capitalize(me->query("id")) + "@" + Mud_name() + "]", 1);
       if (me->query_temp("pretend") && arrayp(me->query_temp("apply/pid")))
       	arg=replace_string(arg, "$N", me->name() + "[" + capitalize(me->query_temp("apply/pid")[0]) + "@" + Mud_name() + "]", 1);
-      else 
+      else
       	arg=replace_string(arg, "$N", me->name() + "[" + capitalize(me->parse_command_id_list()[0]) + "@" + Mud_name() + "]", 1);
 //      arg=replace_string(arg, "$N", me->name());
     }
@@ -382,7 +382,7 @@ int filter_listener(object ppl, mapping ch)
   if (ch["wiz_only"] ) return wizardp(ppl);
   if (ch["party_only"]) return wizardp(ppl) || this_player()->query("party/party_name") == ppl->query("party/party_name");
   if (ch["family_only"]) return wizardp(ppl) || this_player()->query("family/family_name") == ppl->query("family/family_name");
-  
+
   return 1;
 }
 

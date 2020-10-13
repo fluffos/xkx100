@@ -30,7 +30,7 @@ int main(object me, string arg)
 		str = replace_string(str, "$p", "他");
 		str = replace_string(str, "$s", "壮士");
 		str = replace_string(str, "$r", "小王八蛋");
-		if( strlen(e[i]) > 6 )
+		if( strwidth(e[i]) > 6 )
 			msg += e[i]+"\t : ";
 		else
 			msg += e[i]+"\t\t : ";
@@ -56,4 +56,3 @@ HELP
 
 	return 1;
 }
-

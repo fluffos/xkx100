@@ -20,7 +20,7 @@ int is_validcard(string str)
 	int i, st, rk;
 	string s, r;
 
-	if (strlen(str) != 2 )
+	if (strwidth(str) != 2 )
 		return -1;
 	s = capitalize(str[0..0]);
 	r = capitalize(str[1..1]);

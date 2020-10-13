@@ -16,7 +16,7 @@ void create()
 	set("no_get", 1);
 	set("no_put", 1);
 	set("no_get_from", 1);
-        set("long", 	
+        set("long",
 "这是一尊三人像。前坐者"HIG"绿衫"HIR"赤面"NOR"，右手捋髯，左手正执竹简，正是
 关帝夜读春秋像。后立者，左手一位"HIW"银甲白面"NOR"，手捧令旗，正是关平。
 右手一将，"BLK"黑面皂袍"NOR"，手握"HIC"青龙偃月刀"NOR"的，便是周仓了。\n");
@@ -49,9 +49,9 @@ int do_chuangli(string arg)
 		return notify_fail("凭你这么点能耐，还想创立帮会？\n");
 	if (me->query("party") )
 		return notify_fail("你现在还是"+me->query("party/party_name")+"中人。不退出来，不能创立帮会。\n");
-	i = strlen(arg);
+	i = strwidth(arg);
 
-	if( (strlen(arg) < 4) || (strlen(arg) > 8 ) )
+	if( (strwidth(arg) < 4) || (strwidth(arg) > 8 ) )
 	{
 		write("对不起，帮派的中文名字必须是 2 到 4 个中文字。\n");
 		return 0;
@@ -69,7 +69,7 @@ int do_chuangli(string arg)
 			return 0;
 		}
 	}
-	i = strlen(arg);
+	i = strwidth(arg);
 	if ((arg[i-2..i]=="教") || (arg[i-2..i]=="帮") || (arg[i-2..i]=="门"))
 	{
 		if(me->query("kar")-this_object()->query("kar")<11)
@@ -95,4 +95,3 @@ message_vision("$N点起三柱香，冲着关帝像拜了下去：弟子创立"+
 	else return notify_fail("帮会名称只能以教、帮、门结尾。\n");
 	return 1;
 }
-

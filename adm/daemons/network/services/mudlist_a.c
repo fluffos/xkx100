@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 /*
  * File    : mudlist_a.c
  * Creator : Pinkfish@Discworld
@@ -59,8 +59,8 @@ int process_list(string idx, mapping info)
 
    // make sure the name is in the proper form
    name = htonn( nnew["NAME"] );
-   while( name[strlen(name)-1] == '.' )
-     name = name[ 0..strlen(name)-2 ];
+   while( name[strwidth(name)-1] == '.' )
+     name = name[ 0..strwidth(name)-2 ];
    nnew["ALIAS"] = nntoh(nnew["NAME"]);
 
    // already know about ourselves
@@ -73,11 +73,11 @@ int process_list(string idx, mapping info)
    if(!DNS_MASTER->dns_mudp(name)) old = 0;
 
    if (!old) DNS_MASTER->set_mud_info(name, nnew);
-   
+
    // We don't want to update an old mud info simply because
    // someone else tell us to do so. The info may not be correct.
    // We will only update mud info if we hear directly from that
-   // mud. (through ping) 
+   // mud. (through ping)
    // -- mon 4/11/98
 /*
    else {

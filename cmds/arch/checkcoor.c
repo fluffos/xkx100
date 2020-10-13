@@ -38,7 +38,7 @@ int main(object me, string arg)
 	dir = resolve_path(me->query("cwd"), arg);
 
 	recur_check(me ,dir, recur);
-	
+
 	if (file_count) {
 		write("\n共处理" + file_count + "个文件。\n");
 		write("结果已写入" + COOR_LOG + "中，请查看。\n");
@@ -52,8 +52,8 @@ int recur_check(object me, string dir, int recur)
 {
 	int i, j;
 	mixed *file;
-	
-	if (file_size(dir) == -2 && dir[strlen(dir) - 1] != '/')
+
+	if (file_size(dir) == -2 && dir[strwidth(dir) - 1] != '/')
 		dir += "/";
 
 	file = get_dir(dir, -1);
@@ -76,14 +76,14 @@ int recur_check(object me, string dir, int recur)
 	if (sizeof(file)) {
 		for(i = 0,j = sizeof(file); i < j; i ++) {
 		       	if (file[i][1] != -2 && sscanf(file[i][0], "%*s.c")
-       				&& file[i][0][strlen(file[i][0])-1] == 'c'
-				&& file[i][0][strlen(file[i][0])-2] == '.')
+       				&& file[i][0][strwidth(file[i][0])-1] == 'c'
+				&& file[i][0][strwidth(file[i][0])-2] == '.')
 				check_one_file(me, dir + file[i][0]);
 			else if (file[i][1] == -2 && recur)
 				recur_check(me, dir + file[i][0], 1);
 		}
 	}
-	
+
 	return 1;
 }
 int check_one_file(object me,string file)
@@ -101,9 +101,9 @@ int check_one_file(object me,string file)
 		return 0;
 
 	text = read_file(file);
-	
+
 	for (i = 0; i < sizeof(base_room); i ++) {
-		if (strsrch(text, base_room[i]) != -1 
+		if (strsrch(text, base_room[i]) != -1
 		    && !obj->query("coor")) {
 			write_file(COOR_LOG, file + "\n", 0);
 			file_count ++;

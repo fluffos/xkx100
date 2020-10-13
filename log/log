@@ -35,29 +35,88 @@
 /adm/daemons/questd.c line 264: Warning: Unused local variable 'tmpobj' before the end of line
 /adm/daemons/questd.c line 264: Warning: Unused local variable 'where' before the end of line
 /inherit/room/room.c line 180: Warning: Unused local variable 'item_desc' before the end of line
-/feature/move.c line 166: Warning: Unused local variable 'where' before the end of line
-/feature/name.c line 135: Warning: Unused local variable 'str1' before the end of line
-/feature/equip.c line 119: Warning: Unused local variable 'type' before the end of line
 /feature/attack.c line 69: Warning: Unused local variable 'inv' before 
 /feature/attack.c line 69: Warning: Unused local variable 'obj' before 
 /feature/attack.c line 69: Warning: Unused local variable 'i' before 
 /feature/damage.c line 327: Warning: Unused local variable 'i' before the end of line
 /feature/damage.c line 424: Warning: Unused local variable 'i' before the end of line
 /feature/more.c line 27: Warning: Unused local variable 'j' before the end of line
+/feature/move.c line 166: Warning: Unused local variable 'where' before the end of line
+/feature/name.c line 135: Warning: Unused local variable 'str1' before the end of line
 /inherit/char/npc.c line 329: Warning: Unused local variable 'weapon' before the end of line
 /adm/daemons/chard.c line 197: Warning: Unused local variable 'mengzhu' before the end of line
 /adm/daemons/chard.c line 197: Warning: Unused local variable 'room' before the end of line
+/feature/equip.c line 119: Warning: Unused local variable 'type' before the end of line
+/inherit/misc/bboard.c line 117: Warning: Unused local variable 'myid' before the end of line
+/d/meizhuang/senlin1.c line 60: Warning: Unused local variable 'dir' before the end of line
+/d/hangzhou/npc/honghua2.c line 42: Warning: Unused local variable 'ob' before the end of line
+/clone/npc/meng-zhu.c line 242: Warning: Unused local variable 'obj' before the end of line
+/clone/npc/meng-zhu.c line 291: Warning: Unused local variable 'mengzhu' before the end of line
+/clone/npc/meng-zhu.c line 452: Warning: Unused local variable 'j' before the end of line
+/clone/npc/meng-zhu.c line 558: Warning: Unused local variable 'new_killer' before the end of line
+/clone/npc/shang-shan.c line 198: Warning: Unused local variable 'obj' before the end of line
+/clone/npc/fa-e.c line 196: Warning: Unused local variable 'obj' before the end of line
+/kungfu/class/shaolin/xuan-nan.h line 157: Warning: Unused local variable 'monk' before the end of line
+/kungfu/class/shaolin/xuan-nan.h line 157: Warning: Unused local variable 'ob' before the end of line
+/kungfu/class/shaolin/xuan-nan.h line 241: Warning: Unused local variable 'my_fam' before the end of line
+/kungfu/class/gaibang/gaibang.h line 75: Warning: Unused local variable 'my_fam' before the end of line
+/kungfu/class/shaolin/qing.h line 131: Warning: Unused local variable 'name' before the end of line
+/kungfu/class/shaolin/qing.h line 131: Warning: Unused local variable 'new_name' before the end of line
+/questobj/jwqin.c line 37: Warning: Unused local variable 'ob' before the end of line
+/d/xiangyang/task/gysjob.c line 79: Warning: Unused local variable 'gift' before the end of line
+/d/xiangyang/task/gysjob.c line 79: Warning: Unused local variable 'team' before the end of line
+/d/xiangyang/task/gysjob.c line 79: Warning: Unused local variable 'position' before the end of line
+/d/xiangyang/task/gysjob.c line 79: Warning: Unused local variable 'myfam' before the end of line
+/d/xiangyang/task/gysjob.c line 79: Warning: Unused local variable 'obfam' before the end of line
+/d/xiangyang/task/gysjob.c line 79: Warning: Unused local variable 'job_type' before the end of line
+/d/xiangyang/task/gysjob.c line 318: Warning: Unused local variable 'name' before the end of line
+/d/xiangyang/task/gysjob.c line 318: Warning: Unused local variable 'k' before the end of line
+/d/xiangyang/task/gysjob.c line 318: Warning: Unused local variable 'family' before the end of line
+/d/xiangyang/task/teamjob.c line 176: Warning: Unused local variable 'gift' before the end of line
+/d/xiangyang/task/scjob.c line 80: Warning: Unused local variable 'ene' before the end of line
+/include/quest.h line 67: Warning: Unused local variable 'me' before the end of line
+/inherit/char/manager.c line 107: Warning: Unused local variable 'place' before the end of line
+/inherit/char/manager.c line 167: Warning: Unused local variable 'exp' before the end of line
+/inherit/char/manager.c line 167: Warning: Unused local variable 'pot' before the end of line
+/inherit/char/manager.c line 167: Warning: Unused local variable 'score' before the end of line
+/inherit/char/manager.c line 281: Warning: Unused local variable 'room' before the end of line
+/inherit/char/manager.c line 281: Warning: Unused local variable 'armor' before the end of line
+/inherit/char/manager.c line 386: Warning: Unused local variable 'place' before the end of line
+/inherit/char/manager.c line 468: Warning: Unused local variable 'exp' before the end of line
+/inherit/char/manager.c line 468: Warning: Unused local variable 'pot' before the end of line
+/inherit/char/manager.c line 468: Warning: Unused local variable 'score' before the end of line
+/inherit/char/manager.c line 694: Warning: Unused local variable 'k' before the end of line
+/inherit/char/manager.c line 694: Warning: Unused local variable 'family' before the end of line
+/inherit/char/manager.c line 804: Warning: Unused local variable 'place' before the end of line
+/inherit/char/manager.c line 892: Warning: Unused local variable 'lastfealty' before the end of line
+/inherit/char/manager.c line 1072: Warning: Unused local variable 'i' before the end of line
+/inherit/char/manager.c line 1072: Warning: Unused local variable 'j' before the end of line
+/inherit/char/manager.c line 1401: Warning: Unused local variable 'num' before the end of line
+/inherit/char/manager.c line 1401: Warning: Unused local variable 'times' before the end of line
+/inherit/char/manager.c line 1553: Warning: Unused local variable 'i' before the end of line
+/inherit/char/manager.c line 1711: Warning: Unused local variable 'weapon' before the end of line
+/inherit/char/manager.c line 1711: Warning: Unused local variable 'sskl' before the end of line
+/inherit/char/manager.c line 1711: Warning: Unused local variable 'skl' before the end of line
+/inherit/char/manager.c line 1711: Warning: Unused local variable 'map_status' before the end of line
+/inherit/char/manager.c line 1711: Warning: Unused local variable 'i' before the end of line
+/kungfu/class/xingxiu/ding.c line 331: Warning: Unused local variable 'ob' before the end of line
+/kungfu/class/xingxiu/ding.c line 349: Warning: Unused local variable 'ob' before the end of line
+/d/heizhao/npc/yinggu.c line 98: Warning: Unused local variable 'fam' before the end of line
+/d/taohua/taohua2.c line 74: Warning: Unused local variable 'me' before the end of line
+/d/wanjiegu/npc/mu.c line 73: Warning: Unused local variable 'room' before the end of line
+/d/wanjiegu/npc/mu.c line 73: Warning: Unused local variable 'who' before the end of line
 /feature/dealer.c line 436: Warning: Unused local variable 'value' before the end of line
-/d/mingjiao/npc/zhangqishi.h line 33: Invalid UTF8 string before );
-/d/mingjiao/npc/zhangqishi.h line 33: syntax error before );
+/kungfu/class/lingxiao/shipopo.c line 209: Warning: Unused local variable 'me' before the end of line
+/inherit/room/pigroom.c line 275: Warning: Unused local variable 'k' before the end of line
+/inherit/room/pigroom.c line 545: Warning: Unused local variable 'i' before the end of line
 /adm/daemons/shopd.c line 732: Warning: Unused local variable 'obj' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'obj' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'amount' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'value' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'have_it' before the end of line
-/adm/daemons/shopd.c line 897: Warning: Unused local variable 'obs' before        
-/adm/daemons/shopd.c line 897: Warning: Unused local variable 'inv' before        
-/adm/daemons/shopd.c line 897: Warning: Unused local variable 'have_vendor' before        
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'obs' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'inv' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'have_vendor' before the end of line
 /adm/daemons/shopd.c line 1017: Warning: Unused local variable 'amount' before the end of line
 /adm/daemons/shopd.c line 1017: Warning: Unused local variable 'val_factor' before the end of line
 /adm/daemons/shopd.c line 1017: Warning: Unused local variable 'obs' before the end of line
@@ -78,12 +137,34 @@
 /adm/daemons/pkd.c line 440: Warning: Unused local variable 'family' before 
 /adm/daemons/pkd.c line 500: Warning: Unused local variable 'err' before 
 /adm/daemons/pkd.c line 586: Warning: Unused local variable 'err' before 
-/adm/daemons/network/dns_master.c line 304: Invalid UTF8 string before , Mud_name(),
-/adm/daemons/network/dns_master.c line 304: syntax error before , Mud_name(),
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'new_mud' before the end of line
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'svc' before the end of line
+/adm/daemons/network/dns_master.c line 646: Warning: Expression has no side effects, and the value is unused before ;
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'm' before the end of line
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'str' before the end of line
+/adm/daemons/network/dns_master.c line 842: Warning: Unused local variable 'euid' before the end of line
+/adm/daemons/network/dns_master.c line 886: Warning: Unused local variable 'temp' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'static_db' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'strs' before the end of line
 /d/shenlong/cangku.c line 122: Warning: Unused local variable 'rum_ob' before the end of line
 /d/shenlong/cangku.c line 122: Warning: Unused local variable 'period' before the end of line
-/d/shenlong/chaser/message_chaser.h line 35: Invalid UTF8 string before  )
-/d/shenlong/chaser/message_chaser.h line 35: syntax error before  )
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'rum_ob' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'chaser_ob' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'names' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'file' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'chaser_file' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'v_exp' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'temp' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'levels' before the end of line
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'new_mud' before the end of line
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'svc' before the end of line
+/adm/daemons/network/dns_master.c line 646: Warning: Expression has no side effects, and the value is unused before ;
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'm' before the end of line
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'str' before the end of line
+/adm/daemons/network/dns_master.c line 842: Warning: Unused local variable 'euid' before the end of line
+/adm/daemons/network/dns_master.c line 886: Warning: Unused local variable 'temp' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'static_db' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'strs' before the end of line
 /adm/daemons/logind.c line 174: Warning: Unused local variable 'j' before the end of line
 /adm/daemons/logind.c line 174: Warning: Unused local variable 'name' before the end of line
 /adm/daemons/logind.c line 174: Warning: Unused local variable 'info' before the end of line
@@ -134,27 +215,26 @@
 /adm/daemons/chard.c line 197: Warning: Unused local variable 'mengzhu' before the end of line
 /adm/daemons/chard.c line 197: Warning: Unused local variable 'room' before the end of line
 /feature/equip.c line 119: Warning: Unused local variable 'type' before the end of line
-/d/hangzhou/suti6.c line 46: Warning: Unused local variable 'dir' before the end of line
-/d/city/bobing.c line 302: Warning: Unused local variable 'j' before 
-/d/city/bobing.c line 302: Warning: Unused local variable 'k' before 
-/d/city/bobing.c line 335: Warning: Unused local variable 'ob' before 
-/d/city/bobing.c line 372: Warning: Unused local variable 'nil' before 
-/d/city/bobing.c line 906: Warning: Unused local variable 't1' before 
-/d/jinshe/shanbi.c line 55: Warning: Unused local variable 'n' before the end of line
-/d/jinshe/shanbi.c line 55: Warning: Unused local variable 'weapon' before the end of line
-/d/city/caohexiaojie.c line 39: Warning: Unused local variable 'obj' before the end of line
+/kungfu/class/xiaoyao/fengasan.c line 88: Warning: Unused local variable 'me' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'hp_status' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'skl' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'skillname' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'inc_exp' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'inc_lvl' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'j' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'k' before the end of line
+/kungfu/class/dali/zhudanchen.c line 210: Warning: Unused local variable 'family' before the end of line
+/kungfu/class/dali/zhudanchen.c line 289: Warning: Unused local variable 'me' before the end of line
+/kungfu/class/dali/weishi.h line 67: Warning: Unused local variable 'obj' before the end of line
 /questobj/jwqin.c line 37: Warning: Unused local variable 'ob' before the end of line
-/d/beijing/obj/book14_1.c line 52: Warning: Unknown \ escape. before aspi1", 1);
-/d/beijing/obj/book14_7.c line 51: Warning: Unknown \ escape. before aspi7", 1);
-/kungfu/class/gaibang/gaibang.h line 75: Warning: Unused local variable 'my_fam' before the end of line
 /adm/daemons/shopd.c line 732: Warning: Unused local variable 'obj' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'obj' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'amount' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'value' before the end of line
 /adm/daemons/shopd.c line 811: Warning: Unused local variable 'have_it' before the end of line
-/adm/daemons/shopd.c line 897: Warning: Unused local variable 'obs' before        
-/adm/daemons/shopd.c line 897: Warning: Unused local variable 'inv' before        
-/adm/daemons/shopd.c line 897: Warning: Unused local variable 'have_vendor' before        
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'obs' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'inv' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'have_vendor' before the end of line
 /adm/daemons/shopd.c line 1017: Warning: Unused local variable 'amount' before the end of line
 /adm/daemons/shopd.c line 1017: Warning: Unused local variable 'val_factor' before the end of line
 /adm/daemons/shopd.c line 1017: Warning: Unused local variable 'obs' before the end of line
@@ -184,6 +264,9 @@
 /adm/daemons/network/dns_master.c line 886: Warning: Unused local variable 'temp' before the end of line
 /adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'static_db' before the end of line
 /adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'strs' before the end of line
+/cmds/std/go.c line 389: Warning: Unused local variable 'blk' before the end of line
+/cmds/std/go.c line 389: Warning: Unused local variable 'gud' before the end of line
+/cmds/std/go.c line 389: Warning: Unused local variable 'skill' before the end of line
 /d/shenlong/cangku.c line 122: Warning: Unused local variable 'rum_ob' before the end of line
 /d/shenlong/cangku.c line 122: Warning: Unused local variable 'period' before the end of line
 /d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'rum_ob' before the end of line
@@ -203,9 +286,148 @@
 /adm/daemons/network/dns_master.c line 886: Warning: Unused local variable 'temp' before the end of line
 /adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'static_db' before the end of line
 /adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'strs' before the end of line
+/adm/daemons/logind.c line 174: Warning: Unused local variable 'j' before the end of line
+/adm/daemons/logind.c line 174: Warning: Unused local variable 'name' before the end of line
+/adm/daemons/logind.c line 174: Warning: Unused local variable 'info' before the end of line
+/adm/daemons/logind.c line 345: Warning: Unused local variable 'j' before the end of line
+/adm/daemons/logind.c line 345: Warning: Unused local variable 's' before the end of line
+/adm/daemons/logind.c line 981: Warning: Unused local variable 'n' before the end of line
+/adm/daemons/logind.c line 1178: Warning: Unused local variable 'room' before the end of line
+/adm/daemons/fingerd.c line 67: Warning: Unused local variable 'fip' before the end of line
+/adm/daemons/fingerd.c line 150: Warning: Unused local variable 'mud' before the end of line
+/adm/daemons/natured.c line 251: Warning: Unused local variable 'place' before the end of line
+/adm/daemons/natured.c line 251: Warning: Unused local variable 'flag' before the end of line
+/adm/daemons/natured.c line 454: Warning: Unused local variable 'skill' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'v1' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'j' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'family' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'm' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'hometown' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'name' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'id' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'or' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'type' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'time' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'value' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'make' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'lv' before the end of line
+/adm/daemons/updated.c line 303: Warning: Unused local variable 'money_limit' before the end of line
+/adm/daemons/autosaved.c line 142: Warning: Unused local variable 't' before the end of line
+/adm/daemons/autosaved.c line 142: Warning: Unused local variable 'e' before the end of line
+/adm/daemons/autosaved.c line 142: Warning: Unused local variable 'p' before the end of line
+/adm/daemons/autosaved.c line 142: Warning: Unused local variable 'linkob' before the end of line
+/adm/daemons/questd.c line 115: Warning: Unused local variable 'obj1' before the end of line
+/adm/daemons/questd.c line 115: Warning: Unused local variable 'obj2' before the end of line
+/adm/daemons/questd.c line 115: Warning: Unused local variable 'obj3' before the end of line
+/adm/daemons/questd.c line 115: Warning: Unused local variable 'next_obj' before the end of line
+/adm/daemons/questd.c line 264: Warning: Unused local variable 'tmpobj' before the end of line
+/adm/daemons/questd.c line 264: Warning: Unused local variable 'where' before the end of line
+/inherit/room/room.c line 180: Warning: Unused local variable 'item_desc' before the end of line
+/feature/move.c line 166: Warning: Unused local variable 'where' before the end of line
+/feature/name.c line 135: Warning: Unused local variable 'str1' before the end of line
+/feature/equip.c line 119: Warning: Unused local variable 'type' before the end of line
+/feature/attack.c line 69: Warning: Unused local variable 'inv' before 
+/feature/attack.c line 69: Warning: Unused local variable 'obj' before 
+/feature/attack.c line 69: Warning: Unused local variable 'i' before 
+/feature/damage.c line 327: Warning: Unused local variable 'i' before the end of line
+/feature/damage.c line 424: Warning: Unused local variable 'i' before the end of line
+/feature/more.c line 27: Warning: Unused local variable 'j' before the end of line
+/inherit/char/npc.c line 329: Warning: Unused local variable 'weapon' before the end of line
+/adm/daemons/chard.c line 197: Warning: Unused local variable 'mengzhu' before the end of line
+/adm/daemons/chard.c line 197: Warning: Unused local variable 'room' before the end of line
+/d/mingjiao/mjtianmen1.c line 33: Warning: Unused local variable 'myfam' before the end of line
+/kungfu/class/gaibang/gaibang.h line 75: Warning: Unused local variable 'my_fam' before the end of line
+/kungfu/class/dali/gaoshengtai.c line 166: Warning: Unused local variable 'obj' before the end of line
+/kungfu/class/gaibang/gaibang.h line 75: Warning: Unused local variable 'my_fam' before the end of line
+/d/changan/dubo.c line 696: Warning: Unused local variable 'me' before the end of line
+/d/gaochang/shulin11.c line 50: Warning: Unused local variable 'fam' before the end of line
+/d/wudujiao/npc/laohu.c line 46: Warning: Unused local variable 'ob' before the end of line
+/questobj/jwqin.c line 37: Warning: Unused local variable 'ob' before the end of line
+/d/baihuagu/yangfeng.h line 31: Warning: Unused local variable 'bee' before the end of line
+/d/baihuagu/shanpo6.c line 61: Warning: Unused local variable 'food' before the end of line
+/clone/misc/mafu.c line 312: Warning: Unused local variable 'myenv' before the end of line
+/feature/dealer.c line 436: Warning: Unused local variable 'value' before the end of line
+/d/beijing/npc/xiaoer.c line 41: Warning: Unused local variable 'myfam' before the end of line
+/adm/daemons/shopd.c line 732: Warning: Unused local variable 'obj' before the end of line
+/adm/daemons/shopd.c line 811: Warning: Unused local variable 'obj' before the end of line
+/adm/daemons/shopd.c line 811: Warning: Unused local variable 'amount' before the end of line
+/adm/daemons/shopd.c line 811: Warning: Unused local variable 'value' before the end of line
+/adm/daemons/shopd.c line 811: Warning: Unused local variable 'have_it' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'obs' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'inv' before the end of line
+/adm/daemons/shopd.c line 897: Warning: Unused local variable 'have_vendor' before the end of line
+/adm/daemons/shopd.c line 1017: Warning: Unused local variable 'amount' before the end of line
+/adm/daemons/shopd.c line 1017: Warning: Unused local variable 'val_factor' before the end of line
+/adm/daemons/shopd.c line 1017: Warning: Unused local variable 'obs' before the end of line
+/adm/daemons/shopd.c line 1017: Warning: Unused local variable 'env' before the end of line
+/adm/daemons/shopd.c line 1017: Warning: Unused local variable 'my_id' before the end of line
+/adm/daemons/shopd.c line 1217: Warning: Unused local variable 'body' before the end of line
+/adm/daemons/shopd.c line 1360: Warning: Unused local variable 'str' before the end of line
+/adm/daemons/shopd.c line 1492: Warning: Unused local variable 'have_vendor' before the end of line
+/adm/daemons/shopd.c line 1492: Warning: Unused local variable 'obs' before the end of line
+/adm/daemons/shopd.c line 1492: Warning: Unused local variable 'inv' before the end of line
+/adm/daemons/mapd.c line 611: Warning: Unused local variable 'ob' before the end of line
+/adm/daemons/mapd.c line 611: Warning: Unused local variable 'i' before the end of line
+/adm/daemons/eventd.c line 94: Warning: Unused local variable 'tt' before the end of line
+/adm/daemons/pkd.c line 163: Warning: Unused local variable 'i' before 
+/adm/daemons/pkd.c line 163: Warning: Unused local variable 'err' before 
+/adm/daemons/pkd.c line 440: Warning: Unused local variable 'inc_exp' before 
+/adm/daemons/pkd.c line 440: Warning: Unused local variable 'k' before 
+/adm/daemons/pkd.c line 440: Warning: Unused local variable 'family' before 
+/adm/daemons/pkd.c line 500: Warning: Unused local variable 'err' before 
+/adm/daemons/pkd.c line 586: Warning: Unused local variable 'err' before 
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'new_mud' before the end of line
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'svc' before the end of line
+/adm/daemons/network/dns_master.c line 646: Warning: Expression has no side effects, and the value is unused before ;
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'm' before the end of line
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'str' before the end of line
+/adm/daemons/network/dns_master.c line 842: Warning: Unused local variable 'euid' before the end of line
+/adm/daemons/network/dns_master.c line 886: Warning: Unused local variable 'temp' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'static_db' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'strs' before the end of line
 /adm/daemons/band.c line 238: Warning: Unused local variable 'add_flag' before the end of line
 /cmds/usr/time.c line 362: Warning: Unused local variable 'OK' before  
 /cmds/usr/time.c line 402: Warning: Unused local variable 'time' before the end of line
 /cmds/usr/time.c line 402: Warning: Unused local variable 'yy' before the end of line
 /cmds/usr/time.c line 402: Warning: Unused local variable 'mm' before the end of line
 /cmds/usr/time.c line 402: Warning: Unused local variable 'dd' before the end of line
+/d/shenlong/cangku.c line 122: Warning: Unused local variable 'rum_ob' before the end of line
+/d/shenlong/cangku.c line 122: Warning: Unused local variable 'period' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'rum_ob' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'chaser_ob' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'names' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'file' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'chaser_file' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'v_exp' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'temp' before the end of line
+/d/shenlong/chaser/message_chaser.h line 100: Warning: Unused local variable 'levels' before the end of line
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'new_mud' before the end of line
+/adm/daemons/network/dns_master.c line 511: Warning: Unused local variable 'svc' before the end of line
+/adm/daemons/network/dns_master.c line 646: Warning: Expression has no side effects, and the value is unused before ;
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'm' before the end of line
+/adm/daemons/network/dns_master.c line 717: Warning: Unused local variable 'str' before the end of line
+/adm/daemons/network/dns_master.c line 842: Warning: Unused local variable 'euid' before the end of line
+/adm/daemons/network/dns_master.c line 886: Warning: Unused local variable 'temp' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'static_db' before the end of line
+/adm/daemons/network/dns_master.c line 967: Warning: Unused local variable 'strs' before the end of line
+/inherit/misc/bboard.c line 117: Warning: Unused local variable 'myid' before the end of line
+/cmds/std/look.c line 116: Warning: Unused local variable 'inv' before the end of line
+/cmds/std/look.c line 314: Warning: Unused local variable 'room' before the end of line
+/cmds/std/look.c line 314: Warning: Unused local variable 'nature' before the end of line
+/cmds/std/look.c line 571: Warning: Unused local variable 'spi' before the end of line
+/cmds/std/look.c line 571: Warning: Unused local variable 'weight' before the end of line
+/cmds/std/look.c line 571: Warning: Unused local variable 'limb_status' before the end of line
+/cmds/std/look.c line 571: Warning: Unused local variable 'equip' before the end of line
+/cmds/std/look.c line 685: Warning: Unused local variable 'object_id' before the end of line
+/cmds/std/look.c line 685: Warning: Unused local variable 'object_short' before the end of line
+/cmds/std/look.c line 685: Warning: Unused local variable 'invid' before the end of line
+/cmds/std/look.c line 685: Warning: Unused local variable 'k' before the end of line
+/adm/daemons/scbornd.c line 141: Warning: Unused local variable 'i' before the end of line
+/adm/daemons/scbornd.c line 170: Warning: Unused local variable 'ob' before the end of line
+/adm/daemons/scbornd.c line 353: Warning: Unused local variable 'i' before the end of line
+/adm/daemons/scbornd.c line 353: Warning: Unused local variable 'j' before the end of line
+/clone/misc/mailbox.c line 63: Warning: Unused local variable 'ob' before the end of line
+/cmds/std/go.c line 389: Warning: Unused local variable 'blk' before the end of line
+/cmds/std/go.c line 389: Warning: Unused local variable 'gud' before the end of line
+/cmds/std/go.c line 389: Warning: Unused local variable 'skill' before the end of line
+/cmds/imm/ls.c line 42: Warning: Unused local variable 'mark_loaded' before the end of line

@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 /* File    : support_q.c
  * Creator : Pinkfish@Discworld
  *         : Grendel@Tmi-2
@@ -74,6 +74,5 @@ if (!param) param = "";
    DNS_MASTER->send_udp(host, port,
      sprintf("@@@%s||NAME:%s||PORTUDP:%d||CMD:%s||ANSWERID:%d@@@\n",
         DNS_SUPPORT_Q, Mud_name(), udp_port(),
-        cmd + (strlen(param) ? "||PARAM:"+param : ""), idx));
+        cmd + (strwidth(param) ? "||PARAM:"+param : ""), idx));
 }
-

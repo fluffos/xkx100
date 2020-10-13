@@ -84,7 +84,7 @@ int do_tisheng(string arg)
 	if(!userp(ob))
 		return notify_fail("你只能提升玩家。\n");
 	partynm = me->query("party/party_name");
-	i = strlen(partynm);
+	i = strwidth(partynm);
 	mylvl = me->query("party/level");
 	if (mylvl > 5) return notify_fail("你无权提升任何人。\n");
 	if(!ob->query("party"))
@@ -142,7 +142,7 @@ int do_jiangchu(string arg)
 	if(ob == me) return notify_fail("真是聪明的方法。\n");
 
 	partynm = me->query("party/party_name");
-	i = strlen(partynm);
+	i = strwidth(partynm);
 	mylvl = me->query("party/level");
 	if (mylvl > 5) return notify_fail("你无权降黜任何人。\n");
 	if(!ob->query("party"))
@@ -196,8 +196,8 @@ int do_renming(string arg)
 		return notify_fail(ob->query("name")+"没有加入任何帮会，你任命个啥劲哪！\n");
 	if(ob->query("party/party_name") != partynm)
 		return notify_fail(ob->query("name")+"好象是别的帮会的耶！\n");
-	i = strlen(rankname);
-	if( (strlen(rankname) < 4) || (strlen(rankname) > 6 ) )
+	i = strwidth(rankname);
+	if( (strwidth(rankname) < 4) || (strwidth(rankname) > 6 ) )
 	{
 		return notify_fail("对不起，任命名称必须是两三个中文字。\n");
 	}
@@ -264,7 +264,7 @@ int do_quzhu(string arg)
 //	ob->set("combat_exp", ob->query("combat_exp")*99/100);
 	if ((int) ob->query("balance")>0 )
 	   ob->set("balance",ob->query("balance")*99/100);
-	ob->set("score", ob->query("score")*99/100);	   
+	ob->set("score", ob->query("score")*99/100);
 	message_vision("$N从$n身上收回一块腰牌！\n", me, ob);
 	message("channel:chat", HIR"【通告】"HIY+ob->query("name")+"于"+NATURE_D->game_time()+"被"HIG+me->query("party/rank")+me->query("name")+HIY"驱逐出"+partynm+"！以后此人所为，与"+partynm+"无涉！\n"NOR, users());
 	return 1;
@@ -396,7 +396,7 @@ int do_rangwei(string arg)
 	}
 	return 1;
 }
- 
+
 string query_autoload()
 {
 	return 1 + "";
@@ -405,4 +405,3 @@ void owner_is_killed()
 {
 	destruct(this_object());
 }
-

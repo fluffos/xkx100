@@ -235,11 +235,11 @@ int look_sign()
 		{
 			str += " "+sign[i]["target"];
 			adjstr1 = sign[i]["target"];
-			adj1 = 18-strlen(adjstr1);
+			adj1 = 18-strwidth(adjstr1);
 			while (adj1--) str += " ";
 			str += "("HIY + sign[i]["id"] + NOR") ";
 			adjstr2 = "(" + sign[i]["id"] + ") ";
-			adj2 = 18-strlen(adjstr2);
+			adj2 = 18-strwidth(adjstr2);
 			while (adj2--) str += " ";
 			str += "："CYN+MONEY_D->price_str(sign[i]["value"]) + NOR"\n";
 		}
@@ -275,7 +275,7 @@ int do_go(string arg)
 			return 1;
 		}
 	}
-	 if (  ob->query_temp("LAST_PKER_TIME") && 
+	 if (  ob->query_temp("LAST_PKER_TIME") &&
              time() - ob->query_temp("LAST_PKER_TIME")<7200 && !wizardp(ob))
              return notify_fail("杀了人，可不能做缩头乌龟！\n");
 

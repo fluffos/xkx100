@@ -1,22 +1,22 @@
-[7;47;1;31m        ¡¾¡¸ÏÀ¿ÍÐÐÒ»°Ù¡¹°ïÖúËµÃ÷ÎÄ¼þ¡¿ (2002.8.18°æ)[0m
+[7;47;1;31m        ã€ã€Œä¾ å®¢è¡Œä¸€ç™¾ã€å¸®åŠ©è¯´æ˜Žæ–‡ä»¶ã€‘ (2002.8.18ç‰ˆ)[0m
 
-[7;48;1;33m¡¾ÓÎÏ·¸Å¿ö¡¿[0m[1;34;47m
-©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ð©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´
-©¦¡¼intro     ¡½¡¸ÏÀ¿ÍÐÐÒ»°Ù¡¹¼ò½é    ©¦¡¼newbie    ¡½¡¸ÏÀ¿ÍÐÐÒ»°Ù¡¹ÐÂÊÖÖ¸ÄÏ©¦
-©¦¡¼rules     ¡½Íæ¼Ò¹æÔòÆª            ©¦¡¼setup     ¡½»·¾³±äÁ¿ÉèÖÃÆª        ©¦
-©¦¡¼wiz-rules ¡½Î×Ê¦¹æÔòÆª            ©¦¡¼wiz-setup ¡½Î×Ê¦»·¾³±äÁ¿ÉèÖÃÆª    ©¦
-©¦¡¼gift-char ¡½Ìì¸³Æª                ©¦¡¼user-level¡½½ø½×Æª                ©¦
-©¦¡¼cmds      ¡½ÃüÁîÆª                ©¦¡¼map       ¡½µØÍ¼Æª                ©¦
-©¦[1;37;41m¡¼relation  ¡½½»Á÷Æª[0m[1;34;47m                ©¦¡¼transport ¡½½»Í¨Æª                ©¦
-©¦¡¼family    ¡½ÃÅÅÉÆª                ©¦¡¼party     ¡½°ï»áÆª                ©¦
-©¦¡¼skill     ¡½Îä¼¼Æª                ©¦¡¼weapon    ¡½±øÆ÷Æª                ©¦
-©¦¡¼mission   ¡½ÈÎÎñÆª                ©¦¡¼contest   ¡½±ÈÎäÆª                ©¦
-©¦¡¼trade     ¡½ÐÐÉÌÆª                ©¦¡¼city      ¡½³ÇÊÐÆª                ©¦
-©¦¡¼house     ¡½¼ÒÍ¥Æª                ©¦¡¼cookery   ¡½Åëâ¿Æª                ©¦
-©¦¡¼medical   ¡½µ¤Ò©Æª                ©¦¡¼pet       ¡½³èÎïÆª                ©¦
-©¦¡¼wuguan    ¡½Îä¹ÝÆª                ©¦¡¼calamity  ¡½ºÆ½ÙÆª                ©¦
-©¦¡¼book      ¡½Êé¼®Æª                ©¦¡¼bug       ¡½³ô³æÆª                ©¦
-©¦¡¼game      ¡½¸½ÊôÓÎÏ·              ©¦¡¼event     ¡½×ÔÈ»Ææ¹ÛÆª            ©¦
-©¦¡¼hslj      ¡½»ªÉ½ÂÛ½£Æª            ©¦¡¼creates   ¡½×Ô´´Îä¹¦Æª            ©¦
-©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©Ø©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼[0m
-[1;36mÒÔÉÏÊÇËµÃ÷ÎÄ¼þ£¬Äã¿ÉÒÔÓÃ help <Ö÷Ìâ> µÃµ½¸ü½øÒ»²½µÄËµÃ÷¡£[0m
+[7;48;1;33mã€æ¸¸æˆæ¦‚å†µã€‘[0m[1;34;47m
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ã€–intro     ã€—ã€Œä¾ å®¢è¡Œä¸€ç™¾ã€ç®€ä»‹    â”‚ã€–newbie    ã€—ã€Œä¾ å®¢è¡Œä¸€ç™¾ã€æ–°æ‰‹æŒ‡å—â”‚
+â”‚ã€–rules     ã€—çŽ©å®¶è§„åˆ™ç¯‡            â”‚ã€–setup     ã€—çŽ¯å¢ƒå˜é‡è®¾ç½®ç¯‡        â”‚
+â”‚ã€–wiz-rules ã€—å·«å¸ˆè§„åˆ™ç¯‡            â”‚ã€–wiz-setup ã€—å·«å¸ˆçŽ¯å¢ƒå˜é‡è®¾ç½®ç¯‡    â”‚
+â”‚ã€–gift-char ã€—å¤©èµ‹ç¯‡                â”‚ã€–user-levelã€—è¿›é˜¶ç¯‡                â”‚
+â”‚ã€–cmds      ã€—å‘½ä»¤ç¯‡                â”‚ã€–map       ã€—åœ°å›¾ç¯‡                â”‚
+â”‚[1;37;41mã€–relation  ã€—äº¤æµç¯‡[0m[1;34;47m                â”‚ã€–transport ã€—äº¤é€šç¯‡                â”‚
+â”‚ã€–family    ã€—é—¨æ´¾ç¯‡                â”‚ã€–party     ã€—å¸®ä¼šç¯‡                â”‚
+â”‚ã€–skill     ã€—æ­¦æŠ€ç¯‡                â”‚ã€–weapon    ã€—å…µå™¨ç¯‡                â”‚
+â”‚ã€–mission   ã€—ä»»åŠ¡ç¯‡                â”‚ã€–contest   ã€—æ¯”æ­¦ç¯‡                â”‚
+â”‚ã€–trade     ã€—è¡Œå•†ç¯‡                â”‚ã€–city      ã€—åŸŽå¸‚ç¯‡                â”‚
+â”‚ã€–house     ã€—å®¶åº­ç¯‡                â”‚ã€–cookery   ã€—çƒ¹é¥ªç¯‡                â”‚
+â”‚ã€–medical   ã€—ä¸¹è¯ç¯‡                â”‚ã€–pet       ã€—å® ç‰©ç¯‡                â”‚
+â”‚ã€–wuguan    ã€—æ­¦é¦†ç¯‡                â”‚ã€–calamity  ã€—æµ©åŠ«ç¯‡                â”‚
+â”‚ã€–book      ã€—ä¹¦ç±ç¯‡                â”‚ã€–bug       ã€—è‡­è™«ç¯‡                â”‚
+â”‚ã€–game      ã€—é™„å±žæ¸¸æˆ              â”‚ã€–event     ã€—è‡ªç„¶å¥‡è§‚ç¯‡            â”‚
+â”‚ã€–hslj      ã€—åŽå±±è®ºå‰‘ç¯‡            â”‚ã€–creates   ã€—è‡ªåˆ›æ­¦åŠŸç¯‡            â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜[0m
+[1;36mä»¥ä¸Šæ˜¯è¯´æ˜Žæ–‡ä»¶ï¼Œä½ å¯ä»¥ç”¨ help <ä¸»é¢˜> å¾—åˆ°æ›´è¿›ä¸€æ­¥çš„è¯´æ˜Žã€‚[0m

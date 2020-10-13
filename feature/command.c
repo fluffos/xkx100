@@ -20,15 +20,15 @@ string find_command(string verb)
 string remove_leading_space(string arg)
 {
 	int i;
-	for (i = 0; i < strlen(arg); i++)
+	for (i = 0; i < strwidth(arg); i++)
 		if (arg[i..i] != " ")
-			return arg[i..strlen(arg)];
+			return arg[i..strwidth(arg)];
 	return "";
 }
 
 // This is the add_action hook handling movement, commands, emotes and
 // channels. Optimization is needed.
-private nomask int command_hook(string arg)
+protected nomask int command_hook(string arg)
 {
 	string verb, file;
 
@@ -45,13 +45,13 @@ private nomask int command_hook(string arg)
 	verb = query_verb();
         if ((verb = remove_leading_space(verb)) == "")
                 return 0;
-	if( !arg 
+	if( !arg
 	&&	(environment() && stringp(environment()->query("exits/" + verb)))
 	&&	stringp(file = find_command("go"))
 	&&	call_other(file, "main", this_object(), verb))
 		;
-	
-	else if( stringp(file = find_command(verb)) 
+
+	else if( stringp(file = find_command(verb))
 	&& call_other(file, "main", this_object(), arg))
 		;
 
@@ -139,4 +139,3 @@ nomask void disable_player(string type)
 	set("disable_type", type);
 	disable_commands();
 }
-

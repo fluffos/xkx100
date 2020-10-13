@@ -31,8 +31,8 @@ void init()
 }
 
 int show_name(string arg)
-{     
-	mixed *files; 
+{
+	mixed *files;
 	string who,result,content,chinese;
 	int n,i,j,k;
 	string host, host1, host2;
@@ -68,8 +68,8 @@ int show_name(string arg)
 			       else if(host2==files[i]) host=host2+" & "+host1;
 			       else host="data error";
 			   } else host=files[i];
-			   len=strlen(chinese);
-			   len1=32-strlen(host);
+			   len=strwidth(chinese);
+			   len1=32-strwidth(host);
 			   if(len1<1) len1=1; // this should not happen.
 			   if(len>len1) chinese=chinese[0..(len1-1)];
 			   chinese+=" ("+capitalize(host)+")";
@@ -80,15 +80,15 @@ int show_name(string arg)
 		   }
 	       }
 	}
-      
+
 	result="\n"+result+"\n\n\n"+"注：请键入各家的第一个名字来进入。\n";
 	this_player()->start_more(result);
-      
+
 	return 1;
 }
 
 int enter_home(string arg)
-{     
+{
 	string name,*files;
 	object env,*inv,room,me=this_player();
 	string roomid;
@@ -101,7 +101,7 @@ int enter_home(string arg)
 	    return 0;
 	}
 
-//	if(!valid_move(me)) return 0; 
+//	if(!valid_move(me)) return 0;
 	//check if can move. mon 9/25/97
 
 	env=environment(me);
@@ -115,13 +115,13 @@ int enter_home(string arg)
 		    room=inv[i];
 		    break;
 		}
-	    } 
+	    }
 	}
 	if(!room)
 	{
 	    room=new("/d/taohuacun/obj/home");
 	    room->set("file_name",roomid);
-	    room->restore();	
+	    room->restore();
 	    room->set("no_fight",1);
 	    room->set("no_magic",1);
 	    room->move(env);
@@ -141,7 +141,7 @@ int clean_up()
        inv = all_inventory();
        for(i=sizeof(inv)-1; i>=0; i--)
 	   if(inv[i]->is_home() || userp(inv[i])) return 1;
- 
+
        return ::clean_up();
 
 }

@@ -133,10 +133,10 @@ int do_invite(string arg)
 	object me=this_player();
   object home=this_object();
   object who;
- 
-	if (!arg)  
+
+	if (!arg)
 		return list_invite();
- 
+
 	if (sscanf(arg,"-d %s",arg)==1)
 	{
 		if (!sizeof(r_invited) || member_array(arg,r_invited)== -1)
@@ -170,7 +170,7 @@ int list_invite()
   write("家里目前邀请的人员为：("+implode(r_invited[0..size-1],"、")+")\n");
   return 1;
 }
-	
+
 int do_findbaby()
 {
 	object me=this_player(),*list,*parents,baby,where;
@@ -233,7 +233,7 @@ int do_findbaby()
 				}
 				if (baby->query("die")>=3)
 					destruct(baby);
-				else 
+				else
 				{
 					baby->set_name(me->query("child_"+i+"/name"),babyid);
 					baby->update_me();
@@ -279,12 +279,12 @@ object find_bed(object me)
 		jing->move(table);
 		bed=new(__DIR__"bed");
 		bed->set("out",this_object());
-		if(strlen(str=home->query("bed_short"))>1)
+		if(strwidth(str=home->query("bed_short"))>1)
 		{
 			bed->set("short",str);
 			bed->set_name(str,({bed->query("id")}));
 		}
-		if(strlen(str=home->query("bed_long"))>1)
+		if(strwidth(str=home->query("bed_long"))>1)
 		{
 			bed->set("long",str);
 		}

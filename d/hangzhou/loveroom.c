@@ -3,8 +3,8 @@
 #include <room.h>
 inherit ROOM;
 
-varargs static void
-create_food(string nmstr, string* idlist, string longstr)
+varargs protected void
+create_food(string nmstr, string *idlist, string longstr)
 {
         object obj;
 
@@ -17,8 +17,8 @@ create_food(string nmstr, string* idlist, string longstr)
         obj->move(this_object());
 }
 
-varargs static void
-create_water(string nmstr, string* idlist, string cup, string longstr)
+varargs protected void
+create_water(string nmstr, string *idlist, string cup, string longstr)
 {
         object obj;
 
@@ -32,8 +32,8 @@ create_water(string nmstr, string* idlist, string cup, string longstr)
         obj->move(this_object());
 }
 
-varargs static void
-create_wine(string nmstr, string* idlist, string cup, string longstr)
+varargs protected void
+create_wine(string nmstr, string *idlist, string cup, string longstr)
 {
         object obj;
 

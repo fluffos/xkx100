@@ -1,6 +1,6 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
- 
+
 /* File    : mudlist_q.c
  * Creator : Pinkfish@Discworld
  *         : Grendel@Tmi-2
@@ -51,11 +51,11 @@ string *build_mudlist(mapping muds)
         "|HOSTADDRESS:"+muds[names[i]]["HOSTADDRESS"]+
         "|PORT:"+muds[names[i]]["PORT"]+
         "|PORTUDP:"+muds[names[i]]["PORTUDP"]+
-        (undefinedp(muds[names[i]]["MUDLIB"]) ? "" 
+        (undefinedp(muds[names[i]]["MUDLIB"]) ? ""
              : "|MUDLIB:"+muds[names[i]]["MUDLIB"]);
-        (undefinedp(muds[names[i]]["TCP"]) ? "" 
+        (undefinedp(muds[names[i]]["TCP"]) ? ""
              : "|TCP:"+muds[names[i]]["TCP"]);
-     if (strlen(ret[pos]) > 256) {
+     if (strwidth(ret[pos]) > 256) {
         // start a new packet
         ret += ({ "" });
         pos++;
@@ -83,9 +83,8 @@ void incoming_request(mapping info)
 
    if (info["PORTUDP"]) {
      bits = build_mudlist((mapping)DNS_MASTER->query_muds());
-     for (i=0;i<sizeof(bits);i++) 
+     for (i=0;i<sizeof(bits);i++)
         DNS_MASTER->send_udp(info["HOSTADDRESS"], info["PORTUDP"],
           "@@@"+DNS_MUDLIST_A+ bits[i]+ "@@@\n");
    }
 }
-

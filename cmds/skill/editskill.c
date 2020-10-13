@@ -48,20 +48,20 @@ void finish_write_skill(object ob);
 int check_owner_skill(object me,string skill_en_name);
 // 从文件中读取这个武功的中文名
 string get_header_skillchname(string file);
-// 从文件中读取这个武功的基本武功名 
+// 从文件中读取这个武功的基本武功名
 string get_header_skillbasename(string file);
 int main(object me, string arg)
 {
 	int skill_num,skill_num_result;
 	string skill_en_name,skill_ch_name,myskill;
 	string skill_base_name;
-	
+
 	spe_skill_basename="";
 	spe_skill_name="";
 	spe_skill_help="";
 	spe_skillnum=0;
 	oldfile="";
-	
+
 	seteuid(getuid());
 	if(!arg)
 		return notify_fail(WHT"指令格式：editskill 基本技能 武功英文名字 武功中文名字 第几招\n"NOR);
@@ -75,7 +75,7 @@ int main(object me, string arg)
 		return 1;
 	spe_skill["skill_en_name"]=skill_en_name+"-"+skill_base_name+".c";
 	spe_skill_name=skill_en_name+"-"+skill_base_name;
-	if(check_legal_name(skill_ch_name)==0) return 1;             
+	if(check_legal_name(skill_ch_name)==0) return 1;
 	spe_skill["skill_ch_name"]=skill_ch_name;
 	if( skill_num!=1 && get_header_skillchname(spe_skill["skill_en_name"])!=skill_ch_name)
 		return notify_fail( HIR"你输入的中文武功名称和所选的英文武功代号有矛盾。\n"NOR);
@@ -89,7 +89,7 @@ int main(object me, string arg)
 		case 2:
 			return notify_fail( HIR"此功夫已存在，无法创新。\n"NOR);
 			break;
-		case 0: 
+		case 0:
 			break;
 		case 1:
 			return notify_fail( HIR"你目前只能针对这个基本技能创建一个功夫。\n"NOR);
@@ -197,11 +197,11 @@ void skill_init_header(string skill_en_name,string skill_ch_name)
 	header+="// "+spe_skill_basename+"\n";		//list[6]
 	header+="// "+spe_skill["skill_ch_name"]+"\n";	//list[7]
 	header+="#include <ansi.h>\n";
-	header+="inherit SKILL;\n";			
+	header+="inherit SKILL;\n";
 	header+="string type() { return \"martial\"; }\n";
 	header+="string martialtype() { return \"skill\"; }\n";
 	header+="string owner() {return \""+geteuid(me)+"\";}\n";
-	header+="\nmapping *action = ({\n});\n";		
+	header+="\nmapping *action = ({\n});\n";
 	header+="// ZHAOSHI :0";			//注意：最后没有用\n
 	write_file(SKILL_D(skill_en_name),header,1);
 }
@@ -391,11 +391,11 @@ string *spe_skill_weaponparry=({ "20","20","10","10","5","5","5","5","5", });
 	list2 = explode(header2, "\n");
 	for(i=0;i < sizeof(list2);i++)
 	{
-		list2[i]= replace_string(list2[i], "SKILL_EN_NAME", 
+		list2[i]= replace_string(list2[i], "SKILL_EN_NAME",
 			SHUANGYIN_HAO+spe_skill_name+SHUANGYIN_HAO );
-		list2[i]= replace_string(list2[i], "SKILL_CH_NAME", 
+		list2[i]= replace_string(list2[i], "SKILL_CH_NAME",
 			SHUANGYIN_HAO+spe_skill["skill_ch_name"]+SHUANGYIN_HAO );
-		list2[i]= replace_string(list2[i], "SKILL_BASE_NAME", 
+		list2[i]= replace_string(list2[i], "SKILL_BASE_NAME",
 			SHUANGYIN_HAO+spe_skill_basename+SHUANGYIN_HAO );
 		list2[i]= replace_string(list2[i], "SKILL_HELP",
 			spe_skill_help);
@@ -455,15 +455,15 @@ string *spe_skill_weaponparry=({ "20","20","10","10","5","5","5","5","5", });
 int check_legal_basename(string name)
 {
 	int i;
-	for(i=0;i<sizeof(valid_types);i++) 
+	for(i=0;i<sizeof(valid_types);i++)
 		if(valid_types[i]==name) return 1;
 	return 0;
 }
 int check_legal_id(string id)
 {
 	int i;
-	i = strlen(id);
-	if( (strlen(id) < 3) || (strlen(id) > 12 ) )
+	i = strwidth(id);
+	if( (strwidth(id) < 3) || (strwidth(id) > 12 ) )
 	{
 		write("你的武功代号必须是 3 到 12 个英文字母。\n");
 		return 0;
@@ -479,8 +479,8 @@ int check_legal_id(string id)
 int check_legal_name(string name)
 {
 	int i;
-	i = strlen(name);
-	if( (strlen(name) < 2) || (strlen(name) > 12 ) )
+	i = strwidth(name);
+	if( (strwidth(name) < 2) || (strwidth(name) > 12 ) )
 	{
 		write("武功的中文名称必须是 1 到 6 个中文字。\n");
 		return 0;
@@ -552,7 +552,7 @@ int check_owner_skill(object me,string skill_en_name)
 	{
 		if(me->query("skillmaxim/"+spe_skill_basename)!=0)
 			return 1;
-		else 
+		else
 			return 0;
 	}
 	else list = explode(file, "\n");
@@ -566,8 +566,8 @@ int help (object me)
 {
 	write(@HELP
 指令格式：editskill 武功基本技能 武功英文名字 武功中文名字 第几招
-例如：editskill unarmed jueqin 绝情拳 1 
- 
+例如：editskill unarmed jueqin 绝情拳 1
+
     这是用来创建自己风格武功的指令，随着经验值的增长，可以实现的招式
 越来越多，招式的威力也越来越大。每创造一种武功，必须要有两万点江湖阅
 历。

@@ -1,9 +1,9 @@
 // Last Modified by winder on Apr. 25 2001
 
 inherit F_CLEAN_UP;
- 
+
 #include <ansi.h>
- 
+
 int rm_dir(string dir);
 int help(object me);
 
@@ -13,10 +13,10 @@ int main(object me, string arg)
 	string dir;
 	int rm_dir;
 	int count;
- 
+
 	if (me != this_player(1)) return 0;
 	seteuid(geteuid(me));
- 
+
 	if (! arg)
 	{
 		help(me);
@@ -33,7 +33,7 @@ int main(object me, string arg)
 	}
 
 	file = resolve_path(me->query("cwd"), dir);
- 
+
 	switch (file_size(file))
 	{
 	case -1:
@@ -56,7 +56,7 @@ int main(object me, string arg)
 			write("你没有删除该目录的权限或者试图删除一个"
 			      "非空的目录。\n");
 		return 1;
-		
+
 	default:
 		if (rm(file))
 			write("成功的删除了文件(" + file + ").\n");
@@ -65,7 +65,7 @@ int main(object me, string arg)
 		return 1;
 	}
 }
- 
+
 int rm_dir(string dir)
 {
 	mixed *file;
@@ -76,7 +76,7 @@ int rm_dir(string dir)
 		return 0;
 */
 	count = 0;
-	if (dir[strlen(dir) - 1] != '/') dir += "/";
+	if (dir[strwidth(dir) - 1] != '/') dir += "/";
 	file = get_dir(dir, -1);
 
 	i = sizeof(file);
@@ -105,11 +105,10 @@ int help(object me)
 {
   write(@HELP
 指令格式 : rm [-R] 档案名
- 
+
 此指令可让你删除某个档案或目录。如果使用了-R参数，可以删除非空的目
 录，使用该参数务必要小心，以免删除错路径。
 HELP
     );
     return 1;
 }
-

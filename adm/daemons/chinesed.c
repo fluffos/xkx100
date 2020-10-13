@@ -59,7 +59,7 @@ string chinese_number(int i)
 			return c_num[i / 100] + c_digit[2] +
 			c_num[1] + chinese_number(i % 100);
 		else
-			return c_num[i / 100] + c_digit[2] + 
+			return c_num[i / 100] + c_digit[2] +
 			chinese_number(i % 100);
 	}
 	if (i < 10000) {
@@ -68,7 +68,7 @@ string chinese_number(int i)
 		else if (i % 1000 < 100)
 			return c_num[i / 1000] + c_digit[3] +
 			c_num[0] + chinese_number(i % 1000);
-		else 
+		else
 			return c_num[i / 1000] + c_digit[3] +
 			chinese_number(i % 1000);
 	}
@@ -88,7 +88,7 @@ string chinese_number(int i)
 		else if (i % 100000000 < 1000000)
 			return chinese_number(i / 100000000) + c_digit[5] +
 			c_num[0] + chinese_number(i % 100000000);
-		else 
+		else
 			return chinese_number(i / 100000000) + c_digit[5] +
 			chinese_number(i % 100000000);
 	}
@@ -131,10 +131,10 @@ void dump_translate()
 {
 	string *k, str;
 	int i;
-	
+
 	str = "";
 	k = keys(dict);
-	for (i = 0; i < sizeof(k); i++) 
+	for (i = 0; i < sizeof(k); i++)
 		str += sprintf("%-30s %s\n", k[i], dict[k[i]]);
 	write_file("/CHINESE_DUMP", str);
 }
@@ -145,7 +145,7 @@ string chinese_date(int date)
 
 	if (date <=0) date=1;
 	local = localtime(date);
-	
+
 	return sprintf("%s%s年%s月%s日%s时%s刻",
 		sym_tian[local[LT_YEAR] % 10], sym_di[local[LT_YEAR] % 12],
 		chinese_number(local[LT_MON] + 1),
@@ -174,13 +174,13 @@ string chinese_monthday(int date)
 int check_length(string str)
 {
 	if(!str) return 0;
-	else return strlen(str);
+	else return strwidth(str);
 }
 int check_control(string name)
 {
 	int i;
 	if(!name) return 0;
-	i = strlen(name);
+	i = strwidth(name);
 	while(i--)
 	{
 		if(name[i]==' ' || name[i] == '\n') continue;
@@ -192,7 +192,7 @@ int check_space(string name)
 {
 	int i;
 	if(!name) return 0;
-	i = strlen(name);
+	i = strwidth(name);
 	while(i--)
 	{
 		if(name[i]== ' ') return 1;
@@ -203,7 +203,7 @@ int check_return(string name)
 {
 	int i;
 	if(!name) return 0;
-	i = strlen(name);
+	i = strwidth(name);
 	while(i--)
 	{
 		if(name[i]== '\n') return 1;
@@ -215,7 +215,7 @@ int check_chinese(string name)
 {
 	int i;
 	if(!name) return 0;
-	i = strlen(name);
+	i = strwidth(name);
 	while(i--)
 	{
 		if( i%2==0 && !is_chinese(name[i..<0]) ) return 0;

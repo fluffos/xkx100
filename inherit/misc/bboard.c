@@ -21,7 +21,7 @@ inherit F_SAVE;
 #define NEED_AGE	15
 string content(mapping *notes,int num);//返回note[num]的内容和回文内容
 string replace_str(string w_name);
-string makeup_space(string s,int max); 
+string makeup_space(string s,int max);
 void setup()
 {
 	string loc;
@@ -86,13 +86,13 @@ int do_look(string arg)
 		return 0;
 	notes = ob->query("notes");
 	size = ((int)sizeof(notes)-1)/20;
-	if( !pointerp(notes) || !sizeof(notes) ) 
+	if( !pointerp(notes) || !sizeof(notes) )
 	{
 		msg=ob->query("long");
 		message("vision", msg, me);
 		return 1;
 	}
-	
+
 	msg=query("long")+(query("banzhu")?("这个版的的版主是 "HIG+query("banzhu")+NOR"。\n"):"")+
 	HIW"编号"NOR"──"HIY"标题"NOR"────────────────"HIR"作者"NOR"─"HIG"回复数"NOR"───"HIM"时间"NOR"─────"NOR;
 	last_time_read = this_player()->query("board_last_read/" + (string)query("board_id"));
@@ -200,7 +200,7 @@ int do_post(string arg)
 	if (strsrch(holded,"*"+me->query("id")+"*") >= 0 && !wizardp(me))
 		return notify_fail("你在本版的权限已经被封了。\n");
 	arg = replace_str(arg);
-	if (strlen(arg)>MAX_TITLE_LEN && !wizardp(me))
+	if (strwidth(arg)>MAX_TITLE_LEN && !wizardp(me))
 		return notify_fail("这个标题太长了，请换一个简洁一点的。\n");
 
 	if (query("avoid_flood") && me->query("combat_exp")<NEED_EXP &&
@@ -233,7 +233,7 @@ int do_re(string arg)
 	if( !arrayp(notes) || num < 1 || num > sizeof(notes) )
 		return notify_fail("没有这个贴子。\n");
 
-	if (strlen(title)>MAX_TITLE_LEN)
+	if (strwidth(title)>MAX_TITLE_LEN)
 		return notify_fail("这个标题太长了，请换一个简洁一点的。\n");
 
 	if (query("avoid_flood") && me->query("combat_exp")<NEED_EXP &&
@@ -380,7 +380,7 @@ int do_read(string arg)
 }
 
 int do_banzhu(string arg)
-{ 
+{
 	string oper;
 	if (!arg) return notify_fail("指令格式： banzhu +|- <版主id>\n");
 	if (sscanf(arg, "%s %s", oper, arg) != 2 || oper!="+" && oper!="-")
@@ -388,7 +388,7 @@ int do_banzhu(string arg)
 //	if (SECURITY_D->get_status(this_player(1)) != "(admin)")
 	if (!wizardp(this_player(1)) )
 		return notify_fail("你不是巫师，不可以任命版主。\n");
-	if (!stringp(arg)||strlen(arg)<3) return notify_fail("没有这个人。\n");
+	if (!stringp(arg)||strwidth(arg)<3) return notify_fail("没有这个人。\n");
 	if (oper == "+")
 	{
 		if (query("banzhu")==arg)
@@ -416,7 +416,7 @@ int do_hold(string arg)
 	if (!arg) return notify_fail("指令格式： hold +|- <id>\n");
 	if (sscanf(arg, "%s %s", oper, arg) != 2 || oper!="+" && oper!="-")
 		return notify_fail("指令格式： hold +|- <id>\n");
-	if (!stringp(arg)||strlen(arg)<3) return notify_fail("没有这个人。\n");
+	if (!stringp(arg)||strwidth(arg)<3) return notify_fail("没有这个人。\n");
 	if ((string)this_player(1)->query("id") &&
 		query("banzhu")!=this_player(1)->query("id") &&
 		(string)SECURITY_D->get_status(this_player(1)) != "(admin)")

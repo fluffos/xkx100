@@ -30,7 +30,7 @@
               command[ 0 ]) ); \
         break; \
     }
-   
+
 /*
  * check_access determines who is allowed to use ftp (assuming the correct
  * password is known).  if check_access() returns 0 then the user is
@@ -142,7 +142,8 @@ int check_password(string name, string plaintext)
  * dotted quad) with an ip number pattern (ie containing wildcard(s))
  * - returns 1 if a match, 0 otherwise
  */
-static int dot_match(string *site, string *pattern, int flag) {
+protected int dot_match(string *site, string *pattern, int flag)
+{
     int i, j;
 
     j = sizeof(pattern);
@@ -194,12 +195,12 @@ int check_site(string who, int fd) {
     if (site && site != "" && file_size(HOME_DIR(who)) == -2 &&
           file_size(HOME_DIR(who) + ".login") > 0) {
         arg = read_file(HOME_DIR(who) + ".login");
-        if (arg && strlen(arg)) {
+        if (arg && strwidth(arg)) {
             sites = explode(arg, "\n");
             sites = regexp(sites, "^sitecheck ");
             if (sites && sizeof(sites)) {
                 arg = sites[0][10..-1];
-                
+
                 /*
                  * parse command line args
                  */
@@ -257,10 +258,10 @@ int check_site(string who, int fd) {
                          *   ie "*.domain.name"
                          */
                         if (site) {
-                            l1 = strlen(site);
+                            l1 = strwidth(site);
                             i = s;
                             while (i--) {
-                                l2 = strlen(sites[i]) - 1;
+                                l2 = strwidth(sites[i]) - 1;
                                 if (l2 > 1 && l1 > l2 &&
                                       sites[i][0..1] == "*." &&
                                       strcmp(site[l1-l2..-1],
@@ -274,7 +275,7 @@ int check_site(string who, int fd) {
                                  */
                                  i = s;
                                  while (i--) {
-                                     l2 = strlen(sites[i]) - 2;
+                                     l2 = strwidth(sites[i]) - 2;
                                      if (l2 > 0 && l1 > l2 &&
                                           sites[i][l2..-1] == ".*" &&
                                           strcmp(site[0..l2],

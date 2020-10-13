@@ -58,7 +58,7 @@ int main(object me, string arg)
         SHOP_D->reset_goods(obj);
 
         goods = obj->query("vendor_goods");
-        
+
         if (! sizeof(goods))
                 return notify_fail(obj->name(1) + "目前并没有兜售任何货物。\n");
 
@@ -67,7 +67,7 @@ int main(object me, string arg)
         price = ([]);
 
         gks = keys(goods);
-        
+
         for (i = 0; i < sizeof(gks); i++)
         {
                 object gob;
@@ -96,7 +96,7 @@ int main(object me, string arg)
                 p = price[dk[i]];
 
                 msg += sprintf("%" + sprintf("%d", (30 + color_len(dk[i]))) +
-                               "-s：每%s%s" CYN "\n" NOR, 
+                               "-s：每%s%s" CYN "\n" NOR,
                                dk[i], unit[dk[i]], MONEY_D->price_str(p));
         }
         msg += HIY "─────────────────────────\n" NOR;
@@ -109,11 +109,11 @@ int color_len(string str)
 	int extra;
 
 	extra = 0;
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < strwidth(str); i++)
 	{
 		if (str[i] == ESC[0])
 		{
-			while((extra++, str[i] != 'm') && i < strlen(str))
+			while((extra++, str[i] != 'm') && i < strwidth(str))
 				i++;
 		}
 	}
@@ -123,9 +123,9 @@ int help (object me)
 {
         write(@HELP
 指令格式: list [<玩家ID>]
- 
+
 列出一个商人正在出售的商品。
- 
+
 HELP);
         return 1;
 }

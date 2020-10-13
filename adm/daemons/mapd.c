@@ -333,13 +333,13 @@ string get_map_line(string line, int x, int n)
         // 找到相应的位置
         while (x)
         {
-                if (strlen(line) == 0)
+                if (strwidth(line) == 0)
                         // 字符串长度不够
                         return rs;
 
                 if (line[0] == '@')
                 {
-                        if (strlen(line) >= 2)
+                        if (strwidth(line) >= 2)
                                 // 去掉@和后续的字符
                                 line = line[2..<1];
                         else
@@ -359,13 +359,13 @@ string get_map_line(string line, int x, int n)
         rs = "";
         for (;;)
         {
-                if (strlen(line) == 0)
+                if (strwidth(line) == 0)
                         // 已经无字符可取
                         return rs;
 
                 if (line[0] == '@')
                 {
-                        if (strlen(line) >= 2)
+                        if (strwidth(line) >= 2)
                         {
                                 rs += line[0..1];
                                 line = line[2..<1];
@@ -414,7 +414,7 @@ public string mark_map(string map, string name)
                 x = 0;
                 temp = replace_string(lines[i], "@R", "");
                 temp = replace_string(temp, "@N", "");
-                while (x < strlen(temp) - 1)
+                while (x < strwidth(temp) - 1)
                 {
                         xd = strsrch(temp[x..<1], name[0..1]);
                         if (xd == -1)
@@ -430,10 +430,10 @@ public string mark_map(string map, string name)
                         rs = get_map_line(lines[y], 0, x);
                         rs += "@B";
                         rs += get_map_line(lines[y], x, 2);
-                        for (n = 2; n < strlen(name); n += 2, xd += 2)
+                        for (n = 2; n < strwidth(name); n += 2, xd += 2)
                         {
                                 // 首先横向比较
-                                if (x + xd + 2 <= strlen(lines[y]) &&
+                                if (x + xd + 2 <= strwidth(lines[y]) &&
                                     get_map_line(lines[y], x + xd, 2) == name[n..n + 1])
                                 {
                                         // 横向比较到了，继续横向比较
@@ -446,7 +446,7 @@ public string mark_map(string map, string name)
                                 xd = 0;
                                 y++;
                                 if (y < sizeof(lines) &&
-                                    x + 2 <= strlen(lines[y]) &&
+                                    x + 2 <= strwidth(lines[y]) &&
                                     get_map_line(lines[y], x, 2) == name[n..n + 1])
                                 {
                                         // 纵向比较到了，继续横向比较
@@ -469,7 +469,7 @@ public string mark_map(string map, string name)
                                 break;
                         }
 
-                        if (n >= strlen(name))
+                        if (n >= strwidth(name))
                         {
                                 // 匹配成功
                                 rs += "@E" + get_map_line(lines[y], x + xd, -1);

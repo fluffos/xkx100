@@ -32,7 +32,7 @@ string ask_job()
         myfam = (string)query("party/party_name");
 //        if( (string)me->query_temp("bangs/fam") != myfam )
         if( (string)me->query("party/party_name") != myfam )
-                return RANK_D->query_rude(me) + "莫非是想打听我帮的秘密吧。";  
+                return RANK_D->query_rude(me) + "莫非是想打听我帮的秘密吧。";
 
         if( time() < (int)me->query("bangs/asktime") + 60 )
                 return RANK_D->query_rude(me) + "不是刚问过我吗？";
@@ -57,7 +57,7 @@ string ask_job()
         myexp = (4 * myexp + random(2 * myexp)) / 5;
 
         temp = sizeof(levels);
-        for( i = 0; i < temp; i++ ) 
+        for( i = 0; i < temp; i++ )
                 if( myexp < atoi(levels[i]) ) break;
 
         if( i >= temp )
@@ -100,15 +100,15 @@ string ask_job()
                         ob = new(BIAOTOU);
                         file = biao_places[random(sizeof(biao_places))];
                         ob->move(file);
-                        dest = environment(ob);            
+                        dest = environment(ob);
                         message("vision",
                         ob->name() + "押着镖车走了过来。\n",
                         dest, ({ob}));
                         region = explode(file, "/")[1];
                         ling->set("job/name", ob->query("nickname"));
-                        return "去踩盘的弟兄们回来讲，" + 
-                        ob->query("nickname") + 
-                        "的镖车将经过" + 
+                        return "去踩盘的弟兄们回来讲，" +
+                        ob->query("nickname") +
+                        "的镖车将经过" +
                         //region_names[region] +
                         to_chinese("region") +
                         dest->query("short") + "。";
@@ -134,9 +134,9 @@ string ask_job()
                         command("nod");
                         region = explode(file, "/")[1];
                         ling->set("job/name", biaoju);
-                        return "去踩盘的弟兄们回来讲，" + biaoju + 
-                        "的镖车将经过" + 
-                        //region_names[region] + 
+                        return "去踩盘的弟兄们回来讲，" + biaoju +
+                        "的镖车将经过" +
+                        //region_names[region] +
                         to_chinese("region") +
                         dest->query("short") + "。";
                 }
@@ -216,7 +216,7 @@ int accept_object(object who, object ob)
         string name, chname = "";
         mapping job;
 
-        if( who->query("party/party_name") != query("party/party_name") ) 
+        if( who->query("party/party_name") != query("party/party_name") )
                 return notify_fail(name() + "大怒道：大胆！想谋害本总管！！！\n");
 
         if( !(obj = present("bang ling", who)) )
@@ -228,8 +228,8 @@ int accept_object(object who, object ob)
         switch(job["type"]) {
         case "寻":
                 name = ob->name();
-                for(int i = 0; i < strlen(name); i++)
-                        if(name[i] > 160 && name[i] < 255) 
+                for(int i = 0; i < strwidth(name); i++)
+                        if(name[i] > 160 && name[i] < 255)
                                 chname += name[i..i];
                 if( chname != job["name"] )
                         return notify_fail(name() + "大怒道：没有用的东西，连自己的帮务都记不住？！\n");
@@ -244,7 +244,7 @@ int accept_object(object who, object ob)
                         return notify_fail(name() + "大怒道：没有用的东西，连一枝镖都搞不定！\n");
                 if( ob->query("my_killer") != who->query("id") )
                         return notify_fail(name() + "大怒道：江湖中最讲究的就是信用，再欺世盗名就宰了你！\n");
-                break;  
+                break;
         }
 
         command("nod");

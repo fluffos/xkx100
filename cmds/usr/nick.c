@@ -8,13 +8,13 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	if( !arg ) return notify_fail("你要替自己取什么绰号？\n");
-	if( arg == "none" ) 
+	if( arg == "none" )
 	{
 		me->delete("nickname");
 		write("你的绰号取消了。\n");
 		return 1;
 	}
-	if( !wizardp(me) && strlen(arg) > 30 )
+	if( !wizardp(me) && strwidth(arg) > 30 )
 		return notify_fail("你的绰号太长了，想一个短一点的、响亮一点的。\n");
 
 	arg = replace_string(arg, "$BLK$", BLK);
@@ -42,12 +42,12 @@ int help(object me)
 {
 	write(@HELP
 指令格式 : nick <外号, 绰号> | none
- 
+
     这个指令可以让你为自己取一个响亮的名号或头衔，nick none
 取消绰号。你如果希望在绰号中使用ansi的控制字元改变颜色，可以
 用以下的控制字串：（其中系统自动会在字串尾端加一个 $NOR$）
 
-        $ＢＬＫ$：[30m黑色[0m          
+        $ＢＬＫ$：[30m黑色[0m
         $ＲＥＤ$：[31m红色[0m          $ＨＩＲ$：[1;31m亮红色[0m
         $ＧＲＮ$：[32m绿色[0m          $ＨＩＧ$：[1;32m亮绿色[0m
         $ＹＥＬ$：[33m土黄色[0m        $ＨＩＹ$：[1;33m黄色[0m

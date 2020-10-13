@@ -75,7 +75,7 @@ int do_name(string arg,object ownsword)
         }
         if( !arg ) return notify_fail
          ("欧冶子问道：宝剑有名方能传，你的宝剑该什么名(name)？可以问(ask)嘛！\n");
-        if( strlen(arg) > 20 )
+        if( strwidth(arg) > 20 )
         return notify_fail("欧冶子说：哇拷！这么长怎么写得下，想个短一点的吧！\n");
 
         arg = replace_string(arg, "$BLK$", BLK);

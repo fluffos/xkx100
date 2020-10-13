@@ -141,7 +141,7 @@ int draw_path(int x,int y,string direc)
 	m[x+xx][y+yy]=str;
 	return 1;
 }
-	
+
 int draw_room(int x,int y,object room)
 {
 	int i,nst=0,xx,yy;
@@ -178,11 +178,11 @@ int draw_room(int x,int y,object room)
 		if(member_array(base_name(nroom),rfile)==-1)
 			draw_room(x+xx,y+yy,nroom);
 	}
-	if(strlen(name)>8)
+	if(strwidth(name)>8)
 		name=name[0..7];
-	if(strlen(name)<7)//对不足4个汉字的房间名进行居中处理
+	if(strwidth(name)<7)//对不足4个汉字的房间名进行居中处理
 	{
-		int d=8-strlen(name);
+		int d=8-strwidth(name);
 		if(d%2)
 		{
 			name+=" ";
@@ -217,4 +217,3 @@ int help()
 HELP);
 	return 1;
 }
-

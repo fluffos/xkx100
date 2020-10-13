@@ -145,7 +145,7 @@ ROOM_CODE
 	str += "\n\tsetup();\n\treplace_program(ROOM);\n}\n";
 
 	// Replace current directory with __DIR__ macro to make relocatable code.
-	i = strlen(file)-1;
+	i = strwidth(file)-1;
 	while( (i > 0) && (file[i]!='/')) i--;
 	if( i>0 ) {
 		write("目前目录：" + file[0..i] + " 以 __DIR__ 取代。\n");
@@ -163,7 +163,7 @@ ROOM_CODE
 
 int save_room_file(string yn, string file, string str)
 {
-	if( strlen(yn)<1 || yn[0]!='y' ) return 1;
+	if( strwidth(yn)<1 || yn[0]!='y' ) return 1;
 
 	rm(file);
 	write("存档 " + file + "....");

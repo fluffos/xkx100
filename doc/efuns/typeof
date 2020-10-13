@@ -16,7 +16,6 @@
           BUFFER          256
 
      SSSSEEEEEEEE AAAALLLLSSSSOOOO
-          allocate(3), allocate_mapping(3), strlen(3)
+          allocate(3), allocate_mapping(3), strwidth(3)
 
      Page 1                                          (printed 3/16/95)
-

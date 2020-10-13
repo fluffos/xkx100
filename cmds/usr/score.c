@@ -30,7 +30,7 @@ string fill_blank(string type, int num)
 	int i, j;
 
 	bak="";
-	i=strlen(type);
+	i=strwidth(type);
 	for (j=0; j<num-i; j++ ) bak+=" ";
 	return bak;
 }
@@ -72,7 +72,7 @@ string tribar_graph(int val, int eff, int max, string color)
 int check_cc(string str)
 {
 	int i, nn_len;
-	for (nn_len=0,i=0;i<strlen(str);i++)
+	for (nn_len=0,i=0;i<strwidth(str);i++)
 	{
 		if (str[i]==27)
 		{
@@ -113,8 +113,8 @@ int main(object me, string arg)
 			if( !ob->is_character() || ob->is_corpse() )
 				return notify_fail("你不会连"+ob->query("name") +"的状态都想看吧？。\n");
 		}else
-		{ 
-			ob = present(arg, environment(me));			
+		{
+			ob = present(arg, environment(me));
 			if (!ob || !me->visible(ob)) return notify_fail("你要察看谁的状态？\n");
 			if (ob != me && !(ob->query("parents") && member_array(me->query("id"), ob->query("parents"))>=0))
 			return notify_fail("只有巫师能察看别人的状态。\n");
@@ -180,9 +180,9 @@ int main(object me, string arg)
 
 	line += sprintf("%s%-16s%39s\n","┃人物性格:     ",char_type,"┗━━━━━━━━━━━━━━━━━━━━┓" );
 	if( ob->query("title") )
-	{ 
+	{
 		if( ob->query("degree") )
-		{  
+		{
 			all_title = ob->query("degree")+ob->query("title");
 			line += sprintf("┃称　　谓：  　%s%s┃\n", all_title, fill_blank(remove_ansi(all_title), 58),);
 		}
@@ -202,13 +202,13 @@ int main(object me, string arg)
 		line += sprintf("%s","┃\n");
 	}
 	if( ob->query("born") )
-	{ 	
+	{
 		line += sprintf("┃你的家乡：  　%s%26s%-28s┃\n", ob->query("born/hometown"), "你的"+(ob->query("gender")=="女性"?"老公":"老婆")+"： ",couple );
 	}
 
 	if (base_name(ob)==USER_OB)
 		line += sprintf("%s%-19s%s%-28s┃\n","┃年　　龄：    ",chinese_number(ob->query("age"))+"岁"+chinese_number((ob->query("mud_age")-(ob->query("age")-ob->query("age_modify")-14)*86400)/7200+1)+"月","你的生辰： ",CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60*60) ));
-	else 
+	else
 		line += sprintf("%s%-19s%s%-28s┃\n","┃年　　龄：    ",chinese_number(ob->query("age"))+"岁","你的生辰： ",CHINESE_D->chinese_date(((int)ob->query("birthday") - 14*365*24*60*60)));
 
 	line += sprintf("%s%-19s%s%-26d  ┃\n", "┃你的师父：    ",master,"师门忠诚： ",ob->query("family/fealty"));
@@ -265,7 +265,7 @@ if(ob->query("shen") >= 0)
 
 
   line += sprintf(WHT+" %s在"+HIG+CHINESE_MUD_NAME+NOR+"里的游戏时间是:"+BLINK+HIY"%s \n"+NOR,ob==me?"你":ob->name(1),FINGER_D->age_string( (int)ob->query("mud_age")));
-         
+
   line+=sprintf("\n");
   line+=sprintf("%s", flag?"该玩家目前不在线上。\n":"");
   write(line);
@@ -273,4 +273,3 @@ if(ob->query("shen") >= 0)
 		destruct(ob);
 	return 1;
 }
-

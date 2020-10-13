@@ -78,7 +78,7 @@ int main(object me, string arg)
 		return 1;
 	}
 
-	if (dst[0..strlen(src) - 1] == src)
+	if (dst[0..strwidth(src) - 1] == src)
 	{
 		write("你不能将一个路径复制到自身或者是子路径中。\n");
 		return 1;
@@ -119,8 +119,8 @@ int copy_dir(string src, string dst, int dir_existed)
 		return 0;
 */
 	count = 0;
-	if (src[strlen(src) - 1] != '/') src += "/";
-	if (dst[strlen(dst) - 1] != '/') dst += "/";
+	if (src[strwidth(src) - 1] != '/') src += "/";
+	if (dst[strwidth(dst) - 1] != '/') dst += "/";
 
 	// assure dst existed
 	if (! dir_existed) assure_file(dst);
@@ -141,7 +141,7 @@ int copy_dir(string src, string dst, int dir_existed)
 		       if (cp(src + file[i][0], dst + file[i][0])) {
 				write(src + file[i][0] + "  -->  ");
 				write(dst + file[i][0] + "\n");
-				count++; 
+				count++;
 				}
 		       }
 	       }
@@ -164,12 +164,10 @@ int help(object me)
 {
   write(@HELP
 指令格式 : cp [-R] <文件|路径名> <目的文件|目的路径名>
- 
+
 这个指令可以复制源文件成目的文件或复制到目的路径。如果使用了参数-R则
 可以复制一个目录，没有这个参数则不能复制路径。
 HELP
     );
     return 1;
 }
-
-

@@ -1,5 +1,5 @@
 /*  <SecCrypt CPL V3R05>  */
- 
+
 //  by  snowcat
 //  sameip
 //  modified  by  dream
@@ -23,7 +23,7 @@ int  main(object  me,  string  arg)
     if  (!arg)
 	        return  notify_fail("指令格式：sameip  <使用者姓名>  |  <IP  地址>\n");
 
-    count  =  strlen(arg);
+    count  =  strwidth(arg);
     while(count--)
         if(  arg[count]  ==  '.'  )  {
             name=arg;
@@ -88,7 +88,7 @@ void  search_dir  (int  count,  string  *dir,  int  i,  string  address,  object
         for(j=0;  j<sizeof(ppls);  j++)  {
             reset_eval_cost();
             if  (sscanf(ppls[j],  "%s.o",  str)==1)  {
-//  What  are  these  for???  Where  was  "name"  assigned?  
+//  What  are  these  for???  Where  was  "name"  assigned?
 //                if  (name  ==  str)
 //                    continue;
                 ob  =  new(LOGIN_OB);
@@ -107,7 +107,7 @@ void  search_dir  (int  count,  string  *dir,  int  i,  string  address,  object
                     continue;
                 }
 
-                info  =  sprintf("%-10s%-14s%-11s%-6s%s\n",  
+                info  =  sprintf("%-10s%-14s%-11s%-6s%s\n",
                                               ob->query("id"),
                                               ob->query("name"),
                                               ctime(ob->query("last_on"))[0..10],

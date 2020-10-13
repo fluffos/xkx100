@@ -29,13 +29,13 @@ int main(object me, string file)
 	if( file == "me" )
 		return update_player(me);
 
-  if (file[strlen(file)-1]=='/') 
+  if (file[strwidth(file)-1]=='/')
 	{
-		file = file[0..strlen(file)-2];
+		file = file[0..strwidth(file)-2];
 		dir = resolve_path(me->query("cwd"), file);
 		dir += "/";
 	}
-  else 
+  else
   {
   	dir = resolve_path(me->query("cwd"), file);
 //  	write("adir= "+dir+"\n");
@@ -43,7 +43,7 @@ int main(object me, string file)
 		else if (file_size(dir+".c") > 0) return updatefile(me,dir+".c");
 //  	write("bdir= "+dir+"\n");
 	}
-	if( file_size(dir)==-2 && dir[strlen(dir)-1] != '/' ) dir += "/";
+	if( file_size(dir)==-2 && dir[strwidth(dir)-1] != '/' ) dir += "/";
 //  	write("cdir= "+dir+"\n");
 	files = get_dir(dir, -1);
 	if( !sizeof(files) )
@@ -64,19 +64,19 @@ int main(object me, string file)
 //		file = resolve_path(me->query("cwd"), file);
 		file = dir + file;
 //		write("file="+file+"\n");
-//		if( !sscanf(file, "%*s.c") ) file += ".c"; 
-    if (file[strlen(file)-2..strlen(file)-1] != ".c") file += ".c";
+//		if( !sscanf(file, "%*s.c") ) file += ".c";
+    if (file[strwidth(file)-2..strwidth(file)-1] != ".c") file += ".c";
 	  updatefile(me,file);
-	}	
+	}
 	return 1;
 }
 
-int updatefile(object me,string file) 
-{ 
-	object obj,*inv; 
-	int i; 
-	string err; 
-	me->set("cwf", file); 
+int updatefile(object me,string file)
+{
+	object obj,*inv;
+	int i;
+	string err;
+	me->set("cwf", file);
 
 		if( file_size(file)==-1 )
 			return notify_fail("没有这个档案。\n");
@@ -84,34 +84,34 @@ int updatefile(object me,string file)
 	{
 		if( obj==environment(me) )
 		{
-			if( file_name(obj)==VOID_OB ) 
-				return notify_fail("你不能在 VOID_OB 里重新编译 VOID_OB。\n"); 
-			inv = all_inventory(obj); 
-			i = sizeof(inv); 
-			while(i--) 
-				if( userp(inv[i]) ) inv[i]->move(VOID_OB, 1); 
-				else inv[i] = 0; 
-		} 
-		destruct(obj); 
+			if( file_name(obj)==VOID_OB )
+				return notify_fail("你不能在 VOID_OB 里重新编译 VOID_OB。\n");
+			inv = all_inventory(obj);
+			i = sizeof(inv);
+			while(i--)
+				if( userp(inv[i]) ) inv[i]->move(VOID_OB, 1);
+				else inv[i] = 0;
+		}
+		destruct(obj);
 	}
-	if (obj) return notify_fail("无法清除旧程式码。\n"); 
+	if (obj) return notify_fail("无法清除旧程式码。\n");
 
-	write("重新编译 " + file + "："); 
-	err = catch( call_other(file, "???") ); 
-	if (err) 
-		printf( "发生错误：\n%s\n", err ); 
-	else { 
-		write("成功！\n"); 
+	write("重新编译 " + file + "：");
+	err = catch( call_other(file, "???") );
+	if (err)
+		printf( "发生错误：\n%s\n", err );
+	else {
+		write("成功！\n");
 	}
 	if( (i=sizeof(inv)) && (obj = find_object(file)))
 	{
-		while(i--) 
+		while(i--)
 		{
-			if( inv[i] && userp(inv[i]) ) inv[i]->move(obj, 1); 
-		} 
-	} 
+			if( inv[i] && userp(inv[i]) ) inv[i]->move(obj, 1);
+		}
+	}
 	return 1;
-} 
+}
 int update_player(object me)
 {
 	object env, link_ob, obj;
@@ -143,13 +143,12 @@ int help(object me)
 {
   write(@HELP
 指令格式 : update <档名|here|me|玩家名>
- 
+
 这个指令可以更新档案, 并将新档的内容载入记忆体内. 若目标为
 'here' 则更新所在环境. 若目标为 'me' 则更新自己的人物. 若目
 标为玩家则可更新玩家物件.
- 
+
 HELP
     );
     return 1;
 }
- 

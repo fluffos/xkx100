@@ -9,7 +9,7 @@ inherit  ROOM;
 //  declare  global  variables.
 
 //  cards  are  each  a  mapping  variable,  with  name,  status  (played?
-//  in  hand?  on  table?  collected?),  worth,  misc  (pig?  sheep?  
+//  in  hand?  on  table?  collected?),  worth,  misc  (pig?  sheep?
 //  blood?  doubler?).
 
 mapping  *CARDS=({
@@ -474,7 +474,7 @@ mapping  NCARD=([
 mapping  CCARD=([
 "pig":  "猪（"+HIB+"黑桃Ｑ"+NOR+"）",
 "sheep":  "羊（"+HIR+"方片Ｊ"+NOR+"）",
-"doubler":  "变压器（"+HIB+"草花Ｔ"+NOR+"）",  
+"doubler":  "变压器（"+HIB+"草花Ｔ"+NOR+"）",
 "blood":  "血（"+HIR+"红桃Ａ"+NOR+"）",
 ]);
 
@@ -523,7 +523,7 @@ mapping  CLAIM=([
 "south":  "no",
 ]);
 
-//  possible  states:  "等人",  "等发牌",  "等卖牌",  "出牌",  "算分",  
+//  possible  states:  "等人",  "等发牌",  "等卖牌",  "出牌",  "算分",
 
 mapping  TABLE=([
 "cond":  "等人",
@@ -843,7 +843,7 @@ string  card_suit(string  arg)
 }
 int  card_rank(string  card)
 {
-        int  i=strlen(card)-1;
+        int  i=strwidth(card)-1;
 
         switch  ((string)card[i..i])
         {
@@ -1316,7 +1316,7 @@ int  score_player(string  dir)
         }
         else  full  =  0;
 //        tell_room(HERE,  "so  far  after  pig  score  is  "+score+"\n");
-        
+
 
 //  then  sheep.
         if  (member_array(30,  collected)  !=  -1)
@@ -1533,7 +1533,7 @@ string  check_collected(string  dir,  string  suit)
         }
         if  (!count  ||  !str)
 	return  "";
-        toreturn=str[0..(strlen(str)-3)];
+        toreturn=str[0..(strwidth(str)-3)];
         return  toreturn;
 }
 string  display_suit(string  dir,  string  suit)
@@ -1575,7 +1575,7 @@ string  display_suit(string  dir,  string  suit)
         }
         if  (!count  ||  !str)
 	return  "";
-        toreturn=str[0..(strlen(str)-3)];
+        toreturn=str[0..(strwidth(str)-3)];
         return  toreturn;
 }
 int  search_suit(object  me,  string  suit)
@@ -1737,7 +1737,7 @@ int  all_have(string  arg)
 		continue;
 	        }
 	        break;
-	        
+
 	default:
 	        tell_room(HERE,"函数用法错误：all_have。\n");
 	        value  =  0;
@@ -1863,7 +1863,7 @@ string  display_sell()
         		if  (SOLD[card][0]=="a")  count++;
         		else  str  +=  "明卖"+CCARD[card]+"，";
         	        }
-        	        if  (!count)  str  =  str[0..(strlen(str)-3)]+"。";
+        	        if  (!count)  str  =  str[0..(strwidth(str)-3)]+"。";
         	        else  str  +=  "暗卖"+chinese_number(count)+"张。";
         	        str  +=  "\n";
                 }
@@ -1925,7 +1925,7 @@ string  display_table(string  cond)
 	        while(j--)
 		sell["north"]  +=  sold_display("north",  j,  1);
 	        sell["north"]  =  treat_sold(sell["north"],  size);
-//	        sell["north"]  =  sell["north"][0..(strlen(sell["north"])-3)];
+//	        sell["north"]  =  sell["north"][0..(strwidth(sell["north"])-3)];
 	}
 	else  sell["north"]="　　　　　　　　";
 	if  (cnt  <  4  &&  j=sizeof(TABLE["south"]["sold"]))
@@ -1935,7 +1935,7 @@ string  display_table(string  cond)
 	        while(j--)
 		sell["south"]  +=  sold_display("south",  j,  1);
 	        sell["south"]  =  treat_sold(sell["south"],  size);
-//	        sell["south"]  =  sell["south"][0..(strlen(sell["south"])-3)];
+//	        sell["south"]  =  sell["south"][0..(strwidth(sell["south"])-3)];
 	}
 	else  sell["south"]="　　　　　　　　";
 	if  (cnt  <  4  &&  j=sizeof(TABLE["east"]["sold"]))

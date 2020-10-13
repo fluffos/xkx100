@@ -113,6 +113,21 @@ Loading preload files ...
 /adm/daemons/autosaved...
 /adm/daemons/backupd...
 /adm/daemons/questd...
+d/shaolin/andao1.c: cannot replace a program with function references, ignored.
+错误讯息被拦截: 
+执行时段错误：*Error in loading object '/inherit/char/npcsave'
+
+程式：/inherit/room/room.c 第 19 行
+物件: /d/fuzhou/rongcheng
+呼叫来自：/adm/single/master.c 的 preload() 第 108 行，物件： /adm/single/master
+呼叫来自：/adm/single/master.c 的 CATCH() 第 108 行，物件： /adm/single/master
+呼叫来自：/adm/daemons/questd.c 的 create() 第 34 行，物件： /adm/daemons/questd
+呼叫来自：/adm/daemons/questd.c 的 init_dynamic_quest() 第 72 行，物件： /adm/daemons/questd
+呼叫来自：/adm/daemons/questd.c 的 spread_quest() 第 95 行，物件： /adm/daemons/questd
+呼叫来自：/d/fuzhou/rongcheng.c 的 create() 第 32 行，物件： /d/fuzhou/rongcheng
+呼叫来自：/inherit/room/room.c 的 setup() 第 203 行，物件： /d/fuzhou/rongcheng
+呼叫来自：/inherit/room/room.c 的 reset() 第 54 行，物件： /d/fuzhou/rongcheng
+呼叫来自：/inherit/room/room.c 的 make_inventory() 第 19 行，物件： /d/fuzhou/rongcheng
 /adm/daemons/crond...
 /adm/daemons/personald...
 /adm/daemons/shopd...
@@ -123,27 +138,6 @@ Loading preload files ...
 Accepting telnet connections on 0.0.0.0:5555.
 Initializations complete.
 
-apply() with insufficient permission: 
-cob: null, ob: questobj/jinhua#123, function: destruct_me, origin: internal, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: null, ob: questobj/yinzhen#224, function: destruct_me, origin: internal, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
-apply() with insufficient permission: 
-cob: d/city/npc/youke1#99, ob: d/city/npc/youke1#99, function: command_hook, origin: efun, needs: private, has: hidden 
+******** FATAL ERROR: SIGINT: Process interrupted
+FluffOS driver attempting to exit gracefully.
+crash() in master called successfully.  Aborting.
