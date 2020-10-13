@@ -47,7 +47,7 @@ void unconcious()
 	die();
 }
 void die()
-{	
+{
 	int exp;
 
 	message("channel:rumor", HIM"【谣言】某人：听说"+query_temp("ownername")+"的"+name()+"死了，等级下降了。真是可惜。\n"NOR, users());
@@ -156,7 +156,7 @@ int do_modify(string arg)
 			return 1;
 		case "long":
 			if(CHINESE_D->check_length(msg) > 100)
-				return notify_fail("宠物细节描述太长！\n"); 
+				return notify_fail("宠物细节描述太长！\n");
 			set("long",msg+"\n"+NOR);
 			write("宠物细节设定成功！\n");
 			return 1;
@@ -198,7 +198,7 @@ int do_xunlian(string arg)
 		message_vision("$N很不情愿地哼了一声。\n", pet);
 		return 1;
 	}
-	else 
+	else
 	{
 		exp = pet->query("combat_exp");
 		if( itskill * itskill * itskill / 10 < exp)
@@ -234,7 +234,7 @@ int do_shape(string arg)
 	int at_pt,pa_pt,do_pt;
 	my = query_entire_dbase();
 
-	printf(HIC"≡"HIY"──────────────────────────────"HIC"≡\n"NOR);
+	printf(HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n"NOR);
 	printf("主人： %s\t\t\t姓名： %s\n"NOR, my["owner"], this_object()->query_temp("ownername"));
 	printf("年龄： %d\t种类： %s\t爱称： %s\t绰号： %s\n"NOR, my["age"], my["title"], my["name"], my["nickname"]);
 	printf("才智： %d\t体质： %d\t速度： %d\t力量： %d\n",query_int(),query_con(),query_dex(),query_str());
@@ -249,17 +249,17 @@ int do_shape(string arg)
 		my["food"], this_object()->max_food_capacity(),
 		status_color(my["water"], this_object()->max_water_capacity()),
 		my["water"], this_object()->max_water_capacity());
-	printf("精气：%s%3d/ %3d %s(%3d%%)\t\t"NOR"气血：%s%3d/ %3d %s(%3d%%)\n\n"NOR, status_color(my["jing"],my["eff_jing"]),my["jing"],my["eff_jing"], status_color(my["eff_jing"],my["max_jing"]),my["eff_jing"]*100/my["max_jing"], status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"], status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"] );		
-	printf(HIC"≡"HIY"──────────────────────────────"HIC"≡\n"NOR);
+	printf("精气：%s%3d/ %3d %s(%3d%%)\t\t"NOR"气血：%s%3d/ %3d %s(%3d%%)\n\n"NOR, status_color(my["jing"],my["eff_jing"]),my["jing"],my["eff_jing"], status_color(my["eff_jing"],my["max_jing"]),my["eff_jing"]*100/my["max_jing"], status_color(my["qi"], my["eff_qi"]), my["qi"], my["eff_qi"], status_color(my["eff_qi"], my["max_qi"]), my["eff_qi"] * 100 / my["max_qi"] );
+	printf(HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n"NOR);
 	printf("/cmds/skill/skills"->pet_skill(this_object()));
-	printf(HIC"≡"HIY"──────────────────────────────"HIC"≡\n"NOR);
+	printf(HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n"NOR);
 	return 1;
 }
 string *cmds_exclude=({		  //加入被禁止的cmds
 	"wiz",
 	"sys",
 	"go",
-});				
+});
 int do_command(string arg)
 {
 	int err, i, j;
@@ -273,13 +273,13 @@ int do_command(string arg)
 	if(id!=(string)me->query("id")) return 0;
 	if(who->query("id")!=me->query_temp("owner"))
 		return notify_fail("你对"+me->query("name")+"命令了几句，可是它理都不理你。\n");
-	tell_object(who,"你命令" +me->name() + "去: " + cmd + "\n");	
+	tell_object(who,"你命令" +me->name() + "去: " + cmd + "\n");
 	cmds = explode(cmd," ");
 	for(i=0;i< sizeof(cmds_exclude);i++)
 		if (!strcmp(cmds[0],cmds_exclude[i]))
 			j = i;
-	if(!strcmp(cmds[0],cmds_exclude[j]))	
-		return notify_fail("你胡乱发了几个指令，"+me->query("name")+"瞪着无辜的大眼睛@_@看着你：“我不懂耶....”\n");	
+	if(!strcmp(cmds[0],cmds_exclude[j]))
+		return notify_fail("你胡乱发了几个指令，"+me->query("name")+"瞪着无辜的大眼睛@_@看着你：“我不懂耶....”\n");
 //	err=me->command(cmd);
 	return me->force_me(cmd);
 /*

@@ -37,7 +37,7 @@ LONG
 		ss = read_file( __DIR__"menu", line, 1 );
 		if (!stringp(ss))  break;
 		ss = replace_string( ss, ";", "" );
-		ss = replace_string( ss, "\n", "" );		
+		ss = replace_string( ss, "\n", "" );
 		str = explode( ss, " " );
 		set( "menus/" + st, str );
 		line++;
@@ -46,7 +46,7 @@ LONG
 	set("coor/y", 30);
 	set("coor/z", 0);
 	setup();
-}	
+}
 
 void init()
 {
@@ -60,7 +60,7 @@ int  do_list()
 	object ob;
 	string line = "";
 
-        line = HIC"\n≡" HIY "─────────" HIG "【侠客行一百菜谱】" HIY "─────────" HIC "≡\n" NOR; 
+        line = HIC"\n≡" HIY "------------------" HIG "【侠客行一百菜谱】" HIY "------------------" HIC "≡\n" NOR;
 	for ( i = 0; i < sizeof( query( "menus" ) ); i++ ) {
 		ob = new( __DIR__"npc/obj/" + keys( query( "menus" ) )[i] );
 		if ( objectp( ob ) )
@@ -73,12 +73,12 @@ int  do_list()
 		}
 		line += "\n";
 		if ( i < sizeof( query( "menus" ) ) - 1 )
-			line += HIY "  ─────────────────────────── \n" NOR;
+			line += HIY "  ------------------------------------------------------ \n" NOR;
 	}
-	line += HIC "≡" HIY "───────────────────────────" HIC "≡\n" NOR; 	
+	line += HIC "≡" HIY "------------------------------------------------------" HIC "≡\n" NOR;
 	this_player()->start_more( line );
-	
-	return 1;	
+
+	return 1;
 }
 
 
@@ -93,7 +93,7 @@ int do_cook( string arg )
 	if ( cooker != "" && cooker != me->query("id") )
 		return notify_fail( "大师傅说道：已经有人在做菜了，你得等一会儿。\n" );
 	if ( cooker == me->query("id") )
-		return notify_fail( "大师傅说道：你已经在做菜了。\n" );	
+		return notify_fail( "大师傅说道：你已经在做菜了。\n" );
 	if ( !stringp( arg ) ) return notify_fail("大师傅说道：你要煮什么？\n");
 	for ( i = 0; i < sizeof( query("menus") ); i ++ )
 	{
@@ -125,7 +125,7 @@ int do_cook( string arg )
 		}
 		objs += ({obj});
 	}
-	for ( i = 0; i < sizeof( objs ); i++ ) 
+	for ( i = 0; i < sizeof( objs ); i++ )
 	  	destruct( objs[i] );
 	message_vision( "$N开始做" + ob->query( "name" ) + "。\n", me );
 	cooker = me->query( "id" );
@@ -144,7 +144,7 @@ void do_finish( object ob, object me )
 	cooker = "";
 	ob->set("values",me->query_skill("cookery",1));
 	ob->set("make_by",me->query("id"));
-	if ( me->query_skill("cookery",1) >= 150 
+	if ( me->query_skill("cookery",1) >= 150
 		&& me->query_skill("cookery",1) <= 200)
 	 me->improve_skill("cookery",25000);
 }

@@ -4,7 +4,7 @@
 inherit F_CLEAN_UP;
 
 #include <ansi.h>
- 
+
 
 
 string *skill_level_desc = ({
@@ -17,7 +17,7 @@ string *skill_level_desc = ({
 	HIY"出神入化",HIY"非同凡响",HIY"傲视群雄",HIY"登峰造极",HIY"无与伦比",
 	RED"所向披靡",RED"一代宗师",RED"精深奥妙",RED"神功盖世",RED"举世无双",
 	WHT"惊世骇俗",WHT"撼天动地",WHT"震古铄今",WHT"超凡入圣",WHT"威镇寰宇",
-	HIW"空前绝后",HIW"天人合一",MAG"深藏不露",HIM"深不可测",HIR"返璞归真" 
+	HIW"空前绝后",HIW"天人合一",MAG"深藏不露",HIM"深不可测",HIR"返璞归真"
 });
 
 string *knowledge_level_desc = ({
@@ -28,8 +28,8 @@ string *knowledge_level_desc = ({
 });
 // 基本武功和特殊武功查不出区别 暂时列表处理
 string *all_basic= ({
-"array",	"axe",			"blade",	"claw",		"club",	
-"cuff",		"dagger",		"dodge",	"finger",	"force",	
+"array",	"axe",			"blade",	"claw",		"club",
+"cuff",		"dagger",		"dodge",	"finger",	"force",
 "hammer",	"hand",			"hook",		"leg",		"magic",
 "parry",	"spear",		"staff",	"stick",	"strike",
 "sword",	"throwing",	"unarmed","whip",
@@ -106,7 +106,7 @@ int main(object me, string arg)
 		return 1;
 	}
 	sname = sort_array( keys(skl), (: strcmp :) );
-	
+
 	map = ob->query_skill_map();
 	if( mapp(map) ) mapped = values(map);
 	if( !mapped ) mapped = ({});
@@ -114,13 +114,13 @@ int main(object me, string arg)
 	lrn = ob->query_learned();
 	if( !mapp(lrn) ) lrn = ([]);
 	str = "\n";
-//	str += HIC"≡"HIY"─────────────────────────────────"HIC"≡\n"NOR;
+//	str += HIC"≡"HIY"------------------------------------------------------------------"HIC"≡\n"NOR;
 	if (!skill1)
 	{
 		str+=(ob==me ? "你" : ob->name()) +"目前共学过"+chinese_number(sizeof(skl))+"项技能：\n\n";
 		for(i=0; i<sizeof(skl); i++)
 		{
-			str_this=sprintf("│%s%s%-36s"NOR" - %-10s "NOR"%3d/%6d│"HIM"%s"NOR"\n", 
+			str_this=sprintf("│%s%s%-36s"NOR" - %-10s "NOR"%3d/%6d│"HIM"%s"NOR"\n",
 				(lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
 				(member_array(sname[i], mapped)==-1? "  ": "□"),
 				to_chinese(sname[i]) + " (" + sname[i] + ")",
@@ -131,8 +131,8 @@ int main(object me, string arg)
 			{
 				msg_sk_basic+=str_this;
 				num_basic+=1;
-			} 
-			else 
+			}
+			else
 			switch (SKILL_D(sname[i])->type())
 		 	{
 				case "knowledge":
@@ -140,74 +140,74 @@ int main(object me, string arg)
 				msg_sk_know+=str_this;
 				num_know+=1;
 				break;
-				}			
+				}
 				case "martial":
 				{
 				msg_sk_sp+=str_this;
-				num_sp+=1;	
-				break;		
+				num_sp+=1;
+				break;
 				}
 				default:
 				{
 				msg_sk_other+=str_this;
 				num_other+=1;
 				}
-			}//end switch	
+			}//end switch
 	}//end for
 		if (num_know>0)
 		{
 			str+=sprintf("%s%|20s%s"NOR,
-			"┌──"+HIY,
+			"┌----"+HIY,
 			chinese_number(num_know)+"项知识技能",
-			NOR+"──────────────────┐\n");
+			NOR+"------------------------------------┐\n");
 			str+=msg_sk_know;
-			str+="└──────────────────────────────┘\n";
+			str+="└------------------------------------------------------------┘\n";
 		}
 		if (num_basic>0)
 		{
 			str+=sprintf("%s%|20s%s"NOR,
-			"┌──"+HIY,
+			"┌----"+HIY,
 			chinese_number(num_basic)+"项基本技能",
-			NOR+"──────────────────┐\n");
+			NOR+"------------------------------------┐\n");
 			str+=msg_sk_basic;
-			str+="└──────────────────────────────┘\n";
+			str+="└------------------------------------------------------------┘\n";
 		}
 		if (num_sp>0)
 		{
 			str+=sprintf("%s%|20s%s"NOR,
-			"┌──"+HIY,
+			"┌----"+HIY,
 			chinese_number(num_sp)+"项特殊技能",
-			NOR+"──────────────────┐\n");
+			NOR+"------------------------------------┐\n");
 			str+=msg_sk_sp;
-			str+="└──────────────────────────────┘\n";
+			str+="└------------------------------------------------------------┘\n";
 		}
 		if (num_other>0)
 		{
 			str+=sprintf("%s%|20s%s"NOR,
-			"┌──"+HIY,
+			"┌----"+HIY,
 			chinese_number(num_other)+"项其它技能",
-			NOR+"──────────────────┐\n");
+			NOR+"------------------------------------┐\n");
 			str+=msg_sk_other;
-			str+="└──────────────────────────────┘\n";
+			str+="└------------------------------------------------------------┘\n";
 		}
-		
+
 
 	}
 	else
 	{
 	str+=(ob==me ? "你" : ob->name()) +"目前学习"+to_chinese(skill1)+"技能的情况如下：\n";
-			str+="┌──────────────────────────────┐\n";
-			str += sprintf("│%s%s%-36s"NOR" - %-10s "NOR"%3d/%6d│"HIM"%s"NOR"\n", 
+			str+="┌------------------------------------------------------------┐\n";
+			str += sprintf("│%s%s%-36s"NOR" - %-10s "NOR"%3d/%6d│"HIM"%s"NOR"\n",
 			(lrn[skill1] >= (skl[skill1]+1) * (skl[skill1]+1)) ? HIM : "",
 			(member_array(skill1, mapped)==-1? "  ": "□"),
 			to_chinese(skill1) + " (" + skill1 + ")",
 			skill_level(SKILL_D(skill1)->type(), skl[skill1]),
 			skl[skill1], (int)lrn[skill1],
 			(wizardp(me) ? chinese_number((65-SKILL_D(skill1)->learn_bonus()-SKILL_D(skill1)->practice_bonus())/6) : ""));
-			str+="└──────────────────────────────┘\n";
+			str+="└------------------------------------------------------------┘\n";
 	}
 //	write("\n");
-//	str += HIC"≡"HIY"─────────────────────────────────"HIC"≡\n"NOR;
+//	str += HIC"≡"HIY"------------------------------------------------------------------"HIC"≡\n"NOR;
 	str += sprintf("%s", flag?"该玩家目前不在线上。\n":"");
 //	me->start_more(str);
 	write(str);
@@ -277,7 +277,7 @@ int help(object me)
 	write(@HELP
 指令格式 : skills|cha [<某人>] [<技能名>]
            skills|cha [<技能名>] of <某人>
-           
+
     这个指令可以让你查询所学过的技能。
 
     你也可以指定一个和你有师徒关系的对象，用此命令可以查知对方

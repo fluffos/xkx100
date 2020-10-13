@@ -16,7 +16,7 @@ int main(object me, string arg)
 
 	list = sort_array(SECURITY_D->query_wizlist(), (: level :) );
 	str = HIC+CHINESE_MUD_NAME+NOR +"巫师董事会成员：\n";
-	str += "───────────────────\n";
+	str += "--------------------------------------\n";
 	for(int i=0; i<sizeof(list); i++, j++)
 	{
 		if (hood!= wiz_rank(wizhood(list[i])))
@@ -31,7 +31,7 @@ int main(object me, string arg)
 		str += sprintf(" %s%s", list[i],
 			( j%7==6 ) ? "\n" : ( i<sizeof(list)-1 && hood ==wizhood(list[i+1]) ) ? ", " : "" );
 	}
-	str += "\n───────────────────\n";
+	str += "\n--------------------------------------\n";
 	str += sprintf("目前一共有: %s个巫师\n",chinese_number(sizeof(list)) );
 	me->start_more(str);
 	return 1;
@@ -65,11 +65,10 @@ int help(object me)
 {
 	write(@HELP
 指令格式 : wizlist
- 
+
     这个指令会显示这个游戏目前的巫师名单。
- 
+
 HELP
 	);
 	return 1;
 }
-

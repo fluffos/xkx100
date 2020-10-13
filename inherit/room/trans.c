@@ -25,7 +25,7 @@ string trans_prompt()
                 return "本店正在维修中，暂时不提供交通服务。\n";
 
         msg = WHT "本店现在开通了去以下地方的通路：\n" HIY
-              "────────────────────\n" NOR;
+              "----------------------------------------\n" NOR;
 	for (i = 0; i < sizeof(keys(trans)); i++)
         {
 		if (to == keys(trans)[i])
@@ -47,7 +47,7 @@ string trans_prompt()
                                MONEY_D->price_str(trans[to]));
         }
 */
-        msg += HIY "────────────────────\n" NOR
+        msg += HIY "----------------------------------------\n" NOR
                WHT "即来即走(" HIY "goto" NOR + WHT ")无"
                "需等待，儿童一律免费。\n" NOR;
 

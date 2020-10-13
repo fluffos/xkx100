@@ -1,6 +1,6 @@
 // news cmds
 // by Doing
- 
+
 inherit F_CLEAN_UP;
 #include <ansi.h>
 
@@ -34,7 +34,7 @@ int main(object me, string arg)
        			 {
                 tell_object(me, "只有巫师才能发布新闻。\n");
                 return 1;
-       	 		}               
+       	 		}
         			if (replace_string(arg, " ", "") == "")
          		       arg = "无标题";
                 if (board->do_post(arg))
@@ -69,14 +69,14 @@ string bshort(object board)
 			if( notes[i]["time"] <= last_read_time ) break;
 	}
 	if( unread )
-		
-		return 
+
+		return
 		sprintf(HIW"侠客行一百总共发布过"HIY"%s"HIW"条更新消息，其中"HIR"%s"HIW"篇未读。\n"NOR,chinese_number(sizeof(notes)),chinese_number(unread));
 	else
 		return sprintf(HIW"侠客行一百总共发布过"HIY"%s"HIW"条更新消息，目前没有任何未读过的消息。\n"NOR, chinese_number(sizeof(notes)));
 }
 
-//news all  ==  look board  
+//news all  ==  look board
 int do_look(object board)
 {
 	mapping *notes;
@@ -86,15 +86,15 @@ int do_look(object board)
 	object me = this_player();
 	notes = ob->query("notes");
 	size = (int)sizeof(notes)/20;
-	if( !pointerp(notes) || !sizeof(notes) ) 
+	if( !pointerp(notes) || !sizeof(notes) )
 	{
 		msg="[ 目前没有任何更新消息 ]\n";
 		message("vision", msg, me);
 		return 1;
 	}
-	
+
 	msg="侠客行一百最近的更新消息如下：\n"
-	HIW"编号"NOR"──"HIY"标题"NOR"────────────────────"HIR"作者"NOR"─"HIG"回复数"NOR"───"HIM"时间"NOR"─────"NOR;
+	HIW"编号"NOR"----"HIY"标题"NOR"----------------------------------------"HIR"作者"NOR"--"HIG"回复数"NOR"------"HIM"时间"NOR"----------"NOR;
 	last_time_read = me->query("board_last_read/news_b");
 	message("vision", msg, me);
 //	for(t=0; t<=size; t++)
@@ -111,20 +111,20 @@ int do_look(object board)
       //                 HIR[21]       M     title       qingyun  +0
 //                                         msg= post 62 42 22 2
 //    		for(i=num+1; i<max; i++)   // note[1]-note[19]  0-19
-        for (i=num-1; i>max;i--)     //i=61,43  41,23 21,3  1,0 
+        for (i=num-1; i>max;i--)     //i=61,43  41,23 21,3  1,0
     		{
 //        msg += sprintf("\n%s["HIW"%2d"NOR"]"HIR" %s "HIY"%-29s"HIR" %12s "HIG"%+3d"HIM"   [%s]"NOR, ( notes[i]["time"] > last_time_read ? HIY:""), i+1, (notes[i]["mark"]=="M" ? "M":" "),  notes[i]["title"], notes[i]["author"], sizeof(notes[i]["re"]), ctime(notes[i]["time"])[0..15] );
         msg += sprintf("\n%s[%2d]"HIR" %s "HIY"%-29s"HIR" %20s "HIG"%+3d"HIM"   [%s]"NOR, ( notes[i]["time"] > last_time_read ? HIY:HIW), i+1, (notes[i]["mark"]=="M" ? "M":" "),  notes[i]["title"], notes[i]["author"]+"("+notes[i]["owner"]+")", sizeof(notes[i]["re"]), ctime(notes[i]["time"])[0..15] );
     		}
     		message("vision", msg, me);
         }
-        
+
 /*      i = sizeof(notes);
       msg = "";
       while(i--)
           msg += sprintf("\n%s["HIW"%2d"NOR"]"HIR" %s "HIY"%-29s"HIR" %12s "HIG"%+3d"HIM"   [%s]"NOR, ( notes[i]["time"] > last_time_read ? HIY:""), i+1, (notes[i]["mark"]=="M" ? "M":" "),  notes[i]["title"], notes[i]["author"], sizeof(notes[i]["re"]), ctime(notes[i]["time"])[0..15] );
     	message("vision", msg, me);
-*/        msg = "\n───────────────────────────────────────────\n";
+*/        msg = "\n--------------------------------------------------------------------------------------\n";
         msg += sprintf("共有 %d 条消息。\n", sizeof(notes));
     	message("vision", msg, me);
     	return 1;
@@ -153,10 +153,10 @@ void check_me(object me)
       seteuid(ROOT_UID);
       me->force_me("news new");
     }
-  if (unread > 1 ) 
+  if (unread > 1 )
   {
   	remove_call_out("check_me");
-  	call_out("check_me",60,me);  
+  	call_out("check_me",60,me);
   }
 }
 int help(object me)

@@ -66,7 +66,7 @@ int main(object me, string arg)
 										if( file = room3->query("outdoors"))
 										{
 											jj = 1;
-											break; 
+											break;
 										}
 										else
 											if( mapp(exit3 = room3->query("exits")))
@@ -80,7 +80,7 @@ int main(object me, string arg)
 														if( file = room4->query("outdoors"))
 														{
 															kk = 1;
-															break; 
+															break;
 														}
 													}
 												}
@@ -102,7 +102,7 @@ int main(object me, string arg)
 				return notify_fail(HIG"这里不能查看地图，请到室外。\n"NOR);
 		}
 		name = clean_color(environment(me)->query("short"));
-		if( file_size("/doc/map/" + file)>0 ) 
+		if( file_size("/doc/map/" + file)>0 )
 		{
 			if(stringp(map = read_file("/doc/map/" + file)))
 			{
@@ -116,7 +116,7 @@ int main(object me, string arg)
 	}
 	else
 	{
-		if( file_size("/doc/map/" + arg)>0 ) 
+		if( file_size("/doc/map/" + arg)>0 )
 		{
 			if(stringp(map = read_file("/doc/map/" + arg)))
 			{
@@ -173,7 +173,7 @@ string make_color(string map)
 	map = replace_string(map, "↓", HIY"↓"NOR);
 	map = replace_string(map, "→", HIY"→"NOR);
 	map = replace_string(map, "←", HIY"←"NOR);
-	map = replace_string(map, "─", HIY"─"NOR);
+	map = replace_string(map, "--", HIY"--"NOR);
 	map = replace_string(map, "│", HIY"│"NOR);
 	map = replace_string(map, "┼", HIY"┼"NOR);
 	map = replace_string(map, "┌", HIY"┌"NOR);
@@ -211,4 +211,3 @@ HELP
 	);
 	return 1;
 }
-

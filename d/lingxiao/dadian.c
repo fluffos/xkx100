@@ -7,8 +7,8 @@ string look_duilian();
 void create()
 {
 	set("short", "凌霄殿");
-	set("long", 
-"这里就是凌霄城的根本之地──凌霄殿。向来，不管凌霄城有何大
+	set("long",
+"这里就是凌霄城的根本之地----凌霄殿。向来，不管凌霄城有何大
 事，掌门都会在此召集门人，发号施令。大厅北墙上，挂着一个老人的
 肖像，是当年凌霄城创派祖师的遗像。两边柱子上刻着一幅对联(lian)。
 旁边的兵器架上放满了寒光闪闪的长剑。堂额挂着一张匾，上书四个大
@@ -35,7 +35,7 @@ void create()
 	set("coor/z", 140);
 	setup();
 	"/clone/board/lingxiao_b"->foo();
-} 
+}
 
 string look_duilian()
 {
@@ -53,4 +53,3 @@ string look_duilian()
 	"    ※※※※　　　　　　　　　※※※※\n"
 	"    ※※※※※※※※※※※※※※※※※\n\n";
 }
-

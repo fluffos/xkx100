@@ -1,6 +1,6 @@
 // news cmds
 // by Doing
- 
+
 inherit F_CLEAN_UP;
 #include <ansi.h>
 
@@ -10,12 +10,12 @@ string bshort();
 int do_look();
 int do_read(string arg);
 object board;
-	
+
 int main(object me, string arg)
 {
 	seteuid(getuid(me));
 	board=find_object(Nboard);
-	if (!board) 
+	if (!board)
 	{
 		board=new("/clone/board/news_b");
     if ( !find_object(LOCATION) )
@@ -25,7 +25,7 @@ int main(object me, string arg)
       board->restore();
     else
       return notify_fail("更新榜有错，请同时巫师解决。\n");
-  }  
+  }
         if (! arg || arg == "" )
         {
                 tell_object(me,bshort());
@@ -47,7 +47,7 @@ int main(object me, string arg)
        			 {
                 tell_object(me, "只有巫师才能发布新闻。\n");
                 return 1;
-       	 		}               
+       	 		}
         			if (replace_string(arg, " ", "") == "")
          		       arg = "无标题";
          		  board->do_post(arg);
@@ -86,14 +86,14 @@ string bshort()
 			if( notes[i]["time"] <= last_read_time ) break;
 	}
 	if( unread )
-		
-		return 
+
+		return
 		sprintf(HIW"侠客行一百总共发布过"HIY"%s"HIW"条更新消息，其中"HIR"%s"HIW"篇未读。\n"NOR,chinese_number(sizeof(notes)),chinese_number(unread));
 	else
 		return sprintf(HIW"侠客行一百总共发布过"HIY"%s"HIW"条更新消息，目前没有任何未读过的消息。\n"NOR, chinese_number(sizeof(notes)));
 }
 
-//news all  ==  look board  
+//news all  ==  look board
 //int do_look(object board)
 int do_look()
 {
@@ -104,15 +104,15 @@ int do_look()
 	object me = this_player();
 	notes = ob->query("notes");
 	size = ((int)sizeof(notes)-1)/20;
-	if( !pointerp(notes) || !sizeof(notes) ) 
+	if( !pointerp(notes) || !sizeof(notes) )
 	{
 		msg="[ 目前没有任何更新消息 ]\n";
 		message("vision", msg, me);
 		return 1;
 	}
-	
+
 	msg="侠客行一百最近的更新消息如下：\n"
-	HIW"编号"NOR"──"HIY"标题"NOR"────────────────────"HIR"作者"NOR"─"HIG"回复数"NOR"───"HIM"时间"NOR"─────"NOR;
+	HIW"编号"NOR"----"HIY"标题"NOR"----------------------------------------"HIR"作者"NOR"--"HIG"回复数"NOR"------"HIM"时间"NOR"----------"NOR;
 	last_time_read = me->query("board_last_read/news_b");
 	message("vision", msg, me);
 //	for(t=0; t<=size; t++)
@@ -129,20 +129,20 @@ int do_look()
       //                 HIR[21]       M     title       qingyun  +0
 //                                         msg= post 62 42 22 2
 //    		for(i=num+1; i<max; i++)   // note[1]-note[19]  0-19
-        for (i=num-1; i>max;i--)     //i=61,43  41,23 21,3  1,0 
+        for (i=num-1; i>max;i--)     //i=61,43  41,23 21,3  1,0
     		{
 //        msg += sprintf("\n%s["HIW"%2d"NOR"]"HIR" %s "HIY"%-29s"HIR" %12s "HIG"%+3d"HIM"   [%s]"NOR, ( notes[i]["time"] > last_time_read ? HIY:""), i+1, (notes[i]["mark"]=="M" ? "M":" "),  notes[i]["title"], notes[i]["author"], sizeof(notes[i]["re"]), ctime(notes[i]["time"])[0..15] );
         msg += sprintf("\n%s[%2d]"HIR" %s "HIY"%-29s"HIR" %20s "HIG"%+3d"HIM"   [%s]"NOR, ( notes[i]["time"] > last_time_read ? HIY:HIW), i+1, (notes[i]["mark"]=="M" ? "M":" "),  notes[i]["title"], notes[i]["author"]+"("+notes[i]["owner"]+")", sizeof(notes[i]["re"]), ctime(notes[i]["time"])[0..15] );
     		}
     		message("vision", msg, me);
         }
-        
+
 /*      i = sizeof(notes);
       msg = "";
       while(i--)
           msg += sprintf("\n%s["HIW"%2d"NOR"]"HIR" %s "HIY"%-29s"HIR" %12s "HIG"%+3d"HIM"   [%s]"NOR, ( notes[i]["time"] > last_time_read ? HIY:""), i+1, (notes[i]["mark"]=="M" ? "M":" "),  notes[i]["title"], notes[i]["author"], sizeof(notes[i]["re"]), ctime(notes[i]["time"])[0..15] );
     	message("vision", msg, me);
-*/        msg = "\n───────────────────────────────────────────\n";
+*/        msg = "\n--------------------------------------------------------------------------------------\n";
         msg += sprintf("共有 %d 条消息。\n", sizeof(notes));
     	message("vision", msg, me);
     	return 1;
@@ -156,7 +156,7 @@ void check_me(object me)
 //	board=find_object("/clone/board/news_b");
 //	if (!board) board=new("/clone/board/news_b");
 	board=find_object(Nboard);
-	if (!objectp(board)) 
+	if (!objectp(board))
 	{
     if (!find_object(LOCATION))
       call_other(LOCATION,"???");
@@ -165,7 +165,7 @@ void check_me(object me)
       board->restore();
     else
       return;
- }  
+ }
 	notes = board->query("notes");
 	if( !pointerp(notes) || !sizeof(notes) )	return;
 	if( me )
@@ -182,10 +182,10 @@ void check_me(object me)
       seteuid(ROOT_UID);
       me->force_me("news new");
     }
-  if (unread > 1 ) 
+  if (unread > 1 )
   {
   	remove_call_out("check_me");
-//  	call_out("check_me",60,me);  
+//  	call_out("check_me",60,me);
   }
 }
 
@@ -236,8 +236,8 @@ int do_read(string arg)
 //			me->start_more( sprintf(
 			tell_object(me, sprintf(
 		"[ "HIW"编号："NOR"%2d | "HIW"回复编号："NOR"%2d] [ "HIW"原题："NOR"%-27s ] \n"
-		"[ "HIW"回复标题："NOR"%-50s ]\n────────────────────────────────\n"
-		"%s\n────────────────────────────────\n[ "HIW"时间："NOR"%s ] [ "
+		"[ "HIW"回复标题："NOR"%-50s ]\n----------------------------------------------------------------\n"
+		"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
 		HIW"作者："NOR" %19s]\n",
 			num + 1, rep + 1,
 			notes[num]["title"],
@@ -260,8 +260,8 @@ int do_read(string arg)
 	num--;
 	msg=sprintf(
 	"[ "HIW"编号："NOR"%2d ] [ "HIW"作者："NOR"%20s ] [ "HIW"时间："NOR"%-9s ]\n[ "
-	HIW"标题："NOR"%-54s ]\n────────────────────────────────\n%s\n"
-	"──────────────────────────["HIW" 本 篇 完 "NOR"]\n",
+	HIW"标题："NOR"%-54s ]\n----------------------------------------------------------------\n%s\n"
+	"----------------------------------------------------["HIW" 本 篇 完 "NOR"]\n",
 		num + 1,
 		notes[num]["author"]+"("+notes[num]["owner"]+")",
 		ctime(notes[num]["time"])[0..9],
@@ -275,8 +275,8 @@ int do_read(string arg)
 		last=sizeof(notes[num]["re"])-1;
 		msg+=sprintf(
 			"\n[ "HIW"回复编号："NOR"%2d] [ "HIW"回复标题："NOR"%-34s ] \n"
-			"────────────────────────────────\n"
-			"%s\n────────────────────────────────\n[ "HIW"时间："NOR"%s ] [ "
+			"----------------------------------------------------------------\n"
+			"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
 			HIW"作者："NOR" %19s]\n",
 			last+1,
 			notes[num]["re"][last]["title"],
@@ -292,8 +292,8 @@ int do_read(string arg)
 		{
 			msg+=sprintf(
 		"\n[ "HIW"回复编号："NOR"%2d] [ "HIW"回复标题："NOR"%-34s ] \n"
-		"────────────────────────────────\n"
-		"%s\n────────────────────────────────\n[ "HIW"时间："NOR"%s ] [ "
+		"----------------------------------------------------------------\n"
+		"%s\n----------------------------------------------------------------\n[ "HIW"时间："NOR"%s ] [ "
 		HIW"作者："NOR" %19s]\n",
 			i+1,
 			notes[num]["re"][i]["title"],

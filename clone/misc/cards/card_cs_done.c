@@ -38,7 +38,7 @@ int do_dakai(string arg)
                 tell_object(me,
 HIW"\n"+
 "     ┏━━━━━━━━ "HIR"圣诞快乐"HIW" ━━━━━━━━┓\n"+
-"     ┃  ┌──── Merry  Christmas ────┐  ┃\n"+
+"     ┃  ┌-------- Merry  Christmas --------┐  ┃\n"+
 "     ┃  │                                  │  ┃\n"+
 "     ┃  │                                  │  ┃\n");
                 if(strwidth(me->query("name")) == 2) tell_object(me,
@@ -70,7 +70,7 @@ HIW"     ┃  │      愿您和您的家人在主的祝福    │  ┃\n"+
 "     ┃  │               "GRN"/\\\\/\\"HIW"              │  ┃\n"+
 "     ┃  │                                  │  ┃\n"+
 "     ┃  │                  "RED"侠客行一百恭贺"HIW"  │  ┃\n"+
-HIW"     ┃  └─────────────────┘  ┃\n"+
+HIW"     ┃  └----------------------------------┘  ┃\n"+
 "     ┗━━━━━━━━━━━━━━━━━━━━━┛\n"+
 "\n"HIY+"         卡编号："+me->query("holiday_cards")+
 "\n"NOR);

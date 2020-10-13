@@ -5,9 +5,9 @@ void create()
 {
         set_name(HIG"育儿经"NOR, ({"jing"}));
         set("unit", "张");
-        set("long",HIG" 
+        set("long",HIG"
 ┏━━━━━━━━━ 早生贵子 ━━━━━━━━━━┓
-┃┌──────────────────────┐┃
+┃┌--------------------------------------------┐┃
 ┃│  bsave             ：保存档案。            │┃
 ┃│  bteach/bjiao      ：教孩子武功。          │┃
 ┃│  bexercise/bdazuo  ：让孩子打坐练内力。    │┃
@@ -23,12 +23,10 @@ void create()
 ┃│  bei  prepare fangqi abandon bai apprentice│┃
 ┃│                                            │┃
 ┃│                          侠客行一百恭贺    │┃
-┃└──────────────────────┘┃
+┃└--------------------------------------------┘┃
 ┗━━━━━━━━━━━━━━━━━━━━━━━━┛
 "NOR);
         set("value", 0);
         set_weight(10);
         setup();
 }
-
-

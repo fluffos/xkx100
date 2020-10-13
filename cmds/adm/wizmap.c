@@ -81,7 +81,7 @@ int main(object me, string arg)
 				{
 					tmp+=m[j][i];
 					//if(!(i%2)&&!(j%2))
-					if(m[j][i]!="─")
+					if(m[j][i]!="--")
 						for(int d=8-sizeof(clean_color(m[j][i]));d>0;d--)
 							tmp+=" ";
 				}
@@ -115,7 +115,7 @@ int draw_path(int x,int y,string direc)
 		case "southup":
 		case "northdown":str="   ↓   ";break;
 		case "east":
-		case "west":str="─";break;
+		case "west":str="--";break;
 		case "eastup":
 		case "westdown":str="→";break;
 		case "westup":

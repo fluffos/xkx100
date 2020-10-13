@@ -352,14 +352,14 @@ void do_flee(object ob)
 		case "白陀山派" : ob->move("/d/baituo/dating"); break;
 		case "铁掌帮"   : ob->move("/d/tiezhang/guangchang"); break;
 		case "星宿派"   : ob->move("/d/xingxiu/riyuedong1"); break;
-		default  : 
+		default  :
 			ob->move(safeplaces[random(sizeof(safeplaces))]); break;
 		}
 	}
 	else ob->move(safeplaces[random(sizeof(safeplaces))]);
 
 	message("vision", ob->name() + "走了过来。\n", environment(ob), ({ob}));
-}      
+}
 
 private int is_spy(object ob)
 {
@@ -384,9 +384,9 @@ int do_search(string arg)
 	seteuid(getuid());
 
 	str = "◎ " + MUD_NAME + "\n";
-	str += "─────────────────────────────────────\n";
+	str += "--------------------------------------------------------------------------\n";
 
-	list = filter_array(users(), "is_spy", this_object());   
+	list = filter_array(users(), "is_spy", this_object());
 	total = sizeof(list);
 
 	list = sort_array(list, "sort_user", this_object());
@@ -399,7 +399,7 @@ int do_search(string arg)
 		str = sprintf("%s%12s %s\n", str, RANK_D->query_rank(list[j]), list[j]->short(1) );
 	}
 
-	str += "─────────────────────────────────────\n";
+	str += "--------------------------------------------------------------------------\n";
 	str = sprintf("%s共有 %d 位神龙教成员连线中。\n", str, total);
 
 	this_player()->start_more(str);
@@ -476,4 +476,3 @@ int do_jobtime()
 	write("加油！加油！加油！已经过了" + chinese_number(m) + "分" + chinese_number(s) + "秒\n");
 	return 1;
 }
-

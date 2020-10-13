@@ -7,7 +7,7 @@ void create()
 	set("short","冰道");
 	set("long",@LONG
 这条冰道的两边都很安静。西边是冰车，东边是凌霄城的监狱。北
-边过去，就是凌霄城的根本之地──雪山派的总堂凌霄殿了，这里防守
+边过去，就是凌霄城的根本之地----雪山派的总堂凌霄殿了，这里防守
 紧密，四处都是凌霄弟子。
 LONG);
 	set("outdoors", "lingxiao");
@@ -26,4 +26,3 @@ LONG);
 	setup();
 	replace_program(ROOM);
 }
-

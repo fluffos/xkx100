@@ -48,11 +48,11 @@ int main(object me, string arg)
 		return 1;
 	}
 
-	output = "ＭＵＤ名称\t 中文名称\t  网   址\t端口\t玩家数\n───────────────────────────────\n";
+	output = "ＭＵＤ名称\t 中文名称\t  网   址\t端口\t玩家数\n--------------------------------------------------------------\n";
 
 	//	Loop through mud list and store one by one
 	for(loop = 0, size = sizeof(muds); loop<size; loop++)
-		output += sprintf("%-14s%-18s%6s\t%s\t%s\n", muds[loop], 
+		output += sprintf("%-14s%-18s%6s\t%s\t%s\n", muds[loop],
 			mud_list[muds[loop]]["MUDNAME"],
 			mud_list[muds[loop]]["HOSTADDRESS"],
 			mud_list[muds[loop]]["PORT"],
@@ -73,4 +73,3 @@ HELP
 	);
 	return 1;
 }
-

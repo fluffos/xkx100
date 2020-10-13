@@ -1377,7 +1377,7 @@ string show_mj(string str,int flag)
 	     size=strwidth(Mj);
 	     Mj1="┌";
 	     for (a=0;a<(size/2)-1;a++){
-		 if (a%2==0) Mj1+="─";
+		 if (a%2==0) Mj1+="--";
 		 else Mj1+="┬";
 	     }
 	     Mj1+="┐\n│";
@@ -1431,7 +1431,7 @@ string show_mj(string str,int flag)
 	     for (a=(size/2)-1;a>0;a--){
 		 if (a%2!=0){
 		    if (flag==0 || flag==5) Mj1+=str[a-1..a];
-		    else Mj1+="─";
+		    else Mj1+="--";
 		 }
 		 else Mj1+="┴";
 	     }
@@ -1797,7 +1797,7 @@ int do_play()
 {
 write(@HELP
         指  令        例  子                         说    明
-    ┌──────────────────────────────┐
+    ┌------------------------------------------------------------┐
     │ sit       ----------                              加入排局 │
     │ look      l mj或.看自己牌,l 1p或.1看玩家1的牌              │
     │ l all或..看全部,l end看流局l dump。               看牌     │
@@ -1813,7 +1813,7 @@ write(@HELP
     │ continue  催NPC或玩家出牌，特殊情况时特别有用。            │
     │ top       top aip,top -p,top -w,top -h,top -d              │
     │ top -l    看全部,-lw,-lh,-ld。                    查资料   │
-    └──────────────────────────────┘
+    └------------------------------------------------------------┘
 HELP);
 	return 1;
 }

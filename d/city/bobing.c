@@ -311,7 +311,7 @@ int fview()
 	else
 	{
 		printf(HIY"  玩家          最高奖         "HIC"一秀  "HIB"二举  "HIG"四进  "HIR"三红  "HIY"对堂  "HIM"状元\n"NOR);
-	        printf("┌────────────────────────────────┐\n");
+	        printf("┌----------------------------------------------------------------┐\n");
 		for (i=0;i<sizeof(member);i++)
 		{
 			printf("│%-14s%-12s%6d%6d%6d%6d%6d%6d  │\n",
@@ -324,7 +324,7 @@ int fview()
 				member[i]->query_temp("bobing/g5"),
 				member[i]->query_temp("bobing/g6"),);
 		}
-		printf("└────────────────────────────────┘\n");
+		printf("└----------------------------------------------------------------┘\n");
 		printf("目前还有一秀饼%i块、二举饼%i块、四进饼%i块、三红饼%i块、对堂饼%i块。\n", Max1, Max2, Max3, Max4, Max5);
 		if (objectp(winner))
 			printf("现在的状元由%s保持。\n",winner->query("name"));
@@ -896,7 +896,7 @@ void do_yao(string arg)
 	result=display_item(s1,s2,s3,s4,s5,s6);
 	msgno = random(sizeof(sha_msg));
 	if (msgno != 3) result=result+"\n居然是个"HIR+dest+NOR"？加油啊！\n";
-	else 
+	else
 	 {
 	 	result=result+"\n跳槽了，让别人掷！\n";
 	 	ob->set_temp("bobing_skip",1);//下一轮轮空
@@ -944,7 +944,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 		ob->set_temp("bobing/maxaward",getaward );
 		ob->set_temp("bobing/dest",dest);
   	ob->set_temp("bobing/maxscore",getscore);
-	}	
+	}
 	if (getaward==1)
 	{
 		if (Max1<=0 )
@@ -1002,7 +1002,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 		}
     //
     if (getscore == 302) //四进带二举
-    getit(ob,2,0,0);	
+    getit(ob,2,0,0);
     if (getscore == 301) //四进带一秀
     getit(ob,1,0,0);
 	}
@@ -1044,7 +1044,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 	}
 	if(getaward>=6)
 	{
-		if(Realmode) 
+		if(Realmode)
 //		  Max6=(Max6==0)?0:Max6-1;
 		  Max6=0;
 		else
@@ -1054,7 +1054,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 			winner=ob;
 			ob->set_temp("bobing/g6",1);
 			play=users();
-			message("vision", HIY"\n\n[搏饼最新消息]\n───────────────────────\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
+			message("vision", HIY"\n\n[搏饼最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
 		}
 		else
 		{
@@ -1065,7 +1065,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 				winner=ob;
 				winner->set_temp("bobing/g6",1);
 				play=users();
-				message("vision", HIY"\n\n[搏饼最新消息]\n───────────────────────\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
+				message("vision", HIY"\n\n[搏饼最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
 			}
 			else
 				message_vision(CYN"$N搏到状元一个，真是可惜你的状元没有奖品……\n"NOR,ob);
@@ -1097,7 +1097,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 	Max3=0; //四进的个数
 	Max4=0; //三红的个数
 	Max5=0; //对堂的个数
-	Max6=0; //状元的个数			
+	Max6=0; //状元的个数
 		}
 		if (getscore == 1402)//状元插金花 拿两个对堂
 		{
@@ -1182,7 +1182,7 @@ int qianbing(object ob,int getaward)
 string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 {
 	string str;
-	str = "┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐\n";
+	str = "┌------┐ ┌------┐ ┌------┐ ┌------┐ ┌------┐ ┌------┐\n";
 	switch (i1)
 	{
 		case 1:
@@ -1492,7 +1492,7 @@ string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 			break;
 	}
 /* 第三行. 总算搞完了! */
-	str = str+"└───┘ └───┘ └───┘ └───┘ └───┘ └───┘\n";
+	str = str+"└------┘ └------┘ └------┘ └------┘ └------┘ └------┘\n";
 	return str;
 }
 /*
@@ -1511,55 +1511,55 @@ string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 名称
  排列组合
  得饼说明
- 
+
 状元插金花
  四粒红四点，二粒红一点
  可得状元和两个对堂，不被追缴
- 
+
 红 六 勃
  六粒红四点
  可追缴全部的饼，但得主要请大家吃饼，只是请多少，要由得主决定
- 
+
 幺点六勃
  六粒红一点
  得状元，可被追缴，要请客
- 
+
 黑 六 勃
  六粒六点（二点、三点、五点）
  会饼由大家平分
- 
+
 五 王
  五粒红四点
  得状元，可被追缴
- 
+
 五 子
  五粒一点（二点、三点、五点、六点）
  得状元，可被追缴
- 
+
 状 元
  四粒红四点
  得状元，可被追缴
- 
+
 对 堂
  同时出现一、二、三、四、五、六点
  得对堂一个，可被追缴
- 
+
 三 红
  三粒红四点
  得三红一个，可被追缴
- 
+
 四 进
  四粒一点（二点、三点、五点、六点）
  得四进一个，不被追缴
- 
+
 二 举
  两粒红四点
  得二举一个，不被追缴
- 
+
 一 秀
  一粒红四点
  得一秀一个，不被追缴
- 
+
 　
 
 　
@@ -1578,7 +1578,7 @@ string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 在会饼全部分配完毕前，自第五个三红得主起，后来的三红得主均可以按顺序追缴前面三红得主的三红饼一个；同样，自第三个对堂得主起，后来的对堂得主，也可以按顺序追缴前面对堂得主的对堂饼一个；
 
 状元饼的分配，则按大小来算，排在表中上层的为大，如果同时出现五王或五子，则按剩下的那个骰子的点数大小来算，点数大者胜；如果同时出现多人有四粒红四点，则按剩下的2粒骰子的点数之和的大小来算，大者胜；如果点数相同，则先掷出者胜。
- 
+
 
 随着社会经济的发展，会饼中的月饼早就被其它物品所取代，比如：网球拍、牙膏、香皂、摩托车、金项链什么的，只是博规还基本没有改变。
 

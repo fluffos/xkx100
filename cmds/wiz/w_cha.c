@@ -17,7 +17,7 @@ string *skill_level_desc = ({
 	HIY"出神入化",HIY"非同凡响",HIY"傲视群雄",HIY"登峰造极",HIY"无与伦比",
 	RED"所向披靡",RED"一代宗师",RED"精深奥妙",RED"神功盖世",RED"举世无双",
 	WHT"惊世骇俗",WHT"撼天动地",WHT"震古铄今",WHT"超凡入圣",WHT"威镇寰宇",
-	HIW"空前绝后",HIW"天人合一",MAG"深藏不露",HIM"深不可测",HIR"返璞归真" 
+	HIW"空前绝后",HIW"天人合一",MAG"深藏不露",HIM"深不可测",HIR"返璞归真"
 });
 
 string *knowledge_level_desc = ({
@@ -81,7 +81,7 @@ int main(object me, string arg)
 	}
 	write( (ob==me ? "你" : ob->name()) +"目前所学过的技能：\n\n");
 	sname  = sort_array( keys(skl), (: strcmp :) );
-	
+
 	map = ob->query_skill_map();
 	if( mapp(map) ) mapped = values(map);
 	if( !mapped ) mapped = ({});
@@ -89,12 +89,12 @@ int main(object me, string arg)
 	lrn = ob->query_learned();
 	if( !mapp(lrn) ) lrn = ([]);
 	str = "\n";
-	str += HIC"≡"HIY"─────────────────────────────────"HIC"≡\n"NOR;
+	str += HIC"≡"HIY"------------------------------------------------------------------"HIC"≡\n"NOR;
 	if (!skill1)
 	{
 		for(i=0; i<sizeof(skl); i++)
 		{
-			str += sprintf("%s%s%-40s"NOR" - %-10s "NOR"%3d/%5d  "HIM"%s\n"NOR, 
+			str += sprintf("%s%s%-40s"NOR" - %-10s "NOR"%3d/%5d  "HIM"%s\n"NOR,
 			(lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
 			(member_array(sname[i], mapped)==-1? "  ": "□"),
 			to_chinese(sname[i]) + " (" + sname[i] + ")",
@@ -109,7 +109,7 @@ int main(object me, string arg)
 		{
 			if (sname[i] == skill1)
 			{
-			str += sprintf("%s%s%-40s"NOR" - %-10s "NOR"%3d/%5d  "HIM"%d\n"NOR, 
+			str += sprintf("%s%s%-40s"NOR" - %-10s "NOR"%3d/%5d  "HIM"%d\n"NOR,
 			(lrn[sname[i]] >= (skl[sname[i]]+1) * (skl[sname[i]]+1)) ? HIM : "",
 			(member_array(sname[i], mapped)==-1? "  ": "□"),
 			to_chinese(sname[i]) + " (" + sname[i] + ")",
@@ -120,7 +120,7 @@ int main(object me, string arg)
 		}
 	}
 //	write("\n");
-	str += HIC"≡"HIY"─────────────────────────────────"HIC"≡\n"NOR;
+	str += HIC"≡"HIY"------------------------------------------------------------------"HIC"≡\n"NOR;
 	str += sprintf("%s\n", flag?"该玩家目前不在线上。":"");
 	me->start_more(str);
 	if (flag)

@@ -18,7 +18,7 @@ string  zhuang_id  =  "no  zhuang";  //zhuang-jia's  id.
 
 int  total_bet  =  0;//total  money  on  table,  in  unit  of  silver.
 
-int  max_bet  ;  //max  bet  each  round,  determined  by  zhuang-jia.  
+int  max_bet  ;  //max  bet  each  round,  determined  by  zhuang-jia.
 
 void  pay_player(object  me,  int  total);
 int  pay_out(object  me,  int  total);
@@ -62,7 +62,7 @@ LONG);
 		\n"  ]));
 	//for  look  something.
 
-	set("exits",  
+	set("exits",
 	([  //sizeof()  ==  4
 		//"south"  :  __DIR__"xiaomuwu",
 		//"north"  :  __DIR__"chufang",
@@ -71,8 +71,8 @@ LONG);
 		//"up"  :  __DIR__"***",
 		//"down"  :  __DIR__"***",
 	]));
-	
-	set("objects",  
+
+	set("objects",
 	([  //sizeof()  ==  1
 		__DIR__"npc/gongsun"  :  1,
 	]));
@@ -106,7 +106,7 @@ void  init()
 	add_action("do_start",  "start");
 	add_action("do_start",  "kaipan");
 	add_action("do_start",  "kp");
-	
+
 	add_action("do_cancel",  "cancel");
 
 	add_action("do_look",  "look");
@@ -146,7 +146,7 @@ int  do_bet(string  arg)
 	if(money=="coin")  return  notify_fail("铜板？还是到大街上去赌吧。\n");
 
 //	if (query_ip_name(me) == "210.34.1.193")
-	if (wizardp(me) && count1 >= 1 && count1 <= 6 
+	if (wizardp(me) && count1 >= 1 && count1 <= 6
 	                && count2 >= 1 && count2 <= 6 )
 	{
 		me->set_temp("shaizi/count1", count1);
@@ -164,7 +164,7 @@ int  do_bet(string  arg)
 			return  notify_fail("庄家太穷了，赌不起。换庄家吧。\n");
 
 		total_bet  +=  this_bet;
-	
+
 		me->set_temp("shaizi/bet_amount",  this_bet  +  (int)me->query_temp("shaizi/bet_amount"));
 		message_vision  (sprintf("$N拿出%s%s%s，押在桌子上。\n",
 			chinese_number(amount),
@@ -185,9 +185,9 @@ int  do_bet(string  arg)
 		//now  let's  bet.
 		this_bet  =  amount*ob->query("base_value")/100;
 		if(this_bet  <  total_bet)
-			return  notify_fail("这一轮共下注"+total_bet+"两银子，庄家所押不能少于这个数目。\n");		
+			return  notify_fail("这一轮共下注"+total_bet+"两银子，庄家所押不能少于这个数目。\n");
 
-		total_bet  +=  this_bet;	
+		total_bet  +=  this_bet;
 		me->set_temp("shaizi/bet_amount",  this_bet  +  (int)me->query_temp("shaizi/bet_amount"));
 		message_vision  (sprintf("$N拿出%s%s%s，押在桌子上。\n",
 			chinese_number(amount),
@@ -200,31 +200,31 @@ int  do_bet(string  arg)
 
 		message_vision("$N手一压：好！现在开掷，大家一个一个来。\n",  me);
 		game_status  =  3;
-				
-		call_out("game_process",  1);	
-	}	
+
+		call_out("game_process",  1);
+	}
 	return  1;
 }
 
 int  do_cancel()
 {
 	//this  can  only  happen  in  bet  process.
-	//for  zhuang-jia,  he  does  not  want  continue  and  lost  his  zhuang_deposit  and  
-	//others  get  money  back.  
+	//for  zhuang-jia,  he  does  not  want  continue  and  lost  his  zhuang_deposit  and
+	//others  get  money  back.
 	//for  non_zhuang  players,  he  simply  gets  his  money  back.
 	object  me;
 	int  i;
 	object  *inv  =  all_inventory(this_object());
 	me  =  this_player();
 
-	if(game_status  !=  2)  return  notify_fail("现在没有什么需要取消的。\n");  
+	if(game_status  !=  2)  return  notify_fail("现在没有什么需要取消的。\n");
 
 	if(  me->query_temp("shaizi_cancel_count")  >  5  )
-		return  notify_fail("你最近反悔的次数太多了，赌信已经太差。\n");  
+		return  notify_fail("你最近反悔的次数太多了，赌信已经太差。\n");
 
 	if(  me->query("id")  ==  zhuang_id  )
 	{//I  am  zhuang-jia.
-		message_vision("$N起身说道：这一把我赌不下去了，你们把钱拿回去另找人坐庄吧！\n",  me);		
+		message_vision("$N起身说道：这一把我赌不下去了，你们把钱拿回去另找人坐庄吧！\n",  me);
 		zhuang_id  =  "no  zhuang";
 		me->delete_temp("shaizi");
 
@@ -255,12 +255,12 @@ int  do_cancel()
 	}
 	else
 	{//if  I  am  not  zhuang-jia.
-		if(  me->query_temp("shaizi/bet_amount")  <=  0  )  
-			return  notify_fail("你又没下注，在这里起什么哄？\n");  
-			
+		if(  me->query_temp("shaizi/bet_amount")  <=  0  )
+			return  notify_fail("你又没下注，在这里起什么哄？\n");
+
 		total_bet  -=    me->query_temp("shaizi/bet_amount");
 		if(  total_bet  >=0  )
-		{		
+		{
 			message_vision("$N起身把放在桌子上的赌注拿了回来。\n",  me);
 			pay_player(me,  me->query_temp("shaizi/bet_amount"));
 			me->delete_temp("shaizi");
@@ -286,7 +286,7 @@ int  do_zuozhuang()
 	{
 		return  notify_fail("你已经是庄家了。\n");
 	}
-	
+
 	if(game_status  ==  1  ||  game_status  ==  0  )
 	{//only  in  this  two  case  can  换庄
 		if(objectp(zhuang=present(zhuang_id,  this_object()))  )
@@ -297,8 +297,8 @@ int  do_zuozhuang()
 				ask_for_zhuang  =  1;
 				call_out("check_start",  120,  round);
 				tell_room(this_object(),  me->query("name")+"也想坐庄。如果庄家两分钟内不能开盘(start)，就得让庄了。\n");
-			}  
-			return  notify_fail("已经有庄家了，叫"+zhuang->query("name")+"("+zhuang->query("id")+")让庄吧。\n");	
+			}
+			return  notify_fail("已经有庄家了，叫"+zhuang->query("name")+"("+zhuang->query("id")+")让庄吧。\n");
 		}
 		else
 		{
@@ -307,7 +307,7 @@ int  do_zuozhuang()
 
 			me->set_temp("shaizi_zhuang_deposit",  500);
 			//note  this  parameter  is  not  in  "shaizi"  array.
-		
+
 			message_vision("$N拿出一锭金子往桌上一拍，在庄家的位子上坐了下来。\n",  me);
 			zhuang_id  =  (string)me->query("id");
 			game_status  =  1;  //zhuang-jia  changed.
@@ -373,8 +373,8 @@ int  do_start(string  arg)
 		game_status  =  2;  //enter  the  bet  process.
 		round++;  //we  increase  this  number  to  indicate  a  new  round  of  game.
 		remove_call_out("check_finish");
-		call_out("check_finish",  600,  round);  
-		//a  game  must  be  finished  within  10  minutes.  
+		call_out("check_finish",  600,  round);
+		//a  game  must  be  finished  within  10  minutes.
 		return  1;
 	}
 	else
@@ -387,7 +387,7 @@ void  check_start(int  previous_round)
 {
 	ask_for_zhuang  =  0;//so  after  this,  can  ask  again...
 
-	if(previous_round  !=  round)  return;  //it  means  already  started.	
+	if(previous_round  !=  round)  return;  //it  means  already  started.
 
 	//now  if  still  in  this  round.
 	if(  game_status  ==  3)  return;  //game  in  processing,  can  do  nothing  here.
@@ -404,7 +404,7 @@ void  check_finish(int  previous_round)
 	object  *inv  =  all_inventory(this_object());
 
 	if(previous_round  !=  round)  return;  //it  means  already  finished.
-	
+
 	//now  if  still  in  this  round.
 	if(  game_status  ==  3)  return;  //game  in  processing,  can  do  nothing  here.
 
@@ -438,7 +438,7 @@ void  game_process()
 {
 	int  i,  j;
 	object  *inv  =  all_inventory(this_object());
-	
+
 	j=0;
 	for(i=0;  i<sizeof(inv);  i++)
 	{
@@ -449,7 +449,7 @@ void  game_process()
 		}
 	}
 
-	call_out("game_result",  (j+2)*4);	
+	call_out("game_result",  (j+2)*4);
 }
 
 void  show_shaizi(object  me)
@@ -468,41 +468,41 @@ void  show_shaizi(object  me)
 		});
 
 	string  *shaizi_msg  =  ({
-"┌───┐\n"+
+"┌------┐\n"+
 "│　　　│\n"+
 "│　　　│\n"+
 "│　　　│\n"+
-"└───┘\n",  
-"┌───┐\n"+
+"└------┘\n",
+"┌------┐\n"+
 "│　　　│\n"+
 "│　●　│\n"+
 "│　　　│\n"+
-"└───┘\n",  
-"┌───┐\n"+
+"└------┘\n",
+"┌------┐\n"+
 "│　　　│\n"+
 "│●　●│\n"+
 "│　　　│\n"+
-"└───┘\n",  
-"┌───┐\n"+
+"└------┘\n",
+"┌------┐\n"+
 "│●　　│\n"+
 "│　●　│\n"+
 "│　　●│\n"+
-"└───┘\n",  
-"┌───┐\n"+
+"└------┘\n",
+"┌------┐\n"+
 "│●　●│\n"+
 "│　　　│\n"+
 "│●　●│\n"+
-"└───┘\n",  
-"┌───┐\n"+
+"└------┘\n",
+"┌------┐\n"+
 "│●　●│\n"+
 "│　●　│\n"+
 "│●　●│\n"+
-"└───┘\n",  
-"┌───┐\n"+
+"└------┘\n",
+"┌------┐\n"+
 "│●　●│\n"+
 "│●　●│\n"+
 "│●　●│\n"+
-"└───┘\n",
+"└------┘\n",
 		});
 
 	if(environment(me)  ==  this_object()  ||  me->query_temp("shaizi/bet_amount")  >  0)
@@ -530,14 +530,14 @@ void  show_shaizi(object  me)
 			point_msg  =  chinese_number(me->query_temp("shaizi/point"))+"点";
 			if(me->query_temp("shaizi/point")  ==  0)
 				point_msg  =  "蹩十";
-		}		
+		}
 
 		tell_room  (this_object(),  me->query("name")+sha_msg[random(sizeof(sha_msg))]);
 		tell_room  (this_object(),  shaizi_msg[(int)me->query_temp("shaizi/point1")]);
 		tell_room  (this_object(),  shaizi_msg[(int)me->query_temp("shaizi/point2")]);
 		tell_room  (this_object(),  "众人齐声叫道："+point_msg+"！\n");
 	}
-	
+
 }
 
 void  game_result()
@@ -548,16 +548,16 @@ void  game_result()
 
 	if(objectp(zhuang=present(zhuang_id,  this_object()))  &&  living(zhuang)  )
 	{//if  the  zhuang-jia  is  here.
-		tell_room(this_object(),  zhuang->query("name")+"大声宣布：结帐！\n");	
+		tell_room(this_object(),  zhuang->query("name")+"大声宣布：结帐！\n");
 		zhuang_point  =  zhuang->query_temp("shaizi/point");
 	}
-	else  
+	else
 	{
-		tell_room(this_object(),  "庄家不知道跑到哪里去了。大家都赢了！\n");	
+		tell_room(this_object(),  "庄家不知道跑到哪里去了。大家都赢了！\n");
 		zhuang_point  =  -1;
 		zhuang_id  =  "no  zhuang";
-	}	
-	
+	}
+
 	for(i=0;  i<sizeof(inv);  i++)
 	{
 		if(  (int)inv[i]->query_temp("shaizi/bet_amount")  >  0  &&    inv[i]->query("id")  !=  zhuang_id)
@@ -567,7 +567,7 @@ void  game_result()
 				tell_room(this_object(),  inv[i]->query("name")+"赢了"+chinese_number(inv[i]->query_temp("shaizi/bet_amount"))+"两银子。\n");
 				total_bet  -=  2*inv[i]->query_temp("shaizi/bet_amount");
 				if(total_bet  >=  0)
-				{  
+				{
 					pay_player(inv[i],  2*inv[i]->query_temp("shaizi/bet_amount"));
 				}
 				else
@@ -648,12 +648,12 @@ int  pay_out(object  me,  int  total)
   //if  sucessful  return  1,  else  return  0.
   //what  I  did  here  is  check  all  the  money  in  silver  the  player  has,
   //then  destroy  all  his  cash,  gold,  silver...then  pay  him  back  the  difference.
-	
+
 	int  diff;
 	object  hundcash,  cash,  gold,  silver;
 
-	diff  =  check_silver(me)  -  total;	
-	if(  diff  <  0  )  return  0;  
+	diff  =  check_silver(me)  -  total;
+	if(  diff  <  0  )  return  0;
 	//the  player  does  not  have  enough  money.
 
 	//now  destroy  this  players  cash,  gold  and  silver.
@@ -666,17 +666,17 @@ int  pay_out(object  me,  int  total)
 	if(  gold  )  destruct(gold);
 	if(silver)  destruct(silver);
 
-	//now  pay  his  back  the  difference.	
+	//now  pay  his  back  the  difference.
 	if(  diff  >  0  )  pay_player(me,  diff);
 
-	return  1;		
+	return  1;
 }
 
 int  check_silver(object  me)
 {//this  function  check  the  money  in  silver  a  player  has,
 	object  hundcash,  cash,  gold,  silver;
 	int  total_silver;
-	
+
 	hundcash = present("hundred-cash_money", me);
 	cash = present("thousand-cash_money", me);
 	gold = present("gold_money", me);
@@ -685,7 +685,7 @@ int  check_silver(object  me)
 //        if(hundcash)  total_silver  +=  10000*(hundcash->query_amount());
 //	if(  cash  )  total_silver  +=  1000*(cash->query_amount());
 	if(  gold  )  total_silver  +=  100*(gold->query_amount());
-	if(silver)  total_silver  +=  (silver->query_amount());	
+	if(silver)  total_silver  +=  (silver->query_amount());
 
 	return  total_silver;
 }
@@ -718,15 +718,15 @@ int  do_look(string  arg)
 		{
 			if(objectp(zhuang=present(zhuang_id,  this_object()))  &&  living(zhuang)  )
 			{//if  the  zhuang-jia  is  here.
-				write("目前的庄家是"+zhuang->query("name")+"("+zhuang->query("id")+")。\n");	
+				write("目前的庄家是"+zhuang->query("name")+"("+zhuang->query("id")+")。\n");
 			}
-			else  
+			else
 			{
 				write("庄家不知道跑到哪里去了。\n");
 				zhuang_id  =  "no  zhuang";
-			}		
+			}
 		}
 		return  1;
 	}
-	return  0;	
+	return  0;
 }

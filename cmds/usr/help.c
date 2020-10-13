@@ -198,22 +198,22 @@ int main(object me, string arg)
 	lrn = me->query_learned();
 	if( !mapp(lrn) ) lrn = ([]);
 
-	str = sprintf("\n┌────%s",HIW"【"YEL+to_chinese(arg)+HIW"    功能表】"NOR);
-	str += sprintf("───────────");
+	str = sprintf("\n┌--------%s",HIW"【"YEL+to_chinese(arg)+HIW"    功能表】"NOR);
+	str += sprintf("----------------------");
 	for (k=18-strwidth(to_chinese(arg)); k>0; k--)
 	{
-		str += sprintf("─");
+		str += sprintf("--");
 		k--;
 	}
 	str += sprintf("┐\n");
 
-	str = replace_string(str, "  ", "─");
+	str = replace_string(str, "  ", "--");
 //	str += sprintf("│"HIY"目前等级"NOR"：     %3d/%6d              "HIY "武功类别"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知识":"武技", "│");
 	str += sprintf("│"HIY"目前等级"NOR"：     %3d/%6d              "HIY "武功类别"NOR"：  %-4s%9s\n", me->query_skill(arg, 1), (int)lrn[arg], SKILL_D(arg)->type()=="knowledge" ? "知识" : SKILL_D(arg)->martialtype()=="skill" ? "武技" : SKILL_D(arg)->martialtype()=="dodge" ? "轻功" : "内功" , "│");
 
 	if(SKILL_D(arg)->type() != "martial" ||
 		member_array(arg, keys(valid_type))!=-1)
-		return notify_fail(str+"└───────────────────────────────┘\n");
+		return notify_fail(str+"└--------------------------------------------------------------┘\n");
 	str+="│                                                              │\n";
 	sk = load_object(SKILL_D(arg));
 
@@ -236,7 +236,7 @@ int main(object me, string arg)
 
 	if(j && j > 0)
 	{
-		if( i ) str = str +"├───────────────────────────────┤\n";
+		if( i ) str = str +"├--------------------------------------------------------------┤\n";
 		str += "│"HIM"内功方面"NOR"：                                                    │\n";
 		str += "│"HIC"(exert + )";
 		for(i=0; i < j; i++){
@@ -267,7 +267,7 @@ int main(object me, string arg)
 	if(j && j > 0)
 	{
 		if( i )
-			str = str +"├───────────────────────────────┤\n";
+			str = str +"├--------------------------------------------------------------┤\n";
 		str += "│"HIY"外功方面"NOR"：                                                    │\n";
 		str += "│"HIC"(perform+)"NOR;
 		for(i=0; i < j; i++){
@@ -285,7 +285,7 @@ int main(object me, string arg)
 			str += " ";
 		str += "│\n";
 	}
-	str += "└───────────────────────────────┘\n";
+	str += "└--------------------------------------------------------------┘\n";
 	write(str);
 	return 1;
 }

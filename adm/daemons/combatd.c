@@ -12,7 +12,7 @@ inherit F_DBASE;
 #include <weapon.h>
 #include <combat.h>
 #include <command.h>
-#include </quest/quest.h>
+#include <quest.h>
 
 
 

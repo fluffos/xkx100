@@ -11,17 +11,17 @@ int main(object me, string str)
 {
 	string output;
 
-	output = HIC"\n≡" + 
-		 HIY"━━━━━━━━━━━━"+ 
-		 HIC"飞雪连天任务榜" + 
-		 HIY"━━━━━━━━━━━━"+ 
+	output = HIC"\n≡" +
+		 HIY"━━━━━━━━━━━━"+
+		 HIC"飞雪连天任务榜" +
+		 HIY"━━━━━━━━━━━━"+
 		 HIC"≡\n"NOR;
 
-	output += HIG"       「任务物品」" + 
-		"                " + 
+	output += HIG"       「任务物品」" +
+		"                " +
 		"          「物品主人」\n"NOR;
 
-	output += HIY"  ───────────────────────────────"NOR + "\n";
+	output += HIY"  --------------------------------------------------------------"NOR + "\n";
 
 	if (!str || str != "-u") output += TASK_D->dyn_quest_list(0);
 	else output += TASK_D->dyn_quest_list(1);
@@ -29,7 +29,7 @@ int main(object me, string str)
 	output += HIC"≡"HIY"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"HIC"≡\n"NOR;
 	output += HIW"      前面带"HIR"√"HIW"的表示该任务已完成。"NOR;
 	me->start_more(output);
-	
+
 	return 1;
 }
 
@@ -45,4 +45,3 @@ HELP
 	);
 	return 1;
 }
-

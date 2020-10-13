@@ -20,7 +20,7 @@ string age_string(int time)
 	time /= 24;
 	day = time % 30;
 	month = time / 30;
-	return (month?month + "m":"") + (day?day + "d":"") + 
+	return (month?month + "m":"") + (day?day + "d":"") +
 	(hour?hour + "h":"") + min + "m";
 }
 
@@ -29,7 +29,7 @@ string finger_all()
 	object *ob;
 	string msg, fip;
 	int i;
-	
+
 //	ob = users();
 	// 输出格式按照ip排序，Modified by Constant
 	ob = sort_array(users(), (: sort_user :));
@@ -43,29 +43,29 @@ string finger_all()
 				query_idle(ob[i]) + "s");
 		}
         return "◎ 侠客行一百\n" +
-		"──────────────────\n"
+		"------------------------------------\n"
 		+ "姓名          帐号          发呆\n" +
-		"──────────────────\n"
+		"------------------------------------\n"
 		+ msg +
-		"──────────────────\n";
+		"------------------------------------\n";
 	} else  	// wizard finger
 	{
 		for(i=0; i<sizeof(ob); i++) {
 			if( this_player() && !this_player()->visible(ob[i]) ) continue;
 			msg = sprintf("%s%-14s%-14s%-14s%-7s%s\n",
 				msg, ob[i]->query("name"), ob[i]->query("id"),
-				age_string( (int)ob[i]->query("mud_age")), 
+				age_string( (int)ob[i]->query("mud_age")),
 				query_idle(ob[i]) + "s", query_ip_name(ob[i]));
 		}
-		return "◎ 侠客行\n" + 
-		"─────────────────────────────────────\n"
+		return "◎ 侠客行\n" +
+		"--------------------------------------------------------------------------\n"
 		+ "姓名          帐号          年龄          发呆   连线\n" +
-		"─────────────────────────────────────\n"
+		"--------------------------------------------------------------------------\n"
 		+ msg +
-		"────────────────────────────────────\n";
+		"------------------------------------------------------------------------\n";
 	}
 }
-	
+
 string finger_user(string name)
 {
 	object ob, body;
@@ -80,27 +80,27 @@ string finger_user(string name)
 */
 	ob = new(LOGIN_OB);
 	ob->set("id", name);
-	if( !ob->restore() ) 
+	if( !ob->restore() )
 	{
 		destruct(ob);
 	 return "没有这个玩家。\n";
 	}
-	
+
 	if ( !wizardp(this_player()) )  // player finger
 	{
-	
-		if( objectp(body = find_player(name)) && 
-		  ( geteuid(body)==name || 
+
+		if( objectp(body = find_player(name)) &&
+		  ( geteuid(body)==name ||
 		        (body->query("id")==name && body->query("no_look_wiz"))
 		  ) )
 		{
 			if (body->query("no_look_wiz")) no_wiz = 1;
 //			public_flag = body->query("env/public")?1:0;
 			public_flag = 1;
-		} else 
+		} else
 		{
 			body = LOGIN_D->make_body(ob);
-			if( !body->restore() ) 
+			if( !body->restore() )
 			{
 				destruct(ob);
 				destruct(body);
@@ -109,8 +109,8 @@ string finger_user(string name)
 //			public_flag = body->query("env/public")?1:0;
 			public_flag = 1;
 			destruct(body);
-		}		
-		
+		}
+
 		msg =  sprintf("\n英文代号：\t%s\n姓    名：\t%s\n权限等级：\t%s\n"
 			"电子邮件地址：\t%s\n上次连线：\t%s\n\n",
 			ob->query("id"),
@@ -120,7 +120,7 @@ string finger_user(string name)
 			ctime(ob->query("last_on"))
 		);
 		if( objectp(body = find_player(name)) && (geteuid(body)==name || (body->query("id")==name && body->query("no_look_wiz")) )) {
-		if ( !wizardp(body) || this_player()->visible(body) || body->query("no_look_wiz")) {	
+		if ( !wizardp(body) || this_player()->visible(body) || body->query("no_look_wiz")) {
 		msg += sprintf("\n%s目前正在连线中。\n", body->name(1));
 		if (ob->query("id") != this_player()->query("id"))
 message("channel:chat", HIC"【闲聊】“啊......嚏！”"+body->name(1)+
@@ -143,8 +143,8 @@ message("channel:chat", HIC"【闲聊】“啊......嚏！”"+body->name(1)+
 			msg += sprintf("\n%s目前正在从 %s 连线中。\n", body->name(1),
 				query_ip_name(body));
 		}
-	}	
-	
+	}
+
 	destruct(ob);
 	return msg;
 }

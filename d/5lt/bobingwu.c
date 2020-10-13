@@ -338,7 +338,7 @@ int fview()
 	else
 	{
 		printf(HIY"  玩家          最高奖         "HIC"一秀  "HIB"二举  "HIG"四进  "HIR"三红  "HIY"对堂  "HIM"状元\n"NOR);
-	        printf("┌────────────────────────────────┐\n");
+	        printf("┌----------------------------------------------------------------┐\n");
 		for (i=0;i<sizeof(member);i++)
 		{
 			printf("│%-14s%-12s%6d%6d%6d%6d%6d%6d  │\n",
@@ -351,7 +351,7 @@ int fview()
 				member[i]->query_temp("bobing/g5"),
 				member[i]->query_temp("bobing/g6"),);
 		}
-		printf("└────────────────────────────────┘\n");
+		printf("└----------------------------------------------------------------┘\n");
 		printf("目前还有一秀饼%i块、二举饼%i块、四进饼%i块、三红饼%i块、对堂饼%i块。\n", Max1, Max2, Max3, Max4, Max5);
 		if (objectp(winner))
 			printf("现在的状元由%s保持。\n",winner->query("name"));
@@ -1028,7 +1028,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 			winner=ob;
 			ob->set_temp("bobing/g6",1);
 			play=users();
-			message("vision", HIY"\n\n[搏饼最新消息]\n───────────────────────\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
+			message("vision", HIY"\n\n[搏饼最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
 		}
 		else
 		{
@@ -1039,7 +1039,7 @@ string getit(object ob,int getaward,int getscore,string dest)
 				winner=ob;
 				winner->set_temp("bobing/g6",1);
 				play=users();
-				message("vision", HIY"\n\n[搏饼最新消息]\n───────────────────────\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
+				message("vision", HIY"\n\n[搏饼最新消息]\n----------------------------------------------\n恭喜！ 恭喜！" + ob->query("name") + "搏到了" + dest + "！成为 " + roomname+"的状元！！！\n"NOR, play);
 			}
 			else
 				message_vision(CYN"$N搏到状元一个，真是可惜你的状元没有奖品……\n"NOR,ob);
@@ -1122,7 +1122,7 @@ int qianbing(object ob,int getaward)
 string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 {
 	string str;
-	str = "┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐ ┌───┐\n";
+	str = "┌------┐ ┌------┐ ┌------┐ ┌------┐ ┌------┐ ┌------┐\n";
 	switch (i1)
 	{
 		case 1:
@@ -1432,6 +1432,6 @@ string display_item(int i1, int i2, int i3, int i4, int i5, int i6)
 			break;
 	}
 /* 第三行. 总算搞完了! */
-	str = str+"└───┘ └───┘ └───┘ └───┘ └───┘ └───┘\n";
+	str = str+"└------┘ └------┘ └------┘ └------┘ └------┘ └------┘\n";
 	return str;
 }

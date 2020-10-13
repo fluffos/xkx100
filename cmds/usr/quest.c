@@ -2,7 +2,7 @@
 
 #include <ansi.h>
 #include <quest.h>
- 
+
 //inherit F_CLEAN_UP;
 
 mapping quest;
@@ -15,7 +15,7 @@ int main(object me, string arg)
 	string quest_list = "";
 	string msg;
 	object who = this_player();
-	
+
 	if ( stringp(arg) )
 	{
 		who = find_player( arg );
@@ -34,8 +34,8 @@ int main(object me, string arg)
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
-	}	
-	
+	}
+
 	msg = quest_msg( who, "shan" );
 	quest_list += msg;
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
@@ -45,8 +45,8 @@ int main(object me, string arg)
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
-	}	
-	
+	}
+
 	msg = quest_msg( who, "helian" );
 	quest_list += msg;
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
@@ -56,8 +56,8 @@ int main(object me, string arg)
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
-	}	
-		
+	}
+
 	msg = quest_msg( who, "book" );
 	quest_list += msg;
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
@@ -68,7 +68,7 @@ int main(object me, string arg)
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
 	}
-	
+
 	msg = quest_msg( who, "betrayer" );
 	quest_list += msg;
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
@@ -79,7 +79,7 @@ int main(object me, string arg)
 		quest_list += time_period( nowtime );
 		quest_list += "\n\n"NOR;
 	}
-	
+
 	msg = quest_msg( who, "thief" );
 	quest_list += msg;
 	if ( msg != "" && !quest["finished"] && !quest["lock"] )
@@ -87,7 +87,7 @@ int main(object me, string arg)
 		quest_list += HIC;
 		nowtime = quest["time"] - time();
 		quest_list += time_period( nowtime );
-		quest_list += "\n\n"NOR;		
+		quest_list += "\n\n"NOR;
 	}
 
 	msg = quest_msg( who, "kill" );
@@ -104,9 +104,9 @@ int main(object me, string arg)
 	if ( quest_list != "" )
 	{
 		write( "\n你目前的部分任务：\n\n" );
-		write( HIC"≡"HIY"──────────────────────────────"HIC"≡\n\n"NOR );
+		write( HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n\n"NOR );
  		write( quest_list );
- 		write( HIC"≡"HIY"──────────────────────────────"HIC"≡\n\n"NOR ); 		
+ 		write( HIC"≡"HIY"------------------------------------------------------------"HIC"≡\n\n"NOR );
  	}
  	else
  		write( HIW"\n你现在没有任何任务！\n\n"NOR );
@@ -123,12 +123,12 @@ string time_period( int timep )
 	m = t % 60;	     t /= 60;
 	h = t % 24;	     t /= 24;
 	d = t;
- 
+
  	if ( timep <= 0 )
  		return WHT"你已经没有足够的时间来完成它了。"NOR;
 	if(d) time = chinese_number(d) + "天";
 	else time = "";
- 
+
 	if(h) time += chinese_number(h) + "小时";
 	if(m) time += chinese_number(m) + "分";
 	time += chinese_number(s) + "秒";
@@ -138,7 +138,7 @@ string time_period( int timep )
 string quest_msg( object who, string quest_id )
 {
 	string msg = "";
-	
+
 	if ( quest = who->query( "quest/" + quest_id ) )
 	{
 		msg += HIY"〖" + quest_name[quest_id] + "〗	"NOR;
@@ -148,9 +148,9 @@ string quest_msg( object who, string quest_id )
 			if ( quest["finished"] )
 				msg += "恭喜你，你已经完成了这项任务！\n\n";
 	}
-	return msg;		
+	return msg;
 }
- 
+
 int help(object me)
 {
 	write(@HELP

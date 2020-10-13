@@ -57,7 +57,7 @@ void create()
         set("max_jing", 2500);
         set("neili", 3500);
         set("max_neili", 3500);
-        
+
         set_skill("force", 300);
         set_skill("unarmed", 300);
         set_skill("sword", 300);
@@ -129,19 +129,19 @@ int do_start(string arg)
                 shop_list = ({});
                 begin_shop = ([]);
                 end_shop = ([]);
-                
+
                 remove_call_out("do_auction");
                 remove_call_out("begin_auction");
                 remove_call_out("stop_auction");
                 remove_call_out("go_jupai");
                 remove_call_out("finish_auction");
-                
+
                 all_shop = SHOP_D->query_shop();
                 msg = HIC "成功初始化拍卖程序，待拍卖店铺列表： \n" NOR;
                 msg += HIC "--------------------------------------\n" NOR;
                 for (i = 0;i < sizeof(all_shop);i++)
                 {
-                	if (all_shop[i]["name"]==SHOP_D->query_top()) 
+                	if (all_shop[i]["name"]==SHOP_D->query_top())
                 	{
                 		command("say "+all_shop[i]["id"]+all_shop[i]["name"]+"荣获本月最受欢迎店铺名号，免费续租一个月。");
                 		continue;
@@ -373,7 +373,7 @@ int begin_auction()
         {
                 if (! (m >= 3)) call_out("begin_auction",DISTANCE);
                 else call_out("stop_auction",DISTANCE);
-	// 手工拍卖 
+	// 手工拍卖
         } else
                 // 记录最后一次操作的时间
                 last_time = time();
@@ -385,7 +385,7 @@ int stop_auction()
         mapping begin_shop, end_shop, *shop_record, record;
         object ob, the_owner;
         int i, now_price;
-        
+
         remove_call_out("stop_auction");
         remove_call_out("go_jupai");
         remove_call_out("begin_auction");
@@ -443,12 +443,12 @@ int stop_auction()
                         }
 
                         msg += HIC "等待拍卖的店铺列表： \n" NOR;
-                        msg += HIC "≡" HIY "──────────────" HIC "≡\n" NOR;
+                        msg += HIC "≡" HIY "----------------------------" HIC "≡\n" NOR;
                         shop_key = keys(begin_shop);
 
                         for (i = 0; i < sizeof(shop_key); i++)
                                 msg += sprintf(CYN "%-20s" WHT "\t%d两黄金\n" NOR, shop_key[i], begin_shop[shop_key[i]]);
-                        msg += HIC "≡" HIY "──────────────" HIC "≡\n" NOR;
+                        msg += HIC "≡" HIY "----------------------------" HIC "≡\n" NOR;
                         msg += HIC "总共有" HIY + chinese_number(sizeof(shop_key)) + HIC "家店铺可以拍卖。\n\n";
 
                         tell_object(operator, msg);
@@ -456,7 +456,7 @@ int stop_auction()
                         last_time = time();
                 }
                 return 1;
-        } else            
+        } else
         {
                 //  首先检查当前竞投店铺的玩家是否在线，或者是否在投标后赶回
                 //  钱庄取走了存款如果该玩家数据异常，则该店铺重新归入待拍店
@@ -503,7 +503,7 @@ int stop_auction()
                         shout(HIY "【行商】" NOR + WHT + operator->name() + WHT "[" + operator->query("id") + WHT "]：恭喜" + the_owner->name() + NOR + WHT "获得了" + now_shop + NOR + WHT "店铺的所有权。\n" NOR);
                         CHANNEL_D->do_channel(ob, "sys", temp_owner + "获得了" + now_shop + "店铺的所有权。最终出价" + chinese_number(now_price) + "两黄金！");
                         tell_object(the_owner, HIC + BLINK "\n恭喜您以" + chinese_number(now_price) + "两黄金的价格获得店铺的所有权。\n" NOR);
-                }        
+                }
                 ob->delete("on_jupai");
                 ob->delete("now_shop");
                 ob->delete("now_price");
@@ -517,7 +517,7 @@ int stop_auction()
                         if (sizeof(shop_list) < 1)
                         {
                                 set("can_finish", 1);
-                                save();    
+                                save();
                                 call_out("finish_auction", 0, "automatic");
                         } else call_out("do_auction", 1, "automatic");
                 } else
@@ -542,7 +542,7 @@ int stop_auction()
                         msg += WHT"总共有" + chinese_number(sizeof(shop_key)) + "家店铺可以拍卖。\n\n";
 
                         tell_object(operator,msg);
- 
+
                         // 记录该次操作时间
                         last_time = time();
                 }
@@ -598,7 +598,7 @@ int do_jupai(string arg)
         remove_call_out("stop_auction");
 
         now_price += money;
-        
+
         ob->set("temp_owner", temp_owner);
         ob->set("on_jupai", 1);
         ob->set("now_price", now_price);
@@ -640,7 +640,7 @@ int go_jupai()
         object ob;
         int m, now_price;
         string now_shop, temp_owner;
-        
+
         remove_call_out("go_jupai");
         remove_call_out("stop_auction");
 
@@ -692,7 +692,7 @@ int go_jupai()
                         call_out("go_jupai", DISTANCE);
                 else
                         call_out("stop_auction", DISTANCE);
-	// 手工拍卖 
+	// 手工拍卖
         } else
                 // 记录最后一次操作的时间
                 last_time = time();

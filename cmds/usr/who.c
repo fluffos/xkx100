@@ -70,7 +70,7 @@ mixed main(object me, string arg, int remote)
   //                              case "-e": opt_exp = 1;         break;
                                 //如果不带以上几种参数，则为who + player_id情况
                                 default:
-                                        
+
                                        if(option[i][0]=='@' ) {
                                        	      if (option[i][1..sizeof(option[i])-1]!=mud_nname())
                                        	      {
@@ -129,28 +129,28 @@ mixed main(object me, string arg, int remote)
 
         str += "\n";
         str +=
-                HIC"≡"+HIY"───────────────────────────────────"HIC"≡\n"NOR;
+                HIC"≡"+HIY"----------------------------------------------------------------------"HIC"≡\n"NOR;
         ob = filter_array( objects(), (: visiblep :) );
         if (opt_party) {
-               //在数组ob中找寻符合party指定的同门玩家。	
+               //在数组ob中找寻符合party指定的同门玩家。
                ob = filter_array(ob, (: $1->query("family/family_name") ==
                         $2->query("family/family_name") :), me);
                         }
         list = sort_array(ob, (: sort_user :));
         ppl_cnt = 0;   //ppl_cnt ?= party player count（同门玩家数）。
-        
+
         //处理who -l的情况。
         if( opt_long )
         {
-               //按照门派分类列出玩家。	
+               //按照门派分类列出玩家。
                for (fac_no=0; fac_no<fac_amt; fac_no++)
-               {           	
+               {
                        i = sizeof(list);
                        while ( i-- )
                        {
                                 if( interactive(list[i]) )
                                 	ppl_cnt++;
-                                //把同门的玩家列在一起。	
+                                //把同门的玩家列在一起。
                                 if( list[i]->query("family/family_name") == faction_name[fac_no])
                                         str = sprintf("%s%12s%s%s\n",
                                                 str,
@@ -236,7 +236,7 @@ mixed main(object me, string arg, int remote)
                 if ( ppl_cnt%3 ) str += "\n";
         }
 
-        str += HIC"≡"+HIY"───────────────────────────────────"HIC"≡\n"NOR;
+        str += HIC"≡"+HIY"----------------------------------------------------------------------"HIC"≡\n"NOR;
         str = sprintf("%s共有 %s 位使用者连线中，系统负担：%s\n "HIG"*"NOR" 表示发呆中，"HIR"#"NOR" 表示断线中。", str, CHINESE_D->chinese_number(sizeof(list)),
                 query_load_average());
 
@@ -251,16 +251,16 @@ int sort_user(object ob1, object ob2)
 	if( wizardp(ob1) && !wizardp(ob2) ) return -1;
 	if( wizardp(ob2) && !wizardp(ob1) ) return 1;
 	if( wizardp(ob1) && wizardp(ob2) )
-		return (int)SECURITY_D->get_wiz_level(ob2) 
+		return (int)SECURITY_D->get_wiz_level(ob2)
 			- (int)SECURITY_D->get_wiz_level(ob1);
-	
+
 	return (int)ob2->query("family/generation") - (int)ob1->query("family/generation");
 }
 
 int visiblep( object ob )
 {
 	if ( userp(ob) && environment(ob) ) {
-    if( !objectp(this_player()) || !userp(this_player())) 
+    if( !objectp(this_player()) || !userp(this_player()))
     {
       	if (!wizardp(ob)) return 1;
       	else if (!ob->query("env/invisibility")) return 1;
@@ -294,6 +294,3 @@ write("
     );
     return 1;
 }
-
-
-

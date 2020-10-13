@@ -1,5 +1,5 @@
 // /d/changan/duchang2.c
- 
+
 inherit  ROOM;
 
 int  room_status  =  0;
@@ -11,12 +11,12 @@ int  random2  (int  i)
     return  (random(i)+uptime())  %  i;
 }
 
-mapping  gutous  =  ([  
+mapping  gutous  =  ([
     "tc"  :  "头彩",
     "sd"  :  "双对",
     "qx"  :  "七星",
     "sx"  :  "散星",
-  ]);  
+  ]);
 
 void  create()
 {
@@ -35,11 +35,11 @@ void  create()
 LONG);
 
     set("item_desc",([
-        "paizi"  :  "押头彩骰：  gutou tc <amount> <money>\n"+  
-                    "押双对骰：  gutou sd <amount> <money>\n"+  
-                    "押七星骰：  gutou qx <amount> <money>\n"+  
-                    "押散星骰：  gutou sx <amount> <money>\n"  
-    ]));  
+        "paizi"  :  "押头彩骰：  gutou tc <amount> <money>\n"+
+                    "押双对骰：  gutou sd <amount> <money>\n"+
+                    "押七星骰：  gutou qx <amount> <money>\n"+
+                    "押散星骰：  gutou sx <amount> <money>\n"
+    ]));
     set("objects",  ([  /*  sizeof()  ==  1  */
         __DIR__"npc/zhuangd"  :  1,
     ]));
@@ -126,7 +126,7 @@ int  valid_leave(object  me,  string  dir)
 {
     if  (dir  ==  "west")
     {
-        if  (me->query_temp  ("gamble_gutou/amount")  >  0)  
+        if  (me->query_temp  ("gamble_gutou/amount")  >  0)
             message_vision  ("$N扔下押骰的钱。\n",me);
         me->delete_temp("gamble_gutou");
     }
@@ -140,65 +140,65 @@ void  display_gutou  (object  room,  int  i)
     {
         case  1:
         {
-            str  =  
-"┌───┐\n"+
+            str  =
+"┌------┐\n"+
 "│　　　│\n"+
 "│　●　│\n"+
 "│　　　│\n"+
-"└───┘\n";
+"└------┘\n";
 
             break;
-        }  
+        }
         case  2:
         {
-            str  =  
-"┌───┐\n"+
+            str  =
+"┌------┐\n"+
 "│　　　│\n"+
 "│●　●│\n"+
 "│　　　│\n"+
-"└───┘\n";
+"└------┘\n";
             break;
-        }  
+        }
         case  3:
         {
             str  =
-"┌───┐\n"+
+"┌------┐\n"+
 "│●　　│\n"+
 "│　●　│\n"+
 "│　　●│\n"+
-"└───┘\n";
+"└------┘\n";
             break;
-        }  
+        }
         case  4:
         {
-            str  =  
-"┌───┐\n"+
+            str  =
+"┌------┐\n"+
 "│●　●│\n"+
 "│　　　│\n"+
 "│●　●│\n"+
-"└───┘\n";
+"└------┘\n";
             break;
-        }  
+        }
         case  5:
         {
             str  =
-"┌───┐\n"+
+"┌------┐\n"+
 "│●　●│\n"+
 "│　●　│\n"+
 "│●　●│\n"+
-"└───┘\n";
+"└------┘\n";
             break;
-        }  
+        }
         case  6:
         {
-            str  =  
-"┌───┐\n"+
+            str  =
+"┌------┐\n"+
 "│●　●│\n"+
 "│●　●│\n"+
 "│●　●│\n"+
-"└───┘\n";
+"└------┘\n";
             break;
-        }  
+        }
     }
     tell_room  (room,str);
 }
@@ -229,7 +229,7 @@ void  gamble_prepare  ()
     room_status  =  1;
     call_out  ("gamble_start",24);
 }
-  
+
 void  gamble_start  ()
 {
     object  room  =  this_object();
@@ -294,7 +294,7 @@ void  gamble_finish  ()
         total  =  12;
         win  =  "sd";
     }
-    else  
+    else
     {
         int  r  =  res[0]+res[1];
         if  (r==7)
@@ -302,7 +302,7 @@ void  gamble_finish  ()
             total  =  6;
             win  =  "qx";
         }
-        else  if  (r==3  ||  r==5  ||  r==9  ||  r==11)  
+        else  if  (r==3  ||  r==5  ||  r==9  ||  r==11)
         {
             total  =  3;
             win  =  "sx";

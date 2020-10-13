@@ -28,7 +28,7 @@ int main(object me, string arg)
                         return notify_fail("请到bug留言室留言说明。\n");
 
                 msg = HIC "现在这里的临时小贩有："
-                      HIY "\n──────────────\n" NOR;
+                      HIY "\n----------------------------\n" NOR;
                 for (i = 0; i < sizeof(inv); i++)
                 {
                         if (userp(inv[i]) && inv[i]->query_temp("on_baitan"))
@@ -41,7 +41,7 @@ int main(object me, string arg)
                 if (! have_vendor)
                         return notify_fail(WHT "目前这里并没有任何摆摊的商人。\n" NOR);
                 else
-                        msg += HIY "──────────────\n" NOR;
+                        msg += HIY "----------------------------\n" NOR;
                 write(msg);
                 return 1;
         }
@@ -87,7 +87,7 @@ int main(object me, string arg)
         }
 
         msg = HIC + obj->name(1) + "目前出售以下物品："
-              HIY "\n─────────────────────────\n" NOR;
+              HIY "\n--------------------------------------------------\n" NOR;
         dk = sort_array(keys(unit), 1);
 
         for (i = 0; i < sizeof(dk); i++)
@@ -99,7 +99,7 @@ int main(object me, string arg)
                                "-s：每%s%s" CYN "\n" NOR,
                                dk[i], unit[dk[i]], MONEY_D->price_str(p));
         }
-        msg += HIY "─────────────────────────\n" NOR;
+        msg += HIY "--------------------------------------------------\n" NOR;
         write(msg);
         return 1;
 }

@@ -32,11 +32,11 @@ void init()
 {
 	object me = this_player();
 	tell_object(me,	"                         ");
-	tell_object(me,	YEL"┌───┐\n"NOR);
+	tell_object(me,	YEL"┌------┐\n"NOR);
 	tell_object(me,	"                         ");
 	tell_object(me, YEL"│"NOR);
-	tell_object(me, HIG"忆香亭"NOR);  
+	tell_object(me, HIG"忆香亭"NOR);
 	tell_object(me, YEL"│\n"NOR);
 	tell_object(me,	"                         ");
-	tell_object(me,	YEL"└───┘\n"NOR);
+	tell_object(me,	YEL"└------┘\n"NOR);
 }
