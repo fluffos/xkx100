@@ -46,7 +46,7 @@ void create()
 	set("no_clean_up",1);
 	set("combat_exp", 400000);
 
-	set_skill("force",  90); 
+	set_skill("force",  90);
 	set_skill("unarmed",90);
 	set_skill("sword",  90);
 	set_skill("dodge",  90);
@@ -58,14 +58,14 @@ void create()
 	setup();
 
 	carry_object("/d/shaolin/obj/changjian")->wield();
-	carry_object("/d/city/obj/cloth")->wear();        
+	carry_object("/d/city/obj/cloth")->wear();
 	}
 	else {
 		set("id", "shangshan");
 		set_name(query("name"), ({ query("id") }));
 		setup();
 		if( this_object()->query("weapon") ) carry_object(this_object()->query("weapon"))->wield();
-		if( this_object()->query("armor") )  carry_object(this_object()->query("armor"))->wear();        
+		if( this_object()->query("armor") )  carry_object(this_object()->query("armor"))->wear();
 	}
 }
 
@@ -89,8 +89,8 @@ int do_kill()
 
 	for(i=0; i<4; i++) {
 		if( objectp( ob = present("wei shi " + (i+1), environment(this_object())) ) )
-				 ob->kill_ob(this_player());	
-		else	this_object()->kill_ob(this_player());		
+				 ob->kill_ob(this_player());
+		else	this_object()->kill_ob(this_player());
 	}
 
 	return 1;
@@ -100,9 +100,9 @@ int accept_fight(object ob)
 {
 	object me, mengzhu, fae;
 	string name1, name2;
- 
+
 	me  = this_object();
-		
+
 	if(!( mengzhu = find_living("mengzhu")) )
 	mengzhu = load_object("/clone/npc/meng-zhu");
 	name1 = mengzhu->query("winner");
@@ -117,13 +117,13 @@ int accept_fight(object ob)
 	if( this_player()->query("id") == name2 )
 		return notify_fail("你已经是罚恶使者，还要抢当赏善使者？！\n");
 
-	if ( me->query("winner") == ob->query("id") ) 
+	if ( me->query("winner") == ob->query("id") )
 		return notify_fail("你跟你自己打什么架？！\n");
 
 	if (wizardp(this_player()))
 		return notify_fail("巫师不能抢使者之位！\n");
 
-	if ( me->is_fighting() ) 
+	if ( me->is_fighting() )
 		return notify_fail("已经有人正在挑战赏善使者！\n");
 
 	me->set("eff_qi", me->query("max_qi"));
@@ -133,7 +133,7 @@ int accept_fight(object ob)
 
 	remove_call_out("checking");
 	call_out("checking", 1, me, ob);
-	
+
 	return 1;
 }
 
@@ -154,7 +154,7 @@ int checking(object me, object ob)
 		return 1;
 	}
 
-	if ( !present(ob, environment()) ) return 1; 
+	if ( !present(ob, environment()) ) return 1;
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
 		command("say 佩服佩服，看来我的担子可以交卸了，恭喜你成为武林赏善使者！\n");
@@ -165,18 +165,18 @@ int checking(object me, object ob)
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
-		command("say 看来" + RANK_D->query_respect(ob) + 
+		command("say 看来" + RANK_D->query_respect(ob) +
 			"还得多加练习，方能在当今武林中有所作为 !\n");
 		return 1;
 	}
 
-	return 1;  
+	return 1;
 }
 
 int do_copy(object me, object ob)
 {
 	me->set("winner", ob->query("id"));
-	me->add("generation", 1);	
+	me->add("generation", 1);
 
 	me->set("name",  ob->query("name") );
 	me->set("title", "第" + chinese_number(me->query("generation")) + "代赏善使者");
@@ -185,7 +185,7 @@ int do_copy(object me, object ob)
 
 	ob->delete_temp("apply/short");
 	ob->set_temp("apply/short", ({me->short()}));
-	
+
 	me->set("title", "第" + chinese_number(me->query("generation")) + "代赏善使者");
 	me->set("short", me->query("title") + " " + me->query("name") + "(shangshan shizhe)");
 	me->delete("title");
@@ -201,7 +201,7 @@ int do_recopy(object me, object ob)
 	me = this_object();
 	ob = this_player();
 
-	if ( me->query("winner") != ob->query("id") ) 
+	if ( me->query("winner") != ob->query("id") )
 		return notify_fail("你不是现任赏善使者！\n");;
 
 	me->set("name",  ob->query("name") );
@@ -224,7 +224,7 @@ int do_recopy(object me, object ob)
 
 int do_clone(object me, object ob)
 {
-	object *inv, new;
+	object *inv, new_ob;
 	mapping hp_status, skill_status, map_status, prepare_status;
 	string *sname, *mname, *pname;
 	int i, temp;
@@ -251,7 +251,7 @@ int do_clone(object me, object ob)
 			me->set_skill(sname[i], skill_status[sname[i]]);
 		}
 	}
-	
+
 /* delete and copy skill maps */
 
 	if ( mapp(map_status = me->query_skill_map()) ) {
@@ -270,7 +270,7 @@ int do_clone(object me, object ob)
 			me->map_skill(mname[i], map_status[mname[i]]);
 		}
 	}
-	
+
 /* delete and copy skill prepares */
 
 	if ( mapp(prepare_status = me->query_skill_prepare()) ) {
@@ -303,7 +303,7 @@ int do_clone(object me, object ob)
 
 	inv = all_inventory(ob);
 	for(i=0; i<sizeof(inv); i++) {
-		if( inv[i]->query("weapon_prop/damage") > 100 
+		if( inv[i]->query("weapon_prop/damage") > 100
 		||  inv[i]->query("armor_prop/armor") > 100 ) continue;
 
 		if( inv[i]->query("weapon_prop") &&  inv[i]->query("equipped") ) {
@@ -342,8 +342,8 @@ int do_clone(object me, object ob)
 
 	tell_object(ob, "状态储存完毕。\n");
 
-	new = new("/clone/npc/shang-shan");
-	new->move("/d/taishan/xiayi");
+	new_ob = new("/clone/npc/shang-shan");
+	new_ob->move("/d/taishan/xiayi");
 	destruct(me);
 
 	return 1;
@@ -356,7 +356,7 @@ int do_recover()
 	me = this_object();
 	ob = this_player();
 
-	if ( me->query("winner") != ob->query("id") ) 
+	if ( me->query("winner") != ob->query("id") )
 		return notify_fail("你不是现任赏善使者！\n");;
 
 	ob->set("combat_exp", me->query("combat_exp"));

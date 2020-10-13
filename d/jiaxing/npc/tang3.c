@@ -50,7 +50,7 @@ void create()
 	set("no_clean_up",1);
 	set("combat_exp", 500000);
 
-	set_skill("force",  100); 
+	set_skill("force",  100);
 	set_skill("unarmed",100);
 	set_skill("sword",  100);
 	set_skill("dodge",  100);
@@ -62,14 +62,14 @@ void create()
 	setup();
 
 	carry_object("/d/shaolin/obj/changjian")->wield();
-	carry_object("/d/city/obj/cloth")->wear();        
+	carry_object("/d/city/obj/cloth")->wear();
 	}
 	else {
 		set("id", "mengzhu");
 		set_name(query("name"), ({ query("id") }));
 		setup();
 		if( this_object()->query("weapon") ) carry_object(this_object()->query("weapon"))->wield();
-		if( this_object()->query("armor") )  carry_object(this_object()->query("armor"))->wear();        
+		if( this_object()->query("armor") )  carry_object(this_object()->query("armor"))->wear();
 	}
 }
 
@@ -90,13 +90,13 @@ int do_kill()
 
 	command("say 你想谋害本盟主，当真是吃了熊心豹子胆了！！");
 	command("say 座下白衣武士何在！");
-	
+
 	message_vision("四周的白衣武士群起对$N发动攻击！\n", this_player());
 
 	for(i=0; i<4; i++) {
 		if( objectp( ob = present("wei shi " + (i+1), environment(this_object())) ) )
-				 ob->kill_ob(this_player());	
-		else	this_object()->kill_ob(this_player());		
+				 ob->kill_ob(this_player());
+		else	this_object()->kill_ob(this_player());
 	}
 
 	return 1;
@@ -105,8 +105,8 @@ int do_kill()
 int accept_fight(object ob)
 {
 	object me  = this_object();
-		
-	if ( me->query("winner") == ob->query("id") ) 
+
+	if ( me->query("winner") == ob->query("id") )
 {                remove_call_out("do_copy");
                 call_out("do_copy", 1, me, ob);
 		return notify_fail("你跟你自己打什么架？！\n");
@@ -115,7 +115,7 @@ int accept_fight(object ob)
 	if (wizardp(this_player()))
 		return notify_fail("巫师不能抢盟主之位！\n");
 
-	if ( me->is_fighting() ) 
+	if ( me->is_fighting() )
 		return notify_fail("已经有人正在挑战武林盟主！\n");
 
 	me->set("eff_qi", me->query("max_qi"));
@@ -125,7 +125,7 @@ int accept_fight(object ob)
 
 	remove_call_out("checking");
 	call_out("checking", 1, me, ob);
-	
+
 	return 1;
 }
 
@@ -146,7 +146,7 @@ int checking(object me, object ob)
 		return 1;
 	}
 
-	if ( !present(ob, environment()) ) return 1; 
+	if ( !present(ob, environment()) ) return 1;
 
 	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) {
 		command("say 果然厉害，恭喜你成为当今武林盟主！\n");
@@ -158,12 +158,12 @@ int checking(object me, object ob)
 	}
 
 	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) {
-		command("say 看来" + RANK_D->query_respect(ob) + 
+		command("say 看来" + RANK_D->query_respect(ob) +
 			"还得多加练习，方能在当今武林中出人头地 !\n");
 		return 1;
 	}
 
-	return 1;  
+	return 1;
 }
 
 int do_copy(object me, object ob)
@@ -174,7 +174,7 @@ int do_copy(object me, object ob)
 	seteuid(getuid());
 
 	me->set("winner", ob->query("id"));
-	me->add("generation", 1);	
+	me->add("generation", 1);
 
 	me->set("name",  ob->query("name") );
 	me->set("title", "第" + chinese_number(me->query("generation")) + "代武林盟主");
@@ -186,7 +186,7 @@ int do_copy(object me, object ob)
 // --record which mengzhu generataion this player got-------by ReyGod
 // = better to place this checking when players login.
 //	ob->set("mengzhu_gen",me->query("generation"));
-	
+
 	me->set("title", "第" + chinese_number(me->query("generation")) + "代武林盟主");
 	me->set("short", me->query("title") + " " + me->query("name") + "(Wulin mengzhu)");
 	me->delete("title");
@@ -200,11 +200,11 @@ int do_copy(object me, object ob)
 	fae = ob1->query("winner");
 
 	if( ob->query("id") == shangshan ) {
-		rm( ob1->query_save_file() + SAVE_EXTENSION );
+		rm( ob1->query_save_file() + __SAVE_EXTENSION__ );
 		destruct(ob1);
 	}
 	else  if( ob->query("id") == fae ) {
-		rm( ob2->query_save_file() + SAVE_EXTENSION );
+		rm( ob2->query_save_file() + __SAVE_EXTENSION__ );
 		destruct(ob2);
 	}
 
@@ -219,7 +219,7 @@ int do_recopy(object me, object ob)
 	me = this_object();
 	ob = this_player();
 
-	if ( me->query("winner") != ob->query("id") ) 
+	if ( me->query("winner") != ob->query("id") )
 		return notify_fail("你不是现任武林盟主！\n");;
 
 	me->set("name",  ob->query("name") );
@@ -230,7 +230,7 @@ int do_recopy(object me, object ob)
 	ob->delete_temp("apply/short");
 	ob->set_temp("apply/short", ({me->short()}));
 // --record which mengzhu generataion this player got-------by ReyGod
-// = better to place this checking when players login.	
+// = better to place this checking when players login.
 //	ob->set("mengzhu_gen",me->query("generation"));
 
 
@@ -273,7 +273,7 @@ int do_clone(object me, object ob)
 			me->set_skill(sname[i], skill_status[sname[i]]);
 		}
 	}
-	
+
 /* delete and copy skill maps */
 
 	if ( mapp(map_status = me->query_skill_map()) ) {
@@ -292,7 +292,7 @@ int do_clone(object me, object ob)
 			me->map_skill(mname[i], map_status[mname[i]]);
 		}
 	}
-	
+
 /* delete and copy skill prepares */
 
 	if ( mapp(prepare_status = me->query_skill_prepare()) ) {
@@ -325,7 +325,7 @@ int do_clone(object me, object ob)
 
 	inv = all_inventory(ob);
 	for(i=0; i<sizeof(inv); i++) {
-		if( inv[i]->query("weapon_prop/damage") > 100 
+		if( inv[i]->query("weapon_prop/damage") > 100
 		||  inv[i]->query("armor_prop/armor") > 100 ) continue;
 
 		if( inv[i]->query("weapon_prop") &&  inv[i]->query("equipped") ) {
@@ -381,7 +381,7 @@ int do_recover()
 	me = this_object();
 	ob = this_player();
 
-	if ( me->query("winner") != ob->query("id") ) 
+	if ( me->query("winner") != ob->query("id") )
 		return notify_fail("你不是现任武林盟主！\n");;
 
 /* delete and copy skills */
@@ -401,7 +401,7 @@ int do_recover()
 			ob->set_skill(sname[i], skill_status[sname[i]]);
 		}
 	}
-	
+
 /* delete and copy skill maps */
 
 	if ( mapp(map_status = ob->query_skill_map()) ) {
@@ -419,7 +419,7 @@ int do_recover()
 			ob->map_skill(mname[i], map_status[mname[i]]);
 		}
 	}
-	
+
 /* delete and copy skill prepares */
 
 	if ( mapp(prepare_status = ob->query_skill_prepare()) ) {
@@ -446,4 +446,3 @@ int do_recover()
 
 	return 1;
 }
-

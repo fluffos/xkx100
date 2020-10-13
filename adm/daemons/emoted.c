@@ -1,7 +1,7 @@
 // emoted.c
 // modified by none on 96/10/04
 // modified by tool on 96/10/05
-// modified by mon@xyj on 10/97 to add support for 
+// modified by mon@xyj on 10/97 to add support for
 //          intermud emote.
 
 inherit F_SAVE;
@@ -37,12 +37,12 @@ mapping emote;
 //
 //	Original by Annihilator@ESII (11/09/94)
 //      $C              - respect call of emoter
-//      $c              - rude call of emoter 
+//      $c              - rude call of emoter
 //      $R              - respect calling of target
 //      $r              - rude calling of target
 //      $S              - self calling of emoter
 //      $s              - self-rude calling of emoter
-//      added by none on 96/10/04 
+//      added by none on 96/10/04
 
 void create()
 {
@@ -82,7 +82,7 @@ varargs mixed do_emote(object me, string verb, string arg, int channel_emote, in
 		if(rumor_emote)
 //       if (random(20)==1)
 //       user_emote = me->name() + verb + "\n";
-//       else 
+//       else
 		   user_emote = "某人" + verb + "\n";
     else {
          if(!channel_emote || ! intermud)
@@ -114,7 +114,7 @@ varargs mixed do_emote(object me, string verb, string arg, int channel_emote, in
 		}
 
 		if( !target->is_character())
-			return notify_fail("你要对谁做这个动作？\n"); 
+			return notify_fail("你要对谁做这个动作？\n");
 
 		target_gender = target->query("gender");
 		if( target==me ) {
@@ -150,7 +150,7 @@ varargs mixed do_emote(object me, string verb, string arg, int channel_emote, in
 		}
 		if( !channel_emote ) message("emote", CYN + str + NOR, me);
 	}
-  
+
 	if( objectp(target) && stringp(str = emote[verb]["target"]) ) {
 		if_execute = " ";
 		if(rumor_emote)
@@ -225,4 +225,3 @@ string *query_all_emote()
 {
 	return keys(emote);
 }
-

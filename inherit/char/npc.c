@@ -61,13 +61,13 @@ int accept_fight(object who)
 		return 0;
 }
 ///////////add from here///////////
-//2004.10.11  qingyun add 
-//accept_hit accept_kill accept_touxi accept_ansuan 
+//2004.10.11  qingyun add
+//accept_hit accept_kill accept_touxi accept_ansuan
 
 
 int accept_hit(object who)
 {
-/*    
+/*
 
 如果取消这个注释 那么hit可能导致kill
 因为木人要经常hit 加上去木人就打不了了
@@ -246,7 +246,7 @@ int return_home(object home)
 	if(!living(this_object()) || this_object()->query_temp("noliving") ||
 		is_fighting() )
 		return 0;
-		
+
 	// let me leave ,add by sir
 	if( !mapp(environment()->query("exits")) && (int)this_object()->query_temp("let_me_leave")<=5 )
 	{
@@ -274,14 +274,15 @@ int chat()
 		return 0;
 
 	if( arrayp(msg = query(is_fighting()? "chat_msg_combat": "chat_msg"))) {
-		if( random(100) < chance ) {
-			rnd = random(sizeof(msg));
+                if (sizeof(msg) && random(100) < chance)
+                {
+                        rnd = random(sizeof(msg));
 			if( stringp(msg[rnd]) )
 				say(msg[rnd]);
 			else if( functionp(msg[rnd]) )
 				return evaluate(msg[rnd]);
-		}
-		return 1;
+                }
+                return 1;
 	}
 }
 
@@ -314,7 +315,7 @@ int exert_function(string func)
 		SKILL_D(force_skill)->exert_function(this_object(), func);
 }
 
-// Default chat function: Let the npc perform special action with 
+// Default chat function: Let the npc perform special action with
 // his/her enabled martial art
 int perform_action(string action)
 {
@@ -325,7 +326,7 @@ int perform_action(string action)
 		return 0;
 	martial_skill = query_skill_mapped(martial_skill);
 	if( stringp(martial_skill) )
-		return SKILL_D(martial_skill)->perform_action(this_object(), act);		
+		return SKILL_D(martial_skill)->perform_action(this_object(), act);
 }
 
 // Following add for making love...hehe ! Dec.1997 Venus

@@ -1,13 +1,14 @@
 // home.c
 // Last Modified by winder on Mar. 10 2000
 // standard home for players.
-int list_invite();
-string *r_invited=({});
 
 #include <ansi.h>
 
 inherit F_SAVE;
 inherit ITEM;
+
+int list_invite();
+string *r_invited=({});
 
 string out="/d/taohuacun/taohua7";
 
