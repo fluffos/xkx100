@@ -1,25 +1,25 @@
-									gebi1()      room-ji1(Ğ¡Îİ)// npc li ji
+									gebi1()      room-ji1(å°å±‹)// npc li ji
 										\       |
-								  		 room-ji(²İÅï) ++
+								  		 room-ji(è‰æ£š) ++
 								      	            |	  \   +++++
-					      				    ++      |	    ´ó²İÔ­++
+					      				    ++      |	    å¤§è‰åŸ++
 								         +++++++    |	   /  +++++
-				sroom(¹şÈø¿ËÕÊÅñ)			+++²İÔ­++ road2(Ğ¡Â·) 
+				sroom(å“ˆè¨å…‹å¸ç¯·)			+++è‰åŸ++ road2(å°è·¯)
 					\			         ++  |++   /
-					shop(¹şÈø¿ËĞ¡µê)  --------	road1(Ğ¡Â·)
+					shop(å“ˆè¨å…‹å°åº—)  --------	road1(å°è·¯)
 			                      |              \ 		     |
-ÌìÉ½	ÌìÉ½				      |                  \           |
+å¤©å±±	å¤©å±±				      |                  \           |
   \  /	     +++++++			      |                      \       |
-senlin(É­ÁÖ)+++²İÔ­+++		              |             		caoyuan3(²İÔ­±ßÔµ)
+senlin(æ£®æ—)+++è‰åŸ+++		              |             		caoyuan3(è‰åŸè¾¹ç¼˜)
 	\    + + | ++			      |                        /     |
-senlin1-shanqiu(Ğ¡É½Çğ)---   road(Ğ¡Â·)	--pmchang(ÅÜÂí³¡) -- caoyuan2(²İÔ­)  |      ++
+senlin1-shanqiu(å°å±±ä¸˜)---   road(å°è·¯)	--pmchang(è·‘é©¬åœº) -- caoyuan2(è‰åŸ)  |      ++
 	     +++| ++++	                /     |                 |     \      |     +++++
- 	    ++++²İÔ­+++	               /      |                 |	caoyuan(²İÔ­±ßÔµ)+++
+ 	    ++++è‰åŸ+++	               /      |                 |	caoyuan(è‰åŸè¾¹ç¼˜)+++
 	      +++++++	 	      /       |                 |      /           ++++++
-			   shuijing(¿²¶ù¾®)--caochang(²İ³¡)--caoyuan1(²İÔ­) /       +++
+			   shuijing(åå„¿äº•)--caochang(è‰åœº)--caoyuan1(è‰åŸ) /       +++
  			/				      |         |  /
-	caoyuan7-room-su(ËÕÂ³¿ËµÄ¼Ò)-caoyuan7             majiu(ÂíÅï) --  hsk(¹şÈø¿ËÕÊÅñ)
+	caoyuan7-room-su(è‹é²å…‹çš„å®¶)-caoyuan7             majiu(é©¬æ£š) --  hsk(å“ˆè¨å…‹å¸ç¯·)
 			 |                               		/
-		caoyuan7(´ó²İÔ­)		  caoyuan8()---room-che(³µ¶û¿âµÄ¼Ò)--caoyuan8()
+		caoyuan7(å¤§è‰åŸ)		  caoyuan8()---room-che(è½¦å°”åº“çš„å®¶)--caoyuan8()
 								|
-							     caoyuan8(´ó²İÔ­)
+							     caoyuan8(å¤§è‰åŸ)

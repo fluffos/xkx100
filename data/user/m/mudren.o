@@ -1,4 +1,0 @@
-#/clone/user/user.c
-conditions (["autosave":1,])
-dbase (["qi":80,"per":14,"scborn":(["times":0,]),"max_balance":500000000,"shen":0,"character":"0","str":20,"title":"普通百姓","START_ROOM":"/d/wuxi/kedian","tili":100,"kar":14,"cor":17,"shen_type":0,"behavior_exp":0,"con":20,"max_tili":100,"water":219,"eff_qi":81,"sta":16,"max_qi":100,"registered":1,"int":20,"quest_exp":140,"born":(["hometown":"无锡","area":"3",]),"base":(["START_ROOM":"/d/wuxi/kedian","cps":25,"int":20,"per":14,"kar":14,"area":"3","cor":17,"dex":20,"con":20,"spi":24,"hometown":"无锡","str":20,"sta":16,]),"race":"人类","mud_age":878,"dex":20,"name":"小泥巴","spi":24,"potential":99,"food":219,"channels":({"chat","rumor","party","xkx","sing","es","snow",}),"eff_jing":81,"pighead":0,"id":"mudren","default_actions":,"actions":,"jing":80,"cps":25,"channel":(["chat_count":1,]),"gender":"男性","max_jing":100,"neili":0,"birthday":1602577275,"max_neili":0,"age":14,])
-autoload ({})

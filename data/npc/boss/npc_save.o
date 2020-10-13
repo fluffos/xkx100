@@ -1,7 +1,0 @@
-#/d/city/npc/xiaoer.c
-dbase (["max_qi":284,"qi":284,"int":16,"per":26,"quest_exp":220,"race":"人类","shen":0,"jingli":0,"name":"店小二","dex":13,"eff_jing":228,"pighead":0,"actions":,"id":"xiao er","default_actions":,"str":28,"jing":228,"cps":30,"gender":"男性","kar":24,"combat_exp":100,"max_jing":228,"cor":26,"attitude":"friendly","startroom":"/d/wuxi/kedian","shen_type":0,"bt_tufei":16,"behavior_exp":0,"con":23,"max_tili":50,"rank_info":(["respect":"小二哥",]),"eff_qi":284,"age":22,"sta":10,"long":"这位店小二正笑咪咪地忙著，还不时拿起挂在脖子上的抹布擦脸。",])
-autoload ({})
-SAVE_NAME "npc_save"
-price_ratio 10
-minimum_bid 1000
-close_time 1602664724

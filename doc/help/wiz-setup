@@ -1,30 +1,30 @@
-©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
-                  ¡¾ÏÀ¿ÍÐÐÒ»°ÙÎ×Ê¦»·¾³±äÁ¿ÉèÖÃÆª¡¿
-©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+                  ã€ä¾ å®¢è¡Œä¸€ç™¾å·«å¸ˆçŽ¯å¢ƒå˜é‡è®¾ç½®ç¯‡ã€‘
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-¡ñ  immortal <anything>    Éè¶¨×Ô¼º³ÉÎª²»ËÀÖ®Éí£¬µ±×´Ì¬´ïµ½»èÃÔ»òËÀ
-                           ÍöÊ±ÊýÖµ»áÍ£ÔÚ£­£±¡£
+â—  immortal <anything>    è®¾å®šè‡ªå·±æˆä¸ºä¸æ­»ä¹‹èº«ï¼Œå½“çŠ¶æ€è¾¾åˆ°æ˜è¿·æˆ–æ­»
+                           äº¡æ—¶æ•°å€¼ä¼šåœåœ¨ï¼ï¼‘ã€‚
 
-¡ñ  invisibility <number>  Éè¶¨ÒþÐÎµÄ³Ì¶È¡££°£­£±£°
+â—  invisibility <number>  è®¾å®šéšå½¢çš„ç¨‹åº¦ã€‚ï¼ï¼ï¼‘ï¼
 
-¡ñ  msg_home <anything>    Éè¶¨µ±×Ô¼º´ò£è£ï£í£å»Ø¼ÒÊ±ÏÔÊ¾µÄÑ¶Ï¢¡£
+â—  msg_home <anything>    è®¾å®šå½“è‡ªå·±æ‰“ï½ˆï½ï½ï½…å›žå®¶æ—¶æ˜¾ç¤ºçš„è®¯æ¯ã€‚
 
-¡ñ  msg_min <anything>     Éè¶¨µ±Ê¹ÓÃ£ç£ï£ô£ïµ½´ïÄ³´¦Ê±, ±ðÈËËù¿´µ½
-                           µÄÑ¶Ï¢¡£
+â—  msg_min <anything>     è®¾å®šå½“ä½¿ç”¨ï½‡ï½ï½”ï½åˆ°è¾¾æŸå¤„æ—¶, åˆ«äººæ‰€çœ‹åˆ°
+                           çš„è®¯æ¯ã€‚
 
-¡ñ  msg_mout <anything>    Éè¶¨µ±Ê¹ÓÃ£ç£ï£ô£ïÀë¿ªÊ±, Ô­À´·¿¼äÀïµÄÈË
-                           Ëù¿´µ½µÄÑ¶Ï¢¡£
+â—  msg_mout <anything>    è®¾å®šå½“ä½¿ç”¨ï½‡ï½ï½”ï½ç¦»å¼€æ—¶, åŽŸæ¥æˆ¿é—´é‡Œçš„äºº
+                           æ‰€çœ‹åˆ°çš„è®¯æ¯ã€‚
 
-¡ñ  msg_clone <anything>   Éè¶¨µ±£ã£ì£ï£î£å£ £Î£Ð£Ã»ò£Ï£Â£ÊÊ±ËùÏÔÊ¾
-                           µÄÑ¶Ï¢¡£$£î ±íÊ¾ÄãËù£ã£ì£ï£î£åµÄÎï¼þµÄÃû
-                           ×Ö¡£
+â—  msg_clone <anything>   è®¾å®šå½“ï½ƒï½Œï½ï½Žï½…ï¿½ç‰å±æ ¡æ²¡é¢å¸Œæ‹¢é€‚å½¼ï¿½æ˜¾ç¤º
+                           çš„è®¯æ¯ã€‚$ï½Ž è¡¨ç¤ºä½ æ‰€ï½ƒï½Œï½ï½Žï½…çš„ç‰©ä»¶çš„å
+                           å­—ã€‚
 
-¡ñ  msg_dest <anything>    Éè¶¨µ±£ä£å£ó£ô  £Î£Ð£Ã»ò£Ï£Â£ÊÊ±ËùÏÔÊ¾µÄ
-                           Ñ¶Ï¢¡£µ«Èç¹û¸Ã£Ï£Â£ÊÊÇ´æÔÚì¶×Ô¼ºÉíÉÏÊ±Ôò
-                           ²»»áÓÐÑ¶Ï¢¡£
+â—  msg_dest <anything>    è®¾å®šå½“ï½„ï½…ï½“ï½”  ï¼®ï¼°ï¼£æˆ–ï¼¯ï¼¢ï¼ªæ—¶æ‰€æ˜¾ç¤ºçš„
+                           è®¯æ¯ã€‚ä½†å¦‚æžœè¯¥ï¼¯ï¼¢ï¼ªæ˜¯å­˜åœ¨æ–¼è‡ªå·±èº«ä¸Šæ—¶åˆ™
+                           ä¸ä¼šæœ‰è®¯æ¯ã€‚
 
-¡ñ  combat verbose	   Éè¶¨Õ½¶·ÖÐÊÇ·ñÒªÏÔÊ¾Êý×Ö·½ÃæµÄ×ÊÁÏ¡£
-     
-¡ñ  trace_error <yes/no>   ÏÔÊ¾£ô£ò£á£ã£å£ £å£ò£ò£ï£ò¡£
+â—  combat verbose	   è®¾å®šæˆ˜æ–—ä¸­æ˜¯å¦è¦æ˜¾ç¤ºæ•°å­—æ–¹é¢çš„èµ„æ–™ã€‚
 
-¡ñ  no_task_msg		   ÕÒµ½£ô£á£ó£ëÎïÆ·ÊÇ²»¹«²¼ÐÅÏ¢¡£
+â—  trace_error <yes/no>   æ˜¾ç¤ºï½”ï½’ï½ï½ƒï½…ï¿½ç‰æ¾¹é¢é¢é“®é¢‰ï¿½
+
+â—  no_task_msg		   æ‰¾åˆ°ï½”ï½ï½“ï½‹ç‰©å“æ˜¯ä¸å…¬å¸ƒä¿¡æ¯ã€‚
