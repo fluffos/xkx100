@@ -7,7 +7,7 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	object obj, old_target;
+	object obj/*, old_target*/;
 	if( environment(me)->query("no_fight") )
 		return notify_fail("这里禁止战斗。\n");
 	if(me->is_busy())

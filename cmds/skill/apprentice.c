@@ -8,9 +8,9 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object ob, old_app;
-	mapping family, skills;
-	int i,fealty;
-	string *skname;
+	mapping family/*, skills*/;
+	int /*i,*/fealty;
+//	string *skname;
 	object room;
 	object feng;
 	int flag;

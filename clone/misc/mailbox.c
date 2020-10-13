@@ -40,7 +40,7 @@ int set_owner(string id)
 }
 void init()
 {
-	object ob;
+//	object ob;
 	int i, j = 0;
 
 	if( this_player() && environment()==this_player() )

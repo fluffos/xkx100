@@ -10,9 +10,9 @@ int main(object me, string arg)
 {
 	object ob, old_rec;
 	mapping family;
-	int i,fealty;
-	string temp;
-	int student_num;
+	int /*i,*/fealty;
+//	string temp;
+//	int student_num;
 	object feng,room;
 	int flag;
 

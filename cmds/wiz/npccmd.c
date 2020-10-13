@@ -6,7 +6,7 @@ void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
-        string cname,ccmds;
+        string cname/*,ccmds*/;
         object ob;
 
         cname = me->query_temp("snoopee");

@@ -8,11 +8,11 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	string force,pfarg,sarg,uarg;
-	string target;
-	string temp,temp1;
+	string force/*,pfarg,sarg,uarg*/;
+//	string target;
+//	string temp,temp1;
 	object *ob;
-	int result,i;
+//	int result,i;
 	
 	seteuid(getuid());
         ob = all_inventory(environment(me));       

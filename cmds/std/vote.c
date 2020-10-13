@@ -68,7 +68,7 @@ int main(object me, string arg)
 string *valid_voters(object me,object victim)
 {
 	object *list;
-	int d = 0;
+//	int d = 0;
 	int j;
 	string *adds=({});
 	string ip;

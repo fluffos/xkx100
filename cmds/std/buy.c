@@ -9,9 +9,9 @@ string filter_color(string arg);
 int main(object me, string arg)
 {
         mapping goods;
-        int amount;
-        int value, val_factor;
-        string ob_file;
+//      int amount;
+        int value/*, val_factor*/;
+//      string ob_file;
 	object *obs;
         object ob, env, obj;
 	string my_id;

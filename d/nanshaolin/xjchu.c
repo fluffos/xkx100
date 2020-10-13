@@ -30,7 +30,7 @@ void init()
 }
 int do_ao(string arg)
 {
-	object ob, me = this_player();
+	object /*ob,*/ me = this_player();
 	int costj, costq,times,lvl1,lvl2,exp;
 
 	exp = me->query("combat_exp");

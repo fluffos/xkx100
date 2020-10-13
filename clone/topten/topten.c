@@ -161,8 +161,8 @@ string printdate = NATURE_D->game_time();
 
 void create()
 {
-	string id;
-	int i,exp;
+//	string id;
+//	int i,exp;
 
 	set_name(HIY"侠客行英雄榜"NOR, ({ "hero board", "board" }));
 	set_weight(800);
@@ -177,7 +177,7 @@ void create()
 }
 void init()
 {
-	object ob,me=this_object();
+	object ob/*,me=this_object()*/;
 
 	seteuid(getuid());
 	if( ob = new("/clone/topten/magic-rice") )

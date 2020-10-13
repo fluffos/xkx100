@@ -14,7 +14,7 @@ int main(object me, string arg)
 	string zhao_name, book_name;
 	string *args;
 	mapping skill;
-	int my_skill, cost, times, i, success=0;
+	int my_skill, cost, times, i/*, success=0*/;
 	int j;
 
 	if (where->query("pigging"))

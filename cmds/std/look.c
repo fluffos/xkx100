@@ -98,7 +98,7 @@ int main(object me, string arg)
 {
 	object obj;
 	int result;
-  object *inv;
+//object *inv;
 
 	if( !arg ) result = look_room(me, environment(me));
 
@@ -131,9 +131,9 @@ object i_have(object env,string name)
 int look_room(object me, object env)
 {
 	int i;
-	object *inv, room;
+	object *inv/*, room*/;
 	mapping exits;
-	string str, *dirs, nature, time = NATURE_D->game_time();
+	string str, *dirs/*, nature*/, time = NATURE_D->game_time();
 
 	if( !env )
 	{
@@ -390,14 +390,14 @@ string gettof(object me, object ob)
 varargs mixed look_living(object me, object obj, int getstr)
 {
 	int per;
-	int spi;
+//	int spi;
 	int age;
-	int weight;
-	string str, limb_status, pro;
+//	int weight;
+	string str/*, limb_status*/, pro;
 	mixed *inv;
 	mapping my_fam, fam;
 	int me_shen, obj_shen;
-	int equip, wearornot;
+	int /*equip,*/ wearornot;
 
 	me_shen = (int)me->query("shen");
 	obj_shen = (int)obj->query("shen");
@@ -646,12 +646,12 @@ string combined(object *inv)
 {
 	int 	i;
 	mapping	inv_mapped;
-	string	str, object_id, object_short;
+	string	str/*, object_id, object_short*/;
 	object 	me=this_player();
 
-  string *invid=({});
+  // string *invid=({ });
   string *invname=({});
-  int j, k, *count=({});
+  int j/*, k*/, *count=({});
   object *inv1=({});
 
 

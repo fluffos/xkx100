@@ -18,7 +18,7 @@ void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
-	string skill, teacher, master, skill_name;
+	string skill, teacher/*, master*/, skill_name;
 	object ob;
 	int master_skill, my_skill, jing_cost, times, pertimes;
 	int improve_points;
@@ -195,4 +195,3 @@ HELP
 	);
 	return 1;
 }
-

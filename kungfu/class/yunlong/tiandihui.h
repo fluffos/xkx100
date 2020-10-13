@@ -3,7 +3,7 @@
 
 int do_join(string arg)
 {
-	object me, ob, obj ;
+	object me, ob/*, obj */;
 	string tang;
 	mapping party;
 

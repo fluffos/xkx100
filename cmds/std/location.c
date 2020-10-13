@@ -38,7 +38,7 @@ string *place_desc = ({
 int main(object me, string arg)
 {
 	object ob, where,tbg;
-	mapping fam,fam2;
+	mapping fam/*,fam2*/;
 	int sp, dp, i, cost, count_lvl, bibo_lvl, placeno;
 	string *dir, *place;
 
@@ -142,4 +142,3 @@ HELP
 	);
 	return 1;
 }
-

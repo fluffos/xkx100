@@ -59,7 +59,7 @@ int close_gate()
 
 int do_open(string arg)
 {
-	object ob,room;
+	object /*ob,*/room;
 	if (query("exits/north"))
 		return notify_fail("暗门已经是打开的。\n");
 	if (!arg || (arg != "bian"))

@@ -36,8 +36,8 @@ void create()
 int do_du(string arg)
 {
 	object me = this_player();
-	object where = environment(me);
-	object ob;
+//	object where = environment(me);
+//	object ob;
 
 	if (!id(arg)) return 0;
 	if (!present(this_object(), this_player()))

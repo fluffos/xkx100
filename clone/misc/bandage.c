@@ -85,10 +85,9 @@ string query_autoload()
 
 void autoload(string arg)
 {
-	int i;
+//	int i;
 
 	set("name", arg);
 	set("blood_soaked", 3);
 	::wear();
 }
-

@@ -45,7 +45,7 @@ void init()
 
 int do_open(string arg)
 {
-	object room, me;
+	object room/*, me*/;
 
 	if( !arg || arg=="" )
 		return 0;

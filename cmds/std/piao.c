@@ -5,9 +5,9 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	mapping fam;
-	object obj, old_target, where = environment(me);
-	int oexp,mexp;
+//	mapping fam;
+	object obj/*, old_target, where = environment(me)*/;
+//	int oexp,mexp;
 	seteuid(getuid());
 
 	if (me->query("gender") =="女性")
@@ -75,4 +75,3 @@ HELP
 	);
 	return 1;
 }
-

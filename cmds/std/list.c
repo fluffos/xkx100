@@ -8,7 +8,7 @@ int main(object me, string arg)
 {
         mapping goods;
         string *gks;
-        object *obs, obj, env, *inv;
+        object /**obs,*/ obj, env, *inv;
         string msg;
         int i, have_vendor = 0;
 

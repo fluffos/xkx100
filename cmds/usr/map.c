@@ -33,7 +33,7 @@ string *dirs = ({
 int main(object me, string arg)
 {
 	int i, j, jj = 0, k, kk = 0;
-	string file,map,name,dest,*search;
+	string file,map,name,dest/*,*search*/;
 	mapping exit1, exit2, exit3;
 	object room1, room2, room3, room4;
 

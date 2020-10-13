@@ -33,7 +33,7 @@ void init()
 int do_enter(string arg)
 {
 	object ob ;
-	string dir;
+//	string dir;
 	if( !arg || arg !="zhou" ) 
 	{
 		tell_object(this_player() , "你要投水？\n");

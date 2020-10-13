@@ -9,7 +9,7 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object ob;
-	string wiz_status, tmpstr;
+	string wiz_status/*, tmpstr*/;
 
 	if( me!=this_player(1) ) return 0;
 	if( !arg )
@@ -40,4 +40,3 @@ int help(object me)
 HELP);
 	return 1;
 }
-

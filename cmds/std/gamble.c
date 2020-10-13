@@ -9,10 +9,10 @@ void create() { seteuid(getuid()); }
 int main(object me, string arg)
 {
 	int a,b,c;
-	int wager, skill, lpoint, tpoint;
+	int wager/*, skill, lpoint, tpoint*/;
 	string wtype1, wtype2, wtype0, status;
 	object mtype;
-	mapping lrn;
+//	mapping lrn;
 
 	int min, max;
 	min = 50;
@@ -177,4 +177,3 @@ Help
 	);
 	return 1;
 }
-

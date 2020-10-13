@@ -11,7 +11,7 @@ int main(object me, string arg)
 	mapping myfam, vtfam;
 	int sp, dp;
 
-	object where = environment(me);
+//	object where = environment(me);
 
 	seteuid(getuid());
 
@@ -166,4 +166,3 @@ HELP
 	);
 	return 1;
 }
-

@@ -17,9 +17,9 @@ string process_bar(int p)
 
 int main(object me, string arg)
 {
-        object who, ob;
-        int    i, j, count;
-        string *dir, *ppls;
+        object who/*, ob*/;
+        int    i/*, j*/, count;
+        string *dir/*, *ppls*/;
         string name, address;
         string *result;
         all=0;
@@ -76,7 +76,7 @@ void search_dir(int count, string *dir, int i, string address, object me, string
 {
         object ob;
         int j;
-        string *ppls, name, str, adr, s1, s2, s3, s4;
+        string *ppls/*, name*/, str, adr/*, s1, s2, s3, s4*/;
         string info;
         if (! objectp(me))
         {

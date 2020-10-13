@@ -8,8 +8,8 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object obj, pet;
-	string owner, food, ob;
-	int i, j, lvl, effect;
+	string /*owner,*/ food, ob;
+	int i, j, lvl/*, effect*/;
 
 	seteuid(getuid());
 
@@ -127,4 +127,3 @@ HELP
 	);
 	return 1;
 }
-

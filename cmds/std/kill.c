@@ -8,7 +8,7 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object obj, hitter;
-	string *killer, callname;
+	string /**killer,*/ callname;
 	seteuid(getuid());
 	if( environment(me)->query("no_ansuan") )
 		return notify_fail("这里禁止战斗。\n");
@@ -124,4 +124,3 @@ HELP
 	return 1;
 }
  
-

@@ -7,8 +7,8 @@ void create() { seteuid(getuid()); }
 int main(object me, string arg)
 {
 	string target, item, poison;
-	object obj, dest, *inv, obj2;
-	int i, amount, poisontime;
+	object obj, dest/*, *inv, obj2*/;
+	int /*i,amount,*/ poisontime;
 
 	if(!arg) return notify_fail("你要下什么毒？\n");
 

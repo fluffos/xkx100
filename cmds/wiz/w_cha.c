@@ -150,10 +150,10 @@ string skill_level(string type, int level)
 string pet_skill(object ob)
 {
 	string desc;
-	object  *list, couple_ob;
+//	object  *list,couple_ob;
 	mapping skl, lrn, map;
-	string *sname, *mapped,target,cardname;
-	int i, marry_flag;
+	string *sname, *mapped/*,target,cardname*/;
+	int i/*, marry_flag*/;
 
 	seteuid(getuid());
 	skl = ob->query_skills();

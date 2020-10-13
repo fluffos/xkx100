@@ -42,8 +42,8 @@ void modify_flower(mapping flower)
 int check(object me,object obj)
 {
 	object ob;
-	int i,k;
-	string str_time;
+	int i/*,k*/;
+//	string str_time;
 	string name_id;
 
 	name_id=me->query("id");
@@ -153,4 +153,3 @@ int check(object me,object obj)
 	}
 	return 1;
 }
-

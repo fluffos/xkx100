@@ -4,7 +4,7 @@ inherit  ROOM;
 
 void  create  ()
 {
-	int dir1,dir2,dir3,dir4;
+	int dir1,dir2,dir3/*,dir4*/;
 	dir1=random(5)+1;
 	dir2=random(5)+1;
 	dir3=random(5)+1;
@@ -33,4 +33,3 @@ LONG);
 	setup();
 	replace_program(ROOM);
 }
-

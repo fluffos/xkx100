@@ -739,7 +739,7 @@ int do_auctionlist()
 {
         int i,now_price;
         object me;
-        string msg, now_shop, *shop_list, *shop_key;
+        string msg, now_shop/*, *shop_list*/, *shop_key;
         mapping begin_shop, end_shop;
 
         msg = "";

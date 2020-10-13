@@ -50,7 +50,7 @@ string query_save_file()
 int do_ya(string arg)
 {
 	int i,j;
-	object me,ob;
+	object me/*,ob*/;
 	mapping biao;
 	
 	me = this_player();
@@ -152,8 +152,8 @@ int do_read(string arg)
 {
 	int i,j,k;
 	object me;
-	string name,str,str1,str2;
-	mapping biao;
+	string name/*,str*/,str1,str2;
+//	mapping biao;
 	
 	me = this_player();
 	if(arg == "rules")
@@ -228,7 +228,7 @@ int do_duijiang()
 {
 	int i,j;
 	object ob, me = this_player();
-	mapping biao, jingcai;
+	mapping /*biao,*/ jingcai;
 
 // 没有jieguo就表示没有开始兑奖
 	if(!jieguo) return notify_fail("还未到兑奖时间！\n");

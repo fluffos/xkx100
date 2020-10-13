@@ -6,8 +6,8 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	int i, j;
-	object obj, *inv, *inv1;
-	string *id;
+	object /*obj,*/ *inv, *inv1;
+//	string *id;
 	string str;
 
 	if( !arg ) {
@@ -64,4 +64,3 @@ HELP
 	return 1;
 }
  
-

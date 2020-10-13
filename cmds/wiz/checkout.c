@@ -40,7 +40,7 @@ int main(object me, string arg)
 {
 	object player;
         mapping map,pmap;
-        string *types, *skill, ski, map_to;
+        string /**types,*/ *skill/*, ski, map_to*/;
         int i, modify;
 
         if ( arg )

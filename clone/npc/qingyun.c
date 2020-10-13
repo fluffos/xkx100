@@ -143,7 +143,7 @@ void give_npc(object ob)
 void give_chinese_number(object ob)
 {
 	int num,i;
-	string cnum;
+//	string cnum;
 	num = random(9)+1;
 
 	for(i=1;i<8;i++)
@@ -171,7 +171,7 @@ string *rshorts(object room)
 {
 	int i;
 	mapping exits;
-	mapping shorts;
+//	mapping shorts;
 	string *kexits;
 	string name;
 	string *names;
@@ -528,7 +528,7 @@ void give_number(object who)
 }
 string cancel_job()
 {
-	object me = this_object();
+//	object me = this_object();
 	object who = this_player();
 
 	if (!who->query("quest/kill")) return "你没有领任务，有什么好取消的";

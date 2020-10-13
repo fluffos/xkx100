@@ -150,7 +150,7 @@ string query_sell(object me,object seller,string arg,int shop_number)
         object *inv;
         object room,*ob,gob;
         int i,j,*count;
-        mapping goods, goods_num;
+        mapping goods/*, goods_num*/;
         string *gks;
         string *invstr;
         string *gk;

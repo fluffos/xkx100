@@ -67,7 +67,7 @@ int do_ya(string arg)
 {
 	int i;
 	string c, t, c1, c2, c3, c4, c5, c6, c7, c8;
-	object ob, me = this_player();
+	object /*ob,*/ me = this_player();
 	mapping biao;
 	
 // 表示停止下注，由巫师在do_post()函数里加入
@@ -302,9 +302,9 @@ int do_post(string arg)
 int do_read(string arg)
 {
 	int i, j;
-	object me = this_player();
-	string name, str, str1, str2;
-	mapping biao;
+//	object me = this_player();
+	string /*name,*/ str, str1, str2;
+//	mapping biao;
 	
 	if(arg == "rules")
 	{
@@ -412,7 +412,7 @@ int do_duijiang(string arg)
 	int i, j, k, item, t;
 	string result;
 	object ob, me = this_player();
-	mapping biao, fifa2002;
+//	mapping biao,fifa2002;
 
 // 没有jieguo就表示没有开始兑奖
 	if(!jieguo) return notify_fail("还未到兑奖时间！\n");

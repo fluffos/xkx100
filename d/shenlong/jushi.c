@@ -40,7 +40,7 @@ LONG
 void init()
 {
 	object me = this_player();
-	int lvl = (int)me->query_skill("dodge", 1);
+//	int lvl = (int)me->query_skill("dodge", 1);
 
 	if( interactive(me) && !random((int)me->query_skill("dodge", 1)) )
 	{

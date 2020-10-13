@@ -6,7 +6,7 @@ int main(object me, string str)
 {
 	object ob;
        
-	int i;
+//	int i;
 	if (!str) return notify_fail("<Syntax>: Summon <player id>\n");
 	ob = LOGIN_D->find_body(str);
 	if (!ob) return notify_fail("咦... 有这个人吗?\n");

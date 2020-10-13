@@ -33,7 +33,7 @@ LONG );
 int valid_leave(object me, string dir)
 {
     object *inv;
-    mapping myfam, mygen;
+    mapping myfam/*, mygen*/;
     int i;
 
     if (me->query("gender") == "女性" && dir == "eastup" ) {

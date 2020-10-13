@@ -79,7 +79,7 @@ int do_look(string arg)
 {
 	mapping *notes;
 	int i, t, max,size,num,last_time_read;
-	string msg, myid;
+	string msg/*, myid*/;
 	object ob = this_object();
 	object me = this_player();
 	if (!arg || arg != ob->query("id") )

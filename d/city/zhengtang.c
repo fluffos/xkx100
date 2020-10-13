@@ -113,8 +113,8 @@ int do_work (string arg)
 int do_finish (string arg)
 {
 	object ob;
-	int bt_npc,bt_whatnpc,bt_exp,bt_qn;
-	string bt_name,bt_name1,bt_where;
+	int /*bt_npc,bt_whatnpc,*/bt_exp,bt_qn;
+	string bt_name/*,bt_name1*/,bt_where;
 	object me = this_player();
 	ob= present("huo qian",me);
 	bt_name = me->query_temp("bt/name");

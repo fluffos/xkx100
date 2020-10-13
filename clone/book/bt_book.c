@@ -32,9 +32,9 @@ void create()
 
 int do_du(string arg)
 {
-	object ob, me = this_player();
-	mapping skill;
-	int level, neili_lost;
+	object /*ob,*/ me = this_player();
+//	mapping skill;
+	int level/*, neili_lost*/;
 
 	if (me->is_busy())
 	{

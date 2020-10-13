@@ -38,7 +38,7 @@ void create()
 
 void do_check()
 {
-	object owner, room;
+	object owner/*, room*/;
 
 	if( !(owner = query("owner")) ) {
 		destruct(this_object());

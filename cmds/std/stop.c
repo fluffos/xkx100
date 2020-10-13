@@ -8,7 +8,7 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object ob;
-	int cost, i = 0;
+//	int cost,i = 0;
 
 	seteuid(getuid());
 
@@ -51,4 +51,3 @@ HELP
 	);
 	return 1;
 }
-

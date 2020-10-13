@@ -60,7 +60,7 @@ int do_apply(string arg)
 }
 void owner_is_killed()
 {
-	object me = this_player();
+//	object me = this_player();
 	write(HIM"只见一阵桃红色的烟雾闪过...尸体上什么东西消失了。\n"NOR);
 	destruct(this_object());
 }

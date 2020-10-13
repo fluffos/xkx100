@@ -6,7 +6,7 @@ int main(object me, string arg)
 {
 	int goto_inventory = 0;
 	object obj;
-	string msg;
+//	string msg;
 
 	if( !arg ) return notify_fail("你要去哪里？\n");
 

@@ -67,7 +67,7 @@ void init ()
 int do_eat (string arg)
 {
   object me = this_object();
-  object who = this_player();
+//object who = this_player();
   string part = parts[random(sizeof(parts))];
 
   me->set("eat_msg", "$N撕下一小块" + part + "，扔到嘴中吃了起来。\n");
@@ -90,4 +90,3 @@ int do_get (string arg)
   }
   return 0;
 }
-

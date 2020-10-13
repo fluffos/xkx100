@@ -81,7 +81,7 @@ int do_look(object board)
 {
 	mapping *notes;
 	int i, t, max,size,num,last_time_read;
-	string msg, myid;
+	string msg/*, myid*/;
 	object ob = board;
 	object me = this_player();
 	notes = ob->query("notes");

@@ -11,7 +11,7 @@ int continue_do(object room);
 int main(object me, string arg)
 {
         int x,y,z;
-        int single;
+//      int single;
 
         object env = environment(me);
 

@@ -56,7 +56,7 @@ int practicing(object me)
         mapping action;
         mapping sub_skills;
         string  *skill_names;
-        string  *color_msg = ({HIY, HIG, HIW, HIM, HIC});
+        string  *color_msg = ({ //HIY, HIG, HIW, HIM, HIC});
 
         step = (int) me->query_temp("pending/practice");
         skill = me->query_temp("pending/practicing_skill");

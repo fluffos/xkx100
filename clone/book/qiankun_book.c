@@ -36,7 +36,7 @@ int do_du(string arg)
 	object me = this_player();
 	object where = environment(me);
 	object ob;
-	mapping skill;
+//	mapping skill;
 	int qklevel, lvl;
 	int neili_lost;
 

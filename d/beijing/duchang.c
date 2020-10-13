@@ -37,7 +37,7 @@ LONG );
 
 int valid_leave(object me, string dir)
 {
-	int i;
+//	int i;
 	if(dir=="north" && 
 		this_player()->query("party/party_name") != HIR"天地会"NOR &&
 		objectp(present("wu", environment(me))) &&

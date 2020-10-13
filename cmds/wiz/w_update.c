@@ -26,7 +26,7 @@ int main(object me, string file)
 		return update_player(me);
 	else {
 		file = resolve_path(me->query("cwd"), file);
-		if( !sscanf(file, "%*s.c") ) file += ".c"; 
+		if( !sscanf(file, "%*s.c") ) file += ".c";
 	}
 
 	if( file_size(file)==-1 )
@@ -54,13 +54,13 @@ int main(object me, string file)
 	if (err)
 		printf( "发生错误：\n%s\n", err );
 	else {
-		write("成功\！\n");
+		write("成功！\n");
 		if( (i=sizeof(inv)) && (obj = find_object(file))) {
 			while(i--)
 				if( inv[i] && userp(inv[i]) ) inv[i]->move(obj, 1);
 		}
 	}
-		
+
 	return 1;
 }
 
@@ -95,13 +95,12 @@ int help(object me)
 {
   write(@HELP
 指令格式 : update <档名|here|me|玩家名>
- 
+
 这个指令可以更新档案, 并将新档的内容载入记忆体内. 若目标为
 'here' 则更新所在环境. 若目标为 'me' 则更新自己的人物. 若目
 标为玩家则可更新玩家物件.
- 
+
 HELP
     );
     return 1;
 }
- 

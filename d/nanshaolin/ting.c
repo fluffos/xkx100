@@ -51,7 +51,7 @@ int do_quit()
 int valid_leave(object me, string dir)
 {
 	object *inv;
-	mapping myfam, mygen;
+	mapping myfam/*, mygen*/;
 	int i;
 
 	myfam = (mapping)me->query("family");
@@ -94,4 +94,3 @@ int valid_leave(object me, string dir)
 
 	return ::valid_leave(me, dir);
 }
-

@@ -50,7 +50,6 @@ int do_zhu(string arg)
 	w_name = replace_string(w_name, "$N", "");
 	w_name = replace_string(w_name, "$n", "");
 	w_name = replace_string(w_name, "\"", "");
-	w_name = replace_string(w_name, "\'", "");
 	w_name += NOR;
 	message_vision("$N说道：准备要铸叫做 "+w_name+"("+id+")"+" 的"+type+"。\n",ob);
 	message_vision("$N说道：你准备好了吗？(answer y)。\n",ob);

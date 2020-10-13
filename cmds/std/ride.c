@@ -36,7 +36,7 @@ int main(object me, string arg)
 	
 int do_ride(object me, object obj)
 {
-	object old_env, *guard;
+	object /*old_env,*/ *guard;
 
 	if( !obj ) return 0;
 
@@ -93,4 +93,3 @@ HELP
 	);
 	return 1;
 }
-

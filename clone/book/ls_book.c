@@ -8,7 +8,7 @@ inherit F_AUTOLOAD;
 int do_study(string);
 int study(object me, string arg)
 {
-    object where = environment(me);
+//  object where = environment(me);
     object ob;
     int myskill, cost;
 

@@ -34,7 +34,7 @@ void init()
 int do_chi(string arg)
 {
 
-   int heal, recover, sen, e_sen, m_sen,remaining;
+   int heal, recover, sen, e_sen, m_sen/*,remaining*/;
    
     if( !this_object()->id(arg) ) return 0;
     if( this_player()->is_busy() )

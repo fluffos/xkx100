@@ -28,9 +28,9 @@ void init()
 int do_pretend(string arg)
 {
 	object who;
-	string str;
-	string pro;
-	int per,age;
+//	string str;
+//	string pro;
+//	int per,age;
 
         if (!present(this_object(), this_player()))
                 return 0;

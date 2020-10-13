@@ -17,7 +17,7 @@ int main(object me, string arg)
 {
 	mapping smap, pmap;
 	string *skill, basic1, basic2, arg1, arg2, arg3;
-	int i, count;
+	int i/*, count*/;
 
 	seteuid(getuid());
 

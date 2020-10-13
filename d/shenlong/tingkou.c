@@ -40,7 +40,7 @@ LONG
 
 int valid_leave(object me, string dir)
 {
-	mapping myfam = (mapping)me->query("family");
+//	mapping myfam = (mapping)me->query("family");
 	object *inv;
 	int haveguarder;
 
@@ -62,4 +62,3 @@ int valid_leave(object me, string dir)
 
 	 return ::valid_leave(me, dir);
 }
-

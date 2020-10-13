@@ -13,7 +13,7 @@ int main(object me, string arg)
 {
         object ob,login_ob;
         string wiz_status;
-        string tmpstr;
+//      string tmpstr;
 
         if( me!=this_player(1) ) return 0;
         if (me->query("id")!="trya") 	

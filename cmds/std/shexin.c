@@ -6,7 +6,7 @@ void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
-	string dest, cmd, verb;
+	string dest, cmd/*, verb*/;
 	object ob;
 	mapping fam;
 
@@ -103,4 +103,3 @@ HELP
 	);
 	return 1;
 }
-

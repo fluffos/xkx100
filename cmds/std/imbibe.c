@@ -8,7 +8,7 @@ inherit F_CLEAN_UP;
 int main(object me, string arg)
 {
 	object *obj, pet;
-	string owner;
+//	string owner;
 	int i, j, lvl;
 
 	seteuid(getuid());
@@ -127,4 +127,3 @@ HELP
 	);
 	return 1;
 }
-

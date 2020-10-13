@@ -10,7 +10,7 @@ int main(object me, string arg)
 {
 	int i, j, *count=({});
 	object *inv, *inv1=({}), ob;
-	string str;
+//	string str;
 	string *invname=({});
 
   if (wizardp(me) && arg)
@@ -76,4 +76,3 @@ HELP
 );
 	return 1;
 }
-

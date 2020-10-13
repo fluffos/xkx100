@@ -39,7 +39,7 @@ void init()
 int do_da()
 {
         object me;
-        int i, kar, cps, add_exp, add_pot, add_score;
+        int /*i,*/ kar/*, cps*/, add_exp, add_pot, add_score;
         me = this_player();
 
         if (me->query("combat_exp")>=MAX_EXP)

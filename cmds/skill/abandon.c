@@ -86,7 +86,7 @@ int main(object me, string arg)
 int check_input(string arg,object me,string skill,int lvl)
 {
 	int i;
-	mapping smap, pmap, skl;
+	mapping smap, pmap/*, skl*/;
 
 	smap = me->query_skill_map();
 	pmap = me->query_skill_prepare();

@@ -74,7 +74,7 @@ int main(object me, string arg)
 	
 int do_get(object me, object obj)
 {
-	object old_env, *enemy;
+	object old_env/*, *enemy*/;
 	int equipped;
 
 	if( !obj ) return 0;

@@ -5,7 +5,7 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	string msg;
+//	string msg;
 	me->delete_temp("block_msg/all");
 	write(CLR);
 	me->delete_temp("boss_screen");

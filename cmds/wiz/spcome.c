@@ -6,7 +6,7 @@ int main(object me, string str)
 {
 	object ob;
        
-	int i;
+//	int i;
 	if (!str) return notify_fail("<Syntax>: spcome <object id>\n");
 	ob = LOGIN_D->find_body(str);
 	if (!ob) ob = find_object(str);

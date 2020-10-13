@@ -34,7 +34,7 @@ void init()
 }
 int do_break(string arg)
 {
-	int n;
+//	int n;
 	object weapon,me=this_player();
 	mapping fam;
 

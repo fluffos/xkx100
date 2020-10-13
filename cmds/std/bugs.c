@@ -9,8 +9,8 @@ int main(object me, string arg)
 {
         object ob;
 
-        string sp, add;
-        int bug, bugp , flag;
+        string sp/*, add*/;
+        int bug/*, bugp */, flag;
 
         seteuid(getuid(me));
 
@@ -129,4 +129,3 @@ int help(object me)
 HELP);
         return 1;
 }
-

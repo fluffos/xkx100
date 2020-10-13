@@ -6,8 +6,8 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-	object obj, hitter;
-	string *killer, callname;
+	object obj/*, hitter*/;
+	string /**killer,*/ callname;
 
 	if( environment(me)->query("no_fight") )
 	{
@@ -102,4 +102,3 @@ HELP
 	return 1;
 }
  
-

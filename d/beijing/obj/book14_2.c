@@ -14,7 +14,7 @@ void create()
 	if( clonep() )
 		set_default_object(__FILE__);
 	else {
-		set("long", 
+		set("long",
 "\n一本正黄旗的经书，封皮(binding)很精致。
 翻了开来，第一页写著「永不加赋」四个大字，
 笔致圆柔，是顺治帝的手笔。\n");
@@ -52,8 +52,8 @@ int do_tear(string arg)
 			{
 				message_vision("$N将封皮撕开，几块羊皮掉了下来。\n", me);
 				message_vision("$N先将羊皮上的地图记了下来，然后把它们烧掉了。\n", me);
-		me->set("huanggong\haspi2", 1);
-		this_object()->set("hasgot",1);  
+		me->set("huanggong/haspi2", 1);
+		this_object()->set("hasgot",1);
 		}
 	}
 	else
@@ -62,7 +62,5 @@ int do_tear(string arg)
 		destruct(this_object());
 	}
 	return 1;
-	}	
+	}
 }
-
-

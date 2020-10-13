@@ -16,9 +16,9 @@ int main(object me, string arg)
 {
 	string and;//第二个pfm
 	int result;
-  int busy;
+//int busy;
   int lvl;
-  int suc;
+//int suc;
   string msg="\n";
 	object target;
 	seteuid(getuid());
@@ -137,11 +137,11 @@ int main(object me, string arg)
 private int do_perform(object me, string arg)
 {	
 	object weapon, target;
-	string martial, skill,pfarg, uarg, parg;
+	string martial, skill/*,pfarg, uarg, parg*/;
 	int result,i,j,ap,dp,plvl,xlvl;
 
 	object tweapon;
-	mapping skl, pre_skl;
+	mapping /*skl,*/ pre_skl;
 	string *sskl, *file, skname, sktype, skpf, msg;
 	target = offensive_target(me);
 	if( sscanf(arg, "%s.%s", martial, arg)!=2 )

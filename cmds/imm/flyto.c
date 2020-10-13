@@ -8,10 +8,10 @@ inherit F_CLEAN_UP;
 
 int main(object me, string arg)
 {
-        string home;
+//      string home;
         int goto_inventory = 0;
         object obj;
-        string msg;
+//      string msg;
         if( !arg ) return notify_fail("你要往哪儿飞？\n");
 
         if( sscanf(arg, "-i %s", arg) ) goto_inventory = 1;

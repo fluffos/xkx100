@@ -269,7 +269,7 @@ int accept_object(object who, object ob)
 {
 	int balance, require, abandon, num;
 //	int bonus, exp, pot, score, factor, balance, require, abandon;
-	mapping quest;
+//	mapping quest;
 
 	if ( !ob->query("money_id") ) return 0;
 	if ( !who->query("quest/shan") ||

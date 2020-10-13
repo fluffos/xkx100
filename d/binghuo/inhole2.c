@@ -23,7 +23,7 @@ void init()
 {
 	object weapon, ob, me = this_player();
         mapping weapon_prop;
-        string *apply, type;
+        string *apply/*, type*/;
 
 	if(objectp(ob = present("xie xun", environment(me))) && living(ob))
 	{

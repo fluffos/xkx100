@@ -13,9 +13,9 @@ int  strnotlast(string,  string);
 
 int  main(object  me,  string  arg)
 {
-    object  who,  ob;
-    int  i,  j,  count;
-    string  *dir,  *ppls,  name,  address;
+    object  who/*,  ob*/;
+    int  i/*,  j*/,  count;
+    string  *dir/*,  *ppls*/,  name,  address;
 
     if  (!wizardp(me))
         return  notify_fail("你没有权力使用这个指令。\n");
@@ -78,7 +78,7 @@ void  search_dir  (int  count,  string  *dir,  int  i,  string  address,  object
 {
     object  ob;
     int  j;
-    string  *ppls,  name,  str,  adr,  s1,  s2,  s3,  s4;
+    string  *ppls/*,  name*/,  str,  adr/*,  s1,  s2,  s3,  s4*/;
     string  info;
 
     if  (i  ==  sizeof(dir))  {

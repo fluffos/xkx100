@@ -319,7 +319,7 @@ int exert_function(string func)
 // his/her enabled martial art
 int perform_action(string action)
 {
-	object weapon;
+//	object weapon;
 	string martial_skill, act;
 
 	if( sscanf(action, "%s.%s", martial_skill, act) != 2 )

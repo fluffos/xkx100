@@ -38,7 +38,7 @@ int main(object me, string arg)
 {
 	object roomfrom, roomto, roomtrap, *inv, tool;
 	mapping exits;
-	string dir, from, to, *dirs;
+	string dir/*, from, to*/, *dirs;
 	int i, depth;
 
 	if( me->query("shen") >= 0 && !wizardp(me))

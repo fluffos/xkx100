@@ -35,7 +35,7 @@ int do_cun (string arg)
 {
 	object ob;
 	int du_exp,du_attack,du_defense,du_dodge,du_armor,du_qi,du_jing;
-	int temp,du_what,du_age;
+	int /*temp,du_what,*/du_age;
 	string du_name,du_id;
 	object me = this_player();
 	if ((string)me->query("family/family_name")!="五毒教" ||
@@ -85,7 +85,7 @@ int do_qu (string arg)
 {
 	object ob, *obj, me = this_player();
 	int du_exp,du_attack,du_defense,du_dodge,du_armor,du_qi,du_jing;
-	int temp,du_what,du_age,i;
+	int /*temp,du_what,*/du_age,i;
 	string du_name,du_id;
 
 	if ((string)me->query("family/family_name")!="五毒教" ||

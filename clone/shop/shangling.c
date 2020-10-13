@@ -29,7 +29,7 @@ void init()
 
 int do_stock(string arg)
 {
-	object obj, me, goods;
+	object /*obj,*/ me, goods;
 	int amount, value,i,prize;
 	mapping all_goods;
 	string beishu, *args;
@@ -103,10 +103,10 @@ int do_stock(string arg)
 
 int do_unstock(string arg)
 {
-	object obj, goods, me = this_player();
-	int i, amount, value, have_it = 0;
+	object /*obj,*/ goods, me = this_player();
+	int i/*, amount, value*/, have_it = 0;
 	mapping all_goods;
-	string *goods_key, beishu;
+	string *goods_key/*, beishu*/;
 
 	if (! me->query("is_vendor"))
 		return notify_fail("只有从事商业的人才能摆摊。\n");

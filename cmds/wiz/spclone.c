@@ -19,10 +19,10 @@ int main(object me, string arg)
 	else if (sscanf(arg, "%s %d", file, count) != 2)
 		if (sscanf(arg, "%s", file) != 1)
 			return notify_fail("你要复制什么？\n");
-	
+
 	if (sscanf(file, "%*s.c") != 1)
 		file += ".c";
-		
+
 	file = resolve_path(me->query("cwd"), file);
 	me->set("cwf", file);
 
@@ -36,18 +36,18 @@ int main(object me, string arg)
 			return 1;
 		}
 	}
-        
+
 	err = catch(obj = new(file));
 	if (err) {
 		write("复制失败：" + err + "\n");
 		return 1;
 	}
-	
+
 	if( !stringp(msg = me->query("env/msg_clone")) )
 		msg = sprintf("只见$N伸手凌空一指，变出了%s$n。\n", obj->query("money_id")?"一些":chinese_number(count) + obj->query("unit"));
-	
+
 	if ( !obj->is_character() && obj->move(me)) {
-		write(obj->query("name") + "复制成功\，放在你的物品栏。\n");
+		write(obj->query("name") + "复制成功，放在你的物品栏。\n");
         	message_vision(msg + "\n", me, obj);
         	for (i = 0; i < count -1; i ++) {
 			obj = new(file);
@@ -55,9 +55,9 @@ int main(object me, string arg)
 		}
 		return 1;
         }
-        
+
 	if( obj->move(environment(me)) && i == 0 ) {
-		write(obj->query("name") + "复制成功\，放在这个房间。\n");
+		write(obj->query("name") + "复制成功，放在这个房间。\n");
         	message_vision(msg + "\n", me, obj);
         	for (i = 0; i < count - 1; i ++) {
 			obj = new(file);
@@ -65,7 +65,7 @@ int main(object me, string arg)
 		}
 		return 1;
         }
-        
+
 	destruct(obj);
 	return notify_fail("无法复制不能移动的物件(" + file + ")。\n");
 }
@@ -80,4 +80,3 @@ HELP
     );
     return 1;
 }
-

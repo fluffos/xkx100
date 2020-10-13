@@ -9,7 +9,7 @@ int main(object me, string arg)
 	string what, who;
 	object ob, victim, thisroom;
 
-	mapping myfam, vtfam;
+	mapping myfam/*, vtfam*/;
 	int sp, dp;
         thisroom = environment(me);
 
@@ -95,7 +95,7 @@ int main(object me, string arg)
 
 private void compelete_steal(object me, object victim, object ob, int sp,int dp)
 {
-	mapping myfam, vtfam;
+	mapping myfam/*, vtfam*/;
 	int steal_level;
 	me->delete_temp("stealing");
 
@@ -203,4 +203,3 @@ HELP
 	);
 	return 1;
 }
-

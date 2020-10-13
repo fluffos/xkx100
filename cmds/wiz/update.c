@@ -11,8 +11,8 @@ int updatefile(object me,string file) ;
 int main(object me, string file)
 {
 	int i;
-	object obj, *inv;
-	string err;
+	object obj;
+	// string err;
 	mixed files;
 	string dir;
 	string* temp;

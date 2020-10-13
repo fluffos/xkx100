@@ -37,10 +37,10 @@ int recur_do(object room, int depth)
 	mapping exits;
 	string *directions;
 	string dir;
-	string file, *lines;
+	string file/*, *lines*/;
 	object nextroom;
 	int x, y, z, j;
-	int flag = 0;
+//	int flag = 0;
 
 	if (!room->query("coor"))
 		return 1;
@@ -95,9 +95,9 @@ int continue_do(object room, int depth)
 	mapping exits;
 	string *directions;
 	string dir;
-	string file, *lines;
+//	string file,*lines;
 	object nextroom;
-	int x, y, z, j;
+	int /*x,y,z,*/ j;
 	int recoored = 0;
 
 	if (!room->query("coor"))
@@ -141,5 +141,4 @@ HELP
 );
     return 1;
 }
-
 

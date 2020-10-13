@@ -748,7 +748,7 @@ private void _join(object pl)                // 将下行文字移到此行後�
 
 private void _keymap(object pl)                // 定义新功能键
 {
-        _message(pl, "请输入新定义键和原功\能键（直接按 ENTER 取消，以空白隔开）",
+        _message(pl, "请输入新定义键和原功能键（直接按 ENTER 取消，以空白隔开）",
                 "_keymap_done", ECHO);
 } // _keymap()
 
@@ -765,9 +765,7 @@ protected void _keymap_done(string str, object pl) // 取得定义功能键
                         return _message(pl, "输入格式错误。", "_message_done",
                                 HIDE);
                 me["keymap"][_new] = old;
-                _message(pl, sprintf("好了，从此以後新定义键「%s」就有原功\能键?
-?s」的功\能了！",
-                        _new, old), "_message_done", HIDE);
+                _message(pl, sprintf("好了，从此以後新定义键「%s」就有原功能键「%s」的功能了！", _new, old), "_message_done", HIDE);
         }
         else        get_char("_input", HIDE, pl); // 取消输入，继续读取下个输入
 } // _keymap_done()
@@ -1069,7 +1067,7 @@ private void _tab(object pl)                 // 命令模式下 TAB 键的定位
 
 private void _undef_key(object pl)        // 取消某功能键定义
 {
-        _message(pl, "请输入欲取消定义之功\能键（直接按 ENTER 取消)：",
+        _message(pl, "请输入欲取消定义之功能键（直接按 ENTER 取消)：",
                 "_undef_key_done", ECHO);
 } // undef_key()
 
@@ -1138,7 +1136,7 @@ protected void _write_done(string str, object pl, int quit) // 储存档案
                                 me["is_NewFile"]? "+": "*", str));
                 me["is_Modify"] = me["is_NewFile"] = 0;
                 me["sFileName"] = str;
-                _message(pl, "存档成功\。", callback, HIDE);
+                _message(pl, "存档成功。", callback, HIDE);
         }
         else
                 _message(pl, "存档失败。", callback, HIDE);

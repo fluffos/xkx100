@@ -102,11 +102,11 @@ int bigu_eat()
 
 int cloud_goto(string arg)
 {
-	string home;
+//	string home;
 	object mme;
 	int goto_inventory = 0;
 	object obj;
-	string msg;
+//	string msg;
 	mme=this_player();
 	if (!present(this_object(), this_player()))
 		return 0;

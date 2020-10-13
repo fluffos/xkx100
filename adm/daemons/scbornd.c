@@ -129,7 +129,7 @@ int save_data(object user,string arg)
 varargs int ssave(object user,string arg,int lvl)
 {
 	object ob;
-	int i;
+//	int i;
 	
 	ob = user->query_temp("link_ob");
 	if (!file_size(SKILL_D(arg))) return 0;
@@ -142,7 +142,7 @@ varargs int ssave(object user,string arg,int lvl)
 
 varargs int save_skill(object user,string arg,int lvl)
 {
-	object ob;
+//	object ob;
 	int i;
 	mapping skl;
 	string *sname;
@@ -267,7 +267,7 @@ int sixborn(object me)
 varargs int reborn(object user,string skill,string etc1,string etc2)
 {
 	object ob,couple;
-	int i,j,times;
+	int /*i,j,*/times;
 	int flag;
 	
 	ob = user->query_temp("link_ob");

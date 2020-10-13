@@ -319,7 +319,7 @@ food  食品类  liquid 饮品类  fruit 果品类  other    其他类"NOR);
 
 int do_buy(string arg)
 {
-	int value, val_factor;
+	int /*value,*/ val_factor;
 	string ob_file;
 	object *inv;
 	int i,j,count,amount=1;

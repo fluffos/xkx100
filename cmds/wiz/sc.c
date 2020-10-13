@@ -27,7 +27,7 @@ int main(object me, string arg)
 {
 	object ob;
 	mapping my;
-	string line, str, skill_type;
+	string line/*, str*/, skill_type;
 	object weapon;
 	int attack_points, dodge_points, parry_points, flag = 0;
 

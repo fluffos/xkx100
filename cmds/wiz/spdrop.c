@@ -61,7 +61,7 @@ int main(object me, string arg)
 
 int do_drop(object me, object obj)
 {
-	mixed no_drop;
+//	mixed no_drop;
 
 	if( obj->query_temp("is_rided_by") == me)
 		return notify_fail( obj->name() + "不是正被你骑着。\n");

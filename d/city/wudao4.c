@@ -64,7 +64,7 @@ int do_quit(string arg)
 }
 int valid_leave(object me, string dir)
 {
-	object obj;
+//	object obj;
 //	if ((dir == "leitai") && (!me->query_temp("leitai_allow")) && !wizardp(me))
 //		return notify_fail("还没到你比武呢，别猴急上去。\n");
 //	if ((dir == "leitai") && (me->query_temp("leitai_allow")))

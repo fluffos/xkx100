@@ -53,7 +53,7 @@ string get_header_skillbasename(string file);
 int main(object me, string arg)
 {
 	int skill_num,skill_num_result;
-	string skill_en_name,skill_ch_name,myskill;
+	string skill_en_name,skill_ch_name/*,myskill*/;
 	string skill_base_name;
 
 	spe_skill_basename="";
@@ -182,8 +182,8 @@ void skill_init_header(string skill_en_name,string skill_ch_name)
 {
 	string header, result;
 	object me = this_player();
-	int i;
-	string str;
+//	int i;
+//	string str;
 
 	result="";
 	header="";
@@ -331,7 +331,7 @@ void finish_write_skill(object ob)
 // 帮助文档
 	for(i=0;i<sizeof(list);i++)
 	{
-		if (list[i]=="	write\(\@HELP")	x=i;
+		if (list[i]=="	write(@HELP")	x=i;
 		if (list[i]=="HELP")		y=i;
 	}
 	if (!stringp(spe_skill_help))

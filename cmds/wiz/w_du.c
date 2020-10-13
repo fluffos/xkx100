@@ -13,7 +13,7 @@ int main(object me, string arg)
 	object ob;
 	string zhao_name, book_name;
 	mapping skill;
-	int my_skill, cost, times, i, success=0;
+	int my_skill, cost, times, i/*, success=0*/;
 
 	if(!arg) return notify_fail("你要读什么？\n");
 	if (where->query("pigging"))

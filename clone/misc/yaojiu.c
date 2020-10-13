@@ -33,7 +33,7 @@ int is_container() { return 1; }
 
 void init()
 {
-	object ob;
+//	object ob;
 	add_action("do_fill", "fill");
 	add_action("do_burn", "burn");
 	add_action("do_putout", "putout");
@@ -99,7 +99,7 @@ int do_burn()
 int do_putout()
 {
 	string *dir, target = "shit";
-	object obj, room = environment(this_player());
+	object obj/*, room = environment(this_player())*/;
 	int i;
 
         if (!present(this_object(), this_player()))
@@ -155,4 +155,3 @@ int do_putout()
 	}
 	else return notify_fail("可能是因为配方不太对，这次熬药没成功！\n");
 }
-

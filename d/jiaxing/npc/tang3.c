@@ -75,7 +75,7 @@ void create()
 
 void init()
 {
-	object me = this_object();
+//	object me = this_object();
 
 	add_action("do_recopy",  "recopy");
 	add_action("do_recover", "recover");
@@ -132,7 +132,7 @@ int accept_fight(object ob)
 int checking(object me, object ob)
 {
 
-	object obj;
+//	object obj;
 	int my_max_qi, his_max_qi;
 
 	my_max_qi  = me->query("max_qi");
@@ -169,7 +169,7 @@ int checking(object me, object ob)
 int do_copy(object me, object ob)
 {
 	object ob1, ob2;
-	string mengzhu, shangshan, fae;
+	string /*mengzhu,*/ shangshan, fae;
 
 	seteuid(getuid());
 

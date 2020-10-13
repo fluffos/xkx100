@@ -10,7 +10,7 @@ void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
-	object obj, *inv, weapon;
+	object obj/*, *inv*/, weapon;
 
 	if( !arg ) return notify_fail("你要砍谁的头？\n");
 

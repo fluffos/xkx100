@@ -29,7 +29,7 @@ LONG);
 
 int valid_leave(object me, string dir)
 {
-	mapping myfam;
+//	mapping myfam;
 
 	if ((me->query_temp("weapon") || me->query_temp("secondary_weapon"))
 		 && dir == "westup"

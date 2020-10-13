@@ -15,7 +15,7 @@ int main(object me, string arg)
 	string skill, skill_name;
 	object where = environment(me);
 	int my_skill, jing_cost, times, pertimes;
-	int improve_points;
+//	int improve_points;
 	int i;
 
 	if (me->is_busy())
@@ -117,4 +117,3 @@ HELP
 	);
 	return 1;
 }
-

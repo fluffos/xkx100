@@ -31,7 +31,7 @@ int do_study(string arg)
 	});
 	object me, where;
 	int jing_cost, learn_pot, item, times, i, success=0;
-	string skillname;
+//	string skillname;
 	string *old;
 
 	me = this_player();

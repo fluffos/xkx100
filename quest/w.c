@@ -88,7 +88,7 @@ void create()
 
 void init()
 {
-  object ob;
+//object ob;
 
   ::init();
   add_action("give_quest", "quest");
@@ -123,7 +123,7 @@ string do_gonglao()
 
 int do_fangqi()
 {
-  object who=this_player();
+//object who=this_player();
   return 0; 
 }
 int do_answer(string arg)
@@ -131,7 +131,7 @@ int do_answer(string arg)
   object me=this_player();
   object ob;
   string un;
-  int meili,gift,type;
+  int /*meili,gift,*/type;
   
   if (!me->query_temp("quest_gift/got"))
     return 0;
@@ -172,7 +172,7 @@ int give_quest()
 {
   mapping quest;
   object me = this_player();
-  int combatexp, timep, factor;
+  int combatexp, timep/*, factor*/;
   int num;
 
   combatexp = (int) (me->query("combat_exp"));

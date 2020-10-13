@@ -48,8 +48,8 @@ int do_tear(string arg)
 			{
 				message_vision("$N将封皮撕开，几块羊皮掉了下来。\n", me);
 				message_vision("$N先将羊皮上的地图记了下来，然后把它们烧掉了。\n", me);
-				me->set("huanggong\haspi5", 1);
-				this_object()->set("hasgot",1);  
+				me->set("huanggong/haspi5", 1);
+				this_object()->set("hasgot",1);
 			}
 		}
 		else
@@ -58,5 +58,5 @@ int do_tear(string arg)
 			destruct(this_object());
 		}
 		return 1;
-	}	
+	}
 }

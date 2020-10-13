@@ -112,7 +112,7 @@ int scborn(object me,string arg)
 	string *cant;
 	mixed dir;
 	string str;
-	string temp;
+//	string temp;
 	
 	notify_fail("你没法转生。\n");
 	if (!SCBORN_D->valid_scborn(me) && me->query("id")!="trya")

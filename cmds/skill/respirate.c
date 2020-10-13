@@ -54,7 +54,7 @@ int respirating(object me)
 {
 //	int respirate_cost = (int)me->query_temp("respirate_cost");
 	int jingli_gain = 1 + (int)me->query_skill("taoism") / 5;
-	object where=environment(me);
+//	object where=environment(me);
 
 	if (respirate_cost < jingli_gain)
 		jingli_gain = respirate_cost;

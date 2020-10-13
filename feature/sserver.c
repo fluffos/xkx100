@@ -5,7 +5,7 @@ inherit F_CLEAN_UP;
 // This function selects a random target for offensive spells/functions.
 object offensive_target(object me)
 {
-	int sz,i;
+	int sz/*,i*/;
 	object *enemy;
 
 	enemy = me->query_enemy();

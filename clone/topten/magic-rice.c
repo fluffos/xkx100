@@ -208,8 +208,8 @@ string query_save_file() { return TOPTEN; }
 
 int savetopten( object me )
 {
-	object obj;
-	int exist,i;
+//	object obj;
+//	int exist,i;
 
 	simple_sort( exp_topten,     "combat_exp",  10,me );
 	simple_sort( richman_topten, "balance",     10,me );
@@ -386,7 +386,7 @@ int simple_sort_skill( mapping *which_chart,string chart_type,int chart_size,obj
 	string *c_short=({"空缺","空缺","空缺","空缺","空缺","空缺","空缺","空缺","空缺","空缺","空缺","空缺",});
 	int *c_type=({11,10,9,8,7,6,5,4,3,2,1,0});
 	string si;
-	object *inv;
+//	object *inv;
 
 	si="名次";
 	c_id[chart_size] = me->query("id");
@@ -459,4 +459,3 @@ int movein(object me)
 	move_object(me);
 	return 1;
 }
-
