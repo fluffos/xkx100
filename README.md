@@ -19,5 +19,5 @@ https://forum.fluffos.info/t/common-lpc-migration-issues-v2019/1341
 1. 中文字符排版显示未完全修复，比如地图，会影响美观；
 2. 部分中文字符判断可能未修复，比如中文名判断`[0..1]`需要改为`[0..0]`；
 3. 代码逻辑BUG，目前修复过程中看到一些代码写的好像有总是，因为对本游戏不熟悉，未做处理；
-4. 表情系统无效，因为emoted.o文件中空；
+4. 表情系统无效，因为emoted.o文件中空，可自己使用 edemote 指令补充；
 5. 中文翻译不全，因为e2c_dict.o是从[炎黄LIB](https://github.com/oiuv/mud)中复制过来的，对游戏中显示为英文的地方需要自己补充翻译（补充方式如：chinese city=扬州）
