@@ -6,11 +6,14 @@
 // rewritten by Annihilator (11/07/94)
 // modified by Xiang for XKX (12/15/95)
 
-object connect()
+object connect(int port)
 {
 	object login_ob;
 	mixed err;
-
+	if (port == 6666)
+	{
+		set_encoding("GBK");
+	}
 	err = catch(login_ob = new(LOGIN_OB));
 
 	if (err) {
