@@ -7,7 +7,9 @@ inherit NPC;
 void create()
 {
 	set_name("霍都", ({ "huo  du"}));
-	set("long",@LONG 他是金轮法王座下的三弟子。深得法王的真传。 LONG);
+	set("long",@LONG
+他是金轮法王座下的三弟子。深得法王的真传。
+LONG);
 	set("gender", "男性");
 	set("age", 40);
 	set("attitude", "peaceful");
@@ -23,11 +25,11 @@ void create()
 	set("combat_exp", 3000000+ random(1000000));
 	set("score", 150000);
 	set("chat_chance_combat", 60);
-	set("chat_msg_combat", ({			      
+	set("chat_msg_combat", ({
 	       (: exert_function, "powerup" :),
 	       (: exert_function, "regenerate" :),
 	       (: exert_function, "recover" :),
-	})); 
+	}));
 
 	set_skill("force", 200+ random(50));
 	set_skill("longxiang", 250+ random(50));

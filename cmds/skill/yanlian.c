@@ -25,7 +25,7 @@ int main(object me, string arg)
 
         if (file_size(SKILL_D(arg) + ".c") <= 0)
                 return notify_fail("没听说过有这种武功。\n");
-               
+
         if (! mapp(SKILL_D(arg)->query_sub_skills()))
                 return notify_fail("这种武功无需演练，还是勤加练习吧。\n");
 
@@ -56,7 +56,7 @@ int practicing(object me)
         mapping action;
         mapping sub_skills;
         string  *skill_names;
-        string  *color_msg = ({ //HIY, HIG, HIW, HIM, HIC});
+        // string  *color_msg = ({HIY, HIG, HIW, HIM, HIC});
 
         step = (int) me->query_temp("pending/practice");
         skill = me->query_temp("pending/practicing_skill");
@@ -68,7 +68,7 @@ int practicing(object me)
         skill_names = keys(sub_skills);
         if (step <= sizeof(sub_skills))
         {
-        	
+
                 sub_skill = skill_names[step - 1];
                 if (! me->query_skill(sub_skill, 1))
                 {

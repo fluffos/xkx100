@@ -246,7 +246,7 @@ int do_recopy(object me, object ob)
 
 int do_clone(object me, object ob)
 {
-	object *inv, new;
+	object *inv, new_ob;
 	mapping hp_status, skill_status, map_status, prepare_status;
 	string *sname, *mname, *pname;
 	int i, temp;
@@ -364,8 +364,8 @@ int do_clone(object me, object ob)
 
 	tell_object(ob, "状态储存完毕。\n");
 
-	new = new("/clone/npc/meng-zhu");
-	new->move("/d/taishan/fengchan");
+	new_ob = new("/clone/npc/meng-zhu");
+	new_ob->move("/d/taishan/fengchan");
 	destruct(me);
 
 	return 1;

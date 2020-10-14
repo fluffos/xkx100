@@ -16,7 +16,7 @@ string *practice_types = ({
 	"parry",
 	"dodge",
 });
-	
+
 int *cost(object, string);
 void dropoff(object);
 
@@ -44,7 +44,7 @@ void init()
 
 	if( interactive(me) && !random((int)me->query_skill("dodge", 1)) )
 	{
-		call_out("dropoff", 1, me);	     
+		call_out("dropoff", 1, me);
 		return;
 	}
 
@@ -105,7 +105,7 @@ int do_practice(string arg)
 	{
 		tell_object(me, "你已经不用在这儿化时间练习这项技能了。\n");
 		return 1;
-	}		
+	}
 	if(!times || times == 0)
 	{
 		times = 1;
@@ -118,16 +118,16 @@ int do_practice(string arg)
 		case "club"  :
 		case "staff" :
 		case "stick" :
-		case "sword" : 
+		case "sword" :
 		case "whip"  : str = "挥舞" + weapon->name();  break;
 		case "cuff"  : str = "挥舞双拳"; break;
 		case "strike": str = "挥舞双掌"; break;
 		case "parry" : str = "奋力拚博"; break;
 		case "dodge" : str = "纵闪跳跃"; break;
-	}		
+	}
 	message_vision("$N在狂风中" + str + multiple + "练习着" + to_chinese(skillarg) + "。\n", me);
 
-	for(times; times > 0; times--)
+	for (; times > 0; times--)
 	{
 		cost = cost(me, skillarg);
 		if( (int)me->query("jing") < cost[0] ||
@@ -137,7 +137,7 @@ int do_practice(string arg)
 			return 1;
 		}
 		me->receive_damage("jing", cost[0]);
-		me->receive_damage("qi", cost[1]);	     
+		me->receive_damage("qi", cost[1]);
 		me->improve_skill(skillarg, random((int)me->query_int()));
 
 		if( !random((int)me->query_skill("dodge", 1)) )
@@ -159,7 +159,7 @@ int do_jump(string arg)
 
 	tell_object(me, "奋力一跳，身子随即直落下去。\n");
 	message("vision", me->name() + "奋力一跳，便直落海里。\n", environment(me), ({me}));
-      
+
 	if( random(mydodge - 30 ) < 10 )
 	{
 		for(int i = 0; i < sizeof(inv); i++)
@@ -168,7 +168,7 @@ int do_jump(string arg)
 			else    destruct(inv[i]);
 		me->unconcious();
 		me->move("/d/shenlong/beach");
-		message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是" + me->name() + "\241\243\n", environment(me), ({me}));
+		message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是" + me->name() + "\n", environment(me), ({me}));
 		return 1;
 	}
 
@@ -193,13 +193,13 @@ void dropoff(object me)
 	me->unconcious();
 	me->move("/d/shenlong/beach");
 
-	message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是" + me->name() + "\241\243\n", environment(me), ({me}));
+	message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是" + me->name() + "\n", environment(me), ({me}));
 }
 
 int *cost(object ob, string skill)
 {
 	if( (int)ob->query("potential") > 0 && (int)ob->query("neili") > 10 ) {
-		if( !random(3) ) 
+		if( !random(3) )
 		ob->add("potential", -1);
 		else ob->add("neili", -5);
 		return ({0, 0});

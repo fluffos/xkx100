@@ -1,96 +1,96 @@
 // Room: /d/city/npc.c
 
-#include <ansi.h> 
- 
+#include <ansi.h>
+
 mapping *dizhia=({
 	(["cdizhi":	"白驼山",
-	"weizhi2" :	"/d/baituo/cao1",]),  
+	"weizhi2" :	"/d/baituo/cao1",]),
 	(["cdizhi":	"长城",
-	"weizhi2" :	"/d/changcheng/changcheng13",]),  
+	"weizhi2" :	"/d/changcheng/changcheng13",]),
 	(["cdizhi":	"扬州城",
-	"weizhi2" :	"/d/city/bingyin",]),  
+	"weizhi2" :	"/d/city/bingyin",]),
 	(["cdizhi":	"北京城",
-	"weizhi2" :	"/d/beijing/huayuan",]),  
+	"weizhi2" :	"/d/beijing/huayuan",]),
 	(["cdizhi":	"成都城",
-	"weizhi2" :	"/d/chengdu/wuhouci",]),  
+	"weizhi2" :	"/d/chengdu/wuhouci",]),
 	(["cdizhi":	"长安城",
-	"weizhi2" :	"/d/changan/chaguan",]),  
+	"weizhi2" :	"/d/changan/chaguan",]),
 	(["cdizhi":	"大理城",
-	"weizhi2" :	"/d/dali/tingyuan",]),  
+	"weizhi2" :	"/d/dali/tingyuan",]),
 	(["cdizhi":	"峨嵋山",
-	"weizhi2" :	"/d/emei/jieyindian",]),  
+	"weizhi2" :	"/d/emei/jieyindian",]),
 	(["cdizhi":	"佛山镇",
-	"weizhi2" :	"/d/foshan/street4",]),  
+	"weizhi2" :	"/d/foshan/street4",]),
 	(["cdizhi":	"福州城",
-	"weizhi2" :	"/d/fuzhou/luoxingta",]),  
+	"weizhi2" :	"/d/fuzhou/luoxingta",]),
 	(["cdizhi":	"关外",
-	"weizhi2" :	"/d/guanwai/xuedi2",]),  
+	"weizhi2" :	"/d/guanwai/xuedi2",]),
 	(["cdizhi":	"杭州城",
-	"weizhi2" :	"/d/hangzhou/shiwudong",]),  
+	"weizhi2" :	"/d/hangzhou/shiwudong",]),
 	(["cdizhi":	"黑木崖",
-	"weizhi2" :	"/d/heimuya/shijie2",]),  
+	"weizhi2" :	"/d/heimuya/shijie2",]),
 	(["cdizhi":	"恒山",
-	"weizhi2" :	"/d/hengshan/yuyang",]),  
+	"weizhi2" :	"/d/hengshan/yuyang",]),
 	(["cdizhi":	"衡山",
-	"weizhi2" :	"/d/henshan/nantaisi",]),  
+	"weizhi2" :	"/d/henshan/nantaisi",]),
 	(["cdizhi":	"黄河",
-	"weizhi2" :	"/d/huanghe/weifen",]),  
+	"weizhi2" :	"/d/huanghe/weifen",]),
 	(["cdizhi":	"华山",
-	"weizhi2" :	"/d/huashan/yunuci",]),  
+	"weizhi2" :	"/d/huashan/yunuci",]),
 	(["cdizhi":	"江陵城",
-	"weizhi2" :	"/d/jiangling/longzhong",]),  
+	"weizhi2" :	"/d/jiangling/longzhong",]),
 	(["cdizhi":	"嘉兴城",
-	"weizhi2" :	"/d/jiaxing/njroad2",]),  
+	"weizhi2" :	"/d/jiaxing/njroad2",]),
 	(["cdizhi":	"昆仑山",
-	"weizhi2" :	"/d/kunlun/jiuqulang2",]),  
+	"weizhi2" :	"/d/kunlun/jiuqulang2",]),
 	(["cdizhi":	"兰州城",
-	"weizhi2" :	"/d/lanzhou/street1",]),  
+	"weizhi2" :	"/d/lanzhou/street1",]),
 	(["cdizhi":	"灵鹫峰",
-	"weizhi2" :	"/d/lingjiu/jian",]),  
+	"weizhi2" :	"/d/lingjiu/jian",]),
 	(["cdizhi":	"灵州城",
-	"weizhi2" :	"/d/lingzhou/kongdi",]),  
+	"weizhi2" :	"/d/lingzhou/kongdi",]),
 	(["cdizhi":	"洛阳城",
-	"weizhi2" :	"/d/luoyang/wanghuating",]),  
+	"weizhi2" :	"/d/luoyang/wanghuating",]),
 	(["cdizhi":	"光明顶",
-	"weizhi2" :	"/d/mingjiao/tohsq1",]),  
+	"weizhi2" :	"/d/mingjiao/tohsq1",]),
 	(["cdizhi":	"祁连山",
-	"weizhi2" :	"/d/qilian/zhutishan",]),  
+	"weizhi2" :	"/d/qilian/zhutishan",]),
 	(["cdizhi":	"青城山",
-	"weizhi2" :	"/d/qingcheng/huyingting",]),  
+	"weizhi2" :	"/d/qingcheng/huyingting",]),
 	(["cdizhi":	"嵩山",
-	"weizhi2" :	"/d/songshan/junjigate",]),  
+	"weizhi2" :	"/d/songshan/junjigate",]),
 	(["cdizhi":	"苏州城",
-	"weizhi2" :	"/d/suzhou/liuyuan",]),  
+	"weizhi2" :	"/d/suzhou/liuyuan",]),
 	(["cdizhi":	"泰山",
-	"weizhi2" :	"/d/taishan/tianjie",]),  	 
+	"weizhi2" :	"/d/taishan/tianjie",]),
 	(["cdizhi":	"天龙寺",
-	"weizhi2" :	"/d/tianlongsi/tading",]),  
+	"weizhi2" :	"/d/tianlongsi/tading",]),
 	(["cdizhi":	"铁掌峰",
-	"weizhi2" :	"/d/tiezhang/guangchang",]),  
+	"weizhi2" :	"/d/tiezhang/guangchang",]),
 	(["cdizhi":	"华山村",
-	"weizhi2" :	"/d/village/wexit",]),  
+	"weizhi2" :	"/d/village/wexit",]),
 	(["cdizhi":	"万劫谷",
-	"weizhi2" :	"/d/wanjiegu/port2",]),  
+	"weizhi2" :	"/d/wanjiegu/port2",]),
 	(["cdizhi":	"五毒教",
-	"weizhi2" :	"/d/wudujiao/wdsl2",]),  
+	"weizhi2" :	"/d/wudujiao/wdsl2",]),
 	(["cdizhi":	"无量山",
-	"weizhi2" :	"/d/wuliang/road4",]),  
+	"weizhi2" :	"/d/wuliang/road4",]),
 	(["cdizhi":	"无锡城",
-	"weizhi2" :	"/d/wuxi/road15",]),  
+	"weizhi2" :	"/d/wuxi/road15",]),
 	(["cdizhi":	"襄阳城",
-	"weizhi2" :	"/d/xiangyang/walle3",]),  
+	"weizhi2" :	"/d/xiangyang/walle3",]),
 	(["cdizhi":	"星宿海",
-	"weizhi2" :	"/d/xingxiu/shidao",]),  
+	"weizhi2" :	"/d/xingxiu/shidao",]),
 	(["cdizhi":	"雪域",
-	"weizhi2" :	"/d/xuedao/shandong2",]),  
+	"weizhi2" :	"/d/xuedao/shandong2",]),
 	(["cdizhi":	"大轮寺",
-	"weizhi2" :	"/d/xueshan/zoulang2",]),  
+	"weizhi2" :	"/d/xueshan/zoulang2",]),
 	(["cdizhi":	"燕子坞",
 	"weizhi2" :	"/d/yanziwu/qiushuan",]),
 	(["cdizhi":	"泉州",
 	"weizhi2" :	"/d/quanzhou/jiangjunfu1",]),
 	(["cdizhi":	"漠北",
-	"weizhi2" :	"/d/mobei/caocong1",]),	
+	"weizhi2" :	"/d/mobei/caocong1",]),
 });
 
 void init()
@@ -101,18 +101,18 @@ void init()
 
 	::init();
      if (!query("inited"))
-      {  	
+      {
          set("chat_chance", 10);
     	   set("chat_msg", ({
    		   (: random_move :)
 	                  }) );
-   		   remove_call_out("dest"); 
+   		   remove_call_out("dest");
          call_out("dest",2000);
          set("inited",1);
       }
 	ob = this_player();
   me = this_object();
-  
+
 	if (interactive(ob)
 		&& !environment(ob)->query("no_fight")
 //		&& ob->query_condition("guanfu_task")
@@ -128,7 +128,7 @@ void init()
 
 ///第一次追杀
 	if (ob->query_temp("mark/gkill1") )
-	{ 
+	{
 	  message_vision( HIR"$n看到$N目光冷冷注视着自己一动不动，不由停下了脚步。\n"NOR, ob, me);
 	 if ((string)me->query("name") == ob->query_temp("guanf_huida1"))
 		{
@@ -139,17 +139,17 @@ void init()
 			ob->delete_temp("guanf_huida1");
 			ob->delete_temp("mark/gkill1");
 
-			if ((int)exp<3000000) 
+			if ((int)exp<3000000)
 			    me->set("combat_exp",exp*3/2);
-			else 
-			    me->set("combat_exp",exp*2);   
+			else
+			    me->set("combat_exp",exp*2);
      if ((hp_status["max_qi"]*3/2)<1500)
-     { 
+     {
         me->set("max_qi", 1500);
         me->set("eff_qi", 1500);
         me->set("qi",     1500);
-     }  
-     else		
+     }
+     else
 	   {
 	      me->set("max_qi", hp_status["max_qi"]*3/2);
 	      me->set("eff_qi", hp_status["max_qi"]*3/2);
@@ -158,13 +158,13 @@ void init()
 
      if ((hp_status["max_neili"])<1500)
         me->set("max_neili",1500);
-     else 
+     else
         me->set("max_neili", hp_status["max_neili"]);
 
      if((hp_status["neili"])<1500)
         me->set("neili",1500);
      else
-        me->set("neili", hp_status["neili"]);	
+        me->set("neili", hp_status["neili"]);
 	   me->set("jiali",nei1/20);
 	 }
    else
@@ -203,25 +203,25 @@ void init()
 				case 0:
 					message_vision( HIR"$n额头青筋跳动，冷哼了一声，瞪着通红的眼睛向着$N就冲了过去。\n"NOR, ob,me);
 					me->set_leader(ob);
-					if ((int)exp<3000000) 
+					if ((int)exp<3000000)
 			                   me->set("combat_exp",exp*3/2);
-			                else 
-			                   me->set("combat_exp",exp*2);   
+			                else
+			                   me->set("combat_exp",exp*2);
 			                me->set("jiali",nei1/15);
 					remove_call_out("kill_ob");
 					call_out("kill_ob", 0, ob);
 					break;
 				case 1:
-					message_vision( HIY"$n一看到$N，嘿嘿一笑，头也不回挤进行人之中，脚下抹油溜了。\n"NOR,ob,me); 
+					message_vision( HIY"$n一看到$N，嘿嘿一笑，头也不回挤进行人之中，脚下抹油溜了。\n"NOR,ob,me);
 					ob->delete_temp("mark/gkill2");
-					ob->set_temp("mark/gkill3",1); 
+					ob->set_temp("mark/gkill3",1);
 					write(WHT"「"+ob->query_temp("guanfu_targetnm")+"」好象往「"+dizhis["cdizhi"]+"」的方向逃去了。\n"NOR);
 					me->move(dizhis["weizhi2"]);
 					me->random_move();
 					me->random_move();
 					me->random_move();
-					return; 
-			}	 
+					return;
+			}
 		}
 		//第三次
 		if (ob->query_temp("mark/gkill3"))
@@ -236,25 +236,25 @@ void init()
 			me->set_leader(ob);
 			remove_call_out("kill_ob");
 			call_out("kill_ob", 0, ob);
-			if ((int)exp<3000000) 
+			if ((int)exp<3000000)
 			    me->set("combat_exp",exp*3/2);
-			else 
-			    me->set("combat_exp",exp*2);   
+			else
+			    me->set("combat_exp",exp*2);
 			me->set("jiali",nei1/15);
-			me->reincarnate(); 
+			me->reincarnate();
 		}
 	}
 	add_action("do_yes","yes");
   add_action("do_no","no");
-	
-//	call_out("dest", 2000); 
+
+//	call_out("dest", 2000);
 /*        add_action("do_hit","hit");
-        add_action("do_hit","kill");    
+        add_action("do_hit","kill");
         add_action("do_hit","touxi");
         add_action("do_hit","ansuan");
-        add_action("do_hit","steal"); 
+        add_action("do_hit","steal");
 */
-} 
+}
 
 /*int do_hit(string arg)
 {
@@ -273,14 +273,15 @@ void init()
                 else return 0;
         }
 }*/
-int accept_hit(string arg)
+int accept_hit(object who)
 {
-	   object me = this_player();
-     object ob = this_object();
-     if (!(me->query_temp("guanfu_target")==ob->query("id")))
-        return notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
-     return 1;
+	object me = this_player();
+	object ob = this_object();
+	if (!(me->query_temp("guanfu_target")==ob->query("id")))
+		return notify_fail(HIW"不是你要抓的人，凑什么热闹！\n"NOR);
+    return 1;
 }
+
 int accept_kill(object who)	{return accept_hit(who);}
 int accept_ansuan(object who) {return accept_hit(who);}
 int accept_touxi(object who)	{return accept_hit(who);}
@@ -370,11 +371,11 @@ int do_yes()
 	command("say 自古邪正势不两立，在下不过开个小小玩笑，千万不要当真啊。\n");
 	command("laugh " + ob->query("id"));
 	write("对方好象在拿你取笑，你不由怒火中烧。\n");
-	tell_room(environment(me), me->query("name")+"纵身跳入行人之中，转眼就不见了。\n", ({me}));	
+	tell_room(environment(me), me->query("name")+"纵身跳入行人之中，转眼就不见了。\n", ({me}));
 	destruct(me);
 	return 1;
 }
-   
+
 
 int do_no()
 {
@@ -403,11 +404,11 @@ void die()
 {
 	object ob, me,newob;
 	mapping dizhis;
-	
+
 	ob = this_object();
 	me = query_temp("last_damage_from");
-	dizhis = dizhia[random(sizeof(dizhia))];  
-	
+	dizhis = dizhia[random(sizeof(dizhia))];
+
 	if (!me->query_temp("mark/gkill3") &&
 		!me->query_temp("mark/gkill2") &&
 		(string)ob->query("id") == me->query_temp("guanfu_target"))
@@ -457,6 +458,6 @@ void dest()
 	object ob;
 	ob = this_object();
 	if (environment())
-	message_vision("只见$N忽然急转身行，纵身钻进行人中，转眼就踪迹皆无。\n", ob);  
+	message_vision("只见$N忽然急转身行，纵身钻进行人中，转眼就踪迹皆无。\n", ob);
 	destruct(this_object());
 }

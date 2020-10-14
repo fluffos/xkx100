@@ -5,7 +5,7 @@
 inherit NPC;
 inherit F_DEALER;
 
-string *class = ({
+string *class_list = ({
 	"dragon","phenix","kylin","elephant","lion","tiger","panther","bear","fox","wolf","dog","pig","deer","marten","cat","mouse","monkey","eagle","vulture","chicken","duck","snake","tortoise","crocodile","horse","donkey","cattle","rabbit"});
 string *title = ({
 	HIY"龙",HIC"凤凰",YEL"麒麟","象","狮","虎","豹","熊","狐","狼","狗","猪","鹿","貂","猫","鼠","猴","鹰","雕","鸡","鸭","蛇","龟","鳄","马","驴","牛","兔"});
@@ -17,7 +17,7 @@ int *petper=({25,25,25,20,20,20,20,12,15,15,15,12,22,25,22,11,22,20,18,15,13, 8,
 int *petkar=({30,30,30,12,15,18,20,12,18,15,20,18,15,20,25,23,28,20,22,18,15,10,10, 8,12,15,15,12});
 int *petcor=({30,30,30,15,20,25,25,20,12,20,18,12, 5,10,20,18,15,25,28,10,10,12,15,20,12,13,15, 5});
 int *petcps=({30,30,30,25,20,20,15,20,25,12,18,15, 5, 8,10, 9,15,10,20,10,10,12,20,20,13,12,15, 5});
-int *weight=({90,10,50,80,60,60,40,70,15,20,20,40,18,10,10, 8,15,20,35,10,10,18,10,30,40,30,45, 5});
+int *petweight=({90,10,50,80,60,60,40,70,15,20,20,40,18,10,10, 8,15,20,35,10,10,18,10,30,40,30,45, 5});
 int *value =({99,99,99,49,49,49,49,39,39,39,39,19,29,19, 9, 9,29,29,49, 9, 9,19, 9,39,39,29,29, 9});
 
 int do_goumai(string arg);
@@ -71,7 +71,7 @@ void addaction(object pet)
 		case "horse"    :     //马
 		case "donkey"   :     //驴
 			pet->set("verbs",({"bite","hoof","knock"}));break;
-		default: 
+		default:
 			pet->set("verbs",({"bite","claw"})); break;
 	}
 }
@@ -147,30 +147,30 @@ int do_goumai(string arg)
 		command("say 这位"+RANK_D->query_respect(me)+"，宠物只能豢养一只，如果想买新的，得把旧的先还(return)给我。”\n");
 		return 1;
 	}
-	if ( member_array(arg, class) == -1)
+	if ( member_array(arg, class_list) == -1)
 		return notify_fail("老头歉然笑道：“暂时没有这种宠物可买，请看清楚招牌。”\n");
 	if (!wizardp(me) && me->query("combat_exp") < 2000000 &&
 		(arg == "dragon" || arg == "phenix" || arg == "kylin"))
 		return notify_fail("老头呵呵一通，笑道：“你的经验还不足养这些宠物。”\n");
 
-	num = member_array(arg, class);
+	num = member_array(arg, class_list);
 	gold = present("gold", me);
 	if(!gold) return notify_fail("老头笑了笑：“你没带金子来？”\n");
 	if((int) gold->query_amount() < value[num])
 		return notify_fail("老头看了你一眼：“你身上黄金没带够。”\n");
 	pet = new("/clone/misc/pet");
-	pet->set("class", class[num]);
-	pet->set("id", class[num]);
+	pet->set("class", class_list[num]);
+	pet->set("id", class_list[num]);
 	pet->set("title", title[num]+NOR);
 	pet->set("name", "宠物");
 	pet->set("race", "野兽");
-	pet->set_name("宠物", ({class[num], "pet"}));
+	pet->set_name("宠物", ({class_list[num], "pet"}));
 	pet->set("long", "这是一只宠物"+title[num]+"。\n"NOR);
 	pet->set("level",1);
 	pet->set("owner", me->query("id"));
 	pet->set_temp("owner", me->query("id"));
 	pet->set_temp("ownername", me->query("name"));
-	me->set("Pet/id", class[num]);
+	me->set("Pet/id", class_list[num]);
 	me->set("Pet/name", "宠物");
 
 	pet->set("str", petstr[num]+random(10));
@@ -184,8 +184,8 @@ int do_goumai(string arg)
 	pet->set("obe", 1);  //初始驯服度
 	pet->set("age", 1);  //年龄
 // 重量决定食量
-	pet->set("weight", weight[num]*1000);
-	pet->set_weight(weight[num]*1000);
+	pet->set("weight", petweight[num]*1000);
+	pet->set_weight(petweight[num]*1000);
 	if( random(10) > 4) pet->set("gender", "雌性");
 	else pet->set("gender", "雄性");
 	gold->add_amount(-value[num]);
@@ -193,7 +193,7 @@ int do_goumai(string arg)
 	addaction(pet);
 	pet->move(environment(me));
 	message_vision("$N掏出"HIR+chinese_number(value[num])+NOR"两"HIY"黄金"NOR"，往柜面一砸：“给我来一只"+title[num]+NOR"。”\n", me);
-	message_vision("$N看了一眼"HIY"黄金"NOR"成色，伸手一捋，把它捋到抽屉里。然后从身后笼子里取出一只"+title[num]+NOR"放在地上。\n", ob);		
+	message_vision("$N看了一眼"HIY"黄金"NOR"成色，伸手一捋，把它捋到抽屉里。然后从身后笼子里取出一只"+title[num]+NOR"放在地上。\n", ob);
 	me->set("Pet/class", pet->query("class"));
 	me->set("Pet/exp", pet->query("combat_exp"));
 	me->set("Pet/id", pet->query("id"));
@@ -239,7 +239,7 @@ int do_goumai(string arg)
 int do_return()
 {
 	object me = this_player(), *ob;
-	string file, id;
+	string /*file,*/ id;
 	int i;
 
 	if(!me->query("Pet"))
@@ -353,7 +353,7 @@ int do_lingqu()
 int do_zancun()
 {
 	object me = this_player(), *ob;
-	string file, id;
+	string /*file, */id;
 	int i;
 
 	if(!me->query("Pet"))
@@ -421,4 +421,3 @@ int do_zancun()
 	me->start_busy(1);
 	return 1;
 }
-

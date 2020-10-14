@@ -73,16 +73,15 @@ string author_file(string file)
 	return ROOT_UID;
 }
 
-
 void destruct(object ob)
 {
-	if (ob) 
+	if (ob)
 	{
-		if( previous_object()) ob->remove( geteuid(previous_object()) );
-		else ob->remove(0);
-	    //efun::destruct(ob);
+		if (previous_object())
+			ob->remove(geteuid(previous_object()));
+		else
+			ob->remove(0);
 	}
+
 	efun::destruct(ob);
 }
-
-

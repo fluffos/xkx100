@@ -16,7 +16,7 @@ string *practice_types = ({
 	"parry",
 	"dodge",
 });
-	
+
 int *cost(object, string);
 
 void create()
@@ -96,16 +96,16 @@ int do_practice(string arg)
 		case "club"  :
 		case "staff" :
 		case "stick" :
-		case "sword" : 
+		case "sword" :
 		case "whip"  : str = "挥舞" + weapon->name();  break;
 		case "cuff"  : str = "挥舞双拳"; break;
 		case "strike": str = "挥舞双掌"; break;
 		case "parry" : str = "奋力拚博"; break;
 		case "dodge" : str = "纵闪跳跃"; break;
-	}		
+	}
 	message_vision("$N在海浪中" + str + multiple + "练习着" + to_chinese(skillarg) + "。\n", me);
 
-	for(times; times > 0; times--) {
+	for(; times > 0; times--) {
 		cost = cost(me, skillarg);
 		if( (int)me->query("jing") < cost[0]
 		||  (int)me->query("qi") < cost[1] ) {
@@ -113,7 +113,7 @@ int do_practice(string arg)
 			return 1;
 		}
 		me->receive_damage("jing", cost[0]);
-		me->receive_damage("qi", cost[1]);	
+		me->receive_damage("qi", cost[1]);
 		me->improve_skill(skillarg, random((int)me->query_int()));
 
 		if(!weapon)
@@ -131,11 +131,11 @@ int do_practice(string arg)
 
 			me->unconcious();
 			me->move("/d/shenlong/beach");
-			message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是"+me->name()+"\241\243\n", environment(me), ({me}));
+			message("vision","你发现一个浑身水淋淋的家伙被海水冲上岸来，不由得走近一看，原来是"+me->name()+"\n", environment(me), ({me}));
 			return 1;
 		}
 	}
-	
+
 	return 1;
 }
 
@@ -165,4 +165,3 @@ int *cost(object ob, string skill)
 
 	return ({20, 20});
 }
-

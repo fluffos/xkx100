@@ -5,7 +5,7 @@ inherit F_LIQUID;
 
 void create()
 {
-	set_name("海口大碗", "bowl");
+	set_name("海口大碗", ({"bowl"}));
 	set_weight(50);
 	if (clonep())
 		set_default_object(__FILE__);

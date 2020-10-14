@@ -40,9 +40,9 @@ void create()
 	set_skill("dodge", 40);
 	set_skill("unarmed", 30);
 	set_skill("parry", 50);
-	
+
 	setup();
-	
+
 	carry_object(__DIR__"obj/gangdao")->wield();
 	carry_object(__DIR__"obj/cloth")->wear();
 }
@@ -53,7 +53,7 @@ string ask_me(object who)
 	object *ob;
 
 	if( query("revealed") ) {
-		if( is_killing(who) ) return "你既然知道了我的身分，今日休想活命！\n";
+		if( is_killing(who->query("id")) ) return "你既然知道了我的身分，今日休想活命！\n";
 		else {
 			kill_ob(who);
 			who->fight_ob(this_object());
@@ -74,7 +74,7 @@ string ask_me(object who)
 
 	message("vision",
 		HIY "王五眼中突然放出异样的光芒，颤声说道，看来...你都知道了？\n"
-		"王五大喝一声，叫道，既然如此，老子今天反正豁出去，跟你拼了。\n" 
+		"王五大喝一声，叫道，既然如此，老子今天反正豁出去，跟你拼了。\n"
 		"王五使开单刀，招数精奇，沉猛狠辣，和刚才的醉鬼简直判若两人。\n" NOR,
 		environment(), this_object() );
 

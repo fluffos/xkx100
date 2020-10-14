@@ -10,7 +10,7 @@ object connect()
 {
 	object login_ob;
 	mixed err;
-   
+
 	err = catch(login_ob = new(LOGIN_OB));
 
 	if (err) {
@@ -25,7 +25,7 @@ object connect()
 // It should return the object the mudlib wishes to associate with the
 // filename named by 'file'.  It should return 0 if no object is to be
 // associated.
-mixed compile_object(string file) 
+mixed compile_object(string file)
 {
 	object daemon;
 
@@ -110,7 +110,7 @@ void preload(string file)
 		write(" -> Error " + err + " when loading " + file + "\n");
 	else
 		write(".... Done.\n");
-		
+
 }
 
 // Write an error message into a log file. The error occured in the object
@@ -118,7 +118,7 @@ void preload(string file)
 void log_error(string file, string message)
 {
 	string name, home;
-   
+
 	if( find_object(SIMUL_EFUN_OB) )
 		name = file_owner(file);
 
@@ -126,7 +126,7 @@ void log_error(string file, string message)
 	else home = LOG_DIR;
 
 	if(this_player(1)) efun::write("编译时段错误：" + message+"\n");
-	
+
 	efun::write_file(home + "log", message);
 }
 
@@ -136,7 +136,7 @@ void log_error(string file, string message)
 int save_ed_setup(object who, int code)
 {
 	string file;
-  
+
     if (!intp(code))
         return 0;
     file = user_path(getuid(who)) + ".edrc";
@@ -150,7 +150,7 @@ int retrieve_ed_setup(object who)
 {
    string file;
    int code;
-  
+
     file = user_path(getuid(who)) + ".edrc";
     if (file_size(file) <= 0) {
         return 0;
@@ -272,7 +272,7 @@ int valid_override( string file, string name )
 		return 1;
 
 	// Must use the move() defined in F_MOVE.
-	if(((name == "move_object") || (name == "destruct")) && (file != F_MOVE))
+	if(((name == "move_object")) && (file != F_MOVE))
 		return 0;
 
     //  may also wish to protect destruct, shutdown, snoop, and exec.
@@ -335,7 +335,7 @@ int valid_save_binary( string filename )
 }
 
 // valid_write: write privileges; called with the file name, the object
-//   initiating the call, and the function by which they called it. 
+//   initiating the call, and the function by which they called it.
 int valid_write( string file, mixed user, string func )
 {
 	object ob;
