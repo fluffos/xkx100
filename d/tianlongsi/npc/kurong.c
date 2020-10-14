@@ -21,7 +21,7 @@ void create()
 	set("gender", "男性" );
 	set("title", "天龙寺第十六代僧人");
 	set("class", "bonze");
-	set("long", 
+	set("long",
 "他的面容奇特之极，左边的一半脸色红润，皮光肉滑，有如婴儿，
 右边的一半却如枯骨，除了一张焦黄的面皮之外全无肌肉，骨头突
 了出来，宛然便是半个骷髅骨头。这是他修习枯荣禅功所致。\n");
@@ -84,7 +84,7 @@ void init()
 
 int ask_me()
 {
-        if ((int)this_player()->query_temp("marks/find_temp")&&this_player()->query_temp("marks/ask_temp3")) 
+        if ((int)this_player()->query_temp("marks/find_temp")&&this_player()->query_temp("marks/ask_temp3"))
 		{
         	say(
 "枯荣看了" + this_player()->name() + "一眼，说道：\n"
@@ -98,9 +98,9 @@ int accept_fight(object ob)
         object me;
 
         me = this_object();
-      
+
         if( ob->query_temp("marks/find_temp")&&ob->query_temp("marks/ask_temp3") ) {
-           say(ob->name() + "对枯荣说：好吧，那" 
+           say(ob->name() + "对枯荣说：好吧，那"
              "我就同你切搓几招吧，点到为止。\n");
 	  remove_call_out("checking");
           call_out("checking", 1, me, ob);
@@ -118,27 +118,27 @@ int checking(object me, object ob)
         my_max_qi  = (int)me->query("max_qi");
         his_max_qi = (int)ob->query("max_qi");
 
-        if (me->is_fighting()) 
+        if (me->is_fighting())
         {
                 call_out("checking",2, me, ob);
                 return 1;
         }
 
-        if ( !present(ob, environment()) ) return 1; 
+        if ( !present(ob, environment()) ) return 1;
 
-        if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
+        if (( (int)me->query("qi")*100 / my_max_qi) <= 50 )
         {
                 say(
                   "枯荣说：施主身手果然不凡，老衲佩服。\n"
                   "六脉神剑谱是没有的了，这本一阳指诀你先拿去吧。\n"
                 );
-                obj= new("/clone/book/sun_book"); 
+                obj= new("/clone/book/sun_book");
                 obj->move(ob);
 message("channel:rumor", MAG"【谣言】某人："+this_player()->query("name")+"获得了一阳指诀啦。\n"NOR, users());
                 message_vision("$N交给$n一本书。\n", me, ob);
                 return 1;
         }
-        if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
+        if (( (int)ob->query("qi")*100 / his_max_qi) < 50 )
         {
                 say(
                    "枯荣双手合十道：尘缘一切自心起，施主请回吧。\n"
@@ -152,7 +152,7 @@ message("channel:rumor", MAG"【谣言】某人："+this_player()->query("name")
 
 string ask_six()
 {
-	mapping skl; 
+	mapping skl;
         object fighter, me, room, monk;
 	string *sname;
 	int i,j;
@@ -162,23 +162,23 @@ string ask_six()
 
 	skl = fighter->query_skills();
 	if (sizeof(skl) <= 1)
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"功力不够，不够资格闯六脉剑阵。";
 	sname  = keys(skl);
 	for(i=0; i<sizeof(skl); i++) {
 		if ((skl[sname[i]] < 80) || (sizeof(skl) == 0))
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"，你这点本事也想闯六脉剑阵。";
 	}
 
 	if ( me->query("assigned_fighter") )
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"，今日已有人挑战六脉剑阵，你过一段时间再来吧。";
 
 	say("\n枯荣大师道：好吧，你一会来般若台找我吧。\n");
 
-	me->set("assigned_fighter", fighter->query("id")); 		
-	
+	me->set("assigned_fighter", fighter->query("id"));
+
 	message_vision("\n枯荣大师往北离开。\n\n", fighter);
 
 	if(!( room = find_object("/d/tianlongsi/baodian")) )
@@ -189,7 +189,7 @@ string ask_six()
 	{
 		move("/d/tianlongsi/munitang");
 		message_vision("\n枯荣大师走了过来。\n\n", fighter);
-			return "真是对不起，本因方丈不在，无法举行六脉剑阵。\n";	
+			return "真是对不起，本因方丈不在，无法举行六脉剑阵。\n";
 	}
 
 	message("vision", "\n枯荣大师走了过来，跟" + monk->query("name") + "俯耳轻声说了几句。\n", room, monk);
@@ -198,7 +198,7 @@ string ask_six()
 	me->move("/d/tianlongsi/munitang");
 	message("vision", monk->query("name") + "快步走了过来。\n", room, monk);
 
-	for(j=2; j<6; j++) 
+	for(j=2; j<6; j++)
 	{
 		if(!( room = find_object("/d/tianlongsi/munitang")) )
                 room = load_object("/d/tianlongsi/munitang");
@@ -208,7 +208,7 @@ string ask_six()
 		{
 	        	me->move("/d/tianlongsi/munitang");
         	        message_vision("\n枯荣大师走了过来。\n\n", fighter);
-			return "真是对不起，"+monk->query("name")+"不在，无法举行六脉剑阵。\n";	
+			return "真是对不起，"+monk->query("name")+"不在，无法举行六脉剑阵。\n";
 		}
 	}
 
@@ -225,7 +225,7 @@ int waiting(object me)
 	if( wait_time == 300 )
 	{
 		say( "枯荣大师说道：看来他不会来了，我们回去罢！\n\n");
-		call_out("do_back", 0, me);		
+		call_out("do_back", 0, me);
 	}
 
 	if( !objectp( fighter = present( me->query("assigned_fighter"), environment(me) ) ) )
@@ -277,7 +277,7 @@ int fighting(object me, object fighter, int count)
 		monk1 = present(names[count], room1);
 		monk1->move(room2);
 	}
-		
+
 	if( count >= 1 && count <= 5 ) {
 		monk2 = present(names[count-1], room2);
 		monk2->move(room1);
@@ -299,7 +299,7 @@ int fighting(object me, object fighter, int count)
 	}
 	else if( count >= 5 )
 	{
-		if( (int)fighter->query_temp("beat_count") >= 5 )	
+		if( (int)fighter->query_temp("beat_count") >= 5 )
 		{
 			call_out("do_recruit", 2, me, fighter);
 		}
@@ -311,7 +311,7 @@ int fighting(object me, object fighter, int count)
 		count++;
 		call_out("fighting", 2, me, fighter, count);
 	}
- 
+
 	return 1;
 }
 
@@ -342,7 +342,7 @@ int do_recruit(object me, object fighter)
 			command("say 「六脉神剑谱」已经不在我这了。施主请便。\n");
 	}
 	call_out("do_back", 5, me );
-		
+
 	return 1;
 }
 
@@ -406,7 +406,7 @@ int do_kneel()
 用剃刀来剃亦无这等干净。\n\n",
 		me, this_object() );
 	name = me->query("name");
-	new_name = "本" + name[0..1];
+	new_name = "本" + name[0..0];
 	command("say 从今以后你的法名叫做" + new_name + "。");
 	command("smile");
 	me->delete_temp("pending/join_bonze");
@@ -438,4 +438,3 @@ void attempt_apprentice(object ob)
 	command("say 阿弥陀佛，善哉！善哉！");
 	command("recruit " + ob->query("id"));
 }
-

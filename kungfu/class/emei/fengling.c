@@ -11,7 +11,7 @@ mixed out_master(mixed arg);
 void create()
 {
 	set_name("风陵师太", ({ "fengling shitai","fengling","shitai"}));
-	set("long","她一副仙风道骨，与世无争模样，是峨嵋派的第二代掌门人。\n"); 
+	set("long","她一副仙风道骨，与世无争模样，是峨嵋派的第二代掌门人。\n");
 	set("gender", "女性");
 	set("age", 62);
 	set("attitude", "peaceful");
@@ -71,8 +71,8 @@ void create()
 		(: perform_action, "sword.mie" :),
 //		(: perform_action, "blade.wuxing" :),
 		(: perform_action, "strike.bashi" :),
-		(: perform_action, "finger.lingkong" :),		
-		(: exert_function, "powerup" :),				
+		(: perform_action, "finger.lingkong" :),
+		(: exert_function, "powerup" :),
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
@@ -125,7 +125,7 @@ void attempt_apprentice(object ob)
 	if ((string)ob->query("class")=="bonze" )
 	{
 		name = ob->query("name");
-		new_name = "灭" + name[2..3];
+		new_name = "灭" + name[1..1];
 		ob->set("name", new_name);
 		command("say 从今以后你的法名叫做" + new_name + "，恭喜你成为峨嵋第三代弟子!");
 	}
@@ -134,4 +134,3 @@ void attempt_apprentice(object ob)
 	command("say 希望你能以慈悲之心，以智慧之力，努力行善，济度众生。");
 	command("recruit " + ob->query("id"));
 }
-

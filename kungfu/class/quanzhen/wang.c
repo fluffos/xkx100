@@ -34,12 +34,12 @@ void create()
 	set("chat_msg_combat", ({
 		(: exert_function, "powerup" :),
 		(: exert_function, "recover" :),
-		(: perform_action, "strike.ju" :),	      
+		(: perform_action, "strike.ju" :),
 		(: perform_action, "sword.ding" :),
-		(: perform_action, "sword.sanqing" :),		
-		(: command("unwield changjian") :),		
+		(: perform_action, "sword.sanqing" :),
+		(: command("unwield changjian") :),
 		(: command("wield changjian") :),
-		(: perform_action, "finger.qiankun" :),		
+		(: perform_action, "finger.qiankun" :),
 		(: perform_action, "strike.ju" :),
 	}));
 
@@ -136,11 +136,11 @@ void attempt_apprentice(object ob)
 	command("say 好吧，依你资质，定可传我衣钵，我就收下你这个徒弟了。");
 	command("recruit " + ob->query("id"));
 	new_name=ob->query("name");
-	if(new_name[2..3]=="志")
+	if(new_name[1..1]=="志")
 	{
-		new_name=new_name[0..1]+"处"+new_name[4..5];
+		new_name=new_name[0..0]+"处"+new_name[2..2];
 		ob->set("name", new_name);
-		command("say 从今以后你的道号叫做"+new_name+ "，你现在是全真教处字辈弟子了。");      
+		command("say 从今以后你的道号叫做"+new_name+ "，你现在是全真教处字辈弟子了。");
 	}
 }
 

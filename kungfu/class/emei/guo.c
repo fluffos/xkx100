@@ -16,7 +16,7 @@ void create()
 她腰悬短剑，脸上颇有风尘之色，显是远游已久；韶华如花，正
 当喜乐无忧之年，可是容色间却隐隐有懊闷意，似是愁思袭人，
 眉间心上，无计回避。她姓郭，单名一个襄字，乃大侠郭靖和女
-侠黄蓉的次女，现下她一驴一剑，只身漫游，排遣心中愁闷。\n"); 
+侠黄蓉的次女，现下她一驴一剑，只身漫游，排遣心中愁闷。\n");
 	set("gender", "女性");
 	set("nickname", "小东邪");
 	set("age", 18);
@@ -86,8 +86,8 @@ void create()
 		(: perform_action, "sword.mie" :),
 //		(: perform_action, "blade.wuxing" :),
 		(: perform_action, "strike.bashi" :),
-		(: perform_action, "finger.lingkong" :),		
-		(: exert_function, "powerup" :),				
+		(: perform_action, "finger.lingkong" :),
+		(: exert_function, "powerup" :),
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
@@ -131,10 +131,9 @@ void attempt_apprentice(object ob)
 	if ((string)ob->query("class")=="bonze" )
 	{
 		name = ob->query("name");
-		new_name = "风" + name[2..3];
+		new_name = "风" + name[1..1];
 		ob->set("name", new_name);
 		command("say 从今以后你的法名叫做" + new_name + "，恭喜你成为峨嵋第三代弟子!");
 	}
 	command("recruit " + ob->query("id"));
 }
-

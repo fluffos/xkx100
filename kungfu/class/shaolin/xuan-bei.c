@@ -63,7 +63,7 @@ void create()
 
 	prepare_skill("hand", "qianye-shou");
 	prepare_skill("claw", "longzhua-gong");
-	
+
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 		(: exert_function, "powerup" :),
@@ -80,7 +80,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	object me; 
+	object me;
 	mapping ob_fam, my_fam;
 	string name, new_name;
 
@@ -95,7 +95,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派") 
+	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
 		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
 		return;
@@ -107,7 +107,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..1] == "澄")
+	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..0] == "澄")
 	{
 		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
@@ -120,5 +120,3 @@ void attempt_apprentice(object ob)
 
 	return;
 }
-
-

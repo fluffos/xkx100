@@ -69,14 +69,14 @@ void create()
 	map_skill("parry","huifeng-jian");
 //	map_skill("magic","bashi-shentong");
 	prepare_skill("strike", "jinding-zhang");
-	prepare_skill("finger", "tiangang-zhi");	
+	prepare_skill("finger", "tiangang-zhi");
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 		(: perform_action, "sword.mie" :),
 //		(: perform_action, "blade.wuxing" :),
 		(: perform_action, "strike.bashi" :),
-		(: perform_action, "finger.lingkong" :),		
-		(: exert_function, "powerup" :),				
+		(: perform_action, "finger.lingkong" :),
+		(: exert_function, "powerup" :),
 		(: exert_function, "recover" :),
 		(: exert_function, "regenerate" :),
 	}) );
@@ -150,7 +150,7 @@ void attempt_apprentice(object ob)
 	if ((string)ob->query("class")=="bonze" )
 	{
 		name = ob->query("name");
-		new_name = "静" + name[2..3];
+		new_name = "静" + name[1..1];
 		ob->set("name", new_name);
 		command("say 从今以后你的法名叫做" + new_name + "，恭喜你成为峨嵋第四代弟子!");
 	}
@@ -166,7 +166,7 @@ string ask_for_quit()
 	mapping myfam;
 
 	myfam = (mapping)me->query("family");
-	if (!myfam || (myfam["family_name"] != "峨嵋派")) 
+	if (!myfam || (myfam["family_name"] != "峨嵋派"))
 		return ("你和峨嵋没有渊源，贫尼不敢给你还俗。\n");
 	if( (string)me->query("class")!="bonze" )
 		return "阿弥陀佛！出家人不打诳语。你已经是俗家人了。\n";
@@ -197,4 +197,3 @@ int do_kneel(string arg)
 //	me->delete("betrayer");
 		return 1;
 }
-

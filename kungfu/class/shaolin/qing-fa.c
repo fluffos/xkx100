@@ -94,7 +94,7 @@ int do_kneel()
 
 	message_vision("$N双手合十，恭恭敬敬地跪了下来。\n\n$n伸出手掌，在$N头顶轻轻地摩挲了几下，将$N的头发尽数剃去。\n\n", me, this_object() );
 	name = me->query("name");
-	new_name = prename[random(sizeof(prename))] + name[0..1];
+	new_name = prename[random(sizeof(prename))] + name[0..0];
 	command("say 从今以后你的法名叫做" + new_name + "。");
 	command("smile");
 	me->delete_temp("pending/join_bonze");
@@ -114,7 +114,7 @@ void attempt_apprentice(object ob)
 		command ("say 阿弥陀佛！女施主呀，贫僧可不敢开这等玩笑啊。");
 		return;
 	}
-	
+
 	if( (string)ob->query("class")!="bonze" )
 	{
 		command ("say 阿弥陀佛！贫僧就收下你做『俗家弟子』了。");
@@ -122,4 +122,3 @@ void attempt_apprentice(object ob)
 	command("say 阿弥陀佛，善哉！善哉！");
 	command("recruit " + ob->query("id"));
 }
-

@@ -92,7 +92,7 @@ int do_kneel()
 	if (me->query("family/family_name") == "南少林派")
 		gen = me->query("family/generation");
 	else gen = 22;
-	new_name = prename[22-gen] + name[0..1];
+	new_name = prename[22-gen] + name[0..0];
 	command("say 从今以后你的法名叫做" + new_name + "。");
 	command("smile");
 	me->delete_temp("pending/join_bonze");

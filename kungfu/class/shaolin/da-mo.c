@@ -94,7 +94,7 @@ void create()
 
 	prepare_skill("finger", "nianhua-zhi");
 	prepare_skill("strike", "sanhua-zhang");
-		
+
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 		(: exert_function, "powerup" :),
@@ -113,7 +113,7 @@ void init()
 
 void attempt_apprentice(object ob)
 {
-	object me; 
+	object me;
 	mapping ob_fam, my_fam;
 	string name, new_name;
 
@@ -128,7 +128,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派") 
+	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
 		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
 		return;
@@ -140,7 +140,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-        if ((ob->query_int() < 40) || (ob->query("PKS") > 3 )) 
+        if ((ob->query_int() < 40) || (ob->query("PKS") > 3 ))
         {
                 command("say 万事都讲一个缘字。");
                 command("say " + RANK_D->query_respect(ob) + "与佛无缘，还是请回吧。");
@@ -154,9 +154,9 @@ void attempt_apprentice(object ob)
 	{
 		command("say 老衲又得一可塑之才，真是大畅老怀 !");
 		name = ob->query("name");
-		new_name = "渡" + name[2..3];
+		new_name = "渡" + name[1..1];
 		ob->set("name", new_name);
-	
+
 		command("say 从今以后你的法名叫做" + new_name + "，恭喜你荣升为少林派渡字辈弟子 !");
 		command("recruit " + ob->query("id"));
 	}
@@ -164,4 +164,3 @@ void attempt_apprentice(object ob)
 		command("say 你现在就来找我也太早了点吧 !");
 	return;
 }
-

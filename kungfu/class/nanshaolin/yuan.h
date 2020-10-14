@@ -56,7 +56,7 @@ void check(object ob)
 		if( ob->query("class") == "bonze")
 		{
 			new_name=ob->query("name");
-			new_name[0..1] = "方";
+			new_name[0..0] = "方";
 			ob->set("name", new_name);
 			command("say 从今以后你的法名叫做"+new_name+"吧！\n");
 		}

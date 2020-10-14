@@ -73,7 +73,7 @@ void create()
 	map_skill("parry", "yingzhua-gong");
 
 	prepare_skill("finger", "nianhua-zhi");
-		
+
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 		(: exert_function, "powerup" :),
@@ -90,7 +90,7 @@ void create()
 
 void attempt_apprentice(object ob)
 {
-	object me; 
+	object me;
 	mapping ob_fam, my_fam;
 	string name, new_name;
 
@@ -105,7 +105,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派") 
+	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
 		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
 		return;
@@ -117,7 +117,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..1] == "澄")
+	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..0] == "澄")
 	{
 		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
@@ -134,9 +134,9 @@ void attempt_apprentice(object ob)
 string ask_me()
 {
 	object ob;
-	
+
 	if (this_player()->query("family/master_id")!="xuantong dashi")
-		return RANK_D->query_respect(this_player()) + 
+		return RANK_D->query_respect(this_player()) +
 		"非我弟子，不知此话从何谈起？";
 	if (query("book_count") < 1)
 		return "你来晚了，本派的秘籍不在此处。";

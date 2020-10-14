@@ -59,14 +59,14 @@ void create()
 	map_skill("parry", "xiuluo-blade");
 
 	prepare_skill("strike", "boruo-strike");
-	
+
 	set("chat_chance_combat", 60);
-	set("chat_msg_combat", ({		
+	set("chat_msg_combat", ({
 		(: exert_function, "roar" :),
 		(: exert_function, "regenerate" :),
 		(: exert_function, "recover" :),
 	}) );
- 	
+
 	set("inquiry", ([
 		"钢杵" : (: ask_me_1, "gangchu" :),
 		"柴刀" : (: ask_me_1, "chaidao" :),
@@ -84,9 +84,9 @@ void create()
 
 string ask_me_1(string name)
 {
-	mapping fam; 
+	mapping fam;
 	object ob;
-	
+
 	if (!(fam = this_player()->query("family")) ||
 		fam["family_name"] != "南少林派")
 		return RANK_D->query_respect(this_player()) +"与本派素无来往，不知此话从何谈起？";
@@ -105,7 +105,7 @@ string ask_me_1(string name)
 
 void attempt_apprentice(object ob)
 {
-	object me=this_object(); 
+	object me=this_object();
 	mapping ob_fam, my_fam;
 	string name, new_name;
 	my_fam =me->query("family");
@@ -131,7 +131,7 @@ void attempt_apprentice(object ob)
 		command("say "+RANK_D->query_respect(ob)+"，你的基本内功还需要磨练。贫僧到时再收你为徒。");
 		return;
 	}
-	if( ob_fam["generation"]==(my_fam["generation"]+1) && name[0..1]=="元")
+	if( ob_fam["generation"]==(my_fam["generation"]+1) && name[0..0]=="元")
 	{
 		command("say "+ob_fam["master_name"]+"的徒弟怎么跑到我这儿来了，哈哈哈！");
 		command("recruit "+ob->query("id"));
@@ -139,7 +139,7 @@ void attempt_apprentice(object ob)
 	if( ob_fam["generation"] == (my_fam["generation"] + 2) )
 	{
 		name = ob->query("name");
-		new_name = "元" + name[2..3];
+		new_name = "元" + name[1..1];
 		command("say 老衲垂死之年，又得一可塑之才，真是可喜可贺 !");
 		ob->set("name", new_name);
  		ob->set("title", "心禅堂职事僧");

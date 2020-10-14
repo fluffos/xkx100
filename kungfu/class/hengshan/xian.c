@@ -30,9 +30,9 @@ void create()
 		"白云熊胆丸" : (: ask_yao :),
 		"秘籍"	 : (: ask_me :),
 		"天长掌法谱" : (: ask_me :),
-	]));	
+	]));
 	set("no_get",1);
-	
+
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
 		(: exert_function, "recover" :),
@@ -71,7 +71,7 @@ void create()
 	set("score", 1000);
 	set("book_count", 1);
 	set("yao_count", 1);
-	
+
 	set_skill("unarmed", 200);
 	set_skill("sword", 200);
 	set_skill("force", 200);
@@ -80,13 +80,13 @@ void create()
 	set_skill("strike", 200);
 	set_skill("hand", 200);
 	set_skill("buddhism", 150);
-	set_skill("baiyun-xinfa",200);	
+	set_skill("baiyun-xinfa",200);
 	set_skill("hengshan-jian", 300);
 	set_skill("chuanyun-shou",300);
-	set_skill("tianchang-zhang",300); 
+	set_skill("tianchang-zhang",300);
 	set_skill("lingxu-bu", 300);
 	set_skill("literate", 150);
-	
+
 	map_skill("force","baiyun-xinfa");
 	map_skill("sword", "hengshan-jian");
 	map_skill("strike","tianchang-zhang");
@@ -116,13 +116,13 @@ void attempt_apprentice(object ob)
 		command ("say 阿弥陀佛！贫尼不收俗家弟子。");
 		return;
 	}
-	
+
 	if ((int)ob->query_skill("baiyun-xinfa",1) < 90 )
 	{
 		command("say 你的本门内功心法火候不足,难以领略更高深的武功。");
 		return;
 	}
-	if ((int)ob->query("shen")<100000) 
+	if ((int)ob->query("shen")<100000)
 	{
 		command( "say 你若能多为侠义之举，当能承我衣钵。\n");
 		return;
@@ -131,8 +131,8 @@ void attempt_apprentice(object ob)
 	command("say 希望你能努力行善，济度众生，以光大我恒山派。");
 	command("recruit " + ob->query("id"));
 	name = ob->query("name");
-	new_name = "仪" + name[2..3];
-	command("say 从今以后你的法名叫做" + new_name + "。");	
+	new_name = "仪" + name[1..1];
+	command("say 从今以后你的法名叫做" + new_name + "。");
 	ob->set("name", new_name);
 }
 
@@ -140,7 +140,7 @@ void attempt_apprentice(object ob)
 string ask_me()
 {
 	object ob;
-	
+
 	if (this_player()->query("family/family_name")!="恒山派")
 		return RANK_D->query_respect(this_player()) +
 		"与本派毫无瓜葛，我派的武功典籍可不能交给你。";
@@ -155,9 +155,9 @@ string ask_me()
 string ask_yao()
 {
 	object ob;
-	
+
 	if (this_player()->query("family/master_id")!="dingxian shitai")
-		return RANK_D->query_respect(this_player()) + 
+		return RANK_D->query_respect(this_player()) +
 		"非我弟子，不知此话从何谈起？";
 	if (query("yao_count") < 1 || random(3) > 0)
 		return "你来晚了，白云熊胆丸刚巧给人了。";

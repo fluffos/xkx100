@@ -7,7 +7,7 @@ int accept_object(object ob, object obj)
 	mapping my_fam  = me->query("family");
 	mapping ob_fam  = ob->query("family");
 
-	if ( ob->query_temp("have_letter") && present("quanzhen letter1", ob) ) 
+	if ( ob->query_temp("have_letter") && present("quanzhen letter1", ob) )
 	{
 		command("say 怎麽样，你拿我的推荐信去拜师了吗 ?");
 		return 0;
@@ -16,7 +16,7 @@ int accept_object(object ob, object obj)
 	if((obj->query("id") == "quanzhen ling")
 	&& ob_fam["family_name"] == "全真教"
 	&& ob_fam["generation"] == my_fam["generation"] + 1
-	&& !ob->query_temp("have_letter") ) 
+	&& !ob->query_temp("have_letter") )
 	{
 		ob->set_temp("fight_ok",1);
 	        command("say 好，既然已有掌门真人许可，我们就来验证一下武功。");
@@ -24,7 +24,7 @@ int accept_object(object ob, object obj)
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
-        
+
 	command("smile");
 	command("say 这东西给我可没有什麽用。");
 	command("give " + obj->query("id") + " to " + me->query("id"));
@@ -40,13 +40,13 @@ void destroying(object me, object obj)
 int accept_fight(object ob)
 {
 	object me  = this_object();
-	
+
 	if ( !ob->query_temp("fight_ok") ) return 0;
 
 	remove_call_out("checking");
 	call_out("checking", 1, me, ob);
 	ob->delete_temp("fight_ok");
-	
+
 	return 1;
 }
 
@@ -58,15 +58,15 @@ int checking(object me, object ob)
 	my_max_qi  = me->query("max_qi");
 	his_max_qi = ob->query("max_qi");
 
-	if (me->is_fighting()) 
+	if (me->is_fighting())
 	{
 		call_out("checking",2, me, ob);
 		return 1;
 	}
 
-	if ( !present(ob, environment()) ) return 1; 
+	if ( !present(ob, environment()) ) return 1;
 
-	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 ) 
+	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 )
 	{
 		command("say 青出於蓝胜於蓝，不愧是全真门下弟子！恭喜你了！\n");
 		message_vision("$N交给$n一封推荐信。\n", me, ob);
@@ -76,7 +76,7 @@ int checking(object me, object ob)
 		return 1;
 	}
 
-	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 ) 
+	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 )
 	{
 		command("say 看来" + RANK_D->query_respect(ob) + "还得多加练习，方能在本教诸多弟子中出人头地！\n");
 		return 1;
@@ -93,10 +93,10 @@ string ask_for_join()
 	if( (string)me->query("class")=="quanzhen" )
 		return "无量寿佛！你我同属玄门，何故跟小道开这等无聊玩笑？\n";
 
-	if( my_fam["family_name"] == "全真教" && my_fam["generation"] <= 4) 
+	if( my_fam["family_name"] == "全真教" && my_fam["generation"] <= 4)
 		return "无量寿佛！玄门清修之士，应自小开始修行。\n";
 
-	if( me->query("betrayer") > 0) 
+	if( me->query("betrayer") > 0)
 		return "无量寿佛！你生性反复无常，非我玄门清修之士之所为。\n";
 
 	me->set_temp("pending/join_quanzhen", 1);
@@ -114,7 +114,7 @@ int do_kneel()
 		"$N右手捏着莲花指，恭恭敬敬地磕下头去。\n\n"
 		"$n伸出双手，将$N头顶长发挽成一个道髻。\n\n",me,this_object());
 	name = me->query("name");
-	new_name = name[0..1] + "静" + name[2..3];
+	new_name = name[0..0] + "静" + name[1..1];
 	command("say 从今以后你的道法号就叫做" + new_name + "。");
 	command("smile");
 	me->delete_temp("pending/join_quanzhen");
@@ -162,4 +162,3 @@ void attempt_apprentice(object ob)
 	}
 	command("recruit " + ob->query("id"));
 }
-

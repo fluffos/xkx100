@@ -4,41 +4,37 @@ int accept_object(object ob, object obj)
 {
 	object me = this_object();
 
-	mapping my_fam  = me->query("family");
-	mapping ob_fam  = ob->query("family");
+	mapping my_fam = me->query("family");
+	mapping ob_fam = ob->query("family");
 
-	if ( ob->query_temp("have_letter") && present("tuijian xin2", ob) )
+	if (ob->query_temp("have_letter") && present("tuijian xin2", ob))
 	{
-		command("say 鎬庨航鏍凤紝浣犳嬁鎴戠殑鎺ㄨ崘淇″幓鎷滃笀浜嗗悧 ?");
+		command("say 怎麽样，你拿我的推荐信去拜师了吗 ?");
 		return 0;
 	}
 
-	if((obj->query("id") == "damo ling")
-	&& ob_fam["generation"] == my_fam["generation"] + 1
-	&& !ob->query_temp("have_letter") )
+	if ((obj->query("id") == "damo ling") && ob_fam["generation"] == my_fam["generation"] + 1 && !ob->query_temp("have_letter"))
 	{
-		ob->set_temp("fight_ok",1);
-	        command("say 濂斤紝鏃㈢劧宸插緱鍒版柟涓堣�鍙�紝鎴戜滑灏辨潵楠岃瘉涓€涓嬫�鍔熴€�");
+		ob->set_temp("fight_ok", 1);
+		command("say 好，既然已得到方丈许可，我们就来验证一下武功。");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
 
-	if (obj->query("id") == "tuijian xin1"
-	&& ob->query_temp("have_letter") )
+	if (obj->query("id") == "tuijian xin1" && ob->query_temp("have_letter"))
 	{
-		ob->set_temp("apprentice_ok",1);
-	        command("say 濂斤紝" + ob->query("name") + "锛屼綘鎰挎剰鎷滄垜涓哄笀鍚楋紵");
+		ob->set_temp("apprentice_ok", 1);
+		command("say 好，" + ob->query("name") + "，你愿意拜我为师吗？");
 		remove_call_out("destroying");
 		call_out("destroying", 1, me, obj);
 		return 1;
 	}
 
-        command("smile");
-        command("say 杩欎笢瑗跨粰鎴戝彲娌℃湁浠€楹界敤銆�");
-        command("give " + obj->query("id") + " to " + me->query("id"));
+	command("smile");
+	command("say 这东西给我可没有什麽用。");
+	command("give " + obj->query("id") + " to " + me->query("id"));
 	return 0;
-
 }
 
 void destroying(object me, object obj)
@@ -49,9 +45,10 @@ void destroying(object me, object obj)
 
 int accept_fight(object ob)
 {
-	object me  = this_object();
+	object me = this_object();
 
-	if ( !ob->query_temp("fight_ok") ) return 0;
+	if (!ob->query_temp("fight_ok"))
+		return 0;
 
 	remove_call_out("checking");
 	call_out("checking", 1, me, ob);
@@ -67,31 +64,32 @@ int checking(object me, object ob)
 	object obj;
 	int my_max_qi, his_max_qi;
 
-	my_max_qi  = me->query("max_qi");
+	my_max_qi = me->query("max_qi");
 	his_max_qi = ob->query("max_qi");
 
 	if (me->is_fighting())
 	{
-		call_out("checking",2, me, ob);
-                return 1;
+		call_out("checking", 2, me, ob);
+		return 1;
 	}
 
-	if ( !present(ob, environment()) ) return 1;
+	if (!present(ob, environment()))
+		return 1;
 
-	if (( (int)me->query("qi")*100 / my_max_qi) <= 50 )
+	if (((int)me->query("qi") * 100 / my_max_qi) <= 50)
 	{
-		command("say 闈掑嚭鏂艰摑鑳滄柤钃濓紝涓嶆劎鏄�皯鏋楀�鐨勪匠寮熷瓙 ! 鎭�枩浣犱簡 !\n");
-		message_vision("$N浜ょ粰$n涓€灏佹帹鑽愪俊銆俓n", me, ob);
-		ob->set_temp("have_letter",1);
-		obj=new("/d/shaolin/obj/tuijianxin-2");
+		command("say 青出於蓝胜於蓝，不愧是少林寺的佳弟子 ! 恭喜你了 !\n");
+		message_vision("$N交给$n一封推荐信。\n", me, ob);
+		ob->set_temp("have_letter", 1);
+		obj = new ("/d/shaolin/obj/tuijianxin-2");
 		obj->move(ob);
 		return 1;
 	}
 
-	if (( (int)ob->query("qi")*100 / his_max_qi) < 50 )
+	if (((int)ob->query("qi") * 100 / his_max_qi) < 50)
 	{
-		command("say 鐪嬫潵" + RANK_D->query_respect(ob) +
-			"杩樺緱澶氬姞缁冧範锛屾柟鑳藉湪灏戞灄璇稿�寮熷瓙涓�嚭浜哄ご鍦� !\n");
+		command("say 看来" + RANK_D->query_respect(ob) +
+				"还得多加练习，方能在少林诸多弟子中出人头地 !\n");
 		return 1;
 	}
 
@@ -100,64 +98,64 @@ int checking(object me, object ob)
 
 void attempt_apprentice(object ob)
 {
-	object me  = this_object();
+	object me = this_object();
 	mapping ob_fam;
-	mapping my_fam  = me->query("family");
+	mapping my_fam = me->query("family");
 
 	string name, new_name;
 
 	name = ob->query("name");
 
-	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "灏戞灄娲�")
+	if (!(ob_fam = ob->query("family")) || ob_fam["family_name"] != "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "涓庢湰娲剧礌鏃犳潵寰€锛屼笉鐭ユ�璇濅粠浣曡皥璧凤紵");
+		command("say " + RANK_D->query_respect(ob) + "与本派素无来往，不知此话从何谈起？");
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "灏戞灄娲�")
+	if ((string)ob->query("class") != "bonze" && ob_fam["family_name"] == "少林派")
 	{
-		command("say " + RANK_D->query_respect(ob) + "鏄�織瀹跺紵瀛愶紝涓嶈兘鍦ㄥ�鍐呭�鑹恒€�");
+		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
 		return;
 	}
 
-	if ( ob_fam["generation"] == 0 )
+	if (ob_fam["generation"] == 0)
 	{
-		command("say 闃垮讥闄€浣涳紒璐�儳灏辨敹涓嬩綘鍋氭垜鐨勫紵瀛愪簡銆�");
+		command("say 阿弥陀佛！贫僧就收下你做我的弟子了。");
 		command("recruit " + ob->query("id"));
 		return;
 	}
 
-	if ( ob_fam["generation"] <= my_fam["generation"] )
+	if (ob_fam["generation"] <= my_fam["generation"])
 	{
-		command("say " + RANK_D->query_respect(ob) + "锛岃传鍍у摢閲屾暍褰� !");
+		command("say " + RANK_D->query_respect(ob) + "，贫僧哪里敢当 !");
 		return;
 	}
 
-	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..1] == "娓�")
+	if (ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..0] == "清")
 	{
-		command("say " + ob_fam["master_name"] + "鐨勫緬寮熸€庨航璺戝埌鎴戣繖鍎挎潵浜嗭紝鍝堝搱鍝� !");
+		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
 	}
 
-	if ( ob_fam["generation"] == (my_fam["generation"] + 2) )
+	if (ob_fam["generation"] == (my_fam["generation"] + 2))
 	{
-		if ( ob->query_temp("apprentice_ok") )
+		if (ob->query_temp("apprentice_ok"))
 		{
 			ob->delete_temp("have_letter");
 			ob->delete_temp("apprentice_ok");
 
-			command("say 鏄�" + ob_fam["master_name"] + "鍙�綘鏉ユ壘鎴戠殑鍚э紝鍝堝搱鍝� !");
-			command("say 璐�儳鍙堝緱涓€鍙��涔嬫墠锛岀湡鏄�彲鍠滃彲璐� !");
+			command("say 是" + ob_fam["master_name"] + "叫你来找我的吧，哈哈哈 !");
+			command("say 贫僧又得一可塑之才，真是可喜可贺 !");
 
-			new_name = "娓�" + name[2..3];
+			new_name = "清" + name[1..1];
 			ob->set("name", new_name);
 
-			command("say 浠庝粖浠ュ悗浣犵殑娉曞悕鍙�仛" + new_name + "锛屾伃鍠滀綘鑽ｅ崌涓哄皯鏋楁淳娓呭瓧杈堝紵瀛� !");
+			command("say 从今以后你的法名叫做" + new_name + "，恭喜你荣升为少林派清字辈弟子 !");
 			command("recruit " + ob->query("id"));
 		}
 		else
 		{
-			command("say " + RANK_D->query_respect(ob) + "锛屼綘娌℃湁鎺ㄨ崘淇★紝涓嶈兘瓒婄骇鎷滃笀銆�");
+			command("say " + RANK_D->query_respect(ob) + "，你没有推荐信，不能越级拜师。");
 			return;
 		}
 	}

@@ -94,8 +94,8 @@ string *id_jp =({
 "shanben","guitian","zisan","dadao","songxia","hengtian","dongzhi","houben","chuanye","shankou",
 "lingmu","gangcang","xiaodao","jinshang","annai","qiantian","zuoteng","guangmo","dazhu","dacun",
 "bozuo","fugang","dongxiang",
-});	
-	
+});
+
 string *nm2_jp =({
 "太郎","次郎","三郎","四郎","五郎","十一郎","十四郎","二十六","俊树",
 "宁次","英机","冶字","俊雄","牧夫","光夫","敬一","英世","漱石","渝吉",
@@ -314,7 +314,7 @@ mapping cn_pname = ([
         "lang" : "朗浪廊琅阆莨",
         "li"   : "历离里理利立力丽礼黎栗荔沥栎璃",
         "lin"  : "临霖林琳",
-        "ma"   : "马犸", 
+        "ma"   : "马犸",
         "mao"  : "贸冒貌冒懋矛卯瑁",
         "miao" : "淼渺邈",
         "nan"  : "楠南腩赧",
@@ -376,7 +376,7 @@ void generate_cn_name(object ob)
         id2 = pname;
         pname = cn_pname[pname];
         pname = pname[(random(sizeof(pname)) & 0xFFFE)..<1];
-        pname = pname[0..1];
+        pname = pname[0..0];
         if (random(3) == 0)
         {
                 for (;;)
@@ -388,7 +388,7 @@ void generate_cn_name(object ob)
                 id2 += pname2;
                 pname2 = cn_pname[pname2];
                 pname2 = pname2[(random(sizeof(pname2)) & 0xFFFE)..<1];
-                pname2 = pname2[0..1];
+                pname2 = pname2[0..0];
         } else
                 pname2 = "";
 

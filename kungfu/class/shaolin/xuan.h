@@ -7,13 +7,13 @@ int accept_object(object ob, object obj)
 	mapping my_fam  = me->query("family");
 	mapping ob_fam  = ob->query("family");
 
-	if ( ob->query_temp("have_letter") && present("tuijian xin5", ob) ) 
+	if ( ob->query_temp("have_letter") && present("tuijian xin5", ob) )
 	{
 		command("say 怎麽样，你拿我的推荐信去拜师了吗 ?");
 		return 0;
 	}
-        
-	if (obj->query("id") == "tuijian xin4" 
+
+	if (obj->query("id") == "tuijian xin4"
 	&& ob->query_temp("have_letter") )
 	{
 		ob->set_temp("apprentice_ok",1);
@@ -50,7 +50,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派") 
+	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
 		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
 		return;
@@ -74,14 +74,14 @@ void attempt_apprentice(object ob)
 		{
 			ob->delete_temp("have_letter");
 			ob->delete_temp("apprentice_ok");
-	
+
 			command("say 是" + ob_fam["master_name"] + "叫你来找我的吧，哈哈哈 !");
 			command("say 贫僧又得一可塑之才，真是可喜可贺 !");
 
 			name = ob->query("name");
-			new_name = "澄" + name[2..3];
+			new_name = "澄" + name[1..1];
 			ob->set("name", new_name);
-	
+
 			command("say 从今以后你的法名叫做" + new_name + "，恭喜你荣升为少林派澄字辈弟子 !");
 			command("recruit " + ob->query("id"));
 		}
@@ -94,4 +94,3 @@ void attempt_apprentice(object ob)
 
 	return;
 }
-

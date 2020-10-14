@@ -6,7 +6,7 @@ string ask_for_join()
 	mapping myfam;
 
 	myfam = (mapping)me->query("family");
-	if (!myfam || (myfam["family_name"] != "恒山派")) 
+	if (!myfam || (myfam["family_name"] != "恒山派"))
 		return ("你和恒山没有渊源，贫尼不敢给你剃度。\n");
 	if( (string)me->query("class")=="bonze" )
 		return "阿弥陀佛！出家人不打诳语。你已经不是俗家人了。\n";
@@ -20,13 +20,13 @@ string ask_for_join()
 int do_kneel()
 {
 	object me = this_player();
-	
+
 	string name, new_name;
 	if( !me->query_temp("pending/join_bonze") )
 		return 0;
 	message_vision("$N你双手合十，恭恭敬敬地跪了下来。\n\n$n看着$N说道：好吧，你就在本庵修行吧。\n\n$n伸出手掌，在$N头顶轻轻地摩挲了几下，将$N的头发尽数剃去。\n\n", me, this_object() );
 	name = me->query("name");
-	new_name = "容" + name[0..1];;
+	new_name = "容" + name[0..0];;
 	command("say 从今以后你的法名叫做" + new_name + "。");
 	command("chat "+name+"削发为尼，在恒山修行，取法名"+new_name+"。");
 	command("smile");
@@ -40,4 +40,3 @@ int do_kneel()
 
 	return 1;
 }
-

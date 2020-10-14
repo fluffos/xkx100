@@ -16,7 +16,7 @@ string* names = ({
 
 string ask_me()
 {
-	mapping fam, my_fam, skl; 
+	mapping fam, my_fam, skl;
         object fighter, me, room, monk;
 	string *sname;
 	int i,j;
@@ -27,66 +27,66 @@ string ask_me()
 
 	skl = fighter->query_skills();
 	if (sizeof(skl) <= 1)
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"功力不够，不够资格闯罗汉大阵。";
-	
-	if (fighter->query("score") < 10000 && mapp(fam = fighter->query("family")) 
-	&& fam["family_name"] != "少林派")	
-	        return RANK_D->query_respect(fighter) + 
+
+	if (fighter->query("score") < 10000 && mapp(fam = fighter->query("family"))
+	&& fam["family_name"] != "少林派")
+	        return RANK_D->query_respect(fighter) +
 		"阅历不足，不够资格闯罗汉大阵。";
-	
-	if (fighter->query("score") < 5000 && mapp(fam = fighter->query("family")) 
-	&& fam["family_name"] == "少林派")	
-	        return RANK_D->query_respect(fighter) + 
-		"阅历不足，不够资格闯罗汉大阵。";	
-	
+
+	if (fighter->query("score") < 5000 && mapp(fam = fighter->query("family"))
+	&& fam["family_name"] == "少林派")
+	        return RANK_D->query_respect(fighter) +
+		"阅历不足，不够资格闯罗汉大阵。";
+
 	sname  = keys(skl);
 	for(i=0; i<sizeof(skl); i++) {
 		if ((skl[sname[i]] < 80) || (sizeof(skl) == 0))
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"功力不够，不够资格闯罗汉大阵。";
 	}
 	if( fighter->query("luohan_winner") )
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"已然闯过罗汉大阵，可不要拿老衲开这等玩笑。";
 
-	if ( mapp(fam = fighter->query("family")) 
+	if ( mapp(fam = fighter->query("family"))
 	&& fam["family_name"] == "少林派"
 	&& fam["generation"] != (my_fam["generation"] + 2))
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"辈份不合，不够资格闯罗汉大阵。";
 
         if ( (int)fighter->query("guilty") > 0 )
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"你累犯数戒，身带重罪，我如何能准许你闯罗汉大阵！";
 
 	if ( me->query("assigned_fighter") )
-		return RANK_D->query_respect(fighter) + 
+		return RANK_D->query_respect(fighter) +
 		"，今日已有人挑战罗汉大阵，你过一段时间再来吧。";
 
 	fighter->set_temp("xuanku-asked", 1);
 
 	say("\n玄苦说道：好吧，我来召集罗汉堂长老们于东练武场集合，我稍候在中央练武场上等你。\n");
 
-	me->set("assigned_fighter", fighter->query("id")); 		
-	
+	me->set("assigned_fighter", fighter->query("id"));
+
 	if( !fighter->query_temp("xuannan-asked") )
 	say("\n玄苦又道：请你速去告知般若堂玄难大师，请他即刻招集般若堂诸罗汉于西练武场集合。\n");
 
         message_vision("\n玄苦大师往南离开。\n\n", fighter);
 
-        for(j=1; j<10; j++) 
+        for(j=1; j<10; j++)
 	{
                 if(!( room = find_object("/d/shaolin/luohan" + j)) )
                 room = load_object("/d/shaolin/luohan" + j);
-                
+
   		me->move(room);
-                
+
 		if( !objectp(monk = present(names[j-1], room) ))
 		{
 	        	me->move("/d/shaolin/luohan5");
         	        message_vision("\n玄苦大师走了过来。\n\n", fighter);
-			return "真是对不起，罗汉堂中有人不在，无法举行罗汉大阵。\n";	
+			return "真是对不起，罗汉堂中有人不在，无法举行罗汉大阵。\n";
 		}
 
                 message("vision", "\n玄苦大师走了过来，跟" + monk->query("name") + "俯耳轻声说了几句。\n", room, monk);
@@ -94,7 +94,7 @@ string ask_me()
                 monk->move("/d/shaolin/wuchang2");
                 message("vision", monk->query("name") + "罗汉点了点头，快步走了出去。\n", room, monk);
 	}
-	
+
         me->move("/d/shaolin/wuchang");
 
         call_out("waiting", 1, me);
@@ -111,7 +111,7 @@ int waiting(object me)
 	{
 		say( "玄苦说道：看来他不会来了，我们回去罢！\n\n");
 		call_out("do_back", 0, me);
-		fighter->add("score",-2500);		
+		fighter->add("score",-2500);
 	}
 
 	if( !objectp( fighter = present( me->query("assigned_fighter"), environment(me) ) ) )
@@ -121,7 +121,7 @@ int waiting(object me)
 	}
 	else if( !present("xuannan dashi", environment(me)) || !fighter->query_temp("xuannan-asked") )
 	{
-		if( random(10) == 0 ) 
+		if( random(10) == 0 )
 		say("\n玄苦说道：" + RANK_D->query_respect(fighter) + "去请了玄难大师没有？ 照理他现在该到了罢？\n");
 
 		wait_time++;
@@ -188,7 +188,7 @@ int fighting(object me, object fighter, int count)
 		monk1 = present(names[count], room1);
 		monk1->move(room2);
 	}
-		
+
 	if( count >= 1 && count <= 9 ) {
 		monk2 = present(names[count-1], room2);
 		monk2->move(room1);
@@ -210,8 +210,8 @@ int fighting(object me, object fighter, int count)
 	}
 	else if( count >= 9 )
 	{
-		if( (int)fighter->query_temp("beat_count") >= 18 )	
-			call_out("do_recruit", 5, me, fighter);		         		        
+		if( (int)fighter->query_temp("beat_count") >= 18 )
+			call_out("do_recruit", 5, me, fighter);
 		else
 			{call_out("do_back", 5, me );
 			 fighter->add("score",-2500);
@@ -222,7 +222,7 @@ int fighting(object me, object fighter, int count)
 		count++;
 		call_out("fighting", 2, me, fighter, count);
 	}
- 
+
 	return 1;
 }
 
@@ -234,14 +234,14 @@ int do_recruit(object me, object fighter)
 	fighter->delete_temp("fighting");
 	fighter->add("combat_exp", 7500);
 	fighter->add("score",5000);
-	fighter->add("potential",1500);	
+	fighter->add("potential",1500);
 	fighter->set("luohan_winner", 1);
 
 	if (!(ft_fam = fighter->query("family")) || ft_fam["family_name"] != "少林派")
 	{
 		command("bow");
 		say("玄苦说道：" + RANK_D->query_respect(fighter) + "此番过阵，当对本身修行大有助益，百尺竿头，更进一步，老衲就此别过！\n");
-		
+
 		call_out("do_back", 5, me );
 	}
 	else
@@ -250,7 +250,7 @@ int do_recruit(object me, object fighter)
 		call_out("do_back", 30, me );
 	}
 
-		
+
 	return 1;
 }
 
@@ -260,7 +260,7 @@ int do_back(object me)
 	int i;
 
 	message("vision", "\n玄苦大师挥了挥手， 罗汉堂长老们随即鱼贯离开练武场。\n", environment(me) );
-	
+
         if(!( room1 = find_object("/d/shaolin/wuchang")) )
         room1 = load_object("/d/shaolin/wuchang");
 
@@ -277,7 +277,7 @@ int do_back(object me)
         if(!( room1 = find_object("/d/shaolin/wuchang2")) )
         room1 = load_object("/d/shaolin/wuchang2");
 
-	for(i=1; i<10; i++) 
+	for(i=1; i<10; i++)
 	{
                 if(!( room2 = find_object("/d/shaolin/luohan" + i)) )
                 room2 = load_object("/d/shaolin/luohan" + i);
@@ -287,7 +287,7 @@ int do_back(object me)
 	}
 
         me->delete("assigned_fighter");
-	
+
 	me->move("/d/shaolin/luohan5");
 
 	return 1;
@@ -295,7 +295,7 @@ int do_back(object me)
 
 void attempt_apprentice(object ob)
 {
-	object me; 
+	object me;
 	mapping ob_fam, my_fam;
 	string name, new_name;
 
@@ -310,7 +310,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派") 
+	if ( (string)ob->query("class")!="bonze" && ob_fam["family_name"] == "少林派")
 	{
 		command("say " + RANK_D->query_respect(ob) + "是俗家弟子，不能在寺内学艺。");
 		return;
@@ -322,7 +322,7 @@ void attempt_apprentice(object ob)
 		return;
 	}
 
-	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..1] == "澄")
+	if ( ob_fam["generation"] == (my_fam["generation"] + 1) && name[0..0] == "澄")
 	{
 		command("say " + ob_fam["master_name"] + "的徒弟怎麽跑到我这儿来了，哈哈哈 !");
 		command("recruit " + ob->query("id"));
@@ -331,13 +331,13 @@ void attempt_apprentice(object ob)
 	if ( ob_fam["generation"] == (my_fam["generation"] + 2) )
 	{
 		if ( ob->query("luohan_winner") )
-		{	
+		{
 			command("say 老衲垂死之年，又得一可塑之才，真是可喜可贺 !");
 
 			name = ob->query("name");
-			new_name = "澄" + name[2..3];
+			new_name = "澄" + name[1..1];
 			ob->set("name", new_name);
-	
+
 			command("say 从今以后你的法名叫做" + new_name + "，恭喜你荣升为少林派澄字辈罗汉之一 !");
 			command("recruit " + ob->query("id"));
 		}

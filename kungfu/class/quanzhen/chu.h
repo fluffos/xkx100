@@ -72,12 +72,12 @@ void attempt_apprentice(object ob)
 		{
 			ob->delete_temp("have_letter");
 			ob->delete_temp("apprentice_ok");
-	
+
 			command("say 是"+ob_fam["master_name"]+"叫你来找我的？好，好。");
 			command("say 贫道看你是可塑之才，你就安心学艺吧！");
-			if(ob->query("class") == "quanzhen") 
+			if(ob->query("class") == "quanzhen")
 			{
-				new_name = name[0..1] + "志" + name[4..5];
+				new_name = name[0..0] + "志" + name[2..2];
 				ob->set("name", new_name);
 				command("say 从今以后你的道号叫做"+new_name+ "，你现在是全真教志字辈弟子了。");
 			}

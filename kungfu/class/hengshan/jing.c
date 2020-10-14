@@ -27,9 +27,9 @@ void create()
 		"join"  : (: ask_for_join :),
 		"天香断续膏" : (: ask_yao :),
 		"还俗"  : "恒山弟子，不能还俗。",
-		
+
 	]));
-	set("env/wimpy", 60);	
+	set("env/wimpy", 60);
 
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
@@ -68,7 +68,7 @@ void create()
 	set("combat_exp", 1500000);
 	set("score", 1000);
 	set("yao_count", 1);
-	
+
 	set_skill("unarmed", 180);
 	set_skill("sword", 200);
 	set_skill("force", 180);
@@ -77,10 +77,10 @@ void create()
 	set_skill("strike", 200);
 	set_skill("hand", 200);
 	set_skill("buddhism", 150);
-	set_skill("baiyun-xinfa",180);	
+	set_skill("baiyun-xinfa",180);
 	set_skill("hengshan-jian", 300);
 	set_skill("chuanyun-shou",300);
-	set_skill("tianchang-zhang",300); 
+	set_skill("tianchang-zhang",300);
 	set_skill("lingxu-bu", 250);
 	set_skill("literate", 100);
 
@@ -112,13 +112,13 @@ void attempt_apprentice(object ob)
 		command ("say 阿弥陀佛！贫尼不收俗家弟子。");
 		return;
 	}
-	
+
 	if ((int)ob->query_skill("baiyun-xinfa",1) < 90 )
 	{
 		command("say 你的本门内功心法火候不足,难以领略更高深的武功。");
 		return;
 	}
-	if ((int)ob->query("shen")<100000) 
+	if ((int)ob->query("shen")<100000)
 	{
 		command( "say 你若能多为侠义之举，当能承我衣钵。\n");
 		return;
@@ -128,17 +128,17 @@ void attempt_apprentice(object ob)
 	command("say 希望你能努力行善，济度众生，以光大我恒山派。");
 	command("recruit " + ob->query("id"));
 	name = ob->query("name");
-	new_name = "仪" + name[2..3];
-	command("say 从今以后你的法名叫做" + new_name + "。");	
+	new_name = "仪" + name[1..1];
+	command("say 从今以后你的法名叫做" + new_name + "。");
 	ob->set("name", new_name);
 }
 
 string ask_yao()
 {
 	object ob;
-	
+
 	if (this_player()->query("family/master_id")!="dingjing shitai")
-		return RANK_D->query_respect(this_player()) + 
+		return RANK_D->query_respect(this_player()) +
 		"非我弟子，不知此话从何谈起？";
 	if (query("yao_count") < 1 || random(3) > 0)
 		return "你来晚了，天香断续膏刚巧给人了。";

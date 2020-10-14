@@ -10,7 +10,7 @@ string ask_me();
 void create()
 {
 	set_name("定逸师太", ({ "dingyi shitai", "shitai", "dingyi" }) );
-	set("long", 
+	set("long",
 	"她是恒山派的定逸师太，性格刚猛，为人正直，有巾帼不让须眉之风。\n"
 	"她眼中精光四射，绝无半点老态。\n");
 	set("gender", "女性");
@@ -30,7 +30,7 @@ void create()
 		"手法精要" : (: ask_me :),
 		"还俗"  : "恒山弟子，不能还俗。",
 	]));
-	set("env/wimpy", 60);	
+	set("env/wimpy", 60);
 
 	set("chat_chance_combat", 60);
 	set("chat_msg_combat", ({
@@ -68,7 +68,7 @@ void create()
 	set("combat_exp", 1500000);
 	set("score", 1000);
 	set("book_count", 1);
-	
+
 	set_skill("unarmed", 200);
 	set_skill("sword", 180);
 	set_skill("force", 200);
@@ -77,10 +77,10 @@ void create()
 	set_skill("strike", 180);
 	set_skill("hand", 150);
 	set_skill("buddhism", 150);
-	set_skill("baiyun-xinfa",180);	
+	set_skill("baiyun-xinfa",180);
 	set_skill("hengshan-jian", 250);
 	set_skill("chuanyun-shou",250);
-	set_skill("tianchang-zhang",250); 
+	set_skill("tianchang-zhang",250);
 	set_skill("lingxu-bu", 250);
 	set_skill("literate", 100);
 
@@ -112,13 +112,13 @@ void attempt_apprentice(object ob)
 		command ("say 阿弥陀佛！贫尼不收俗家弟子。");
 		return;
 	}
-	
+
 	if ((int)ob->query_skill("baiyun-xinfa",1) < 90 )
 	{
 		command("say 你的本门内功心法火候不足,难以领略更高深的武功。");
 		return;
 	}
-	if ((int)ob->query("shen")<100000) 
+	if ((int)ob->query("shen")<100000)
 	{
 		command( "say 你若能多为侠义之举，当能承我衣钵。\n");
 		return;
@@ -128,15 +128,15 @@ void attempt_apprentice(object ob)
 	command("say 希望你能努力行善，济度众生，以光大我恒山派。");
 	command("recruit " + ob->query("id"));
 	name = ob->query("name");
-	new_name = "仪" + name[2..3];
-	command("say 从今以后你的法名叫做" + new_name + "。");	
+	new_name = "仪" + name[1..1];
+	command("say 从今以后你的法名叫做" + new_name + "。");
 	ob->set("name", new_name);
 }
 
 string ask_me()
 {
 	object ob;
-	
+
 	if (this_player()->query("family/family_name")!="恒山派")
 		return RANK_D->query_respect(this_player()) +
 		"与本派毫无瓜葛，我派的武功典籍可不能交给你。";

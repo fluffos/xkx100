@@ -1,7 +1,7 @@
 // da.h 大字辈收徒
 void attempt_apprentice(object ob)
 {
-	object me=this_object(); 
+	object me=this_object();
 	mapping ob_fam, my_fam;
 	string name, new_name;
 	my_fam =me->query("family");
@@ -39,7 +39,7 @@ void attempt_apprentice(object ob)
 		if( ob->query("class") == "bonze")
 		{
 			name = ob->query("name");
-			new_name = "元" + name[2..3];
+			new_name = "元" + name[1..1];
 			ob->set("name", new_name);
 			command("say 今后你的法名叫做"+new_name+"。\n");
 		}
@@ -49,4 +49,3 @@ void attempt_apprentice(object ob)
 		command("say "+RANK_D->query_respect(ob)+"，你是从哪蹦出来的，你不能越级拜师。");
 	return;
 }
-
