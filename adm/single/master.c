@@ -5,6 +5,7 @@
 // original from Lil
 // rewritten by Annihilator (11/07/94)
 // modified by Xiang for XKX (12/15/95)
+#include <runtime_config.h>
 
 object connect(int port)
 {
@@ -128,8 +129,13 @@ void log_error(string file, string message)
 	if (name) home = user_path(name);
 	else home = LOG_DIR;
 
-	if(this_player(1)) efun::write("编译时段错误：" + message+"\n");
-
+	if (this_player(1))
+	{
+		if (wizardp(this_player(1)))
+			efun::write("编译时段错误：" + message + "\n");
+		else
+			efun::write(get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
+	}
 	efun::write_file(home + "log", message);
 }
 
