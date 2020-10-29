@@ -202,3 +202,11 @@ void setup()
 	seteuid(getuid());
 	this_object()->reset();
 }
+
+void replace_program(string ob)
+{
+	if (replaceable(previous_object()))
+	{
+		efun::replace_program(ob);
+	}
+}
