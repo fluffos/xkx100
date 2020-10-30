@@ -56,7 +56,7 @@ void pay_player(object who, int amount)
 {
         int v;
         object ob;
-		string err;
+//		string err;
 	seteuid(getuid());
         if (amount < 1)
                 amount = 1;

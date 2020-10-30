@@ -172,7 +172,7 @@ string query_site()
 void juedou()
 {
   object ob;
-  int i, exp, skill, killer = 0,topexp=5000000;
+  int /*i,*/ exp, skill/*, killer = 0*/,topexp=5000000;
 
   ob = new("/clone/haojie/zhanshu.c");
   ob->move(lead);
@@ -203,7 +203,7 @@ int query_children(string arg)
 void verdict_time()
 {
   object *user,*ob_list;
-  int i, exp, parry, force,sum=0;
+  int i/*, exp, parry, force*/,sum=0;
   int limit,killer,topexp;
   if(faction!="北京城")
    limit=1800;

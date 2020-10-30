@@ -110,7 +110,7 @@ int recover(object ob)
 
 int newyao(object me)
 {
-	object where = environment(me);
+//	object where = environment(me);
 	me->add("count",20);
 	return 1;
 }
@@ -119,7 +119,7 @@ int ask_heal()
 {
 	object ob = this_player();
 	object me = this_object();
-	object where;
+//	object where;
 
         if(me->is_fighting())
         {
@@ -180,7 +180,7 @@ int ask_poison()
 {
 	object ob = this_player();
 	object me = this_object();
-	object where;
+//	object where;
 
         if(me->is_fighting())
 	{

@@ -55,7 +55,7 @@ void send_gtell(string mud, string wiz_to, object source, string msg)
 void incoming_request(mapping info)
 {
    mapping minfo, mudinfo;
-   object pl;
+// object pl;
    string reply;
 
    if (info["NAME"] && info["PORTUDP"]) {

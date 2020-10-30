@@ -60,11 +60,10 @@ mixed hit_ob(object me, object victim, int damage_bonus, int factor)
 int convert(string arg)
 {
 	object me = this_player();
-	object ob;
+//	object ob;
 
 	if (arg!="snake" && arg!="zhuye qing") return 0;
 	if (me->query("family/family_name") != "白驼山") 
 		return notify_fail("你不能化蛇为杖。\n");
 	return notify_fail("竹叶青过于细小，不能化为杖。\n");
 }
-

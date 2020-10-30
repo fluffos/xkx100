@@ -34,7 +34,7 @@ void init()
 }
 void greeting(object ob)
 {
-	object obn;
+//	object obn;
 	if( !ob || environment(ob) != environment() ) return;
 	if(((string)ob->query("family/family_name")=="白驼山派") &&
 		(random(3)==1))
@@ -75,5 +75,4 @@ int accept_object(object who, object ob)
 	}
 	return 1;
 }
-
 

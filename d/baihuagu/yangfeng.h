@@ -2,7 +2,7 @@
 #include <ansi.h>
 int do_yang(string arg)
 {
-	object bee;
+//	object bee;
 	object me,obj;
 	int c,qufeng;
 
@@ -34,4 +34,3 @@ int do_quit(string arg)
 	write(this_player()->query("name")+"，折腾个啥劲儿呀，专心养蜂吧！\n");
 	return 1;
 }
-

@@ -263,7 +263,7 @@ int do_skip(string arg)
 
 void after_claim()
 {
-	int i, j, k;
+	int i, j/*, k*/;
 	for (i = 0; i < roundcard_count; i++) 
 		if (PIG_D->is_special(roundcards[i]))
 			picks[claimer][pick_count[claimer]++] = roundcards[j];
@@ -533,7 +533,7 @@ void after_winner(string rw)
 
 void after_round()
 {
-	int i;
+//	int i;
 	string rw;
 
 	allow_playbid[SUIT(roundcards[round_order[0]])] = 1;

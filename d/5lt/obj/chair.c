@@ -39,7 +39,7 @@ void init()
 int do_sit(string arg)
 {
 	object ob, who;
-	string str;
+//	string str;
 
 	if( !arg || arg == "" ) 
 		return notify_fail("你要坐什么？\n");
@@ -88,7 +88,7 @@ int do_stand()
 int do_tang(string arg)
 {
 	object ob,who;
-	string str;
+//	string str;
 
 	if( !arg || arg == "" ) 
 		return notify_fail("你要躺在什么上？\n");
@@ -109,4 +109,3 @@ int do_tang(string arg)
 	message_vision("$N象一滩烂泥样躺在了" + ob->name() + "上。\n", who);
 	return 1;
 }
-

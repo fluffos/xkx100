@@ -30,8 +30,8 @@ inherit F_DBASE;
 */
 void incoming_request(mapping info)
 {
-   object *who;
-   string str, *bits;
+// object *who;
+   string str/*, *bits*/;
    int i, len, packet, j;
 
    if(!ACCESS_CHECK(previous_object())) return;

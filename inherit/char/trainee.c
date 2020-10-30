@@ -77,7 +77,7 @@ int train_it(object ob, object me, int pts)
 
 int do_gen(string arg)
 {
-	object vc, me, ob = this_player();
+	object /*vc,*/ me, ob = this_player();
 
 	if (!arg ) return notify_fail("你想让谁跟着你走？\n");
 	if(!objectp(me = present(arg, environment(ob))))
@@ -100,7 +100,7 @@ int do_gen(string arg)
 
 int do_stop(string arg)
 {
-	object vc, me, ob = this_player();
+	object /*vc,*/ me, ob = this_player();
 
 	if (!arg ) return notify_fail("你想让谁停下来？\n");
 	if(!objectp(me = present(arg, environment(ob))))
@@ -134,7 +134,7 @@ int do_stop(string arg)
 int do_yao(string victim)
 {
 	object vc, me = this_object(), ob = this_player();
-	int atk;
+//	int atk;
 
 	if(! victim)
 	{

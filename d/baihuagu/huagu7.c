@@ -46,7 +46,7 @@ int do_swear(string arg)
 
 void close_passage()
 {
-	object room;
+//	object room;
 	if( !query("exits/enter") ) return;
 	delete("exits/enter");
 }

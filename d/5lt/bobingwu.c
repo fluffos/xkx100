@@ -307,7 +307,7 @@ int pass_token(int index,int passmode)
 
 int fyao(string arg)
 {
-	int i,j,k;
+	int i/*,j,k*/;
 	object ob = this_player();
 
 	i=query_member(ob);
@@ -331,7 +331,7 @@ int fyao(string arg)
 int fview()
 {
 	int i;
-	object ob = this_player();
+//	object ob = this_player();
 
 	if (!arrayp(member) || sizeof(member)==0)
 		notify_fail("没人在这搏饼。\n");

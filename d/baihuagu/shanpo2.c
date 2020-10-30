@@ -58,7 +58,7 @@ void init()
 int do_dig(string arg)
 {
 	object me;
-	object food;
+//	object food;
 	me=this_player();
 	if( (int)me->query("food") >= (int)me->max_food_capacity() )
 	{
@@ -116,4 +116,3 @@ int do_getmi(string arg)
 		return 1;
 	}
 }
-
