@@ -18,14 +18,14 @@ LONG	);
 		"west"  : __DIR__"mudao05",
 		"south" : __DIR__"mudao08",
 		"north" : __DIR__"mudao17",
-	])); 
+	]));
 	set("item_desc", ([
 		"bian" :  HIR"
-             ※※※※※※※※※※※※※※※※※※※※
-             ※※※※　                      ※※※※
-             ※※※※    此情不悔 天荒地老   ※※※※
-             ※※※※                        ※※※※
-             ※※※※※※※※※※※※※※※※※※※※\n"NOR,
+             ****************************************
+             ********　                      ********
+             ********    此情不悔 天荒地老   ********
+             ********                        ********
+             ****************************************\n"NOR,
 	]));
         set("objects", ([
                 CLASS_D("gumu")+"/longnv" : 1,
@@ -39,7 +39,7 @@ LONG	);
 }
 
 void init()
-{ 
+{
 	add_action("do_jump","zong");
 	add_action("do_jump","tiao");
 	add_action("do_jump","jump");
@@ -54,7 +54,6 @@ int do_jump(string arg)
 	if(me->query_skill("yunv-shenfa", 1) < 10)
 		return notify_fail("你玉女身法功力不够，跳不上匾额。\n");
 	message_vision(HIY"$N凝气守中，平空拔起数丈，轻轻落在匾额之后。\n"NOR,me);
-	me->move(__DIR__"bianhou"); 
-	return 1; 
+	me->move(__DIR__"bianhou");
+	return 1;
 }
-

@@ -10,7 +10,7 @@ https://forum.fluffos.info/t/common-lpc-migration-issues-v2019/1341
 
     driver config.ini
 
-游戏端口：5555、6666(GBK编码)；网页访问端口：8888
+游戏端口：5555(GBK编码)、6666(UTF8编码)；网页访问端口：8888
 
 本LIB为GBK旧版升级到utf-8版，目前代码基本无编译错误，原代码BUG已基本修复，升级造成的BUG已知部分已修复，不过中文字符判断（中文判断`[0..1]`需要改为`[0..0]`）可能存在遗漏，目前已知存在以下问题：
 

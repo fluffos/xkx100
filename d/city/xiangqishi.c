@@ -15,7 +15,7 @@ void create ()
 棋盘边的小几上搁着一叠薛涛笺(jian)，密密麻麻写满不少东西，还有
 一些好象是棋经(jing)、诗歌(poem)、棋诀(book)之类的，抄录得很整
 齐，想来颇值一读(read)。宋·刘克庄《象弈一首呈叶潜仲》诗云：“
-小艺无难精，上智有未解。君看橘中戏，妙不出局外。”何不领略一番？ 
+小艺无难精，上智有未解。君看橘中戏，妙不出局外。”何不领略一番？
     墙上正北墙上挂了几副对联(lian)，桌头贴了一张小帖子(tie)。
 LONG);
 
@@ -23,7 +23,7 @@ LONG);
 	set("objects", ([ /* sizeof() == 4 */
 		__DIR__"obj/chess" : 1,
 	]));
-	set("item_desc", ([ 
+	set("item_desc", ([
 		"poem": HIY"\n	象棋歌诀\n\n"NOR,
 		"jing": HIR"\n	棋经论\n\n"NOR,
 		"book": (: look_book :),
@@ -70,7 +70,7 @@ int do_read(string arg)
 string look_jian()
 {
         return
-" 
+"
                      以战争之象为棋戏
 
     回溯历史，春秋时的战争主要是车战，是四马拉的各种战车。
@@ -95,9 +95,9 @@ string look_jian()
 string look_book()
 {
 	string desc, *msg;
-	
+
 	desc = "小册子上写了一些和象棋有关的口诀或诗词，其中一页写着：\n\n";
-	
+
 	msg = ({
 "【象棋十诀】：
 一、开局宜正	二、中变出奇	叁、残局稳细	四、全局审势	五、车占要津
@@ -117,15 +117,15 @@ string look_book()
 string look_lian()
 {
 	string desc, *msg;
-	
+
 	desc = "墙上是几副装裱得十分古雅得对联，其中一联写着：\n\n";
-	
+
 	msg = ({
 HIR"
-		※※※※※※※※※※※※※
-		※※※观棋不语真君子※※※
-		※※※起手无回大丈夫※※※
-		※※※※※※※※※※※※※\n\n"NOR,
+		**************************
+		******观棋不语真君子******
+		******起手无回大丈夫******
+		**************************\n\n"NOR,
 HIG"	****** ******
 	* 香 * * 水 *
 	* 分 * * 汲 *
@@ -157,4 +157,3 @@ MAG"	****** ******
 	desc += msg[random(sizeof(msg))];
 	return desc;
 }
-
