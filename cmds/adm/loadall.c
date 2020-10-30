@@ -27,9 +27,10 @@ int loadall(string dir)
     if (dir == "/")
         dirs = dirs - ({".git", ".vscode", "backup", "bin", "binaries", "cygdrive", "data", "dev", "doc", "dump", "grant", "help", "log", "proc", "temp", "u", "version"});
 
+    // debug_message(sprintf("dirs = %O", dirs));
     foreach (file in dirs)
     {
-        if (member_array(file, ({"simul_efun", "event"})) > -1)
+        if (member_array(file, ({"u", "meskill"})) > -1)
             continue;
 
         reset_eval_cost();
