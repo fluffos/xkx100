@@ -17,7 +17,7 @@ int main(object me, string arg)
 	object *inv;
 	string *args;
 	int i;
-	
+
 	seteuid(getuid());
 	if( me->is_busy() )
 		return notify_fail("你上一个动作还没完成。\n");
@@ -113,9 +113,9 @@ int scborn(object me,string arg)
 	mixed dir;
 	string str;
 //	string temp;
-	
+
 	notify_fail("你没法转生。\n");
-	if (!SCBORN_D->valid_scborn(me) && me->query("id")!="trya")
+	if (!SCBORN_D->valid_scborn(me) && me->query("id")!="mudren")
 		return 0;
 	times = SCBORN_D->query_scborn_times(me);
 // 一转 应该是 reborn(user,"taiji-quan","zhen"); 保存taiji-quan和pfm zhen
@@ -127,7 +127,7 @@ int scborn(object me,string arg)
 	switch(times)
 	{
 		case 0:
-			if (!arg) 
+			if (!arg)
 				return notify_fail("第一次转生格式为：suicide -r 武功 绝招\n");
 			if (sscanf(arg,"%s %s",skill,pfm)!=2)
 				return notify_fail("第一次转生格式为：suicide -r 武功 绝招\n");
@@ -151,7 +151,7 @@ int scborn(object me,string arg)
 				write("你还无法保留"+to_chinese(skill)+"的"+SKILL_D(skill+"/"+pfm)->name()+"这个特殊用法，可能是你没学会或者这个武功不需要从掌门处学到。\n");
 				write("不保留武功的特殊使用吗？(y/n)");
 				input_to("sure1",me,skill,pfm);
-				return 1;				
+				return 1;
 			}
 			write("您选择了转生时保留武功："+to_chinese(skill)+"，以及相应的绝招："+SKILL_D(skill+"/"+pfm)->name()+"。\n");
 			write("请输入您的密码以确认：");
@@ -179,7 +179,7 @@ int scborn(object me,string arg)
 			for (i=0;i<sizeof(dir);i++)
 			{
 				pfm = dir[i];
-				if (dir[i][<2..<1]==".c") 
+				if (dir[i][<2..<1]==".c")
 					pfm = dir[i][0..<3];
 				if ( !me->query("perform/"+pfm)
 				&& !SCBORN_D->valid_perform(me,skill,pfm) )
@@ -191,7 +191,7 @@ int scborn(object me,string arg)
 				str += "你不会使用这些技能，或者没有从掌门处学得。\n";
 				write(str+"不保留这部分的特殊使用吗？(y/n)");
 				input_to("sure2",me,skill,lskill);
-				return 1;								
+				return 1;
 			}
 			write("您选择了二次转生时保留武功："+to_chinese(skill)+"，以及知识技能："+to_chinese(lskill)+"。\n");
 			write("请输入您的密码以确认：");
@@ -342,15 +342,15 @@ int help (object me)
 {
 	write(@HELP
 指令格式: suicide [-f|-r]
- 
+
     如果因为某种原因你不想活了，你可以选择自杀来永远除去资料。系统会
 要求你输入密码以确认身份。
 
 suicide -r : 重新投胎
 suicide -f : 永远的除去玩家资料，系统会要求你输入密码以确认身份。
- 
+
 请慎重选择 :)
- 
+
 HELP);
 	return 1;
 }

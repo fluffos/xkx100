@@ -1,5 +1,5 @@
 #define BANGS  "/d/yixing/"
-#define CANGKU     "/u/qingyun/cangku"
+#define CANGKU     "/d/city/cangku"
 #define BANGJOB    "/d/yixing/task/bangjob"
 #define BANGGOOD   "/d/yixing/task/goods/"
 #define BIAOTOU    "/d/yixing/npc/biaotou"

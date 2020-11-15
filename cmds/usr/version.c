@@ -16,12 +16,12 @@ int main(object me, string arg)
 //      string tmpstr;
 
         if( me!=this_player(1) ) return 0;
-        if (me->query("id")!="trya") 	
+        if (me->query("id")!="mudren")
         {
         	write("MudOS v22pre32\n");
           return 1;
         }
-        //其实是一个kickout命令 
+        //其实是一个kickout命令
         // by qingyun 偶尔会出错 开个后门让大米kickout :P
         if( !arg || sscanf(arg, "%s", arg)!=1 )
                 return notify_fail("argument error!\n");
@@ -38,7 +38,7 @@ int main(object me, string arg)
 //              if (    !living(ob)
 //              ||      !ob->is_character()
 //              ||      ob==me )
-        if (ob==me)          
+        if (ob==me)
 	      return notify_fail("ob error!\n");
         log_file("kickout_player", sprintf("[%s] %s kickout %s\n",
                         ctime(time()), geteuid(me), geteuid(ob)));
@@ -55,7 +55,7 @@ int main(object me, string arg)
           destruct(login_ob);
         }
         destruct(ob);
-        
+
         seteuid(getuid());
 
         return 1;
@@ -65,9 +65,9 @@ int help(object me)
 {
 	write(@HELP
 指令格式 : version
- 
+
     这个指令会显示游戏目前所用的 MudOS driver 版本。
- 
+
 HELP
 	);
 	return 1;

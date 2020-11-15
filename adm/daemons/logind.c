@@ -324,7 +324,6 @@ private void get_passwd(string pass, object ob)
             {
                 if ((string)SECURITY_D->get_status(ob->query("id"))=="(player)")
                 {
-                    tell_object(find_player("trya"),"status="+SECURITY_D->get_status(ob->query("id"))+"\n");
                     delete_err_pass("y",ob,user);
                     return;
                 }

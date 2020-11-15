@@ -27,8 +27,8 @@ void init()
        object ob;
        object me=this_object();
        if( query("init") == 0 ) {
-               ob=new("/u/qingyun/mingjiao/obj/parry_book");
-               ob->move(me);
+        //        ob=new("/u/qingyun/mingjiao/obj/parry_book");
+        //        ob->move(me);
                add("init",1);
        }
 }

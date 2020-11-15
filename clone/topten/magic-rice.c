@@ -9,127 +9,127 @@
 inherit ITEM;
 inherit F_SAVE;
 
-mapping *exp_topten = 
+mapping *exp_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *richman_topten = 
+mapping *richman_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *oldman_topten = 
+mapping *oldman_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *force_topten = 
+mapping *force_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *literate_topten = 
+mapping *literate_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *pks_topten = 
+mapping *pks_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *killer_topten = 
+mapping *killer_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *thief_topten = 
+mapping *thief_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *sword_topten = 
+mapping *sword_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *blade_topten = 
+mapping *blade_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *unarmed_topten = 
+mapping *unarmed_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *dodge_topten = 
+mapping *dodge_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *throwing_topten = 
+mapping *throwing_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *whip_topten = 
+mapping *whip_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *hammer_topten = 
+mapping *hammer_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *staff_topten = 
+mapping *staff_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *weapon_topten = 
+mapping *weapon_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *gambling_topten = 
+mapping *gambling_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *petexp_topten = 
+mapping *petexp_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *petobe_topten = 
+mapping *petobe_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *mudage_topten =  
+mapping *mudage_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *score_topten =  
+mapping *score_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *handsome_topten =  
+mapping *handsome_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *beauty_topten =  
+mapping *beauty_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
 });
-mapping *kill_topten =  
+mapping *kill_topten =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
@@ -149,7 +149,7 @@ int create()
 	set("unit", "版");
 	set("value", 0);
 	setup();
-		
+
 	 restore();
 		if (mapp(query("exp_topten")))	exp_topten = query("exp_topten");
 		else set("exp_topten",      exp_topten);
@@ -185,12 +185,12 @@ int create()
 		else set("staff_topten",    staff_topten );
 		if (mapp(query("weapon_topten")))	weapon_topten    = query("weapon_topten");
 		else set("weapon_topten",   weapon_topten );
-		if (mapp(query("gambling_topten")))	gambling_topten  = query("gambling_topten");		
-		else set("gambling_topten", gambling_topten );	
-		if (mapp(query("petexp_topten")))	petexp_topten    = query("petexp_topten");		
-		else set("petexp_topten",   petexp_topten );	
-		if (mapp(query("petobe_topten")))	petobe_topten    = query("petobe_topten");		
-		else set("petobe_topten",   petobe_topten );	
+		if (mapp(query("gambling_topten")))	gambling_topten  = query("gambling_topten");
+		else set("gambling_topten", gambling_topten );
+		if (mapp(query("petexp_topten")))	petexp_topten    = query("petexp_topten");
+		else set("petexp_topten",   petexp_topten );
+		if (mapp(query("petobe_topten")))	petobe_topten    = query("petobe_topten");
+		else set("petobe_topten",   petobe_topten );
 		if (mapp(query("mudage_topten")))	mudage_topten    = query("mudage_topten");
 		else set("mudage_topten",   mudage_topten);
 		if (mapp(query("score_topten")))	score_topten     = query("score_topten");
@@ -254,9 +254,9 @@ int savetopten( object me )
 		set("hammer_topten",   hammer_topten );
 		set("staff_topten",    staff_topten );
 		set("weapon_topten",   weapon_topten );
-		set("gambling_topten", gambling_topten );	
-		set("petexp_topten",   petexp_topten );	
-		set("petobe_topten",   petobe_topten );	
+		set("gambling_topten", gambling_topten );
+		set("petexp_topten",   petexp_topten );
+		set("petobe_topten",   petobe_topten );
 		set("mudage_topten",   mudage_topten);
 		set("score_topten",    score_topten);
 		set("handsome_topten", handsome_topten);
@@ -293,7 +293,7 @@ int simple_sort( mapping *which_chart,string chart_type,int chart_size,object me
 		c_type[chart_size] = me->query("per");
 	if (chart_type == "per2" && me->query("gender")=="女性" )
 		c_type[chart_size] = me->query("per");
-		
+
 	if (chart_type == "weapon/lv")
 		c_type[chart_size] += me->query("gift/weapon");
 	if (chart_type == "marks/mi_age")
@@ -314,10 +314,10 @@ int simple_sort( mapping *which_chart,string chart_type,int chart_size,object me
 		c_type[chart_size] /= i;
 	}
 	exist = 0;
-	if (!arrayp(which_chart)) 
+	if (!arrayp(which_chart))
 	{
-		tell_object(find_player("qingyun"),"chart_type="+chart_type+"\n");
-		which_chart = 
+		// tell_object(find_player("qingyun"),"chart_type="+chart_type+"\n");
+		which_chart =
 ({
 	(["第1名":"空缺"]),(["第2名":"空缺"]),(["第3名":"空缺"]),(["第4名":"空缺"]),(["第5名":"空缺"]),
 	(["第6名":"空缺"]),(["第7名":"空缺"]),(["第8名":"空缺"]),(["第9名":"空缺"]),(["第10名":"空缺"]),
@@ -391,7 +391,7 @@ int simple_sort_skill( mapping *which_chart,string chart_type,int chart_size,obj
 	si="名次";
 	c_id[chart_size] = me->query("id");
 	c_short[chart_size] = RANK_D->query_rank(me)+me->short(1);
-	if (chart_type=="literate") 
+	if (chart_type=="literate")
 	c_type[chart_size] = me->query_skill(chart_type,1);
 	else
 	c_type[chart_size] = me->query_skill(chart_type);

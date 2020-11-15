@@ -29,7 +29,7 @@ void create()
 	set("dex", 30);
 
 	set("max_qi", 800);
-	set("max_jing", 400);      
+	set("max_jing", 400);
 	set("neili", 800);
 	set("max_neili", 800);
 	set("jiali", 30);
@@ -103,7 +103,7 @@ int stealing(object ob, object* inv)
 	int dp, ap;
 
 //	tester = find_player("winder");
-//	if (!tester) tester = find_player("qingyun");
+//	if (!tester) tester = find_player("mudren");
 	if( !living(this_object()) || this_object()->is_fighting() ||
 		this_object()->is_busy() ) return 1;
 
@@ -177,7 +177,7 @@ int random_walk()
 	object here = environment();
 	int temp;
 	object tester = find_player("winder");
-	if (!tester) tester = find_player("qingyun");
+	if (!tester) tester = find_player("mudren");
 
 	if( !objectp(here) || is_fighting() || is_busy() ||
 		!mapp(exits = here->query("exits")) ||
@@ -215,7 +215,7 @@ int random_steal()
 	mixed inv;
 	int i;
 	object tester = find_player("winder");
-	if (!tester) tester = find_player("qingyun");
+	if (!tester) tester = find_player("mudren");
 
 	if( !living(this_object()) ) return 1;
 
@@ -239,4 +239,3 @@ int random_steal()
 
 	return 1;
 }
-

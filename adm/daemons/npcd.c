@@ -586,16 +586,15 @@ int c_here(object ob)
 	newfile = file[0..line];
 	newfile += ({olen+"set(\"no_quest\",1);"});
 	newfile += file[line+1..<1];
-	tell_object(find_player("qingyun"),"sizeof(file)="+sizeof(file)+"\n");
-	tell_object(find_player("qingyun"),"sizeof(newfile)="+sizeof(newfile)+"\n");
-	tell_object(find_player("qingyun"),"开始写入文件"+file_name(room)+".c"+"\n");
+	// tell_object(find_player("qingyun"),"sizeof(file)="+sizeof(file)+"\n");
+	// tell_object(find_player("qingyun"),"sizeof(newfile)="+sizeof(newfile)+"\n");
+	// tell_object(find_player("qingyun"),"开始写入文件"+file_name(room)+".c"+"\n");
 	err = catch(write_file(file_name(room)+".c",implode(newfile,"\n"),1));
 	if (write_file(file_name(room)+".c",implode(newfile,"\n"),1))
 	{
 		log_file("qfile","加入任务标识到文件 "+file_name(room)+".c\n");
-		tell_object(find_player("qingyun"),"写入成功\n");
+		// tell_object(find_player("qingyun"),"写入成功\n");
 	}
-	else
-		tell_object(find_player("qingyun"),"写入失败。\n");
-		return 1;
+
+	return 1;
 }

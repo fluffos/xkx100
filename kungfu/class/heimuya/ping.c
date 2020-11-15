@@ -56,8 +56,8 @@ void create()
 		"工作"   : (: ask_working :),
 		"分药"   : (: ask_working :),
 		"报酬"   : (: ask_over :),
-		"工资"   : (: ask_over :),   
-		"over"   : (: ask_over :),   
+		"工资"   : (: ask_over :),
+		"over"   : (: ask_over :),
 		"针灸"   : (: ask_work :),
 		"银针"   : (: ask_work :),
 		"行医"   : (: ask_work :),
@@ -74,7 +74,7 @@ void create()
 	carry_object(BOOK_DIR+"medicine5");
 }
 void init()
-{	
+{
 	object ob = this_player();
 	::init();
 	if( interactive(ob) && !is_fighting()&&!ob->query_temp("fengyaoover") )
@@ -206,7 +206,7 @@ int ask_me()
 		command("say 你这点江湖阅历，也想让我为你疗伤？");
 		return 1;
 	}
-		
+
 	if ((int)ob->query("eff_qi") == (int)ob->query("max_qi")
 	  && (int)ob->query("eff_jing") == (int)ob->query("max_jing"))
 	{
@@ -221,14 +221,14 @@ int ask_me()
 		{
 			if (ob->query("family/family_name") != "黑木崖")
 				ob->add("score",-200);
-		        else ob->add("score",-100);    
+		        else ob->add("score",-100);
 		}
 		me->add("count", -1);
 		me->set_temp("busy",1);
 		ob->start_busy(2);
 		remove_call_out("recover");
-		call_out("recover",2,ob);		
-		if (me->query("count")<1)  
+		call_out("recover",2,ob);
+		if (me->query("count")<1)
 		{
 			where = environment(me);
 			where->add("no_fight", 1);
@@ -256,7 +256,7 @@ int newyao(object me)
 	where->add("no_fight", -1);
 	return 1;
 }
-	
+
 int ask_heal()
 {
 	object ob = this_player();
@@ -270,16 +270,16 @@ int ask_heal()
 	}
 
 	if(ob->query("shen")>0)
-	{       
+	{
 		command("say 你们这些正派中人，我可不敢高攀！");
 		return 1;
 	}
 	if(ob->query("score")<300&&ob->query("combat_exp")>100000)
-	{       
+	{
 		command("say 你这点江湖阅历，也想让我为你治病？");
 		return 1;
 	}
-		
+
 	if( ob->query_condition("ill_kesou") ||
 		ob->query_condition("ill_zhongshu") ||
 		ob->query_condition("ill_shanghan") ||
@@ -291,23 +291,23 @@ int ask_heal()
 		{
 		if (ob->query("family/family_name") != "黑木崖")
 	            ob->add("score",-200);
-	        else ob->add("score",-100);    
+	        else ob->add("score",-100);
 		}
 		me->add("count", -1);
 		me->set_temp("busy",1);
 		ob->start_busy(5);
 		remove_call_out("recover_II");
-		call_out("recover_II",5,ob);		
+		call_out("recover_II",5,ob);
 		return 1;
 	}
-	
+
 	else
 	{
 		command("? "+ob->query("id"));
 		command("say 看你的气色，并没有生病啊？");
 		return 1;
 	}
-	
+
 }
 int recover_II(object ob)
 {
@@ -349,7 +349,7 @@ int ask_poison()
 		command("say 你这点江湖阅历，也想让我为你解毒？");
 		return 1;
 	}
-		
+
 	if(ob->query_condition("chanchu_poison") ||
 		ob->query_condition("drunk") ||
 		ob->query_condition("flower_poison") ||
@@ -372,13 +372,13 @@ int ask_poison()
 		{
 			if (ob->query("family/family_name") != "黑木崖")
 				ob->add("score",-300);
-			else ob->add("score",-200);    
+			else ob->add("score",-200);
 		}
 		me->add("count", -1);
 		me->set_temp("busy",1);
 		ob->start_busy(5);
 		remove_call_out("recover_III");
-		call_out("recover_III",5,ob);		
+		call_out("recover_III",5,ob);
 		return 1;
 	}
 	else
@@ -476,7 +476,7 @@ int ask_over()
 	{
 		me->set("fenyao_over",1);
 	  if (!add_member(me->query("id")))
-	    tell_object(find_player("qingyun"),"平一指保存失败。\n");
+	    // tell_object(find_player("qingyun"),"平一指保存失败。\n");
 	}
 	return 1;
 }
@@ -495,13 +495,13 @@ int ask_working()
 	{
 		message_vision("平一指对$N说道：“我记得以前你在这里打过工，怎么又来了！”\n",me);
 		return 1;
-	}	
+	}
 	if (me->query_temp("fengyaobegin"))
 	{
 		message_vision("平一指对$N说道：“你不是已经要了工作了，还不去干！”\n",me);
 		return 1;
 	}
-	if ((int)(me->query("qi")) < random(30))        
+	if ((int)(me->query("qi")) < random(30))
 	{
 		message_vision("平一指对$N说道：“算了吧你，都这样了还想工作，把药分错了会出人命的。”\n",me);
 		return 1;
@@ -520,7 +520,7 @@ int ask_working()
 					return 1;
 				}
 		}
-		else 
+		else
 		{
 			message_vision("平一指对$N说道：“你先去药室看一下药品全了没，然后再过来问我。”\n",me);
 			return 1;
@@ -581,7 +581,7 @@ int is_member(string arg)
 	string *recs;
 	if (!file=read_file(PING_FILE))
 	{
-		tell_object(find_player("qingyun"),"读取失败。\n");
+		// tell_object(find_player("qingyun"),"读取失败。\n");
 		return 0;
 	}
 	recs=explode(file,"\n");

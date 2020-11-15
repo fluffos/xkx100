@@ -10,7 +10,7 @@
 inherit SKILL;
 string type() { return "martial"; }
 string martialtype() { return "skill"; }
-string owner() {return "qingyun";}
+string owner() {return "mudren";}
 
 mapping *action = ({
 // ZHAOSHI :0
@@ -40,7 +40,7 @@ int valid_learn(object me)
 		return notify_fail("你使用的武器不对。\n");
 	creater = this_object()->owner();
 	if (userp(me) &&
-	me->query("id")!=creater && 
+	me->query("id")!=creater &&
 	me->query("couple/couple_id")!=creater)
 	return notify_fail("不能向其他玩家学习自创的武功。\n");
 	return 1;
@@ -51,18 +51,18 @@ int valid_enable(string usage)
 }
 int practice_skill(object me)
 {
-	object weapon; 
+	object weapon;
 	string skname=explode(__FILE__,"/")[<1][0..<3];
 	int lvl = me->query_skill(skname,1);
 	int i=sizeof(action);
 	int qicost;
 	int nlcost;
-	
+
 	qicost = (272 + 272)/10;
 	nlcost = (153 + 153)/15;
 	if (!objectp(weapon = me->query_temp("weapon")) ||
 		(string)weapon->query("skill_type") != "blade")
-		return notify_fail("你使用的武器不对。\n");	
+		return notify_fail("你使用的武器不对。\n");
 	if( (int)me->query("qi") < qicost )
 		return notify_fail("你的体力不够了，休息一下再练吧。\n");
 	if( (int)me->query("neili") < nlcost )

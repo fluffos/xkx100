@@ -2,7 +2,7 @@
 // Midified by Winder June.25 2000
 inherit NPC;
 inherit F_MASTER;
-  
+
 #include <ansi.h>
 string ask_me();
 
@@ -56,10 +56,10 @@ void create()
  setup();
  carry_object("/clone/misc/cloth")->wear();
  carry_object("/clone/weapon/gangdao")->wield();
- 
+
 }
 
-string *can=({"qingyun","ccp","ccq","gally","trya","melody","sevenup"});
+string *can=({"mudren"});
 init()
 {
  object me=this_player();
@@ -67,7 +67,7 @@ init()
  {
   if (present("chu tou",me))
   me->set_temp("invite",1);
-  add_action("do_qingyun","qingyun");
+  add_action("do_home","home");
  }
 }
 void attempt_apprentice(object ob)
@@ -79,20 +79,20 @@ void attempt_apprentice(object ob)
 string ask_me()
 {
  object me,ob;
- ob=this_player(); 
+ ob=this_player();
 
  if (random(100)<70)
-  return "我在设计机关方面是有点特长，让大家见笑了。";   
+  return "我在设计机关方面是有点特长，让大家见笑了。";
  command("laugh");
  return "别吵着我，我在看书呢。哈哈，芝麻开门。。。。这书真好笑！\n";
 }
-int do_qingyun()
+int do_home()
 {
  object me=this_player();
  if (member_array(getuid(me),can)>=0)
  {
  	message("vision",me->query("name")+"往北方离开。\n",environment(me),me);
-  me->move("u/qingyun/home/dating");
+  me->move("/d/city/kedian");
   return 1;
  }
  return 0;

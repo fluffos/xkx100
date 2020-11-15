@@ -27,9 +27,9 @@ LONG );
 void init()
 {
 	object me;
-	
+
 	me = this_player();
-	if (getuid(me)=="melody")
+	if (getuid(me)=="mudren")
 	{
 		if (me->query_condition("xx_poison"))
 		me->clear_condition("xx_poison");

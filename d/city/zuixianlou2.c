@@ -1,5 +1,5 @@
 // Room: /city/zuixianlou2.c
-// YZC 1995/12/04 
+// YZC 1995/12/04
 
 inherit ROOM;
 
@@ -40,8 +40,8 @@ void init()
 int do_a(string arg)
 {
 	object me=this_player();
-	
-	if (getuid(me)=="melody" || getuid(me)=="qingyun")
+
+	if (getuid(me)=="mudren")
 	{
 		if (!me->query_temp("a_add"))
 		{
