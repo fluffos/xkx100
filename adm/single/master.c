@@ -123,20 +123,26 @@ void log_error(string file, string message)
 {
     string name, home;
 
-    if( find_object(SIMUL_EFUN_OB) )
+    if (find_object(SIMUL_EFUN_OB))
         name = file_owner(file);
 
-    if (name) home = user_path(name);
-    else home = LOG_DIR;
+    if (name)
+        home = user_path(name);
+    else
+        home = LOG_DIR;
 
-    if (this_player(1))
+    if (strsrch(message, "Warning") == -1)
     {
-        if (wizardp(this_player(1)))
-            efun::write("编译时段错误：" + message + "\n");
-        else
-            efun::write(get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
+        if (this_player(1))
+        {
+            if (wizardp(this_player(1)))
+                efun::write("编译时段错误：" + message + "\n");
+            else
+                efun::write(get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
+        }
+
+        efun::write_file(home + "log", message);
     }
-    efun::write_file(home + "log", message);
 }
 
 // save_ed_setup and restore_ed_setup are called by the ed to maintain

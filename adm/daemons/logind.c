@@ -417,7 +417,8 @@ TEXT
 
 private void get_name(string arg, object ob)
 {
-    if( !check_legal_name(arg) )
+    arg = trim(arg);
+    if (!check_legal_name(arg))
     {
         write("您的中文名字：");
         input_to("get_name", ob);
@@ -468,6 +469,7 @@ private void confirm_password(string pass, object ob)
     4〖 福州 〗 〖 泉州 〗 〖 台湾 〗 〖 延平 〗 〖 石梁 〗 〖 澎湖 〗
     5〖 大理 〗 〖 衡阳 〗 〖 江陵 〗 〖 岳阳 〗 〖 佛山 〗 〖 成都 〗
 
+    请输入数字（1~5）选择你想出生的地区范围，具体城市由系统随机选择。
 TEXT);
     input_to("get_hometown",ob);
 
@@ -1215,30 +1217,26 @@ int check_legal_id(string id)
 
 int check_legal_name(string name)
 {
-    int i;
+    if (!is_chinese(name))
+    {
+        write("对不起，请您用「中文」取名字。\n");
+        return 0;
+    }
 
-    i = strlen(name);
-
-    if( (strwidth(name) < 4) || (strwidth(name) > 10 ) ) {
+    if ((strwidth(name) < 4) || (strwidth(name) > 10))
+    {
         write("对不起，你的中文名字必须是 2 到 5 个中文字。\n");
         return 0;
     }
-    while(i--) {
-        if( name[i]<=' ' ) {
-            write("对不起，你的中文名字不能用控制字元。\n");
-            return 0;
-        }
-        if( (strsrch(name, "　") >= 0) ||
-            (strsrch(name, "爸") >= 0)) {
-            write("对不起，你的中文名字不能用引起误会的单字。\n");
-            return 0;
-        }
-        if( i%2==0 && !is_chinese(name[i..<0]) ) {
-            write("对不起，请您用「中文」取名字。\n");
-            return 0;
-        }
+
+    if ((strsrch(name, "　") >= 0) ||
+        (strsrch(name, "爸") >= 0))
+    {
+        write("对不起，你的中文名字不能用引起误会的单字。\n");
+        return 0;
     }
-    if( member_array(name, banned_name)!=-1 ) {
+    if (member_array(name, banned_name) != -1)
+    {
         write("对不起，这种名字会造成其他人的困扰。\n");
         return 0;
     }
