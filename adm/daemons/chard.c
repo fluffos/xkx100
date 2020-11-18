@@ -144,7 +144,7 @@ void setup_char(object ob)
 varargs object make_corpse(object victim, object killer)
 {
 	int i;
-	object corpse, mengzhu, room, *inv;
+ object corpse, *inv;
  
 	if( victim->is_ghost() ) {    
 		inv = all_inventory(victim);

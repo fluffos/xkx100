@@ -22,7 +22,7 @@ void create()
 能见到桌面般大的一片天空。陷阱周围是松软的土层，不停地往外渗水。
 似乎刚刚挖好没多久。
 LONG NOR
-);      
+);
 	set("invalid_startroom",1);
 	set("trap_room",1);
 	setup();
@@ -83,7 +83,7 @@ void falldown(object me)
 	object rum_ob;
 	object owner = this_object()->query("owner");
 
-// To noisy. 
+// To noisy.
 	if( !objectp(rum_ob = find_object("/d/city/npc/aqingsao")) )
 		rum_ob = load_object("/d/city/npc/aqingsao");
 	CHANNEL_D->do_channel(rum_ob, "rumor",
@@ -99,7 +99,7 @@ void falldown(object me)
 }
 
 void flydown(object me)
-{       
+{
 	if( random(5) == 0 )
 	message("vision", "只见人影一闪，" + me->name() + "已经站在你的面前！\n", environment(me), me);
 }
@@ -133,7 +133,7 @@ int valid_leave(object me, string dir)
 			{
 				return notify_fail("陷阱看来挺深的，你得试试能不能使劲跳（ＴＩＡＯ）出去。\n");
 			}
-			
+
 			else if( !mapp(exit = roomtrap->query("exits")) || !stringp(exit[dir]) )
        {
          return notify_fail("这个方向没有路。\n");
@@ -235,7 +235,7 @@ int do_push(string arg)
 	me = this_player();
 	roomtrap = this_object();
 
-	if( !arg || sscanf(arg, "%s %s", who, where)!=2 ) 
+	if( !arg || sscanf(arg, "%s %s", who, where)!=2 )
 		return notify_fail("指令格式：tui <人物> <方向>\n");
 	if( !objectp(ob = present(who, environment(me))) || !living(ob))
 		return notify_fail("你要推谁上去？\n");
@@ -289,10 +289,10 @@ int do_fill()
 	me->receive_damage("qi", depth/3, "填陷阱时累死了");
 	message_vision("$N满头大汗地挑泥担水，把陷阱严严实实地填了起来。\n\n", me);
 	roomfrom->set("exits/" + roomtrap->query("from"), file_name(roomto));
-	roomto->set("exits/" + roomtrap->query("to"), file_name(roomfrom));     
+	roomto->set("exits/" + roomtrap->query("to"), file_name(roomfrom));
 	roomfrom->delete("exits/jump" + roomtrap->query("from"));
 	roomto->delete("exits/jump"  + roomtrap->query("to"));
-	
+
 	inv = all_inventory(environment(me));
 
 	if( sizeof(inv) >= 1 )
@@ -322,13 +322,13 @@ int trap_power(object me)
 void maintaining(object roomtrap, int count)
 {
 	object owner, roomfrom, roomto;
-  int i;
-  object *inv;
+	int i;
+  	object *inv;
 	roomfrom = roomtrap->query("roomfrom");
 	roomto = roomtrap->query("roomto");
 
 	if( objectp(owner = roomtrap->query("owner")) && count < 10 )
-	{ 
+	{
 /*		if( environment(owner) == roomtrap ||
 			environment(owner) == roomfrom ||
 			environment(owner) == roomto )
@@ -338,15 +338,18 @@ void maintaining(object roomtrap, int count)
 	}
 	else
 	{
-		roomfrom->set("exits/"+roomtrap->query("from"),file_name(roomto));
-		roomto->set("exits/"+roomtrap->query("to"),file_name(roomfrom));
-		roomfrom->delete("exits/jump" + roomtrap->query("from"));
-		roomto->delete("exits/jump"  + roomtrap->query("to"));
-		inv=all_inventory(roomtrap);
-    tell_room(roomtrap,"这时候走过来一个中年汉子，见你掉在陷阱里面，就找了条绳子把你拉了上来。\n随后你们一起把这个害人的陷阱严严实实地填了起来。\n");
-		for (i=0;i<sizeof(inv);i++)
-			if (!living(inv[i])) continue;
-			else inv[i]->move(roomfrom);
-		destruct(roomtrap);
+		if (objectp(roomto) && objectp(roomfrom))
+		{
+			roomfrom->set("exits/"+roomtrap->query("from"),file_name(roomto));
+			roomfrom->delete("exits/jump" + roomtrap->query("from"));
+			roomto->set("exits/"+roomtrap->query("to"),file_name(roomfrom));
+			roomto->delete("exits/jump"  + roomtrap->query("to"));
+			inv=all_inventory(roomtrap);
+			tell_room(roomtrap,"这时候走过来一个中年汉子，见你掉在陷阱里面，就找了条绳子把你拉了上来。\n随后你们一起把这个害人的陷阱严严实实地填了起来。\n");
+			for (i=0;i<sizeof(inv);i++)
+				if (!living(inv[i])) continue;
+				else inv[i]->move(roomfrom);
+			destruct(roomtrap);
+		}
 	}
 }

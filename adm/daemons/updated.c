@@ -6,12 +6,12 @@ void create() { seteuid(getuid()); }
 
 void check_user(object ob)
 {
-	int v1, i, j, level, max; 
-	mapping my, skill_status, family, smap, pmap;
-	string *sname, m,hometown;
+ int  i, level, max; 
+ mapping my, skill_status, smap, pmap;
+ string *sname;
 	float exper;
-	string name,id,or,type,time;
-	int value,make,lv,money_limit,xism_age;
+ 
+ int xism_age;
 
 	my = ob->query_entire_dbase();
 	smap = ob->query_skill_map();

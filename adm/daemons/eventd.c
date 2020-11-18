@@ -43,7 +43,7 @@ void heart_beat()
 {
         mixed *lt;
         object eob;
-        int  tt,i,num;
+        int i,num;
         int  month,day,hour;
         string time;
         

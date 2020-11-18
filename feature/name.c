@@ -64,7 +64,7 @@ varargs string name(int raw)
 varargs string short(int raw)
 {
 	mapping party;
-	string guard, degree, party_title, title, nick, str, str1, *mask;
+ string guard, degree, party_title, title, nick, str, *mask;
 	
 	if( !stringp(str = query("short")) )
 		str = name(raw) + "(" + capitalize(query("id")) + ")";
@@ -148,4 +148,3 @@ varargs string long(int raw)
 
 	return str;
 }
-

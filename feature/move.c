@@ -46,7 +46,7 @@ nomask int weight() { return weight + encumb; }
 
 varargs int move(mixed dest, int silently)
 {
-	object ob, env, *inv, me = this_object(), where = environment();
+ object ob, env, *inv, me = this_object();
 	mapping exits;
 	string str, *dirs, time = NATURE_D->game_time();
 	int i,w;

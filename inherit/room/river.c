@@ -50,7 +50,7 @@ void init()
 int do_cross()
 {
         object me, arrive;
-        string msg;
+        
         string go_msg;
         string come_msg;
         int can = 0;
@@ -118,7 +118,7 @@ int do_cross()
 
 int do_yell(string arg)
 {
-	string dir;
+ 
 
 	if( !arg || arg=="" ) return 0;
 

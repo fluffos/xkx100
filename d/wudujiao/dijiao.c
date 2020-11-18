@@ -30,8 +30,8 @@ void init()
 }
 int do_move(string arg)
 {
-        object me,hole;
-        string dir;
+        object me;
+        
         me = this_player();
         if (!arg||arg=="") return 0;
         if( arg=="草席" ) {
@@ -45,4 +45,3 @@ int do_move(string arg)
         }
         return 1;
 }
-

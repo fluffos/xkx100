@@ -24,7 +24,6 @@ void create()
 }
 void init()
 {
-	object ob,me;
 	add_action("do_name","name");
 //	add_action("do_betrayer","betrayer");
 //	add_action("do_age","age");

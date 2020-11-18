@@ -24,7 +24,7 @@ LONG
 }
 void init()
 {
-	object ob1,ob2;
+ object ob1;
 	object me=this_player();
 	if((random(10)<2)&&(this_object()->query("snake_count")>0)&&(me->query_temp("dugu_visit")!=0)&&(!present("pusi qushe", environment(this_player()))))
 	{	

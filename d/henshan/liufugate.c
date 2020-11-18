@@ -49,9 +49,9 @@ message_vision("$N“咚，咚，咚，。。。”地敲着门，可里面却�
 }
 int do_push(string arg)
 {
-    int n;
-    object weapon,me=this_player();
-    mapping fam;
+    
+    object me=this_player();
+    
 
     if (!me->query_temp("marks")) return notify_fail("门关得牢牢的，急切打不开！\n");
     if ( !arg || arg!="gate" ) return notify_fail("这是干嘛？\n");

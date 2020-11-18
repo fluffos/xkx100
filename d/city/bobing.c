@@ -1,4 +1,3 @@
-
 #include <ansi.h>
 //lijia
 inherit ROOM;
@@ -280,7 +279,7 @@ void check_throw(object who)
 }
 int fyao(string arg)
 {
-	int i,j,k;
+ int i;
 	object ob = this_player();
 
 	i=query_member(ob);
@@ -304,7 +303,7 @@ int fyao(string arg)
 int fview()
 {
 	int i;
-	object ob = this_player();
+ 
 
 	if (!arrayp(member) || sizeof(member)==0)
 		notify_fail("没人在这搏饼。\n");
@@ -337,7 +336,7 @@ int fview()
 int fleave(string id)
 {
 	int i, num;
-	object nil, ob = this_player();
+ object  ob = this_player();
 
 	if (wizardp(ob))
 	{
@@ -513,7 +512,7 @@ void do_yao(string arg)
 "潇洒地作了个四方揖：这把该我抢状元了，看好了．．．\n",
 });
 
-	int t1,s1,s2,s3,s4,s5,s6,c1,c2,c3,c4,c5,c6,getaward,getscore,msgno;
+ int s1,s2,s3,s4,s5,s6,c1,c2,c3,c4,c5,c6,getaward,getscore,msgno;
 	string result,dest;
 	object ob = this_player();
 

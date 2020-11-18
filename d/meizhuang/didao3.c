@@ -30,7 +30,7 @@ void init()
 }
 int do_open(string arg)
 {
-	object obj, me = this_player();
+ object  me = this_player();
 
 	if(!arg || arg=="")
 	{

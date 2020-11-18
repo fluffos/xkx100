@@ -475,8 +475,6 @@ int ask_over()
 	if (me->query("combat_exp")>=MAX_EXP)
 	{
 		me->set("fenyao_over",1);
-	  if (!add_member(me->query("id")))
-	    // tell_object(find_player("qingyun"),"平一指保存失败。\n");
 	}
 	return 1;
 }

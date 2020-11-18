@@ -5,7 +5,7 @@ inherit ROOM;
 
 void create()
 {
-	int i,b1,b2,b3;
+ int b1,b2,b3;
 	string temp;
 	object y1,y2,y3;
 	set("short", "书房");

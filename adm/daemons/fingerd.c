@@ -27,7 +27,7 @@ string age_string(int time)
 string finger_all()
 {
 	object *ob;
-	string msg, fip;
+ string msg;
 	int i;
 
 //	ob = users();
@@ -69,7 +69,7 @@ string finger_all()
 string finger_user(string name)
 {
 	object ob, body;
-	string msg, mud;
+ string msg;
 	int public_flag;
 	int no_wiz;
 

@@ -36,8 +36,8 @@ varargs int is_killing(string id)
 //This function starts fight between this_object() and ob
 void fight_ob(object ob)
 {
-	object *inv,obj;
-	int i;
+ 
+ 
 
 	if(!ob || ob==this_object()) return;
 	if (environment(ob) != environment(this_object())) return;
@@ -325,4 +325,3 @@ int do_ride_none(object me)
 */
 	return 1;
 }
-

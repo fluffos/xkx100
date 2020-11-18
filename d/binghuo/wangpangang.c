@@ -29,7 +29,7 @@ void init()
 int do_enter ( string arg )
 {
 	object ob ;
-	string dir;
+ 
 	if( !arg || arg !="chuan" ) 
 	{
 		tell_object(this_player() , "你要 enter 哪儿？\n" ) ;

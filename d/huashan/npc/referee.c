@@ -1,4 +1,3 @@
-
 inherit NPC;
 #include <ansi.h>
 
@@ -71,7 +70,7 @@ int do_sign()
 {
         object me;
         string msg;
-        object ob;
+        
 
         me = this_player();
         message_vision(CYN "\n$N" CYN "陪着笑脸对$n" CYN "道：您好，您好，我也来签个到。\n" NOR, me, this_object());
@@ -135,5 +134,4 @@ void unconcious()
 {
         die();
 }
-
 

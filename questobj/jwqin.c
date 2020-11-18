@@ -26,7 +26,7 @@ void create()
 
 int wield()
 {
-	object ob = environment();
+ 
 
 /*	if (ob && !wizardp(ob)) {
 		tell_object(ob, name() + "是巫师用品，你不能使用，请马上向巫师报告，否则后果自负。\n");

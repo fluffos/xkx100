@@ -19,7 +19,7 @@ int is_manager() {return 1;}
 int party_quest_book(object me)
 {
 	object book, room, master = this_object();
-	string *dir, *file, place;
+ string *dir, *file;
 	int i,j;
 
 	me = this_player();
@@ -108,7 +108,7 @@ int party_quest_book(object me)
 int accept_quest_book(object me, object obj)
 {
 	object master = this_object();
-	int exp, pot, score, num, times, e_bonus, p_bonus, s_bonus;
+ int  num, times, e_bonus, p_bonus, s_bonus;
 	int cost;
 
 	me = this_player();
@@ -171,7 +171,7 @@ object create_betrayer(object me)
 {
 	mapping name, hp_status, skill_status, map_status, prepare_status;
 	string *sname, *mname, *pname;
-	object room, obj, weapon, armor, master = this_object();
+ object  obj, weapon, master = this_object();
 	object *inv;
 	string weapon_type;
 	mapping skl;
@@ -282,7 +282,7 @@ object create_betrayer(object me)
 ////////询问获得叛徒任务//////////
 int party_quest_betrayer(object me)
 {
-	string *dir, *file, place;
+ string *dir, *file;
 	int i, j ;
   object room;
   object obj;
@@ -388,7 +388,7 @@ int party_quest_betrayer(object me)
 int accept_quest_betrayer(object me, object obj)
 {
 	object master = this_object();
-	int exp, pot, score, num, times, e_bonus, p_bonus, s_bonus;
+ int  num, times, e_bonus, p_bonus, s_bonus;
 	int cost;
 
 	me = this_player();
@@ -495,9 +495,9 @@ object create_thief( object me )
 	mapping skl;
 	string *skillname;
 	int skilllvl,topexp;
-	int inc_exp,inc_lvl,i,j,k;
+ int inc_exp,inc_lvl,i,j;
 	object *inv;
-	string *family, weapon_type;
+ string  weapon_type;
 	string *masters = ({
 	"baituo/ouyangfeng",	//lingshe-zhangfa	shexing-diaoshou hamagong
 	"dali/duanzc",	//duanyun-fu		sun-finger
@@ -695,7 +695,7 @@ object create_thief( object me )
 
 int party_quest_thief(object me)
 {
-	string *dir, *file, place;
+ string *dir, *file;
 	int i, j, k;
 	string err;
 	object room, obj, master = this_object();
@@ -806,7 +806,7 @@ int party_quest_thief(object me)
 int accept_quest_thief(object me, object obj)
 {
 	object master = this_object();
-	int num, times, e_bonus, p_bonus, s_bonus, lastfealty;
+ int num, times, e_bonus, p_bonus, s_bonus;
 	int cost;
 
 	me = this_player();
@@ -913,7 +913,7 @@ int party_quest_kill(object me)
 {
 	object killer, room, master = this_object();
 	string place;
-	int i,j;
+ 
 	int level;
 	int t;
 
@@ -1154,7 +1154,7 @@ int cancle_quest_kill(object who)
 int accept_quest_kill(object me, object obj)
 {
 	object master = this_object();
-	int num, times, exp ,pot ,score, fealty , gongxian;
+ int  exp ,pot ,score, fealty , gongxian;
 	object *helper;
 	string msg;
 	int t;
@@ -1501,7 +1501,7 @@ int xkd(object me)
 	string first_dir;
 	string *dir;
 	string c_player;
-	int i;
+ 
 
   if (!me->query("family/family_name"))
    {
@@ -1557,12 +1557,12 @@ int do_qiecuo(string arg)
 {
 	object master = this_object();
 	object me = this_player();
-	object weapon;
+ 
 	string special;
-	string *sskl,pfskill,pfmartial,pfarg,pfmsg;
-	mapping skl, map_status;
+ string pfskill,pfmartial,pfarg,pfmsg;
+ 
 	mixed perform_actions = ({});
-	int bl,sl,i,j,num,learn_b,fealty_b;
+ int bl,sl,j,num,learn_b,fealty_b;
 
 	fealty_b=(int)me->query("family/fealty");
 

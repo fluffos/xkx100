@@ -33,7 +33,7 @@ void init()
 int do_enter(string arg)
 {
         object me;
-        mapping fam;
+        
 
         me = this_player();
         if( !arg || arg=="" ) return 0;

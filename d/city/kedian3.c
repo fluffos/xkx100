@@ -46,7 +46,7 @@ int do_shui(string arg)
 
 void wakeup(object me)
 {
-	object book;
+ 
 	if (!me) return;
 	while( environment(me)->is_character() )
 	me->move(environment(environment(me)));

@@ -164,7 +164,7 @@ int accept_fight(object ob)
 int checking(object me, object ob)
 {
 
-	object obj;
+ 
 	int my_max_qi, his_max_qi;
 
 	my_max_qi  = me->query("max_qi");
@@ -348,4 +348,3 @@ int do_clone(object me, object ob)
 
 	return 1;
 }
-

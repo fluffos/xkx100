@@ -338,7 +338,7 @@ int CalConv()
 // 限制在1937-2031年
 string lunar(string arg)
 { 
-	int yy, mm, dd, i, OK=0; 
+ int yy, mm, dd, i; 
 	string lunarmsg;
 
 	sscanf(arg, "%d%d%d", yy, mm, dd);
@@ -364,8 +364,8 @@ void prepare()
 {
 	mixed *now;
 	int i, days;
-	string time, msg;
-	int yy, mm, dd; 
+ string  msg;
+  
 
 	for( days=1; days<8; days++)
 	{
@@ -415,4 +415,3 @@ HELP
 	);
 	return 1;
 }
-

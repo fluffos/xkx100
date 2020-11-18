@@ -31,8 +31,8 @@ void init()
 }
 int do_break(string arg)
 {
-        int n;
-        object weapon,me=this_player();
+        
+        object me=this_player();
         if (arg != "dong") return 0;
         message_vision(HIY
 "$N走到洞口前，运气双掌，猛地击向土层！\n"NOR,me);

@@ -93,9 +93,9 @@ void create_identity (mixed master, mixed where)
 
 int init_identity (object me, object master, object where)
 {
-	mapping skill_status;
-	string *skillnames;
-	int i;
+ 
+ 
+ 
 
 	reset_eval_cost();
 //	me->setup();
@@ -582,7 +582,7 @@ int convert_identity (object me, object ob)
 {
 	object who;
 	int flag;
-	string err;
+ 
 
 	reset_eval_cost();
 	who = find_player(me->query("current_player"));
@@ -636,7 +636,7 @@ void die()
 string query_save_file()
 {
 	string str = query("save_file");
-	int i;
+ 
 
 	if (str) return str;
 	str = DATA_DIR+"zhangmen/"+query("current_master");

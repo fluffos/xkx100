@@ -27,7 +27,7 @@ LONG );
 
 void init()
 {
-	object me = this_player();
+ 
 	if (random(5) == 1)
 	set("exits", ([
 		"west"  : __DIR__"songlin5",
@@ -36,4 +36,3 @@ void init()
 		"south" : __DIR__"songlin2",
 	]));
 }
-

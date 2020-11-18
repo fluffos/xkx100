@@ -58,7 +58,7 @@ int do_climb(string arg)
 int do_move(string arg)
 {
         object ob,me = this_player();
-        int i;
+        
 	if (!id(arg)||arg!="table")
                 return notify_fail("你要移什么？\n");
 	if (!(ob = present("jin", this_player())))

@@ -28,7 +28,7 @@ LONG
 }
 void init()
 {
-    object book, me;
+    object  me;
     me = this_player();
     add_action("do_jump", "jump");
 }

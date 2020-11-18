@@ -195,7 +195,7 @@ int accept_fight(object ob)
 int checking(object me, object ob)
 {
 
-	object obj, ling;
+ object  ling;
 	int my_max_qi, his_max_qi;
 
 	my_max_qi  = me->query("max_qi");
@@ -244,7 +244,7 @@ int checking(object me, object ob)
 int do_copy(object me, object ob)
 {
 	object ob1, ob2;
-	string mengzhu, shangshan, fae;
+ string  shangshan, fae;
 
 	seteuid(getuid());
 
@@ -327,7 +327,7 @@ int do_clone(object me, object ob)
 	object *inv, newobj;
 	mapping hp_status, skill_status, map_status, prepare_status;
 	string *sname, *mname, *pname;
-	int i, j, temp;
+ int i, temp;
 //	mixed* perform_actions;
 //	string action_name;
 // 	mixed combat_actions = ({});
@@ -533,7 +533,7 @@ int do_recover()
 string ask_me()
 {
 	object *ob, room, me = this_player(), obj = this_object();
-	int i, new_killer;
+ int i;
 
 	if(!( room = find_object("/d/taishan/duzunju")) )
 		room = load_object("/d/taishan/duzunju");

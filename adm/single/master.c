@@ -140,7 +140,6 @@ void log_error(string file, string message)
             else
                 efun::write(get_config(__DEFAULT_ERROR_MESSAGE__) + "\n");
         }
-
         efun::write_file(home + "log", message);
     }
 }

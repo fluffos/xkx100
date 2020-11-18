@@ -41,10 +41,10 @@ void create()
 
 void refresh_stuff()
 {
-	object *inv, *invcon, *keepers, keeper, rum_ob;
+ object *inv, *invcon, *keepers, keeper;
 	object weapon, armor;
 	string *stuff_list = ({}), type;
-	int period, i;
+ int  i;
 
 // destruct the unique stuffs
 

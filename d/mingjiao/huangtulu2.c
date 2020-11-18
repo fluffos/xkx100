@@ -25,7 +25,7 @@ LONG );
 
 int valid_leave(object me, string dir)
 {
-	object obj;
+ 
 	if ((dir == "enter") &&
 		!wizardp(me) && !objectp(present("xiao zhao", environment(me))))
 	{

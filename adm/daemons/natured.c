@@ -211,10 +211,10 @@ object create_thief( )
 }
 void event_morning()
 {
-	string *dir, *file, place;
+ string *dir, *file;
 	object yinshi;
 	object room;
-	int i,j,flag=0;
+ int i,j;
 
         thief_yinshi=1;
         yinshi=create_thief();
@@ -397,7 +397,7 @@ void event_dawn()
 void event_noon()
 {
 	object *ob;
-	int i, skill,con,con1,con2,con3;
+ int i,con,con1,con2,con3;
 	string get_month,ill,msg;
 	get_month = CHINESE_D->chinese_month(TIME_TICK);
 	switch(get_month)
@@ -498,4 +498,3 @@ mapping *read_table(string file)
 }
 
 mapping *query_day_phase() { return day_phase; }
-

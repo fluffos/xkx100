@@ -64,9 +64,9 @@ HIG"殷天正：“老夫内功修为差强人意，火蟾之功却也不小。�
     泥潭挚友长相思"*/
 	});
 	string hui_chun, yan_yang;
-	int huichun, yanyang, usernum, i, t, e, p;
+ int huichun, yanyang, usernum, i;
 	object *ob, *inv;
-	object linkob;
+ 
 
 message("channel:snow", HIY"【风闻】"+ms[random(sizeof(ms))]+"\n"NOR,users());
 	if (file_size("/d/shenlong/cangku.c"))

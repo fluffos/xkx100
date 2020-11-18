@@ -31,5 +31,5 @@ LONG );
 	setup();
 	create_door("south" , "铜皮大门", "north" , DOOR_CLOSED);
 	"/clone/board/yipin_b"->foo();
-	replace_program(ROOM);
+	// replace_program(ROOM);
 }

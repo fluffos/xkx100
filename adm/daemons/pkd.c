@@ -115,10 +115,10 @@ int join_competition(object ob)
 void heart_beat()
 {
         mixed *lt;
-        int i,j;
+        int j;
         int last_lvl;
         int flag;
-        string err;
+        
 //        message("channel:sys", HIR"\n【华山论剑】华山论剑心跳检查。\n"NOR, users());
 //        seteuid(ROOT_UID);
         lt = localtime(time());
@@ -252,9 +252,9 @@ object create_thief( object me )
 	mapping skl;
 	string *skillname;
 	int skilllvl,topexp;
-	int inc_exp,i,j,k;
+ int i,j;
 	object *inv;
-	string *family, weapon_type;
+ string  weapon_type;
   string *masters = ({
 	"baituo/ouyangfeng",	//lingshe-zhangfa	shexing-diaoshou hamagong
 	"dali/duanzc",	//duanyun-fu		sun-finger
@@ -447,7 +447,7 @@ int start_competition()
         object npc;
         string proom;
         int i,j,user_num = 0;
-        string err;
+        
 
 	env = find_object(READY_ROOM);
         if (! objectp(env))
@@ -556,7 +556,7 @@ void auto_check()
 void give_bouns(object me)
 {       
         int pot,exp,score;      
-        string err="";
+        
         tell_object(me, "这次你真是爽呆了……\n"); 
         me->move(ENTRY_ROOM);
         message_vision("$N兴冲冲地走了出来，脸上挂满是胜利的喜悦！\n",me);     

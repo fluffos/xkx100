@@ -72,7 +72,7 @@ int do_jump(string arg)
 int do_push(string who)
 {
 	object me = this_player();
-	object victim, room, weapon;
+ object victim, weapon;
 	string attack_skill, dodge_skill, parry_skill;
 	int ap, dp, pp;
 	mapping prepare;
@@ -244,4 +244,3 @@ int visit_room(string room_path, mapping info, mapping mapdb_info, mixed args)
 	if( !objectp(room) ) return 0;
 	message("info", HIR"「啊～～～」半山突然传来一阵极凄厉的惨叫声。\n"NOR, room, 0);
 }
-

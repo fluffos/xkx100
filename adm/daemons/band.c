@@ -1,4 +1,3 @@
-
 // Copyright (C) 1995, by Tie Yu and Daniel Yu. All rights reserved.
 // This software can not be used, copied, or modified in any form without
 // the written permission from authors.
@@ -181,7 +180,7 @@ void add(string site, mixed num)
 
 void delete(string site, mixed num)
 {
-        int i, add_flag = 0;
+        int i;
 	string *k_site;
 
 	if (site == "clear") {

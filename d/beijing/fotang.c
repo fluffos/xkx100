@@ -76,7 +76,7 @@ int do_tao(string arg)
 
 int do_qiao(string arg)
 {
-	object me, ob, weapon;
+ object me, weapon;
 	me = this_player();
 
 	if( !arg || arg!="brick" ) 

@@ -74,9 +74,9 @@ varargs void init_dynamic_quest(int hard)
 
 varargs int spread_quest(mapping quest, int hard)
 {
-	object obj0, obj1, obj2, obj3;
+ object obj0;
 	object cur_obj;
-	object next_obj;
+ 
 	object tar;
 	object *inv;
 	object *target = ({});
@@ -165,7 +165,7 @@ string locate_obj(object me,string strr)
 		"东北方","西北方","东南方","西南方"
         });
 
-        object ob, tmpobj,where, *ob_list;
+        object ob, *ob_list;
         object item, room;
         string output, dis, alt, dir;
         int i;

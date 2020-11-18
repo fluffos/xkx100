@@ -661,7 +661,7 @@ public string do_modify(object obj, object me, string arg)
 
 public string do_stock(object ob, object me, string arg)
 {
-        object obj, goods, obj2;
+        object  goods, obj2;
         int value;
         mapping all_goods, all_goods_num;
         object room;
@@ -733,8 +733,8 @@ public string do_stock(object ob, object me, string arg)
 
 public string do_unstock(object ob, object me, string arg)
 {
-        object obj, goods, room;
-        int i, amount, value, have_it = 0;
+        object  goods, room;
+        int i;
         mapping all_goods, all_goods_num;
         string *goods_key, ob_file;
 
@@ -814,9 +814,9 @@ public string do_list(object ob, object me, string arg)
 {
         mapping goods, goods_num;
         string *gks;
-        object *obs, *inv, room;
+        object  room;
         string msg;
-        int i, have_vendor = 0;
+        int i;
 
         mapping price;
         mapping unit;
@@ -899,11 +899,11 @@ public string do_list(object ob, object me, string arg)
 public int do_buy(object obj, object me, string arg)
 {
         mapping goods,goods_num;
-        int amount;
-        int value, val_factor;
+        
+        int value;
         string ob_file, *goods_key;
-        object *obs,ob, env;
-        string my_id;
+        object ob;
+        
         int i;
         object room;
 
@@ -1184,7 +1184,7 @@ public string list_invite(object ob, object me)
 public string do_invite(object ob, object me, string arg)
 {
         int num;
-        object body, room;
+        object  room;
 
         room = environment(ob);
 
@@ -1285,7 +1285,7 @@ public string do_ban(object ob, object me, string arg)
 public string do_order(object ob,object me,string arg)
 {
 	object room;
-	string str;
+ 
 	string ab;
 	string buyer,obname;
 	string *clist;
@@ -1409,8 +1409,8 @@ private void destruct_it(object ob)
 }
 public int do_listall(object me)
 {
-        int i, j, have_vendor = 0;
-        object shop, *obs, *inv, room;
+        int i, j;
+        object shop, room;
         mapping goods, goods_num, price, unit, count;
         string the_shop, na, msg, short_name, prefix, *dk, *gks;
 

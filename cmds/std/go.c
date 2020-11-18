@@ -36,7 +36,7 @@ void create() { seteuid(getuid()); }
 
 int main(object me, string arg)
 {
-	string dest, mout, min, dir, blk, gud, skill, face, thing_msg;
+ string dest, mout, min, dir, face, thing_msg;
 	object env, obj, blocker, thing, *f_obs, *ob;
 	mixed horse;
 	mapping exit;

@@ -583,9 +583,9 @@ public string marked_map(object env)
 // 玩家纪录传闻
 public int record_rumor(mixed obs, string topic, mixed event_ob)
 {
-        object ob;
+        
         string title;
-        int n, i;
+        int n;
 
         if (objectp(obs)) obs = ({ obs }); else
         if (! arrayp(obs)) return 0;

@@ -34,7 +34,7 @@ void init()
 int do_enter(string arg)
 {
 	object me = this_player();
-	int n = me->query("str");
+ 
 	if( !arg || arg != "dong")
 	{
 		write("你想干什么呀?\n");

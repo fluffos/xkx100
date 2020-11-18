@@ -173,7 +173,7 @@ varargs void revive(int quiet)
 void die()
 {
 	object corpse, killer;
-	int i;
+ 
 	string reason;
 	object riding;
 
@@ -341,7 +341,7 @@ void reincarnate()
 
 int heal_up()
 {
-	int update_flag, i;
+ int update_flag;
 	mapping my;
 
 //	if( this_object()->is_fighting() ) return -1;
