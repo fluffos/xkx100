@@ -1200,7 +1200,13 @@ int check_legal_id(string id)
 {
     int i;
 
-    i = strwidth(id);
+    // strwidth() counts display columns (CJK chars = 2), not bytes -- using
+    // it here let a multi-byte id (e.g. Chinese typed at the English-name
+    // prompt by mistake) set i past the string's actual byte length, so the
+    // id[i] scan below ran off the end and crashed with "String index out
+    // of bounds." This loop only ever indexes individual bytes, so it needs
+    // the byte length (sizeof), not the display width.
+    i = sizeof(id);
 
     if( (strwidth(id) < 3) || (strwidth(id) > 8 ) ) {
         write("对不起，你的英文名字必须是 3 到 8 个英文字母。\n");

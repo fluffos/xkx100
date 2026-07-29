@@ -114,7 +114,12 @@ int savequit(object me)
 		}
 //************* End of added ******************
 
-    if ( a==1 &&	me->save() )
+    // a==1 was a strict-equality bug: link_ob->save() (and save() in general)
+    // returns whatever nonzero value save_object() succeeds with (588, 982,
+    // ... -- not necessarily the literal int 1), so this check failed on
+    // every successful save whose return value happened not to be exactly
+    // 1, permanently blocking quit with a false "save failed" warning.
+    if ( a &&	me->save() )
     {
     	destruct(me);
     	return 1;

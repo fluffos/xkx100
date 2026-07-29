@@ -131,14 +131,26 @@ int valid_write(string file, mixed user, string func)
 
 	if( sscanf(file, LOG_DIR + "%*s") && func=="write_file" ) return 1;
 
-	// Let user save their save file
+	// Let user save their save file.
+	// NOTE: `file` is the path the driver actually opens, which already has
+	// __SAVE_EXTENSION__ appended (e.g. "/data/user/f/foo.o"), while
+	// query_save_file() returns the bare path with no extension. Comparing
+	// them directly with == never matched, so this rule silently never
+	// fired for ANYONE -- ordinary players were only saving at all because
+	// trusted_write["data"] separately allows status "(player)" through.
+	// Wizard/admin-status characters aren't "(player)" anymore, so once
+	// promoted they lost the ability to save their own file entirely (both
+	// on quit and via the periodic autosave, which prints a "saved" message
+	// unconditionally regardless of save()'s actual return value -- see
+	// kungfu/condition/autosave.c -- so the failure was invisible until quit
+	// surfaced it via cmds/usr/exit.c's own explicit success check).
 	if( func=="save_object" ) {
-		if( ( sscanf(base_name(user), "/clone/%*s")  || 
-		sscanf(base_name(user),"/kungfu/class/%*s")  || 
+		if( ( sscanf(base_name(user), "/clone/%*s")  ||
+		sscanf(base_name(user),"/kungfu/class/%*s")  ||
 		sscanf(base_name(user),"/inherit/char/%*s")  ||
 		sscanf(base_name(user),"/adm/daemons/%*s"))
     		&&	sscanf(file, "/data/%*s")
-		&&	file == (string)user->query_save_file() )
+		&&	file == (string)user->query_save_file() + __SAVE_EXTENSION__ )
 			return 1;
 	}
 	if ( func=="write_file" ) {

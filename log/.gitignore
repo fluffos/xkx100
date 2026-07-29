@@ -3,3 +3,4 @@ author_stats
 domain_stats
 !MUDVISITOR
 !.gitignore
+!static
