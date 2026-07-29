@@ -1,0 +1,75 @@
+# Build & deploy this mudlib as a playable-in-browser GitHub Pages site.
+#
+# Pipeline: download the latest prebuilt WASM FluffOS driver from the
+# fluffos/fluffos releases, pack this repo (the mudlib root itself -- see
+# config.ini's "mudlib directory : .") into an in-memory filesystem image
+# with scripts/pack_for_web.sh, and publish the result (driver + web
+# terminal + packed mudlib, all self-contained) to Pages.
+#
+# NOTE: GitHub Pages must be enabled once for this repo (Settings -> Pages
+# -> Build and deployment -> Source: GitHub Actions) before this workflow's
+# deploy step can succeed; it cannot enable that setting itself.
+
+name: Deploy to Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest prebuilt WASM driver release
+        id: driver
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=$(gh release view --repo fluffos/fluffos --json tagName -q .tagName)
+          echo "latest fluffos release: $tag"
+          gh release download "$tag" --repo fluffos/fluffos \
+              --pattern '*-wasm.zip' --dir "$RUNNER_TEMP/wasm-release" \
+            || { echo "::error::release $tag has no *-wasm.zip asset"; exit 1; }
+          zip=$(ls "$RUNNER_TEMP"/wasm-release/*-wasm.zip | head -1)
+          unzip -q "$zip" -d "$RUNNER_TEMP/wasm-release/rel"
+          for f in fluffos.js fluffos.wasm index.html telnet.js; do
+            [ -f "$RUNNER_TEMP/wasm-release/rel/$f" ] \
+              || { echo "::error::release zip is missing $f"; exit 1; }
+          done
+
+      # Only emscripten's file_packager is needed (no compile), so any
+      # recent emsdk works; 'latest' keeps it maintenance-free.
+      - uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: latest
+
+      - name: Pack the mudlib for web
+        run: |
+          scripts/pack_for_web.sh "$RUNNER_TEMP/wasm-release/rel" site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
