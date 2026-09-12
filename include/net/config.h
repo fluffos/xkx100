@@ -2,7 +2,7 @@
 #define __NET__CONFIG_H
 
 #ifndef SVC_TCP
-#include <net/services.h>
+#include "net/services.h"
 #endif
 
 /* These are the primary and secondry hosts to use as boot servers

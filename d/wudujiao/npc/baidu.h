@@ -42,19 +42,19 @@ void die()
 		switch (this_object()->query("id"))
 		{
 			case "du she": 
-				 ob=new(__DIR__"she1.c");
+				 ob=new(__DIR__"she1.lpc");
 				 break;
 			case "zhi zhu": 
-				 ob=new(__DIR__"zhizhu1.c");
+				 ob=new(__DIR__"zhizhu1.lpc");
 				 break;
 			case "wu gong": 
-				 ob=new(__DIR__"wugong1.c");
+				 ob=new(__DIR__"wugong1.lpc");
 				 break;
 			case "xie zi": 
-				 ob=new(__DIR__"xiezi1.c");
+				 ob=new(__DIR__"xiezi1.lpc");
 				 break;
 			case "chan chu": 
-				 ob=new(__DIR__"chanchu1.c");
+				 ob=new(__DIR__"chanchu1.lpc");
 				 break;
 		}
 		ob->move(environment(owner_ob));
@@ -72,19 +72,19 @@ void die()
 		switch (this_object()->query("id"))
 		{
 			case "du she": 
-				 ob=new(__DIR__"obj/shedu.c");
+				 ob=new(__DIR__"obj/shedu.lpc");
 				 break;
 			case "zhi zhu": 
-				 ob=new(__DIR__"obj/zhizhudu.c");
+				 ob=new(__DIR__"obj/zhizhudu.lpc");
 				 break;
 			case "wu gong": 
-				 ob=new(__DIR__"obj/wugongdu.c");
+				 ob=new(__DIR__"obj/wugongdu.lpc");
 				 break;
 			case "xie zi": 
-				 ob=new(__DIR__"obj/xiezidu.c");
+				 ob=new(__DIR__"obj/xiezidu.lpc");
 				 break;
 			case "chan chu": 
-				 ob=new(__DIR__"obj/chanchudu.c");
+				 ob=new(__DIR__"obj/chanchudu.lpc");
 				 break;
 		}
 		ob->move(environment(this_object()));

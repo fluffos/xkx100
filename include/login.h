@@ -17,9 +17,9 @@
 
 #define WIZLIST			"/adm/etc/wizlist"
 
-#define START_ROOM "/d/city/kedian.c"
-#define DEATH_ROOM "/d/death/gate.c"
-#define REVIVE_ROOM "/d/city/wumiao.c"
+#define START_ROOM "/d/city/kedian.lpc"
+#define DEATH_ROOM "/d/death/gate.lpc"
+#define REVIVE_ROOM "/d/city/wumiao.lpc"
 
 // This is how much users can 'enter' the mud actually. Maintained
 // by LOGIN_D. The max number of connections can be built between

@@ -1,0 +1,17 @@
+// #pragma optimize all
+
+#include "/adm/simul_efun/atoi.lpc"
+#include "/adm/simul_efun/chinese.lpc"
+#include "/adm/simul_efun/file.lpc"
+#include "/adm/simul_efun/gender.lpc"
+#include "/adm/simul_efun/object.lpc"
+#include "/adm/simul_efun/path.lpc"
+#include "/adm/simul_efun/wizard.lpc"
+
+// This must be after gender.c
+#include "/adm/simul_efun/message.lpc"
+
+void create() {
+  seteuid(getuid());
+  write("simul_efun loaded successfully.\n");
+}

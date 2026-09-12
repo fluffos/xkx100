@@ -5,7 +5,7 @@
 #include <mudlib.h>
 
 #ifndef DNS_MASTER
-#include <net/daemons.h>
+#include "net/daemons.h"
 #endif
 
 // for converting hostnames in the host representation to the

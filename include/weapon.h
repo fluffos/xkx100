@@ -1,7 +1,7 @@
 // weapon.h
 // Last Modified by winder on Feb. 28 2001
 
-#include "/inherit/weapon/poisoned_weapon.c"
+#include "/inherit/weapon/poisoned_weapon.lpc"
 #ifndef __WEAPON__
 #define __WEAPON__
 

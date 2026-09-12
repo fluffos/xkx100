@@ -34,7 +34,7 @@ void message_zhong(object *spys)
 	if(sizeof(leaver = filter_array(spys, "is_leaving", this_object())) < 1)
 		return;
 
-	obj = filter_array(children(SGNPCS + "zhong.c"), (: clonep :));
+	obj = filter_array(children(SGNPCS + "zhong.lpc"), (: clonep :));
 	if( sizeof(obj) )
 	{
 		zhong_ob = obj[0];
@@ -42,7 +42,7 @@ void message_zhong(object *spys)
 			zhong_ob->query("sgwork/persuaded") ||
 			zhong_ob->is_busy() || zhong_ob->is_fighting() )
 			return;
-	} else zhong_ob = new(SGNPCS + "zhong.c");
+	} else zhong_ob = new(SGNPCS + "zhong.lpc");
 
 	ob = leaver[random(sizeof(leaver))];
 
@@ -102,7 +102,7 @@ void message_hong(object *spys)
 	if( sizeof(discarder =
 		filter_array(spys, "is_discarding", this_object())) < 1 )
 		return;
-	obj = filter_array(children(SGNPCS + "hong.c"), (: clonep :));
+	obj = filter_array(children(SGNPCS + "hong.lpc"), (: clonep :));
 	if( !sizeof(obj) ) return;
 	hong_ob = obj[0];
 	if( !living(hong_ob) || hong_ob->query("sgwork/chased") ||

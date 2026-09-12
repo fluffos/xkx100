@@ -19,4 +19,4 @@
 /adm/daemons/mapd
 /adm/daemons/eventd
 /adm/daemons/pkd
-/adm/daemons/network/dns_master
+#/adm/daemons/network/dns_master
