@@ -31,7 +31,6 @@ int valid_leave(object me, string dir) {
   int current_water;
 
   current_water = me->query("water");
-  if (current_water == 0) {}
   if (current_water > 0 && current_water < 20 && userp(me)) {
     me->set("water", 0);
   }

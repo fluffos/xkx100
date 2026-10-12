@@ -603,21 +603,21 @@ private void query_services(string mud, string address, string port, string tcp)
 #endif // PREF_MAIL
 
 #ifdef PREF_FINGER
-  if (!(mud_svc[mud]["finger"] & SVC_KNOWN)) {
 #if PREF_FINGER & SVC_TCP
+  if (!(mud_svc[mud]["finger"] & SVC_KNOWN)) {
     if (tcp == TCP_SOME && !(mud_svc[mud]["finger"] & (SVC_TCP | SVC_NO_TCP)))
       SUPPORT_Q->send_support_q(address, port, "tcp", "finger");
-#endif
   }
+#endif
 #endif // PREF_FINGER
 
 #ifdef PREF_TELL
-  if (!(mud_svc[mud]["tell"] & SVC_KNOWN)) {
 #if PREF_TELL & SVC_TCP
+  if (!(mud_svc[mud]["tell"] & SVC_KNOWN)) {
     if (tcp == TCP_SOME && !(mud_svc[mud]["tell"] & (SVC_TCP | SVC_NO_TCP)))
       SUPPORT_Q->send_support_q(address, port, "tcp", "tell");
-#endif
   }
+#endif
 #endif // PREF_TELL
 }
 

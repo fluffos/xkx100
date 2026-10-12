@@ -38,7 +38,6 @@ int valid_leave(object me, string dir) {
   if (dir == "southwest") {
     if (!userp(me)) return 0;
     current_water = me->query("water");
-    if (current_water == 0) {}
 
     if (current_water > 0 && current_water < 20) {
       me->set("water", 0);
