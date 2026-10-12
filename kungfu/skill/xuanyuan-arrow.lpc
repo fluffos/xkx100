@@ -107,7 +107,6 @@ int practice_skill(object me) {
   me->receive_damage("qi", 30);
   me->add("neili", -5);
   message_combatd("$N弯弓搭箭，一箭射中红心！");
-  (: throw_weapon :);
   return 1;
 }
 mapping query_action(object me) {
