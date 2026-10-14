@@ -25,7 +25,6 @@ void init() {
 }
 int do_search() {
   object me = this_player();
-  object ob;
   int jing;
   if (me->is_busy()) return notify_fail("你上一个动作还没有完成呢。\n");
   if (jing < 30) return notify_fail("你无法集中精力查看！\n");

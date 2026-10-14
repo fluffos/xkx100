@@ -19,9 +19,9 @@ int perform(object me, object target) {
     YEL "$N聚起天地之灵气，手中杖卷起千层大浪朝$n挥去！" NOR,
   });
   int extra, attack_time, i;
-  object weapon, ob;
+  object weapon;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

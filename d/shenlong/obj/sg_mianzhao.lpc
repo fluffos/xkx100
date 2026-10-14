@@ -65,7 +65,6 @@ int do_sign(string arg) {
   object obj;
   object me = this_player();
   string v_id, v_name;
-  mapping pkjob;
   int mygain;
 
   if (!me->query("sg/spy") && !mapp(me->query("sgjob_join")))
@@ -164,8 +163,8 @@ int do_forcejoin(string arg) {
 }
 
 private void complete_forcejoin(object me, object target, int fp, int dp) {
-  object ob, *inv;
-  int t_shen, t_exp, bonus = 2, times, record;
+  object *inv;
+  int t_shen, bonus = 2, record;
 
   if (!present(target, environment(me))) return;
   if (!objectp(me)) return;
@@ -346,9 +345,9 @@ private int is_spy(object ob) {
 }
 
 int do_search(string arg) {
-  string str, *option;
+  string str;
   object *list;
-  int i, j, ppl_cnt, total;
+  int j, total;
 
   if (!arg || !(arg == "shenlong" || arg == "神龙教") ||
     this_player()->query("sg/exp") < 1000)

@@ -3,6 +3,7 @@
 string look_shelf();
 
 #define STORY_TOC "/doc/legend/toc"
+#undef STORY_DIR
 #define STORY_DIR "/doc/legend/"
 inherit ROOM;
 

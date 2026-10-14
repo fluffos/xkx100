@@ -69,7 +69,6 @@ int valid_learn(object me) {
 }
 int practice_skill(object me) {
   object weapon;
-  int lvl = me->query_skill("liangyi-sword", 1);
 
   if (!objectp(weapon = me->query_temp("weapon"))
     || (string)weapon->query("skill_type") != "sword")

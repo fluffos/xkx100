@@ -3,7 +3,7 @@
 
 void init()
 {
-	object me, ob, *obs;
+	object me, *obs;
 	mapping skl;
 	string *skillname;
 	int i, j, exp, neili, skilllvl;

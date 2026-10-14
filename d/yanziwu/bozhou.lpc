@@ -33,7 +33,6 @@ void init() {
 }
 int do_enter(string arg) {
   object ob;
-  string dir;
   if (!arg || (arg != "white" && arg != "red" && arg != "green" && arg != "black" && arg != "yellow")) {
     tell_object(this_player(), "你要投水？\n");
     return 1;

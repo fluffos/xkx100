@@ -23,7 +23,6 @@ int exert(object me, object target) {
   return 1;
 }
 void sangong(object me) {
-  object ob;
   message_vision(HIG "$N顿时觉得丹田有气，散之任脉，如竹中空，似谷恒虚……\n" NOR, me);
   me->set("max_neili", 0);
   me->set("neili", 0);

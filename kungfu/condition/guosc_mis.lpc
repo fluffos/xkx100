@@ -7,7 +7,7 @@
 int update_condition(object me, int duration) {
   object room;
   object *ob_list;
-  int i, stat;
+  int i;
 
   room = environment(me);
 

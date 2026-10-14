@@ -58,7 +58,6 @@ int valid_learn(object me) {
     return notify_fail("你的小无相功火候太浅。\n");
 }
 int practice_skill(object me) {
-  object weapon;
 
   if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
     return notify_fail("练金刚瑜迦母拳必须空手。\n");

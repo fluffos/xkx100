@@ -3,7 +3,6 @@
 #include <ansi.h>
 
 inherit NPC;
-inherit F_SKILL;
 
 void create() {
   set_name("耶律齐", ({ "Yelv qi", "yelv", "qi" }));

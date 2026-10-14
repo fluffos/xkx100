@@ -2,7 +2,6 @@
 inherit NPC;
 
 void create() {
-  object ob;
 
   set_name("程英", ({ "cheng ying", "cheng" }));
   //        set_name("颜程英", ({ "yan ruofeng","yan","ruofeng" }) );

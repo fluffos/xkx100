@@ -68,8 +68,7 @@ int do_look(string arg) {
 
 int do_send(string arg) {
   int i, exp, pot, score, num, s_bonus, times, job_time, paytimes;
-  object ob;
-  object me, target, payment;
+  object me, target;
   string t_name;
   mapping fam;
 

@@ -61,7 +61,6 @@ void create() {
 }
 
 int accept_object(object me, object ob) {
-  object nowords;
 
   if ((string)ob->query("name") != HIW "寒玉牌" NOR) {
     command("say 你给我这个干什么！你想贿赂我吗？");

@@ -61,7 +61,7 @@ int do_open(string arg) {
 }
 
 int do_find() {
-  object me, ob;
+  object me;
   me = this_player();
   if ((int)me->query_temp("baituo_find"))
     return notify_fail("你已经发现东西了，拿了就走吧。\n");

@@ -75,15 +75,13 @@ void init() {
   add_action("do_task", "xuncheng");
 }
 object create_thief() {
-  mapping name, hp_status, skill_status, map_status, prepare_status;
+  mapping name, skill_status, map_status, prepare_status;
   string *sname, *mname, *pname;
   object obj, thief_master, weapon;
-  mapping skl;
-  string *skillname;
   int skilllvl, topexp;
-  int inc_exp, inc_lvl, i, j, k;
+  int i;
   object *inv;
-  string *family, weapon_type;
+  string weapon_type;
   string *masters = ({
     "baituo/ouyangfeng",  //lingshe-zhangfa	shexing-diaoshou hamagong
     "dali/duanzc",  //duanyun-fu		sun-finger
@@ -257,7 +255,6 @@ string ask_job() {
 }
 
 string ask_cancle() {
-  object me = this_object();
   object ob = this_player();
 
   if (!ob->query_temp("xuncheng"))

@@ -16,7 +16,7 @@ int perform(object me, object target) {
   object weapon = me->query_temp("weapon");
   string shape = weapon->query("id");
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
 
   sskill = explode(__FILE__, "/")[<2];

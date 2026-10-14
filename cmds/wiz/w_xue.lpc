@@ -17,10 +17,10 @@ string *reject_msg = ({
 void create() { seteuid(getuid()); }
 
 int main(object me, string arg) {
-  string skill, teacher, master, skill_name;
+  string skill, teacher, skill_name;
   object ob;
   int master_skill, my_skill, jing_cost, times, pertimes;
-  int improve_points, success;
+  int improve_points;
 
   if (me->is_busy())
     return notify_fail("你现在正忙着呢。\n");

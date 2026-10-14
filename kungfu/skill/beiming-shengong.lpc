@@ -14,7 +14,7 @@ int success() { return 10; }
 int power_point(object me) { return 1; }
 
 int valid_learn(object me) {
-  int i, lvl = (int)me->query_skill("beiming-shengong", 1);
+  int lvl = (int)me->query_skill("beiming-shengong", 1);
 
   if (me->query("family/family_name") != "逍遥派")
     return notify_fail("只有逍遥弟子才能学北冥神功。\n");

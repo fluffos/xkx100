@@ -29,7 +29,7 @@ void init() {
 }
 
 int do_jumpup(string arg) {
-  object me, ob;
+  object me;
   me = this_player();
   if (me->query("qi") < 100)
     return notify_fail("你已经没有气力跳上去了。\n");

@@ -13,7 +13,6 @@ int power_point(object me) { return 1; }
 void skill_improved(object me) {}
 
 int valid_learn(object me) {
-  object ob;
 
   mapping myfam;
   myfam = (mapping)me->query("family");

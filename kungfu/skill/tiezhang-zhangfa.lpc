@@ -106,8 +106,7 @@ string perform_action_file(string action) {
 }
 
 mixed hit_ob(object me, object victim, int damage_bonus, int factor) {
-  int lev, damage, i;
-  string msg;
+  int lev;
   object weap;
   object piece;
   weap = victim->query_temp("weapon");

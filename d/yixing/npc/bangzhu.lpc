@@ -5,6 +5,7 @@
 
 inherit NPC;
 inherit F_SSERVER;
+int clean_up() { return sserver::clean_up(); }   // both bases reach /feature/clean_up; the driver uses this one
 
 #include <ansi.h>
 #include <localtime.h>

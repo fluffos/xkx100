@@ -23,8 +23,6 @@ void create() {
 int do_du(string arg) {
   object me = this_player();
   object where = environment(me);
-  object ob;
-  mapping skill;
   int jslevel;
   int neili_lost;
   if (!(arg == "jinshe jianpu" || arg == "jianpu"))

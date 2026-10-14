@@ -126,9 +126,7 @@ mixed ask_jian() {
   object me;
   object ob;
   object owner;
-  object *oblist;
   object temp;
-  int i;
 
   me = this_player();
   if (me->query("shen") < 0) {

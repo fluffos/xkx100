@@ -20,11 +20,12 @@ mixed names = ({
     "简长老", "封不平",
   }),
 });
+#define XIANGYANG_JOB_NAMES   // teamjob.lpc carries the same table
 // names need modify
 string ask_job() {
-  object ob, me, gift, *team;
-  int exp, position;
-  string target, myfam, obfam, job_type;
+  object ob, me;
+  int exp;
+  string target, job_type;
   ob = this_player();
   me = this_object();
   exp = ob->query("combat_exp");

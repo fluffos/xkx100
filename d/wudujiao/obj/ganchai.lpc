@@ -28,7 +28,7 @@ int do_make(string arg) {
   object ob = this_object();
   if ((ob->query("name")) == "火把")
     return 0;
-  if (arg != "火把" & arg != "huoba")
+  if (arg != "火把" && arg != "huoba")
     return 0;
   message_vision("$N拿起一捆干柴，三下两下就扎成了一支火把。\n\n", me);
   this_object()->recreate();

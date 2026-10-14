@@ -25,7 +25,6 @@ void create() {
 }
 mixed weapon_hit_ob(object me, object victim, int damage_bonus) {
   int n;
-  int my_exp, ob_exp;
 
   if (me->query("shen") < 0 || victim->query("shen") > 0)
     return -damage_bonus / 2;

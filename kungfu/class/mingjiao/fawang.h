@@ -2,7 +2,6 @@
 
 void attempt_apprentice(object ob)
 {
-	object me = this_object();
 
 	if (ob->query("party/party_name") != HIG "明教" NOR)
 	{

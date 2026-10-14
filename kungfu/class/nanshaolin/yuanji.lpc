@@ -53,7 +53,6 @@ void create() {
   carry_object("/d/shaolin/obj/hui-cloth")->wear();
 }
 void init() {
-  object ob;
 
   ::init();
   add_action("do_nod", "nod");

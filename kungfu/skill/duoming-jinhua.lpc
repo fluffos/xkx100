@@ -77,8 +77,6 @@ mapping query_action(object me, object weapon) {
   int p_e2 = 0;
   int f_e1 = 20;
   int f_e2 = 200;
-  int m_e1 = 70;
-  int m_e2 = 550;
   int i, lvl, seq, ttl = sizeof(action);
 
   lvl = (int)me->query_skill("duoming-jinhua", 1);

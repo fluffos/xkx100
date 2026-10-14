@@ -1,7 +1,6 @@
 // ye.c
 
 inherit NPC;
-inherit F_SKILL;
 #include <ansi.h>
 void create() {
   set_name("叶二娘", ({ "ye  erniang", "ye" }));

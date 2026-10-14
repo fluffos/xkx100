@@ -8,7 +8,7 @@ inherit F_SSERVER;
 int perform(object me) {
   string msg;
   object weapon, weapon2, target;
-  int skill, ap, dp, wound, damage;
+  int skill, ap, dp, damage;
 
   if (me->query("family/master_id") != "feng qingyang")
     return notify_fail("你不是风清扬的弟子，不能使用绝招！\n");

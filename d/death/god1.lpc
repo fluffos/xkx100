@@ -3,6 +3,7 @@
 #include <ansi.h>
 inherit ROOM;
 inherit SKILL;
+int clean_up() { return skill::clean_up(); }   // both bases reach /feature/clean_up; the driver uses this one
 
 void create() {
   set("short", HIY "天庭" NOR);

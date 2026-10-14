@@ -76,7 +76,7 @@ void init() {
 }
 
 void greeting(object ob) {
-  int eff_qi, max_qi, hurt, i;
+  int eff_qi, max_qi, hurt;
 
 
   tell_object(ob, "\n平一指抬头看了你几眼。\n");
@@ -225,7 +225,6 @@ int newyao(object me) {
 int ask_heal() {
   object ob = this_player();
   object me = this_object();
-  object where;
 
   if (me->is_fighting()) {
     command("say 我现在没空！\n");
@@ -285,7 +284,6 @@ int recover_II(object ob) {
 int ask_poison() {
   object ob = this_player();
   object me = this_object();
-  object where;
 
   if (me->is_fighting()) {
     command("say 我现在没空！\n");

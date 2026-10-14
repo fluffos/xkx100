@@ -143,7 +143,6 @@ void halt() {
 }
 
 string ask_me() {
-  mapping fam;
   object ob;
 
   if (!this_player()->query_temp("fighter") ||

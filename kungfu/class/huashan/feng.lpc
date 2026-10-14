@@ -261,9 +261,9 @@ int improve_sword(object ob) {
 }
 
 void attempt_apprentice(object ob) {
-  object ob1, room, me = this_object();
+  object me = this_object();
   mapping no_status, student_stat, skl = ob->query_skills();
-  string mengzhu, *noname, *sk;
+  string *noname, *sk;
   int i;
 
 
@@ -371,7 +371,6 @@ int accept_fight(object ob) {
 }
 
 int accept_kill(object ob) {
-  object me = this_object();
 
   command("say 老夫与你无怨无仇，何以痛下毒手？让老夫为民除害！");
   remove_call_out("auto_perform");
@@ -382,8 +381,7 @@ int accept_kill(object ob) {
 
 int auto_perform() {
   object me = this_object();
-  object ob = me->select_opponent();
-  object weapon, my_weapon;
+  object my_weapon;
   string action;
 
   if (!me->is_fighting()) {
@@ -525,8 +523,6 @@ string ask_skill4() {
 int save_data() {
   string str;
   mapping mydata;
-  string *kdata;
-  string *temp;
   int i;
 
   str = "students：";
@@ -560,11 +556,9 @@ int save_data() {
 }
 int load_data() {
   string str, *lines;
-  mapping mydata;
   string *kdata, *kvalue;
   int i, j;
   string k, v, v1;
-  int temp;
 
   str = read_file(FENG);
   if (!stringp(str)) return 0;

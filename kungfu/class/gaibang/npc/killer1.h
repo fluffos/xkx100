@@ -4,7 +4,6 @@ void init()
 {
 	object me, ob;
 	string t_name;
-	mapping fam;
 	
 	::init();
 
@@ -58,10 +57,9 @@ void init()
 }
 int do_clone(object me, object ob)
 {
-	object weapon;
     mapping killerskill1;
 	
-	int number,k_qi,k_neili,k_jing,i;
+	int number, k_qi, k_neili, k_jing;
     string t_force,t_dodge;
     number = (int)ob->query("max_pot");
     number = number-100;

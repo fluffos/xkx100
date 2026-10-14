@@ -2,6 +2,7 @@
 string look_table();
 
 #define STORY_TOC "/doc/book/toc"
+#undef STORY_DIR
 #define STORY_DIR "/doc/book/"
 inherit ROOM;
 

@@ -73,7 +73,7 @@ void attempt_apprentice(object ob) {
 }
 
 string ask_me() {
-  object me, ob;
+  object ob;
   ob = this_player();
 
   if (random(100) < 70)

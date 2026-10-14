@@ -64,7 +64,6 @@ int recognize_apprentice(object ob) {
 }
 
 int accept_object(object who, object ob) {
-  object me = this_player();
   if (!(int)who->query_temp("mark/蓉"))
     who->set_temp("mark/蓉", 0);
   if (ob->query("money_id") && ob->value() >= 1000) {
@@ -76,7 +75,7 @@ int accept_object(object who, object ob) {
 }
 
 string ask_me() {
-  object ob, me;
+  object ob;
 
   if (this_player()->query_skill("cookery", 1) < 60)
     return "你的烹饪之术尚欠火候，下回再来吧。";

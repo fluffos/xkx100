@@ -10,7 +10,7 @@ inherit F_SSERVER;
 int start_huoqiang(object me);
 int check_pfm(object me, object target, object ob);
 int perform(object me, object target) {
-  object ob, tar;
+  object ob;
   int flag;
   string fskill, sskill, bskill, pfname, pskill;
 

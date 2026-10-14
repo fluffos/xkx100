@@ -34,7 +34,6 @@ int init() {
 }
 
 void destyitianjian() {
-  object ob;
   message_vision("突然有个黑衣人匆匆和你擦身而过，消失在街口拐角处，糟糕，你的$N丢了。\n", this_object());
   destruct(this_object());
   /*	message("channel:rumor", MAG"【谣言】某人："+"遗失多年的倚天剑又重现江湖啦。\n"NOR, users());*/

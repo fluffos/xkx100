@@ -2,7 +2,6 @@
 int do_attack(string arg)
 {
 	object ob;
-	string host_id;
 	object me=this_player();
 	object who=this_object();
 	if(environment(me)->query("no_fight"))
@@ -27,7 +26,6 @@ int do_attack(string arg)
 int do_stop()
 {
 	object who=this_object();
-	string host_id;
 	object me=this_player();
 	if(me->query("id")!=(who->query("host_id")))
 		return notify_fail(who->query("name")+"连理都不理你！\n");
@@ -44,9 +42,7 @@ int do_stop()
 int do_sha(string arg)
 {
 	object who=this_object();
-	int i ;
 	object me,ob;
-	object* obj;
 
 	if(environment(me)->query("no_ansuan"))
 		return notify_fail(who->query("name")+"全身扭动，畏缩不前！\n");
@@ -108,7 +104,6 @@ int do_hit(string arg)
 {
 	object ob = this_object();
 	object me = this_player();
-	object gurad_ob;
 
 	if(environment(me)->query("no_fight"))
 		return notify_fail(ob->query("name")+"畏缩不前！\n");

@@ -4,7 +4,7 @@
 #include <ansi.h>
 
 int exert(object me, object target) {
-  int force, trans;
+  int force;
 
   if (query_ip_name(target) == query_ip_name(me))
     return notify_fail("你只能将真气传给其他玩家。\n");

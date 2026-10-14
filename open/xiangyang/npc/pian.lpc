@@ -1,7 +1,6 @@
 // pian.c 偏将
 
 inherit NPC;
-inherit F_SKILL;
 
 void create() {
   set_name("偏将", ({ "pian jiang", "pian", "jiang" }));

@@ -830,7 +830,6 @@ void greeting(object ob) {
 }
 
 int accept_object(object who, object ob) {
-  object myenv;
   if (ob->query("money_id") && ob->value() >= 100) {
     if ((int)who->query_temp("ridechance") <= 2) {
       message_vision("马夫惊慌地对$N说：对不起这位" + RANK_D->query_respect(who) + "，最近道上不太平，小的可不敢担这个险。\n", who);

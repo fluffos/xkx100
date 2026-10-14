@@ -5,7 +5,6 @@ inherit F_CLEAN_UP;
 int main(object me, string str) {
   object where, ob, *ob_list;
   int i, t, size, num, max;
-  string stri;
   seteuid(getuid());
 
   ob_list = users();

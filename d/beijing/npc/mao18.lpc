@@ -77,7 +77,6 @@ void init() {
 }
 
 void greeting(object ob) {
-  int change = 0;
   if (!ob || environment(ob) != environment()) return;
   message_vision("\n$N拱手道：兄弟腿上不方便，不能起立行礼了。\n", this_object());
 }

@@ -25,7 +25,6 @@ void create() {
 }
 
 int do_eat(string arg) {
-  int i;
   object me = this_player();
   object ob = this_object();
   int effect = 0;

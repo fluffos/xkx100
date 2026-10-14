@@ -53,7 +53,6 @@ int ask_supu() {
 }
 
 int ask_parent() {
-  object map;
   object me = this_player();
   if ((int)this_player()->query_temp("marks/李1")) {
     say("李文秀哽咽的说道：我的父母是被奸人害死的，奸人觊觎我们家的高昌地图。\n我一定要手刃仇人，为我父母报仇。\n");
@@ -66,8 +65,7 @@ int ask_parent() {
 }
 
 int ask_gaochang() {
-  object map, me = this_player(), ob = this_object();
-  int exp, pot, score;
+  object me = this_player(), ob = this_object();
   if (query("map_count") < 1) {
     say("李文秀一愣，忙道：地图？我没说过什么地图啊。\n");
     return 1;

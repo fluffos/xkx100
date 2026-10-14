@@ -32,7 +32,7 @@ int do_back(object me) {
 void die() {
   object ob = this_object();
   object me, fme;
-  int pot, exp, level, score;
+  int pot, exp;
   me = ob->query_temp("last_damage_from");
   fme = ob->query_temp("last_opponent");
   if (objectp(me) && objectp(fme) && me->query("id") == ob->query("owner")

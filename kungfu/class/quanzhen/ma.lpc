@@ -158,7 +158,7 @@ string ask_ling() {
 }
 
 string ask_array() {
-  object room, qizi, obj, ob = this_player(), me = this_object();
+  object room, obj, ob = this_player(), me = this_object();
   mapping ob_fam, skl;
   string *skillname;
   int i;

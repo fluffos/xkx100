@@ -57,7 +57,6 @@ void init() {
 }
 
 int do_look(string arg) {
-  object me = this_player();
   if (arg == "east" || arg == "west" || arg == "south" || arg == "north") {
     write(HIC "桃花阵" NOR " -
     这里是一片桃花的海洋。四周一望无际，全是盛开的桃花。微风拂

@@ -57,7 +57,7 @@ int do_stuff(object ob) {
     "往壁炉那走去，和一群黑影般的人不知说了些什麽。\n",
     ({ this_object(), ob }));
   tell_room(environment(ob),
-    "一眨眼的功\夫" + (string)ob->query("name") + "竟然不见了。\n",
+    "一眨眼的功夫" + (string)ob->query("name") + "竟然不见了。\n",
     ({ this_object(), ob }));
   write("那人一句话也不说就往你这边撞过来，你眼前一阵黑....\n");
   ob->reincarnate();

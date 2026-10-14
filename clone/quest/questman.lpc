@@ -71,7 +71,7 @@ int do_halt() {
   return 0;
 }
 int set_perform() {
-  object ob = this_object(), me = this_player();
+  object ob = this_object();
   mapping map_status;
   string *mname;
   int i, j;

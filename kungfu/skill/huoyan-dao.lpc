@@ -56,7 +56,6 @@ int valid_learn(object me) {
   return 1;
 }
 int practice_skill(object me) {
-  object weapon;
 
   if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
     return notify_fail("练火焰刀必须空手。\n");

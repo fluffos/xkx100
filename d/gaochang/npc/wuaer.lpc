@@ -44,7 +44,6 @@ void create() {
 }
 
 int ask_back() {
-  object ob;
   object me = this_player();
   if (present("map", me)) {
     say("瓦耳拉齐说道：好吧，这次我送你回去，高昌迷宫你以后再也不要来了。下次来我就要杀了你。\n");

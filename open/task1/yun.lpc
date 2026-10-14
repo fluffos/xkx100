@@ -1,7 +1,6 @@
 // yun.c 云中鹤
 
 inherit NPC;
-inherit F_SKILL;
 #include <ansi.h>
 void create() {
   set_name("云中鹤", ({ "yun  zhonghe", "yun" }));

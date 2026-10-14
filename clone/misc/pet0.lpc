@@ -212,7 +212,6 @@ string status_color(int current, int max) {
 }
 int do_shape(string arg) {
   mapping my;
-  string shape;
   int at_pt, pa_pt, do_pt;
   my = query_entire_dbase();
 
@@ -267,7 +266,7 @@ string *cmds_exclude = ({    //加入被禁止的cmds
   "go",
 });
 int do_command(string arg) {
-  int err, i, j;
+  int i, j;
   string id, cmd;
   string *cmds;
   object who = this_player();

@@ -7,7 +7,6 @@ inherit ROOM;
 
 void create() {
   mixed *local;
-  object *ob;
   local = localtime(time() * 60);
 
   set("short", HIM "松中草地" NOR);

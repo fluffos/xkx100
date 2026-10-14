@@ -6,7 +6,6 @@ inherit F_SSERVER;
 #define PNAME "「云开雾阖」"
 int perform(object me, object target) {
   string msg;
-  object weapon;
   int skill, ap, dp, neili_wound, qi_wound;
 
   int flag;

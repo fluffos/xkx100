@@ -64,7 +64,6 @@ void init() {
 
 
 void greeting(object ob) {
-  mapping fam;
   int i;
   object me;
   object *obj;

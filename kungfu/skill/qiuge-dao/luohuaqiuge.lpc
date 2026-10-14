@@ -7,11 +7,11 @@ inherit F_SSERVER;
 #define PNAME "［落花秋歌］"
 int perform(object me, object target) {
   string msg;
-  int skl_me, skl_you, extra_me, extra_you, i, damage;
+  int skl_me, skl_you, extra_me, extra_you, i;
   int FLAG = 0;
   object you, ob, *obs, weapon;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

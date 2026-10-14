@@ -193,7 +193,6 @@ void give_wuduling() {
 string ask_ling() {
   mapping fam;
   object *allob, env, ob, me = this_player();
-  string *sname;
   int i, count, here = 0;
 
   if (query("ling_count") < 1)

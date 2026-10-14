@@ -22,7 +22,6 @@ void create() {
 object create_first(string arg) {
   object ob;
   string str;
-  string err;
 
   str = "/kungfu/class/" + arg + "/first";
   if (file_size(str + ".lpc") > 0) {
@@ -37,7 +36,6 @@ object create_first(string arg) {
 
 object create_player(string arg) {
   object ob;
-  string str;
 
   ob = new(USER_OB);
   seteuid(arg);
@@ -73,7 +71,6 @@ varargs int top_skill(object who, int l) {
 }
 varargs int up_skill(object who) {
   //返回顶经验武功
-  int i;
   float exper;
   int level;
 
@@ -139,7 +136,6 @@ int check_level(object ob) {
   return i;
 }
 void set_skill(object ob, int lvl) {
-  int sk_lvl;
   int i;
   string *ks;
   mapping skl;
@@ -157,8 +153,6 @@ void set_skill(object ob, int lvl) {
 }
 void init_npc_skill(object ob, int lvl) {
   int sk_lvl;
-  string *ks;
-  int i;
   int exp;
 
   if (lvl < 1) lvl = 1;
@@ -287,8 +281,6 @@ varargs void copy_skill(object tob, object thief_master) {
 }
 void copy_status(object tob, object fob, int scale) {
   mapping my, hp_status;
-  string err;
-  int i, flag;
   int exp;
 
   hp_status = fob->query_entire_dbase();
@@ -381,11 +373,8 @@ int check_place(string file, string dir) {
 }
 
 void place_npc(object ob, mixed diff) {
-  string *kp;
-  string p;
   string startroom;
-  object pos;
-  string *dir, *file, place;
+  string *dir, *file;
   int i, j;
 
   if (stringp(diff)) dir = ({ diff });

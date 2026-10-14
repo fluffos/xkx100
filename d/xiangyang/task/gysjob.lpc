@@ -37,9 +37,9 @@ mixed names = ({
   }),
 });
 int ask_job() {
-  object ob, me, gift, *team;
-  int exp, position;
-  string target, myfam, obfam, job_type;
+  object ob, me;
+  int exp;
+  string target;
   ob = this_player();
   me = this_object();
   exp = ob->query("combat_exp");
@@ -137,15 +137,15 @@ void destroying(object obj)
 }
 */
 object create_killer(object me) {
-  mapping name, hp_status, skill_status, map_status, prepare_status;
+  mapping hp_status, skill_status, map_status, prepare_status;
   string *sname, *mname, *pname;
   object obj, thief_master, weapon;
   mapping skl;
   string *skillname;
   int skilllvl, topexp;
-  int inc_exp, inc_lvl, i, j, k;
+  int inc_exp, inc_lvl, i, j;
   object *inv;
-  string *family, weapon_type;
+  string weapon_type;
   string *masters = ({
     "baituo/ouyangfeng",  //lingshe-zhangfa	shexing-diaoshou hamagong
     "dali/duanzc",  //duanyun-fu		sun-finger

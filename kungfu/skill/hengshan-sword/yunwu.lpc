@@ -10,7 +10,7 @@ int perform(object me, object target) {
   object weapon;
   int qi_wound;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

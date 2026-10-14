@@ -52,7 +52,6 @@ void lock_quest( object who, string quest_type, string lock_type )
 int islocked( object who, string quest_type )
 {
 	string lock_quest = who->query( "quest/" + quest_type + "/lock" );
-	object me = this_object();
 	
 	if ( stringp(lock_quest) && lock_quest != "" )
 	{

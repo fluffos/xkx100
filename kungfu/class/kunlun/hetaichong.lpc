@@ -158,7 +158,6 @@ string ask_ding() {
 }
 string ask_su() {
   mapping fam;
-  object ob;
 
   if (!(fam = this_player()->query("family"))
     || fam["family_name"] != "昆仑派")

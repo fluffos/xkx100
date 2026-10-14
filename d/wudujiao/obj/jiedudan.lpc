@@ -72,7 +72,7 @@ int do_eat(string arg) {
       destruct(this_object());
       return 1;
     }
-    if ((string)ob->query("name") == "绿色解毒丹" & arg == "green dan") {
+    if ((string)ob->query("name") == "绿色解毒丹" && arg == "green dan") {
       if ((int)this_player()->query_condition("zhizhu_poison") < 1)
         tell_object(this_player(), HIG "你吃下一棵绿色解毒丹，但似乎没有什么效果！\n" NOR);
       else {
@@ -82,7 +82,7 @@ int do_eat(string arg) {
       destruct(this_object());
       return 1;
     }
-    if ((string)ob->query("name") == "白色解毒丹" & arg == "white dan") {
+    if ((string)ob->query("name") == "白色解毒丹" && arg == "white dan") {
       if ((int)this_player()->query_condition("xiezi_poison") < 1)
         tell_object(this_player(), HIG "你吃下一棵白色解毒丹，但似乎没有什么效果！\n" NOR);
       else {
@@ -92,7 +92,7 @@ int do_eat(string arg) {
       destruct(this_object());
       return 1;
     }
-    if ((string)ob->query("name") == "黑色解毒丹" & arg == "black dan") {
+    if ((string)ob->query("name") == "黑色解毒丹" && arg == "black dan") {
       if ((int)this_player()->query_condition("chanchu_poison") < 1)
         tell_object(this_player(), HIG "你吃下一棵黑色解毒丹，但似乎没有什么效果！\n" NOR);
       else {

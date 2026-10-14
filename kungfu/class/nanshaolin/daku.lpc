@@ -136,7 +136,7 @@ int do_lunzhi(string arg) {
 }
 
 int do_zhongcai(string arg) {
-  object ob = this_player(), me = this_object();
+  object ob = this_player();
 
   if (!arg || arg != "ok") return 0;
   if (!ob->query_temp("mark/浇完")) return 0;

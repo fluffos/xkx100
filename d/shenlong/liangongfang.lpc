@@ -26,8 +26,6 @@ void init() {
 
 int do_practice(string arg) {
   object me = this_player();
-  string skill;
-  int lvl;
 
   if ((int)me->query("sg/exp") < 5000) {
     message("vision",

@@ -1,7 +1,6 @@
 // zuo.c 佐将
 
 inherit NPC;
-inherit F_SKILL;
 
 void create() {
   set_name("佐将", ({ "zuo jiang", "zuo", "jiang" }));

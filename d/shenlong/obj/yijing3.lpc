@@ -23,7 +23,7 @@ void init() {
 }
 
 int do_study(string arg) {
-  object ob, me = this_player(), where = environment(me);
+  object me = this_player(), where = environment(me);
   int cost;
 
   if (where->query("pigging")) {

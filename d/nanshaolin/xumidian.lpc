@@ -28,8 +28,8 @@ void init() {
 }
 
 int do_neishi() {
-  object ob, me = this_player();
-  int lvl = me->query_skill("force", 1), exp = me->query("combat_exp");
+  object me = this_player();
+  int lvl = me->query_skill("force", 1);
 
   me->add_temp("mx_times", -1);
   message_vision("$N盘膝坐下闭目垂帘意守丹田修炼内功。\n", me);

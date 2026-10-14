@@ -90,7 +90,7 @@ int new_start_jxjob() {
 
 
 void guojxjob(object ob, int maxexp, int time) {
-  object *team, obj, gift;
+  object *team, obj;
   int i = 0, j = 0, count, knum, lvl, flag = 999;
 
   team = ob->query_team();
