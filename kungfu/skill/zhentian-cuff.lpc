@@ -98,7 +98,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 20; }
 int practice_bonus() { return 15; }
 int success() { return 15; }
-int power_point(object me) {
+float power_point(object me) {
   if (me->query("gender") == "男性")
     return 1.2;
   else

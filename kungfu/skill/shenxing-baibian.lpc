@@ -39,7 +39,7 @@ string query_dodge_msg(string limb) {
 int learn_bonus() { return 10; }
 int practice_bonus() { return 10; }
 int success() { return 10; }
-int power_point(object me) {
+float power_point(object me) {
   if (me->query("skybook/luding/dubi")) return 1.4;
   else return 0.9;
 }

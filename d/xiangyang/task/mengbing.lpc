@@ -51,7 +51,7 @@ int do_copy(int maxexp, int type) {
   if (type == 3) {
     //		skl = 200 + random(50);
     ob->set("combat_exp", (maxexp + random(maxexp / 2)));
-    skl = ceil(pow(query("combat_exp") * 10.0, 0.333333));
+    skl = to_int(ceil(pow(query("combat_exp") * 10.0, 0.333333)));
     //		ob->set("max_qi", 3000);
     //		ob->set("eff_qi", 3000);
     //		ob->set("qi",     3000);
@@ -67,7 +67,7 @@ int do_copy(int maxexp, int type) {
   } else if (type == 2) {
     //		skl = 150 + random(50);
     ob->set("combat_exp", maxexp);
-    skl = ceil(pow(query("combat_exp") * 10.0, 0.333333));
+    skl = to_int(ceil(pow(query("combat_exp") * 10.0, 0.333333)));
     //		ob->set("max_qi", 2500);
     //		ob->set("eff_qi", 2500);
     //		ob->set("qi",     2500);
@@ -83,7 +83,7 @@ int do_copy(int maxexp, int type) {
   } else {
     //		skl = 100 + random(50);
     ob->set("combat_exp", (maxexp - random(maxexp)));
-    skl = ceil(pow(query("combat_exp") * 10.0, 0.333333));
+    skl = to_int(ceil(pow(query("combat_exp") * 10.0, 0.333333)));
     //		ob->set("max_qi", 2000);
     //		ob->set("eff_qi", 2000);
     //		ob->set("qi",     2000);

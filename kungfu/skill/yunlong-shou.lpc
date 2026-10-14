@@ -117,7 +117,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 20; }
 int practice_bonus() { return 20; }
 int success() { return 15; }
-int power_point(object me) {
+float power_point(object me) {
   if ((int)me->query_skill("yunlong-xinfa", 1) < 100)
     return 0.7;
   else if ((int)me->query_skill("yunlong-xinfa", 1) > 200)

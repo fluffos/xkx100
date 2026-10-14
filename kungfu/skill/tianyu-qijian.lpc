@@ -101,7 +101,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 10; }
 int practice_bonus() { return 10; }
 int success() { return 5; }
-int power_point(object me) {
+float power_point(object me) {
   if (fam_type(me) == "lingjiu")
     return 1.4;
   return 1.0;

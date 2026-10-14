@@ -24,7 +24,7 @@ int exert(object me, object target) {
 
   skill = me->query_skill("force");
   if (fam_type(me) == "lingjiu")
-    skill *= 1.5;
+    skill = to_int(skill * (1.5));
   me->add("neili", -100);
   me->receive_damage("qi", 0);
 

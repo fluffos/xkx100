@@ -59,7 +59,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 0; }
 int practice_bonus() { return 0; }
 int success() { return 5; }
-int power_point(object me) {
+float power_point(object me) {
   object weapon;
   if (!objectp(weapon = me->query_temp("weapon")) ||
     (string)weapon->query("id") != "iron sword")

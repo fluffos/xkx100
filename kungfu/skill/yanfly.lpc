@@ -58,7 +58,7 @@ int practice_bonus() { return 5; }
 int success() { return 10; }
 
 /* 威力参数，参照门派参数，限制范围1到1.5。严禁超标！目前仅用于轻功。 */
-int power_point(object me) { return 1.5; }
+float power_point(object me) { return 1.5; }
 
 /* 绝招文件目录 */
 string perform_action_file(string action) {

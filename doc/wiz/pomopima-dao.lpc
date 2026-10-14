@@ -67,4 +67,4 @@ int practice_skill(object me) {
 string perform_action_file(string action) {
   return "/daemon/class/meizhuang/pomopima-dao/" + action;
 }
-int power_point() { return 1.25; }
+float power_point() { return 1.25; }

@@ -33,8 +33,8 @@ string query_dodge_msg(string limb) {
 int learn_bonus() { return 15; }
 int practice_bonus() { return 15; }
 int success() { return 15; }
-int power_point(object me) { return 1.3; }
-int river_point() { return 1.5; }  // 过河比普通容易 越高越好
+float power_point(object me) { return 1.3; }
+float river_point() { return 1.5; }  // 过河比普通容易 越高越好
 string river_go_msg() { return HIW "$N飞身跃在水面，身形稳凝，河水只及小腿，一步步走了过去。\n" NOR; }
 string river_come_msg() { return HIW "只见水面上人影闪动，$N如飘在上面一般，直走过来。\n" NOR; }
 

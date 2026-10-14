@@ -101,7 +101,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 5; }
 int practice_bonus() { return 5; }
 int success() { return 5; }
-int power_point(object me) {
+float power_point(object me) {
   object weapon;
   if (objectp(weapon = me->query_temp("weapon"))
     && weapon->query("id") == "heisuo")

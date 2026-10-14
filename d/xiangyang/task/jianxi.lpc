@@ -49,7 +49,7 @@ int do_copy(int maxexp) {
   //	skl = 200 + random(100);
   ob->set("combat_exp", (maxexp + random(maxexp)));
   //	temp=ceil( pow( ob->query("combat_exp")*10.0, 0.333333))-30;
-  skl = ceil(pow(query("combat_exp") * 10.0, 0.333333));
+  skl = to_int(ceil(pow(query("combat_exp") * 10.0, 0.333333)));
   ob->set("max_qi", 5000);
   ob->set("eff_qi", 5000);
   ob->set("qi", 5000);

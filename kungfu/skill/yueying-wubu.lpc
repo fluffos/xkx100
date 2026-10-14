@@ -52,7 +52,7 @@ string perform_action_file(string action) {
 int learn_bonus() { return 25; }
 int practice_bonus() { return 25; }
 int success() { return 20; }
-int power_point(object me) {
+float power_point(object me) {
   if (me->query("class") == "dancer") return 1.5;
   else return 1.0;
 }

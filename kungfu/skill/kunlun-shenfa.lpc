@@ -45,7 +45,7 @@ string query_dodge_msg(string limb) {
 int learn_bonus() { return 15; }
 int practice_bonus() { return 15; }
 int success() { return 15; }
-int power_point(object me) { return 1.4; }
+float power_point(object me) { return 1.4; }
 
 int help(object me) {
   write(HIC "\n昆仑身法：" NOR "\n");

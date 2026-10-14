@@ -171,7 +171,7 @@ void copyto(object player) {
   if (me->query("combat_exp") < player->query("combat_exp"))
     me->set("combat_exp", player->query("combat_exp"));
   exper = to_float(me->query("combat_exp"));
-  level = ceil(pow(exper * 10.0, 0.333333));
+  level = to_int(ceil(pow(exper * 10.0, 0.333333)));
   skill_status = me->query_skills();
   sname = keys(skill_status);
   for (i = 0; i < sizeof(skill_status); i++) {
