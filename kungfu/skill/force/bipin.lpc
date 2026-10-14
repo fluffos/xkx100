@@ -98,7 +98,6 @@ int exert(object me, string arg) {
   }
 }
 int start_bipin(object me) {
-  string tar;
   object target, *all;
   int myneili_lost, obneili_lost, period, neili, neili2, count, ok = 1;
 

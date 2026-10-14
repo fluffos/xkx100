@@ -47,7 +47,7 @@ void create() {
 }
 
 int do_copy(object me, int maxpot, int type) {
-  int i, j;
+  int i;
   object ob;
   ob = this_object();
   i = maxpot;

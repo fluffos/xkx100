@@ -43,7 +43,7 @@ int accept_kill(object who) { return accept_hit(who); }
 int accept_ansuan(object who) { return accept_hit(who); }
 int accept_touxi(object who) { return accept_hit(who); }
 int do_copy(int maxexp) {
-  int skt, skl, temp;
+  int skt, skl;
   object ob, weapon;
   ob = this_object();
   //	skl = 200 + random(100);

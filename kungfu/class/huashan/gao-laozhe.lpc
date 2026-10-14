@@ -72,9 +72,6 @@ void create() {
 }
 
 void attempt_apprentice(object ob) {
-  int student_num;
-  string temp;
-  string line;
 
   if ((string)ob->query("family/family_name") != "" &&
     (string)ob->query("family/family_name") != "华山派") {

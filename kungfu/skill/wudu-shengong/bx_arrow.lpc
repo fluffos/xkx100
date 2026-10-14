@@ -5,7 +5,6 @@
 inherit F_SSERVER;
 
 int exert(object me, object target) {
-  string msg;
   int success, ap, dp;
 
 

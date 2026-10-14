@@ -77,9 +77,8 @@ int valid_leave(object me, string dir)
 
 void init()
 {
-       object me, *ob, *inv, ob1;
+       object me, *ob, ob1;
        string msg, msg1;
-       int i, j;
        me = this_player();
        ob = all_inventory(environment(me));
        msg = YEL"\n突然一股疾风刮到，带著一大片黄沙，只吹得众人满口满鼻都是沙土，在无边无际的大沙漠之中，

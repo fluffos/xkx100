@@ -78,9 +78,8 @@ int do_canwu(string arg) {
   return notify_fail("你试图从石壁上研究有关「白首太玄经」的内容，但却没什么效果！\n");
 }
 int do_study(string arg) {
-  object me, where;
-  int jing_cost, learn_pot, item, times, i, success;
-  string skillname;
+  object me;
+  int jing_cost, learn_pot, success;
 
   me = this_player();
   if (!me->query("xkd/ling"))

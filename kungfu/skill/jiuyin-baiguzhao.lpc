@@ -36,8 +36,8 @@ int valid_learn(object me) {
   return 1;
 }
 int practice_skill(object me) {
-  object *ob, obj;
-  int i, skill, damage, cost;
+  object obj;
+  int skill, cost;
 
   cost = 40;
   skill = me->query_skill("jiuyin-baiguzhao", 1);
@@ -98,7 +98,7 @@ mapping query_action(object me, object weapon) {
   int p_e2 = -60;
   int f_e1 = 300;
   int f_e2 = 600;
-  int i, lvl, seq, ttl = sizeof(action);
+  int seq, ttl = sizeof(action);
 
   seq = random(ttl); /* 选择出手招数序号 */ return ([
     "action": action[seq]["action"],

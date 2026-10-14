@@ -941,7 +941,7 @@ string search_my_dir(object me) {
 //  do_sit,  to  enter  the  table.
 
 int do_sit(string dir) {
-  object me = this_player(), pl;
+  object me = this_player();
 
   if (!is_dir(dir))
     return notify_fail("请选择「east、north、south  或  west」。\n");
@@ -983,7 +983,7 @@ int do_leave(string arg) {
 //  players  declare  dealing.
 
 int do_deal(string arg) {
-  int i = NUM, cnt, j;
+  int i = NUM, j;
   object me = this_player();
   string dir = search_my_dir(me);
   string *name = ({}), dir2, str;
@@ -1033,8 +1033,8 @@ int do_deal(string arg) {
 int do_sell(string arg) {
   object me = this_player();
   string dir;
-  string card, flag = "a", suit;
-  int rank, index;
+  string card, flag = "a";
+  int index;
 
   if (!in_table(me))
     return notify_fail("对不起，你并不在拱猪。\n");
@@ -1066,7 +1066,7 @@ int do_sell(string arg) {
 
 int do_claim(string arg) {
   object me = this_player();
-  string dir = search_my_dir(me), str, claimer;
+  string dir = search_my_dir(me), str;
   int i = NUM, j = CARDNO + 1;
 
   if (TABLE["cond"] != "出牌")
@@ -1210,7 +1210,6 @@ object find_me(string dir) {
 }
 int score_player(string dir) {
   int score, tscore = 0, *collected = TABLE[dir]["collected"], i = 13, j, full = 0;
-  object player;
 
   //  do  hearts  first;
 
@@ -1670,8 +1669,6 @@ string look_hand() {
   return str + "\n\n";
 }
 string look_note() {
-  string str;
-  object me = this_player();
 
   if (TABLE["cond"] == "等人")
     return "纸上画着一个猪头，旁边的名字被人擦去了。下面是个表格，画得歪七扭八的。\n";
@@ -1697,7 +1694,7 @@ string display_score() {
 
 string display_sell() {
   int counta = 0, count = 0, countm = 0, i = NUM, j;
-  string card, *asell = ({}), str = "", dir;
+  string card, str = "", dir;
 
   if (SOLD["pig"][0] == "a")
     counta++;
@@ -1739,7 +1736,7 @@ string display_sell() {
 string display_table(string cond) {
   int i, index, j, size, cnt;
   string str, dir, state;
-  mapping status = allocate_mapping(4), tmp = allocate_mapping(3);
+  mapping status = allocate_mapping(4);
   mapping sell = allocate_mapping(4);
 
   sell = ([

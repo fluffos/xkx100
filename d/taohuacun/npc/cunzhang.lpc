@@ -136,7 +136,7 @@ int zao(string msg) {
 }
 
 int xiu(string msg) {
-  object obj, ob = this_player();
+  object ob = this_player();
   string homename, homedesc, tmpdesc;
 
   if (!ob->query("home")) {

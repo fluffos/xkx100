@@ -57,7 +57,7 @@ void init() {
   add_action("do_answer", "answer");
 }
 int ask_me() {
-  object ob, me;
+  object me;
   me = this_player();
   if (me->query("officerlvl") < 1) {
     command("say 这位" + RANK_D->query_respect(me)
@@ -69,7 +69,7 @@ int ask_me() {
   return 1;
 }
 int ask_stop() {
-  object ob, me;
+  object me;
   me = this_player();
   if (!(int)me->query_temp("bt/working")) {
     command("say 这位" + RANK_D->query_respect(me)
@@ -81,7 +81,7 @@ int ask_stop() {
   return 1;
 }
 int do_answer(string arg) {
-  object ob, me;
+  object me;
   me = this_player();
   if (!me->query_temp("bt/stop"))
     return notify_fail("什么？\n");

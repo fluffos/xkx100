@@ -77,7 +77,6 @@ void init() {
 }
 
 void greeting(object ob) {
-  int change = 0;
   if (!ob || environment(ob) != environment())
     return;
   message_vision("\n石中玉哈哈大笑道：我终于看见救我的人来了。\n", this_object());

@@ -5,7 +5,7 @@
 
 int main(object me, string arg) {
   object obj;
-  int skill, count;
+  int count;
 
   if (environment(me)->query("no_fight"))
     return notify_fail("这里禁止战斗。\n");

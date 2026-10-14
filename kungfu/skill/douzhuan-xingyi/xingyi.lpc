@@ -3,11 +3,9 @@
 #include <ansi.h>
 #define PNAME "星移"
 inherit F_SSERVER;
-inherit F_CLEAN_UP;
 
 int perform(object me) {
-  int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string sskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

@@ -21,7 +21,6 @@ LONG);
 
 void init() {
   object ob = this_player();
-  mapping fam;
   if ((strsrch(NATURE_D->game_time(), "一月") >= 0) ||
     (strsrch(NATURE_D->game_time(), "二月") >= 0)) {
     call_out("south1", 3, ob);

@@ -1,6 +1,5 @@
 // duan.c 段延庆
 inherit NPC;
-inherit F_SKILL;
 #include <ansi.h>
 void create() {
 

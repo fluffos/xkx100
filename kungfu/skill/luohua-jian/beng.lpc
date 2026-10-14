@@ -8,7 +8,7 @@ int perform(object me, object target) {
   object weapon, weapon2;
   string msg;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

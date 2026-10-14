@@ -4,7 +4,7 @@
 #include <room.h>
 inherit ROOM;
 
-void close_gate();
+int close_gate();
 int do_unlock(string arg);
 
 void create() {

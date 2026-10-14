@@ -5,7 +5,6 @@
 inherit F_CLEAN_UP;
 
 int update_condition(object me, int duration) {
-  object bee;
   string *msg = ({
     HIR "\n$N手舞足蹈地想捉住一只" HIW "玉蜂" HIR "，可玉蜂一下子又飞开了。\n",
     HIW "\n玉蜂" HIY "一会儿聚在一起，一会儿又散开，在$N头上跳起舞来。\n",

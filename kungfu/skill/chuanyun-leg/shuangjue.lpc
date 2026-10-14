@@ -6,7 +6,7 @@ inherit F_SSERVER;
 int perform(object me, object target) {
   int i, j, z, y;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill, cskill, cskill1;
+  string fskill, sskill, bskill, pfname, cskill, cskill1;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

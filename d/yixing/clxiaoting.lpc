@@ -3,6 +3,7 @@
 
 #include <changle.h>
 #define WOSHI   BANGS"clwoshi"
+#undef BANGZHU
 #define BANGZHU BANGS"npc/cl_situ"
 inherit ROOM;
 #include D_BEAUTY

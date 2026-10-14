@@ -55,7 +55,6 @@ LONG);
 }
 
 int do_halt() {
-  object me;
 
   if (this_player() == query_temp("catch_ob")) {
     write(CYN + name() + "喝道：“贼子，哪里跑！”\n" NOR);

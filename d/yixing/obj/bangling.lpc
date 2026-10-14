@@ -2,6 +2,7 @@
 // Last Modified by winder on Jul. 12 2002
 
 #include <changle.h>
+#undef BANGZHU
 #define BANGZHU BANGS"npc/bangzhu"
 
 #include <ansi.h>
@@ -36,9 +37,7 @@ void init() {
 }
 
 int do_find(string arg) {
-  object *obj, room;
-  string file, region, fam, result;
-  int i;
+  string fam, result;
   mapping job;
 
   if ((string)query("owner") != this_player()->query("id")) {
@@ -102,7 +101,7 @@ int do_find(string arg) {
 
 int do_collect(string arg) {
   object me = this_player();
-  object victim, obj;
+  object victim;
   int ap, dp, myexp, yourexp, bonus, record;
   mapping job;
 
@@ -170,7 +169,7 @@ int do_collect(string arg) {
 }
 
 int do_sign(string arg) {
-  object obj, room;
+  object obj;
   object me = this_player();
   int bonus, record;
   mapping job;

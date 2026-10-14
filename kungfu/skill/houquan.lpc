@@ -7,7 +7,7 @@ string type() { return "martial"; }
 string martialtype() { return "skill"; }
 
 mapping *action = ({
-  ([ "action": "\$N单腿微曲，忽的向前扑出，一式" HIM "「仙猴摘桃」" NOR "，二爪直出，抓向$n的双眼",
+  ([ "action": "$N单腿微曲，忽的向前扑出，一式" HIM "「仙猴摘桃」" NOR "，二爪直出，抓向$n的双眼",
     "lvl": 0,
     "skill_name": "横空出世"
   ]),

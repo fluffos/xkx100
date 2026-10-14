@@ -4,7 +4,7 @@
 #include <ansi.h>
 
 int exert(object me, object target) {
-  int con1, con2, con3, con;
+  int con1, con3, con;
   con1 = target->query_condition("snake_poison");
   //	con2 = target->query_condition("scorpion_poison");
   con3 = target->query_condition("xx_poison");

@@ -9,10 +9,7 @@ inherit F_CLEAN_UP;
 int help(object me);
 
 int main(object me, string arg) {
-  object env;
   int origin;
-  string msg;
-  string to;
 
   if (!arg) {
     write("你现在体重是" + me->query_weight() + "负重" + me->query_encumbrance() + "。\n");

@@ -185,7 +185,6 @@ int accept_object(object who, object ob) {
 
   object obn, wage;
   int i, j, k;
-  string *wanted;
 
 
   if (ob->query("money_id") && ob->value() >= 100 * (int)who->query("age")) {

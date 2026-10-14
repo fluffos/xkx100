@@ -1,7 +1,6 @@
 // ya.c 牙将
 
 inherit NPC;
-inherit F_SKILL;
 
 void create() {
   set_name("牙将", ({ "ya jiang", "ya", "jiang" }));

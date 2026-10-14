@@ -11,7 +11,7 @@ int perform(object me, object target) {
   int p;
   object my_w, target_w, piece;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   my_w = me->query_temp("weapon");
   sskill = explode(__FILE__, "/")[<2];

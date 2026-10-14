@@ -43,7 +43,6 @@ int do_push(string arg) {
 }
 
 void close_passage() {
-  object room;
 
   if (!query("exits/enter")) return;
   delete("exits/enter");

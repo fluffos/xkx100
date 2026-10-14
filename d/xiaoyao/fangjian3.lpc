@@ -35,7 +35,7 @@ void init() {
 }
 
 int do_kneel(string arg) {
-  object me, room, weapon;
+  object me;
   me = this_player();
   if (!arg || arg == "") return 0;
   if (arg != "putuan") return 0;

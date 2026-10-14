@@ -1,7 +1,6 @@
 // he.c 鹤笔翁
 
 inherit NPC;
-inherit F_SKILL;
 #include <ansi.h>
 void create() {
   set_name("鹤笔翁", ({ "he  biweng", "he" }));

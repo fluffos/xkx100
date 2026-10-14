@@ -13,12 +13,9 @@ int power_point(object me) { return 1; }
 int valid_enable(string usage) { return usage == "force"; }
 
 int valid_learn(object me) {
-  mapping skills;
-  string *sname;
 
   int lvl = (int)me->query_skill("dulong-dafa", 1);
-  int t = 1, i, j;
-  int other_force = 0;
+  int t = 1, j;
 
   for (j = 1; j < lvl / 10; j++) t *= 2;
   /*

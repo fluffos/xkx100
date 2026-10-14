@@ -4,6 +4,7 @@
 #include <ansi.h>
 inherit SKILL;
 inherit F_SSERVER;
+int clean_up() { return sserver::clean_up(); }   // both bases reach /feature/clean_up; the driver uses this one
 //inherit F_FUNCTION;
 void seven(object me, object victim, object weapon, int damage);
 void lockman(object me, object victim, object weapon, int damage);
@@ -46,7 +47,7 @@ mapping *action = ({
   //3
   ([ "action": NOR "                                  " HBRED "==那一剑的凄然==" NOR "\n" NOR +
     HIW "$N心静，手稳，闷哼一声，手中$w" HIW "已刺出点点银光，像一记无意的顾盼，刻意的雷极，\n"
-    +HIW "直击$n，剑影如深深的恨，浅浅的梦，又似岁月的泪\痕！" NOR,
+    +HIW "直击$n，剑影如深深的恨，浅浅的梦，又似岁月的泪痕！" NOR,
     "dodge": -10,
     "move": 0,
     "damage": 180,
@@ -119,7 +120,6 @@ mapping *action = ({
 
 
 mapping query_action(object me, object weapon) {
-  string actionn;
   int limit;
   int skill_level = me->query_skill("love-sword", 1);
   if (!userp(previous_object())) skill_level = 120;
@@ -156,7 +156,7 @@ void two(object me, object victim, object weapon, int damage) {
     //	&& me->query_skill_mapped("sword") == "love-sword"  
     //	&& me->query_skill_mapped("parry") == "dream-blade"  
     && damage > 0) {
-    message_vision(HIW "\n       刀像一阵风，剑像一缕\烟，来得就像是流水那么自然，不但有了生命，也有了灵气，更有了杀气\n\n"
+    message_vision(HIW "\n       刀像一阵风，剑像一缕烟，来得就像是流水那么自然，不但有了生命，也有了灵气，更有了杀气\n\n"
       HIW "                          美丽．光华在闪动．变幻．高高在上．轻云飘忽\n\n"
       HIW "                   $n只觉得这道光华仿佛就在自己眉宇间，又仿佛在虚无缥缈间\n\n"
       HIW "                   它的变化，几乎已超越了人类能力的极限，几乎已令人无法相信\n\n" NOR, me, victim);
@@ -207,7 +207,7 @@ void lovekill(object me, object victim, object weapon, int damage) {
 
       message_vision("
 
-" HIY "--无情不似多情苦．一寸还成千万缕\--" NOR "
+" HIY "--无情不似多情苦．一寸还成千万缕--" NOR "
 " HIR "                                       剑意孤独，灰飞烟灭，仿佛幻出了岁月无奈\n" NOR, me, victim);
       victim->receive_damage("qi", skillb);
       COMBAT_D->report_status(victim);
@@ -311,7 +311,7 @@ int five_kill(object me, object victim, object weapon, int damage) {
   }
 }
 void power_slash(object me, object victim, object weapon, int damage) {
-  object *enemy, target, env;
+  object *enemy, env;
   int i, j, bell;
   bell = me->query("bellicosity");
   damage = victim->query("eff_qi") / 20;
@@ -341,7 +341,7 @@ void power_slash(object me, object victim, object weapon, int damage) {
             me,
             victim
           );
-          message_vision(sprintf(HIW "半空剑光化作电光，霹雳击下，剑意切入了$n中，卷入了剑气，剑光一闪而殁\．． \n" NOR), me, victim);
+          message_vision(sprintf(HIW "半空剑光化作电光，霹雳击下，剑意切入了$n中，卷入了剑气，剑光一闪而殁．． \n" NOR), me, victim);
           break;
         case 3:
           message_vision(
@@ -426,7 +426,7 @@ void seven(object me, object victim, object weapon, int damage) {
           break;
         case 7:
           message_vision(
-            sprintf(MAG "                       --<<紫>>剑意有如追忆思．酒入愁肠．化作相思泪\--\n" NOR),
+            sprintf(MAG "                       --<<紫>>剑意有如追忆思．酒入愁肠．化作相思泪--\n" NOR),
             me,
             victim
           );

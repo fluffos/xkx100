@@ -95,7 +95,6 @@ int do_pawn(string arg) {
   string term, *terms;
   string data;
   int value, pawn_count, i;
-  int rvalue;
   mapping pawn;
   object me;
   me = this_player();

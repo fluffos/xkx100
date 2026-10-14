@@ -662,8 +662,6 @@ int return_base(int pl_num, int qi_num) {
 
 int reset_game(int all) {
   int i, j;
-  string *idx;
-  object ob;
 
   if (all) has_start = 0;
   cur_player = 0;
@@ -1054,9 +1052,7 @@ int do_toss(string arg) {
 
 string extra_long() {
   object me;
-  object who;
-  string r, r2;
-  int i;
+  string r;
 
   me = this_player();
   r = "\n" + build_qi(me);
@@ -1082,7 +1078,7 @@ int do_reset(string arg) {
 }
 
 int do_start(string arg) {
-  int i, c;
+  int i;
 
   if (!is_playing(this_player()))
     return notify_fail("你都不玩啊！\n");

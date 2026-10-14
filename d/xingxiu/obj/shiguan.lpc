@@ -44,7 +44,7 @@ void over_liandu(object ob) {
 }
 
 int do_liandu() {
-  int liandu_cost, neili_lost, times;
+  int neili_lost, times;
   object ob, me, corp;
 
   ob = this_object();
@@ -89,7 +89,6 @@ int do_liandu() {
 }
 
 int start_liandu(object me) {
-  string force;
   int neili_lost = (int)me->query_skill("force") / 10 + me->query_skill("poison") / 4;
   int times = (int)me->query_temp("liandu_times");
   int period = (int)me->query_temp("liandu/period");

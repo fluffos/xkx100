@@ -4,7 +4,7 @@
 inherit ROOM;
 void init();
 int do_open();
-int valid_leave();
+varargs int valid_leave();
 string look_gate();
 
 void create() {

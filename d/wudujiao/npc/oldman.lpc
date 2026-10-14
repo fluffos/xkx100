@@ -72,7 +72,7 @@ void greeting(object ob) {
   }
 }
 int ask_me() {
-  object ob, me;
+  object me;
   me = this_player();
   if ((string)me->query("family/family_name") != "五毒教") {
     command("say 这位" + RANK_D->query_respect(me) + "不是本教弟子，怎么跑到这里来了？\n");

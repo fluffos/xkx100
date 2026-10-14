@@ -719,7 +719,7 @@ varargs int do_win(string str, object me) {
 
 int do_check_win(string str) {
   int size = strwidth(str), i, check;
-  int t, k, W, T, S, Sp;
+  int t, W, T, S, Sp;
   string tempW = "", tempT = "", tempS = "", tempB = "";
   string Special = "1w9w1s9s1t9teasowenojofaba";
 
@@ -828,7 +828,7 @@ int do_check_win(string str) {
 
 int check_hu(string strW) {
   int i, j, check;
-  int k, t;
+  int t;
   int A, B, C, D, E, F;
   for (i = 0; i < sizeof(strW); i += 2) {  //再把顺子删掉
     A = do_check_num(strW[i..i + 1], 2);
@@ -1368,7 +1368,7 @@ int do_check_eat(string num1, string num2, string LastDump) {
 
 string show_mj(string str, int flag) {
   string Mj = "", Mj1 = "";
-  int size = strwidth(str) + 2, a, b;
+  int size = strwidth(str) + 2, a;
   if (!str || str == "") return "";
   if (flag != 3) {
     while (size--) {
@@ -1582,8 +1582,8 @@ mixed do_check_num(string str, int flag) {
 }
 
 void check_flower(mapping who) {
-  string newstr = "", str = who["Mj"], temp, temp1;
-  int i = strwidth(str), j;
+  string newstr = "", str = who["Mj"], temp;
+  int i = strwidth(str);
 
   while (i--) {
     i--;
@@ -1621,7 +1621,7 @@ int do_check_Mj(string datastr, string str) {
 
 string do_delete_Mj(string datastr, string str, int amount)  //把某牌去掉
 {
-  int size = strwidth(datastr), check;
+  int size = strwidth(datastr);
   string temp = "";
 
   while (size--) {
@@ -1642,7 +1642,7 @@ string do_delete_Mj(string datastr, string str, int amount)  //把某牌去掉
 string sort_data(string str) {
   int i = strwidth(str), a, b, c, d;
 
-  string newstr = "", temp = "";
+  string temp = "";
   for (a = -1; a < i; a++) {
     a++;
     for (b = a + 2; b < i; b++) {
@@ -1969,7 +1969,6 @@ int set_mjdata(object me, int *winner) {
 
 int *get_mjdata(string Id) {
   int i, check, *winner = ({ 0, 0, 0, 0 });
-  string str = "";
   mixed *MjData;
 
   if (!Id) return 0;

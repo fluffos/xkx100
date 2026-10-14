@@ -124,9 +124,9 @@ int do_start() {
 }
 
 int navigate() {
-  object dest, *inv, *invofusr;
+  object dest;
   string dir;
-  int i, m, locx, locy;
+  int locx, locy;
 
   if (!random(100) && !query("exist/out")
     && query_temp("navigate/weather") == 2) {

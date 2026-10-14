@@ -27,7 +27,6 @@ void init() {
 }
 
 int do_move(string arg) {
-  string dir;
   object room;
   if (!arg || arg != "shizhu") return 0;
   message("vision", "石柱忽然发出轧轧的声音，向一侧缓缓移开，向上露出一个光亮的出口。\n", this_object());

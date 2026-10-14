@@ -111,7 +111,6 @@ void create() {
 
   int peiyao() {
     object me = this_player();
-    object ob = this_object();
     object obj;
     int i;
 
@@ -132,9 +131,7 @@ void create() {
   }
   int liandan() {
     object me = this_player();
-    object ob = this_object();
     object obj;
-    int i;
     if (!objectp(present("liuhuang", me))) {
       command("say 你的身上没有炼制霹雳弹用的硫磺。");
       return 1;

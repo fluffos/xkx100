@@ -85,7 +85,6 @@ void create() {
 
 void attempt_apprentice(object ob) {
   mapping ob_fam;
-  mapping my_fam = ob->query("family");
   string name, new_name;
   name = ob->query("name");
 

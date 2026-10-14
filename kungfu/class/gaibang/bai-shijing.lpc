@@ -96,9 +96,7 @@ void destroying(object me, object obj) {
 }
 string ask_quit() {
   mapping fam;
-  object ob, me = this_player();
-  string *sname;
-  int i;
+  object me = this_player();
 
   if (!(fam = me->query("family")) || fam["family_name"] != "丐帮")
     return RANK_D->query_respect(me) + "与本派素无来往，不知此话从何谈起？";

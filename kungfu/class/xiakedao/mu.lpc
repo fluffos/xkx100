@@ -184,7 +184,6 @@ int accept_fight(object ob) {
   } else return 0;
 }
 int checking(object me, object ob) {
-  object good;
   int my_max_qi, his_max_qi;
   seteuid(getuid());
   my_max_qi = (int)me->query("max_qi");

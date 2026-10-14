@@ -33,8 +33,7 @@ void init() {
 
 int do_apply(string arg) {
   object me, spouse, officer, room;
-  string str, partner, *householder, laotou;
-  int i, j;
+  string str, partner, laotou;
   me = this_player();
   officer = present("taohua tong", environment(me));
   laotou = officer->query("name");

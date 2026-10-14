@@ -93,7 +93,7 @@ void init() {
 }
 
 int stealing(object ob, object *inv) {
-  object obj, tester;
+  object obj;
   int dp, ap;
 
   //	tester = find_player("winder");

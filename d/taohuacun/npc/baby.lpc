@@ -117,7 +117,7 @@ int do_get(string arg) {
 
 int do_kill(string arg) {
   object me, who;
-  string name, verb, what, obj;
+  string verb, what, obj;
   if (!arg) return 0;
   verb = query_verb();
   me = this_player();
@@ -290,7 +290,7 @@ int do_save() {
 int do_teach(string skill) {
   object ob = this_object(), me = this_player();
   string skill_name, obname = ob->query("name");
-  int student_skill, my_skill, jing_cost, grade, student_combat_exp;
+  int student_skill, my_skill, jing_cost, student_combat_exp;
 
   if (me->is_busy())
     return notify_fail("你现在正忙着呢。\n");
@@ -408,7 +408,7 @@ void improve_npcskill(string skill, int amount, int weak_mode) {
 }
 
 int do_practice(string skb) {
-  object ob = this_object(), me = this_player();
+  object ob = this_object();
   string sknm, obname = ob->query("name");
   int sk, skbasic;
 
@@ -544,7 +544,7 @@ int do_study(string arg) {
   object book, ob = this_object();
   string zhao_name, obname = ob->query("name");
   mapping skill;
-  int my_skill, cost, i, success = 0;
+  int my_skill, cost;
 
   if (!arg) return notify_fail("你要" + obname + "读什么？\n");
   if (ob->is_busy())
@@ -606,8 +606,8 @@ int do_study(string arg) {
 
 int do_learn(string arg) {
   object obt, ob = this_object();
-  string skill, teacher, master, skill_name, obname = ob->query("name");
-  int master_skill, my_skill, jing_cost, pertimes;
+  string skill, teacher, skill_name, obname = ob->query("name");
+  int master_skill, my_skill, jing_cost;
 
   if (ob->is_busy()) return notify_fail(obname + "现在正忙着呢。\n");
   if (!arg || (sscanf(arg, "%s %s", teacher, skill) != 2))

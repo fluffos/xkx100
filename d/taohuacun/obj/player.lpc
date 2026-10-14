@@ -3,7 +3,6 @@
 inherit ROOM;
 
 void create() {
-  object ob1, ob2, ob3;
   set("exits", ([
     "out": "/d/taohuacun/taohua5",
   ]));

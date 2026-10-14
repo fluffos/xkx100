@@ -1,7 +1,6 @@
 // nan.c 南海鳄神
 
 inherit NPC;
-inherit F_SKILL;
 #include <ansi.h>
 void create() {
   set_name("南海鳄神", ({ "nanhai  eshen", "eshen" }));

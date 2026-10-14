@@ -191,7 +191,7 @@ mapping query_action(object me, object weapon) {
   int p_e2 = 10;
   int f_e1 = 520;
   int f_e2 = 640;
-  int i, lvl, seq, ttl = sizeof(action);
+  int lvl, seq, ttl = sizeof(action);
 
   lvl = (int)me->query_skill("xianglong-zhang", 1);
   seq = random(ttl); /* 选择出手招数序号 */ return ([

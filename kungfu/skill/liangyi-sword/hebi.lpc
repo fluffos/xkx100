@@ -10,9 +10,7 @@ int remove_effect1(object target);
 int perform(object me, string arg) {
   object weapon, weapon1, target;
   int skill, skill1;
-  string msg;
-  int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string sskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

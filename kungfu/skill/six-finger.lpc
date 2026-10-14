@@ -50,8 +50,7 @@ int valid_learn(object me) {
   return 1;
 }
 int practice_skill(object me) {
-  object *ob, obj;
-  int i, skill, damage, cost;
+  int skill, cost;
   cost = 40;
   if (me->query_temp("weapon") || me->query_temp("secondary_weapon"))
     return notify_fail("你的必须空手才能练习。\n");

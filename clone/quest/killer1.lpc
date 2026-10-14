@@ -34,7 +34,7 @@ void die() {
   object ob = this_object();
   object me, fme;
   object *obs;
-  int pot, exp, level, score;
+  int pot, exp;
   int all_exp, all_pot;
   int per_exp, per_pot;
   int i;

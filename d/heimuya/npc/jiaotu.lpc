@@ -20,7 +20,7 @@ void create() {
   add_money("silver", 10 + age / 10);
 }
 void init() {
-  object ob, me, what;
+  object ob, me;
   ::init();
   ob = this_player();
   me = this_object();

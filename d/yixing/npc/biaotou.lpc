@@ -6,6 +6,7 @@ inherit NPC;
 #include D_SKILL
 #include D_BIAO
 
+#undef BIAOHUO
 #define BIAOHUO BANGS"obj/biaohuo"
 
 void create() {

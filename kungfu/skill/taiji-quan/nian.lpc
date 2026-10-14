@@ -8,9 +8,9 @@ inherit F_SSERVER;
 int perform(object me, object target) {
   object ob;
   string msg;
-  int skill, busytime = 0;
+  int skill;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

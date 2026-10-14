@@ -235,7 +235,6 @@ int do_answer(string arg) {
 }
 int now_time() {
   int i;
-  object ob = this_player();
   mixed *local;
 
   local = localtime(time() * 60);

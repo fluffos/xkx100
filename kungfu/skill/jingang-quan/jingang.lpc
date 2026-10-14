@@ -11,11 +11,10 @@ inherit F_SSERVER;
 void remove_effect(object me, int aamount, int damount);
 
 int perform(object me, object target) {
-  object weapon;
   string msg;
   int d_count, count, qi, maxqi, skill;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

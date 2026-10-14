@@ -1,7 +1,7 @@
 #include <ansi.h>
 inherit NPC;
 
-int ask_me();
+string ask_me();
 
 void create() {
   set_name("谭友纪", ({ "tan youji", "tan" }));
@@ -36,7 +36,6 @@ void create() {
 }
 void init() {
   object ob;
-  mapping myfam;
   ob = this_player();
   ::init();
   add_action("do_join", "join");

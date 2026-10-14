@@ -5,7 +5,7 @@ inherit NPC;
 int do_bihua(string arg);
 int do_setname(string arg);
 int do_setcan(string arg);
-int clear_title(string arg);
+string clear_title(string arg);
 void add_title(object me, string arg);
 void clear();
 string ask_home();

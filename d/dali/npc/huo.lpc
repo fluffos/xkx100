@@ -55,7 +55,6 @@ void create() {
 int ask_for_gongzi() {
   object me, payment;
   int paytimes;
-  string oldtitle;
 
   me = this_player();
   if (me->query("guard") == "镇南王府武将") {

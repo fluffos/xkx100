@@ -4,12 +4,11 @@
 inherit F_SSERVER;
 #define PNAME HIC"「风"HIW"雪"HIC"回剑」"NOR
 int perform(object me, object target) {
-  object ob;
   object weapon;
   string msg;
 
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

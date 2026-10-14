@@ -122,7 +122,7 @@ void greeting(object me) {
 
 string ask_me() {
   mapping fam;
-  object ob, *obs, me = this_player();
+  object me = this_player();
 
   if (me->query("can_fight")) {
     add_action("do_fight", "fight");
@@ -149,7 +149,7 @@ string ask_me() {
 
 string ask_me1() {
   mapping fam;
-  object ob, qingshu, *obs, me = this_player();
+  object me = this_player();
 
   if (!(fam = this_player()->query("family")) ||
     fam["family_name"] != "武当派") {
@@ -172,8 +172,7 @@ string ask_me1() {
 }
 
 int do_fight(string arg) {
-  int i;
-  object ob, *inv, me = this_player();
+  object ob, me = this_player();
 
   if (!arg) return 0;
   ob = present(arg, environment());
@@ -196,7 +195,7 @@ int do_fight(string arg) {
 }
 
 int do_halt() {
-  object obj = this_object(), ob = this_player();
+  object ob = this_player();
 
   if (ob->query("halt_mo", 1)) {
     ob->delete("halt_mo");
@@ -208,8 +207,7 @@ int do_halt() {
 }
 
 int do_kill(string arg) {
-  int i;
-  object ob, *inv, me = this_player();
+  object ob, me = this_player();
 
   if (!arg) return 0;
   ob = present(arg, environment());
@@ -231,7 +229,6 @@ int do_kill(string arg) {
 }
 
 int accept_object(object who, object ob) {
-  object obn;
 
   if (!who || environment(who) != environment()) return 0;
   if (!objectp(ob)) return 0;
@@ -254,8 +251,7 @@ int accept_object(object who, object ob) {
 }
 
 string ask_me2() {
-  mapping fam;
-  object ob, qingshu, *obs, me = this_player();
+  object me = this_player();
 
   if ((int)me->query("can_teach", 1) < 1) {
     command("hmm");

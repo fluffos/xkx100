@@ -2,7 +2,6 @@
 #include <dbase.h>
 #include <login.h>
 int ask_shoucheng() {
-  object *ene;
   object me, ob;
   object *ob_list;
   int i;

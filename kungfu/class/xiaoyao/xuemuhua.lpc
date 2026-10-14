@@ -128,7 +128,6 @@ int newyao(object me) {
 int ask_heal() {
   object ob = this_player();
   object me = this_object();
-  object where;
 
   if (me->is_fighting() || me->query_temp("busy")) {
     command("say 我现在没空！");
@@ -191,7 +190,6 @@ int recover_II(object ob) {
 int ask_poison() {
   object ob = this_player();
   object me = this_object();
-  object where;
 
   if (me->is_fighting() || me->query_temp("busy")) {
     command("say 我现在没空！");

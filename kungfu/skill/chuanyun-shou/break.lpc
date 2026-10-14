@@ -7,11 +7,11 @@ inherit F_SSERVER;
 
 int perform(object me, object target) {
   string msg;
-  object weapon, target_w;
-  int ap, dp, equip;
+  object target_w;
+  int ap, dp;
   object piece;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

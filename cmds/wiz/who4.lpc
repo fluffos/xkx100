@@ -4,7 +4,7 @@
 
 int main() {
   object *ob;
-  string msg, fip;
+  string msg;
   int i;
   seteuid(getuid());
 

@@ -6,7 +6,7 @@
 inherit F_SSERVER;
 int perform(object me, object target) {
   string msg;
-  int skl_me, skl_you, extra_me, extra_you, i, damage;
+  int skl_me, skl_you, extra_me, extra_you, i;
   int FLAG = 0;
   object you, ob, *obs, weapon;
   if (userp(me) && !wizardp(me) &&

@@ -2,7 +2,6 @@
 // Last Modified by winder on Mar. 10 2000
 
 #include <ansi.h>
-inherit SKILL;
 inherit FORCE;
 string type() { return "martial"; }
 string martialtype() { return "force"; }

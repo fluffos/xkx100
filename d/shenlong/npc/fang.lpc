@@ -110,7 +110,7 @@ int do_comfort(string arg) {
 }
 
 int accept_object(object who, object ob) {
-  int expgain, faccept;
+  int expgain;
 
   if (!who->query_temp("marks/方b")) return 0;
   if (ob->query("name") != who->query_temp("marks/毒蛇")) {

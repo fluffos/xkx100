@@ -390,7 +390,6 @@ int do_learn(string arg) {
 }
 string ask_skill1() {
   object me = this_player();
-  object zhou = this_object();
 
   if (me->query("can_perform/kongming-quan/kongming"))
     return "还问这个干嘛？不如来陪我玩玩。";

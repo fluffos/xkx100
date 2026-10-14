@@ -28,7 +28,6 @@ void create() {
 
 string ask_shenlong() {
   mapping fam;
-  object ob;
   if (!(fam = this_player()->query("family")) ||
     fam["family_name"] != "神龙教") {
     this_player()->set_temp("marks/shenlong", 1);

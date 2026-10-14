@@ -1,7 +1,6 @@
 // lu.c 鹿杖客
 
 inherit NPC;
-inherit F_SKILL;
 #include <ansi.h>
 void create() {
   set_name("鹿杖客", ({ "lu  zhangke", "lu" }));

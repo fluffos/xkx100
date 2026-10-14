@@ -8,7 +8,7 @@ private void do_bonus(object room) {
   object *obs;
   string msg;
   int lvl, p_bonus, s_bonus;
-  int r, i;
+  int i;
 
   obs = all_inventory(room);
   if (sizeof(obs) < 1)

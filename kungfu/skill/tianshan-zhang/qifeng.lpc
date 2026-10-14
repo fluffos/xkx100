@@ -13,12 +13,12 @@ string *desc = ({
   HIC "       ^^^^^^^^^^^^天山雪崩！^^^^^^^^^^^^ \n" NOR,
 });
 int perform(object me, object target) {
-  object weapon, ob;
-  string msg, string1;
-  int count, i;
+  object weapon;
+  string msg;
+  int i;
   int staff_level;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

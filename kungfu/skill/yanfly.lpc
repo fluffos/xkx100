@@ -20,7 +20,6 @@ int valid_enable(string usage) { return usage == "dodge" || usage == "move"; }
 
 /* 学习的条件。practice也要检测本函数，所以，在这里限制内功和内力就够了。 */
 int valid_learn(object me) {
-  object ob;
 
   if ((int)me->query_skill("king-of-dragon", 1) < 20)
     return notify_fail("你的帝王神功不够精熟，没法练燕双飞。\n");

@@ -3,7 +3,6 @@
 
 inherit ROOM;
 void create() {
-  object con, item;
   set("short", "黄山剑庐");
   set("long", @LONG
 好不容易过铁索，眼前一亮，居然有间茅屋，屋上居然也有牌匾上
@@ -22,7 +21,6 @@ init() {
 }
 int do_climb(string arg) {
   object me;
-  int mlvl;
 
   if (!arg || arg != "down") {
     write("你要往哪里爬？\n");

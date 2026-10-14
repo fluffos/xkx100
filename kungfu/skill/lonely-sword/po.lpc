@@ -31,7 +31,7 @@ int perform(object me) {
   object weapon, weapon2, target;
   int skill, ap, dp, damage, sk;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string sskill, bskill, pfname;
 
   if (me->query("family/master_id") != "feng qingyang" && userp(me) && !wizardp(me))
     return notify_fail("你不是风清扬的弟子，不能使用绝招！\n");

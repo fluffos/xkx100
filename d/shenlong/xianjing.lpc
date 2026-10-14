@@ -31,7 +31,7 @@ void init() {
 
 void dropping() {
   object me = this_player();
-  int f, d, p, s;
+  int f, d, p;
   float sn;
   sn = me->query("shen", 1) * 9 / 10;
   //	s = int(sn);

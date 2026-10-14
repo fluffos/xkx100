@@ -38,7 +38,6 @@ void destme() {
 }
 
 int do_ride() {
-  string dir, dir2;
   object ob = this_player();
   if (ob->query("meili") < 20) {
     message_vision("$N一跃身跨上了玉骢马。只见玉骢马仰天长啸，突然猛然一颠......\n" HIR "把$N狠狠摔在了地上，结果$N受了点轻伤。\n" NOR, ob);

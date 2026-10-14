@@ -26,7 +26,6 @@ string query_parry_msg(string limb) {
   return parry_msg[random(sizeof(parry_msg))];
 }
 int valid_learn(object me) {
-  object ob;
   int d_lvl = (int)me->query_skill("douzhuan-xingyi", 1);
   int s_lvl = (int)me->query_skill("shenyuan-gong", 1);
   int l_lvl = (int)me->query_skill("literate", 1);

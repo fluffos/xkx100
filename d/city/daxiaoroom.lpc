@@ -139,7 +139,7 @@ mtype->query("base_unit") + mtype->query("name") + "。\n", me);
 			mtype->move(me);
 		}
 	}
-/*	else if (wtype1 == "skill")
+//	else if (wtype1 == "skill")
 	{
 		if ( status == "lose") {
 	message_vision(me->query("name") + "输了" + chinese_number(wager) +

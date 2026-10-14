@@ -6,10 +6,10 @@ inherit F_SSERVER;
 #define PNAME "「无声无色」"
 int perform(object me, object target) {
   string msg;
-  object weapon1, weapon2;
-  int skill, ap, dp, neili_wound, qi_wound;
+  object weapon1;
+  int skill, ap, dp, qi_wound;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

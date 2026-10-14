@@ -2,7 +2,7 @@
 // Date: Feb.27 1998 by Java
 inherit ROOM;
 string look_shelf();
-string do_quit(string arg);
+int do_quit(string arg);
 
 void create() {
   set("short", "擂台");

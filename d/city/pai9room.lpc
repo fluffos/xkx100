@@ -2,7 +2,6 @@
 // some of the ideas are borrowed from xiang's pigroom
 // the code is VERY messy, shrug
 // Last Modified by winder on Sep. 6 2002
-inherit F_CLEAN_UP;
 inherit ROOM;
 
 #include <ansi.h>
@@ -332,9 +331,9 @@ void start_play() {
 }
 
 void end_play() {
-  int i, j, k, tmp, tmp2, tile, wager;
+  int i, wager;
   string area, str, str2;
-  object *inv, bigcheese, mtype;
+  object *inv, mtype;
 
   inv = all_inventory(find_object(__FILE__));
 

@@ -53,7 +53,6 @@ void create() {
 }
 
 string ask_book() {
-  mapping fam;
   object ob, me = this_player();
 
   if (query("book_count") < 1)
@@ -73,7 +72,6 @@ string ask_book() {
 }
 
 string ask_jing() {
-  mapping fam;
   object ob, me = this_player();
   mixed sks;
   string skl;

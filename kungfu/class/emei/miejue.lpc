@@ -109,7 +109,6 @@ void init() {
 
 void attempt_apprentice(object ob) {
   mapping ob_fam;
-  mapping my_fam = ob->query("family");
 
   string name, new_name;
   name = ob->query("name");
@@ -172,7 +171,6 @@ string ask_for_quit() {
 
 int do_kneel(string arg) {
   object me = this_player();
-  object master = this_object();
   command("say 既然你已无心在我峨嵋修炼，贫尼就成全你。");
   command("say 从今往后，峨嵋再也没有" + me->query("name") + "这号人物。");
   me->delete_temp("pending/quit_bonze");

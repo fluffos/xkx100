@@ -126,7 +126,6 @@ void do_check()
 
 void do_wait()
 {
-	object ob;
 	object me = this_object();
 
 	if (me->is_fighting() || !living(me) )

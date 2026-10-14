@@ -23,7 +23,6 @@ void create() {
 
 int do_eat(string arg) {
   object me = this_player();
-  object ob = this_object();
   if (arg != "she dunang" && arg != "dunang") return 0;
   tell_object(me, "你想死啊，用suicide比较快一点。\n");
   return 1;

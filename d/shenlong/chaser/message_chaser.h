@@ -4,15 +4,11 @@
 void message_chaser()
 {
 	mapping owner_list;
-	object *obj, ob, owner, rum_ob, *owners;
-	object victim, chaser_ob, thief_ob, dest, room;
-	string *names, filename, *filenames, file, chaser_file;
-	int i, v_exp, temp;
+	object *obj, ob, owner, *owners;
+	object victim, thief_ob, dest, room;
+	string filename, *filenames;
+	int i;
 
-	string *levels = ({
-		"500000",
-		"1000000",
-	});
 
 	remove_call_out("message_chaser");
 //	call_out("message_chaser", 130 + random(100));

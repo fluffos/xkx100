@@ -220,7 +220,7 @@ string chinese_dir(string dir) {
 }
 
 int do_sit(string arg) {
-  string dir, my_id;
+  string my_id;
   object players;
   object me = this_player();
 

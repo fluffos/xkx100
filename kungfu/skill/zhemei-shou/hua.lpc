@@ -7,14 +7,12 @@ inherit F_SSERVER;
 #define PNAME "「" HIR "化妖功" NOR "」"
 #include <xiaoyao.h>
 int perform(object me, object target) {
-  object weapon;
   int damage;
   string msg;
   int ap, dp, p;
-  int lv, cost_neili;
-  int mark = 0;
+  int lv;
   int flag;
-  string fskill, sskill, bskill, pfname, pskill;
+  string fskill, sskill, bskill, pfname;
 
   sskill = explode(__FILE__, "/")[<2];
   pfname = explode(__FILE__, "/")[<1][0..<5];

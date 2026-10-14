@@ -13,7 +13,7 @@ int main(object me, string arg) {
   mapping list, tlist, clist;
   mixed *klist, *tlist2, *clist2;
   object ob, ob1;
-  string text, *tmp, id, spec;
+  string text, id, spec;
   int loop;
   int mark;
 
