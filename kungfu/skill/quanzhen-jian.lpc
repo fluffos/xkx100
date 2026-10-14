@@ -113,7 +113,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 5; }
 int practice_bonus() { return 5; }
 int success() { return 5; }
-int power_point(object me) {
+float power_point(object me) {
   if (me->query_skill("xiantian-qigong", 1) > 10) return 1.0;
   else return 0.6;
 }

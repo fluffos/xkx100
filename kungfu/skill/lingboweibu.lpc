@@ -43,7 +43,7 @@ string query_dodge_msg(string limb) {
 int learn_bonus() { return 0; }
 int practice_bonus() { return 0; }
 int success() { return 5; }
-int power_point(object me) {
+float power_point(object me) {
   if (fam_type(me) == "xiaoyao") return 1.5;
   return 1.0;
 }

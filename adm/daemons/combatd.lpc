@@ -216,7 +216,7 @@ varargs int skill_power(object ob, string skill, int usage) {
         //				if( dpower >= 1.0 && dpower <= 1.5 )
         if (dpower < 1.0) dpower = 1.0;
         if (dpower > 1.5) dpower = 1.5;
-        level = level * dpower;
+        level = to_int(level * dpower);
       }
       break;
   }
@@ -544,8 +544,9 @@ varargs int do_attack(object me, object victim, object weapon, int attack_type, 
         tell_object(victim, sprintf(GRN + "经验修正后伤害：%d \n" NOR, damage));
       // 打中敌人的技能power_point的体现
       if (martial_skill = me->query_skill_mapped(attack_skill))
-        if ((int)SKILL_D(martial_skill)->power_point(me) > 0)
-          damage *= (int)SKILL_D(martial_skill)->power_point(me);
+        if (SKILL_D(martial_skill)->power_point(me) > 0)
+          // power_point is a float multiplier (1.0 .. 1.5); the product stays an int
+          damage = to_int(damage * SKILL_D(martial_skill)->power_point(me));
       //
       // 经威力系数修正后的最终伤害力
       damage = victim->receive_damage("qi", damage, me);

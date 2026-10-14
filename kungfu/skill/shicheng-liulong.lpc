@@ -91,7 +91,7 @@ mapping query_action(object me, object weapon) {
 int learn_bonus() { return 0; }
 int practice_bonus() { return 0; }
 int success() { return 5; }
-int power_point(object me) {
+float power_point(object me) {
   if (userp(me)) return 0.5;  //因为是半成品 不允许高
   return 1;
 }

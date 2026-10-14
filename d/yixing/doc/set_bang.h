@@ -42,7 +42,7 @@ void set_follower(object ob, object owner)
 
 	exp = (int)owner->query("combat_exp") / 2;
 	ob->set("combat_exp", exp);
-	level = ceil( pow( to_float(exp) * 10.0, 0.333333) ) * 4 / 5;
+	level = to_int(ceil( pow( to_float(exp) * 10.0, 0.333333) ) * 4 / 5);
 
 	ob->set("max_qi",    level * 8 + 100);
 	ob->set("eff_qi",    level * 8 + 100);
