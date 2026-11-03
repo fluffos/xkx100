@@ -55,10 +55,10 @@ int do_add(string arg) {
 
   if (me->query_skill_mapped("force") != "longxiang") {
     message_vision(CYN "$N潜运内功，努力把内力注入十三龙象袈裟，最后虽然成功但因为不是龙象内力而多花了点力气。\n" NOR, me);
-    me->receive_damage("neili", 1000 + random(500));
+    me->add("neili", -(1000 + random(500)));
   } else {
     message_vision(MAG "$N脸上泛起一层隐隐的紫气，双手虚按十三龙象袈裟，把龙象内力注入袈裟之中。\n" NOR, me);
-    me->receive_damage("neili", 1000);
+    me->add("neili", -1000);
   }
   add("jiasha/neili", 1);
   neili = this_object()->query("jiasha/neili", 1);
