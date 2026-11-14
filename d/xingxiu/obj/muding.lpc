@@ -34,9 +34,9 @@ int do_suck(string arg) {
 
   message_vision("$N伸掌将血液接住，盘膝运功，将血液吸入掌内。\n", me);
   me->receive_damage("jing", 10);
-  me->receive_damage("jingli", 10);
+  me->add("jingli", -10);
   me->receive_damage("qi", 15);
-  me->receive_damage("neili", 3);
+  me->add("neili", -3);
 
   add("muding/remaining", -1);
   if ((int)me->query_skill("poison", 1) <= 30) {

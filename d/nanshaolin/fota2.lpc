@@ -184,7 +184,7 @@ int do_chuzhang(string arg) {
         ({ me })
       );
       message("vision", me->name() + "向缝隙直栽进去。一声闷响，无相牌神奇的合好如初。\n", environment(me), ({ me }));
-      me->receive_damage("neili", 100);
+      me->add("neili", -100);
       me->move(__DIR__ "wuxiangpai");
       return 1;
     }
